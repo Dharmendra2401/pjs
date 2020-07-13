@@ -1,0 +1,146 @@
+/*-------------CAROUSEL WITH THYUMBNAIL----------------------*/
+.carousel-inner .carousel-item img {
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.carousel-container .carousel-control-prev .fas{
+    font-size: 30px;
+}
+
+.carousel-container .carousel-control-next .fas{
+    font-size: 30px;
+}
+
+#custCarousel .carousel-indicators {
+    position: static;
+    margin-top: 20px;
+    margin-right: 0;
+    margin-left: 0;
+}
+
+#custCarousel .carousel-indicators>li {
+    width: 100%;
+}
+
+#custCarousel .carousel-indicators li img {
+    display: block;
+    opacity: 0.5;
+}
+
+#custCarousel .carousel-indicators li.active img {
+    opacity: 1;
+}
+
+#custCarousel .carousel-indicators li:hover img {
+    opacity: 0.75;
+}
+
+/*-------------CAROUSEL WITH THYUMBNAIL ENDS----------------------*/
+
+
+/*-------------LOGIN POPUP----------------------*/
+
+.loginPopup .otp-label{
+    width: 90px;
+    font-size: 10px;
+    margin-right: 40px;
+}
+/*-------------LOGIN POPUP ENDS----------------------*/
+
+
+/*-------------SIGNUP SECTION----------------------*/
+
+/*-------------------form------------------------*/
+.signup-form input.invalid {
+  background-color: #ffdddd;
+}
+
+.signup-form .tab {
+  display: none;
+}
+
+.signup-form #prevBtn {
+  background-color: #bbbbbb;
+}
+
+.form-steps .step {
+  /*background-color: #5c99ff;*/
+  padding: 15px 5px 15px 10px;
+}
+
+.form-steps .step.active {
+  background-color: #5c99ff;
+}
+
+.form-steps .step.finish {
+  /*background-color: #4CAF50;*/
+}
+/*-------------------form ends------------------------*/
+.pic-wrapper{
+    position: relative;
+    width: 200px;
+    height: 200px;
+    border: 1px solid;
+}
+
+.pic-wrapper .profile-pic{
+    width: 200px;
+    height: 200px;
+    opacity: 0;
+}
+
+.pic-wrapper .add-icon{
+    position: absolute;
+    bottom: -12px;
+    left: 165px;
+    font-size: 45px;
+    z-index: 2;
+}
+
+/*-------------SIGNUP SECTION ENDS----------------------*/
+
+.user-img{
+    height: 200px;
+    width: 200px;
+    position: absolute;
+    bottom: -40px;
+    left: 30px;
+}
+
+.personal-details h5{
+    margin-bottom: 16px;
+}
+
+.tab-bar{
+    background: #3eb8e9;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(110,96,110,1);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(110,96,110,1);
+    box-shadow: 0px 2px 5px 0px rgba(110,96,110,1);
+    margin-top: 10px;
+}
+
+.tab-bar .nav-tabs{
+    border: none;
+}
+
+.tab-bar .nav-tabs .nav-link{
+    color: #000000;
+}
+
+#livesearch{
+    display: none;
+    border: 1px solid rgb(212, 212, 212);
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    z-index: 1;
+    background: #ffffff;
+    line-height: 2;
+    padding: 10px 10px 10px 30px;
+}
+
+#livesearch a{
+    color: #000000;
+}
