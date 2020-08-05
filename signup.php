@@ -90,7 +90,7 @@
 								   </div>
 								</div>
 								<div class="form-group row">
-								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Popular Name</label>	
+								   <label class="col-md-3 col-form-label"> Popular Name</label>	
 								   <div class="col-md-9">
 								   	  <input type="text" class="form-control" placeholder="Enter Popular Name">
 								   </div>
@@ -102,13 +102,13 @@
 								   </div>
 								</div>
 								<div class="form-group row">
-								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Birth Time</label>	
+								   <label class="col-md-3 col-form-label"> Birth Time</label>	
 								   <div class="col-md-9">
 								   	   <input type="time" class="form-control">
 								   </div>
 								</div>
 								<div class="form-group row">
-								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Birth Place</label>	
+								   <label class="col-md-3 col-form-label"> Birth Place</label>	
 								   <div class="col-md-9">
 								   	  <input type="text" class="form-control">
 								   </div>
@@ -146,13 +146,12 @@
 								   </div>
 								</div>
 								<div class="form-group row">
-								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span>  Height</label>	
+								   <label class="col-md-3 col-form-label"> Height</label>	
 								   <div class="col-md-9">
 								   	   <input type="number" step="any" class="form-control" placeholder="Enter">
 								   </div>
 								</div>
 	                    	</div>
-	                    	
 	                    </div>
 					  
 
