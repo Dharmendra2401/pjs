@@ -1,3 +1,27 @@
+/*-----------------------HEADER----------------------------------------------*/
+#livesearch{
+    display: none;
+    border: 1px solid rgb(212, 212, 212);
+    position: absolute;
+    top: 40px;
+    width: 100%;
+    z-index: 1;
+    background: #ffffff;
+    line-height: 2;
+    padding: 10px 10px 10px 30px;
+}
+
+#livesearch a{
+    color: #000000;
+}
+.navbar-nav .nav-item .nav-link{
+    color: #ffffff;
+    padding: 5px 20px;
+}
+
+/*-----------------------HEADER ENDS----------------------------------------------*/
+
+
 /*-------------CAROUSEL WITH THYUMBNAIL----------------------*/
 .carousel-inner .carousel-item img {
     width: 100%;
@@ -39,6 +63,15 @@
 
 /*-------------CAROUSEL WITH THYUMBNAIL ENDS----------------------*/
 
+/*-------------NAVBAR MENU----------------------*/
+.navbar-menu{
+    background: #3eb8e9;
+    -webkit-box-shadow: 0px 2px 5px 0px rgba(110,96,110,1);
+    -moz-box-shadow: 0px 2px 5px 0px rgba(110,96,110,1);
+    box-shadow: 0px 2px 5px 0px rgba(110,96,110,1);
+}
+/*-------------NAVBAR MENU NEDS----------------------*/
+
 
 /*-------------LOGIN POPUP----------------------*/
 
@@ -50,7 +83,7 @@
 /*-------------LOGIN POPUP ENDS----------------------*/
 
 
-/*-------------SIGNUP SECTION----------------------*/
+/*-----------------------------SIGNUP SECTION----------------------*/
 
 /*-------------------form------------------------*/
 .signup-form input.invalid {
@@ -99,18 +132,14 @@
     z-index: 2;
 }
 
-/*-------------SIGNUP SECTION ENDS----------------------*/
+/*-------------------------------SIGNUP SECTION ENDS----------------------*/
 
+/*-------------USER DETAIL----------------------------------------------*/
 .user-img{
-    height: 200px;
-    width: 200px;
-    position: absolute;
-    bottom: -40px;
-    left: 30px;
-}
-
-.personal-details h5{
-    margin-bottom: 16px;
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    object-fit: cover;
 }
 
 .tab-bar{
@@ -129,18 +158,43 @@
     color: #000000;
 }
 
-#livesearch{
-    display: none;
-    border: 1px solid rgb(212, 212, 212);
-    position: absolute;
-    top: 40px;
-    width: 100%;
-    z-index: 1;
-    background: #ffffff;
-    line-height: 2;
-    padding: 10px 10px 10px 30px;
+.user-container{
+    background-color: #446eb6;
+    background-image: linear-gradient(#446eb6, #3eb8e9);
+    padding-top: 20px;
+    padding-bottom: 20px;
 }
 
-#livesearch a{
-    color: #000000;
+.user-details h5{
+    margin-bottom: 16px;
+}
+
+.user-details h3{
+    text-decoration: underline;
+}
+
+.user-details p strong{
+    float: right;
+}
+
+/*-------------USER DETAIL ENDS----------------------------------------------*/
+
+.user-list-img{
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    vertical-align: bottom;
+}
+
+.user-list-box{
+    width: 250px;
+    padding: 10px;
+    border: 1px solid;
+    margin: 20px;
+}
+
+.user-list ul li p{
+    font-size: 18px;
+    font-weight: 500;
+    margin-bottom: 0;
 }
