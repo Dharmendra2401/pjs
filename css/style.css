@@ -179,6 +179,44 @@
 
 /*-------------USER DETAIL ENDS----------------------------------------------*/
 
+/*--------------------------USER PROFILE--------------------------------------*/
+.user-tab .nav-tabs {
+     border-bottom: unset;
+}
+
+.user-tab .nav {
+    display: block;
+    padding-left: 0;
+    margin-bottom: unset; 
+    list-style: none;
+}
+
+.user-tab .nav-tabs .nav-link.active{
+    color: #ffffff;
+    background-color: #5c99ff;
+    border-color: unset;
+}
+
+.user-tab .nav-tabs a{
+    color: #000000;
+}
+
+.user-profile strong{
+     float: right;
+}
+
+.user-profile{
+    line-height: 40px;
+}
+
+.user-profile .info> div:nth-of-type(even) {
+    text-transform: uppercase;
+    font-weight: 500;
+    font-size: 15px;
+}
+/*------------------------USER PROFILE ENDS------------------------------------*/
+
+/*------------------------SAVED PROFILE------------------------------------*/
 .user-list-img{
     width: 50px;
     height: 50px;
@@ -187,10 +225,11 @@
 }
 
 .user-list-box{
-    width: 250px;
+    width: 400px;
     padding: 10px;
     border: 1px solid;
     margin: 20px;
+    position: relative;
 }
 
 .user-list ul li p{
@@ -198,3 +237,16 @@
     font-weight: 500;
     margin-bottom: 0;
 }
+.user-list-box .fa-heart{ 
+    font-size: 40px;
+    padding: 0 20px;
+    color: red;
+}
+
+.user-list-box .fa-trash-alt{
+    position: absolute;
+    top: 22px;
+    right: 80px;
+    font-size: 30px;
+}
+/*------------------------SAVED PROFILE ENDS------------------------------------*/
