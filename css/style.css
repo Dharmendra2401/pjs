@@ -19,6 +19,14 @@
     padding: 5px 20px;
 }
 
+.family-dropdwn{
+    left: unset;
+}
+
+.navbar-menu a.nav-link.dropdown-toggle:hover{
+    color: #ffffff;
+}
+
 /*-----------------------HEADER ENDS----------------------------------------------*/
 
 

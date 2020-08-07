@@ -17,17 +17,17 @@
 			</div>
 			<div class="col-md-6 d-flex justify-content-center">
 				<div class="input-group my-auto">
-				  <div class="input-group-prepend">
-				    <span class="input-group-text"><i class="fa fa-search"></i></span>
-				  </div>
-				  <input type="text" class="form-control" placeholder="Search" list="userlist">
-				  <datalist id="userlist">
-				    <option value="user1">
-				    <option value="user2">
-				    <option value="user3">
-				    <option value="user4">
-				    <option value="user5">
-				  </datalist>
+					  <div class="input-group-prepend">
+					    <span class="input-group-text"><i class="fa fa-search"></i></span>
+					  </div>
+					  <input type="text" class="form-control" placeholder="Search" list="userlist">
+					  <datalist id="userlist">
+					    <option value="user1">
+					    <option value="user2">
+					    <option value="user3">
+					    <option value="user4">
+					    <option value="user5">
+					  </datalist>
 				</div>
 			</div>
 			<div class="col-md-3 align-self-center text-right">
@@ -40,27 +40,39 @@
 				    </button>
 				    <div class="dropdown-menu">
 				      <a class="dropdown-item" href="profile.php">View & update profile</a>
-				      <a class="dropdown-item" href="#">Saved profiles</a>
+				      <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 				      <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a>
-				      <a class="dropdown-item" href="#">Logout</a>
+				      <a class="dropdown-item" href="index.php">Logout</a>
 				    </div>
 				  </div>
-				  <!-- <button class="btn btn-primary openBtn-feed" data-toggle="modal" data-target="#feed">modal</button> -->
-
-				    <div class="modal fade loginPopup" id="feed">
-					    <div class="modal-dialog modal-dialog-centered">
-					      <div class="modal-content">
-					        <div class="">
-					          <button type="button" id="closeModal1" class="close mr-3" data-dismiss="modal">&times;</button>
-					        </div>
-						        <div class="modal-body  py-5">
-						           <!-- loads from modal.html -->
-						        </div>
-					      </div>
-					    </div>
-				    </div>
-				  
+				  <!-- <button class="btn btn-primary openBtn-feed" data-toggle="modal" data-target="#feed">modal</button> -->  
 			</div>
+			<!-----------------------FEEDBACK MODEL------------------ -->
+			 <div class="modal fade loginPopup" id="feed">
+			    <div class="modal-dialog modal-dialog-centered">
+			      <div class="modal-content">
+			        <div class="">
+			          <button type="button" id="closeModal1" class="close mr-3" data-dismiss="modal">&times;</button>
+			        </div>
+				        <div class="modal-body feeback-body">
+				           <!-- loads from modal.html -->
+				        </div>
+			      </div>
+			    </div>
+		    </div>
+            <!-----------------------DEATH UPDATE MODEL------------------ -->
+		    <div class="modal fade loginPopup" id="update">
+			    <div class="modal-dialog modal-dialog-centered">
+			      <div class="modal-content">
+			        <div class="">
+			          <button type="button" id="closeModal1" class="close mr-3" data-dismiss="modal">&times;</button>
+			        </div>
+				        <div class="modal-body update-body">
+				           <!-- loads from modal.html -->
+				        </div>
+			      </div>
+			    </div>
+		    </div>
 			<div class="col-md-12 navbar-menu">
 				<nav class="navbar navbar-expand-sm">
 				  <ul class="navbar-nav">
@@ -78,6 +90,14 @@
 				    </li>
 				    <li class="nav-item">
 				      <a class="nav-link" href="#">Zones</a>
+				    </li>
+				    <li class="nav-item">
+				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Family</a>
+				      <div class="dropdown-menu family-dropdwn">
+					      <a class="dropdown-item" href="#">Family Tree</a>
+					      <a class="dropdown-item" href="#">Birthday's</a>
+					      <a class="dropdown-item open-update" type="button" data-toggle="modal" data-target="#update">Death Update</a>
+					  </div>
 				    </li>
 				  </ul>
 				</nav>
@@ -111,7 +131,11 @@
 <script type="text/javascript">
 	$(document).on('click', '.openBtn-feed',function(){
 		
-	    $('.modal-body').load('modal.html .feeback');
+	    $('.feeback-body').load('modal.html .feeback');
+	});
+	$(document).on('click', '.open-update',function(){
+		
+	    $('.update-body').load('modal.html .death-update');
 	});
 </script>
 </html>

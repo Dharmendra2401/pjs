@@ -25,7 +25,7 @@
 				</div>
     		</div>
     		<div class="col-md-3 align-self-center text-right">
-				 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginPopup">
+				 <button type="button" class="btn btn-primary open-login" data-toggle="modal" data-target="#loginPopup">
 				    LOGIN/SIGUP
 				  </button>
     		</div>
@@ -52,53 +52,45 @@
     		</div>
 		  </div>
 
-		  		 <!-- The Modal -->
-		  <div class="modal fade loginPopup" id="loginPopup">
-		    <div class="modal-dialog modal-dialog-centered">
-		      <div class="modal-content">
-		      
-		        <!-- Modal Header -->
-		        <div class="">
-		          <button type="button" class="close m-2" data-dismiss="modal">&times;</button>
-		        </div>
-		        
-		        <!-- Modal body -->
-		        <div class="modal-body">
-		        	<h2 class="modal-title text-center mb-5">Login</h2>
-		        	<form class="form-inline justify-content-md-center">
-		        	   <div class="form-group">
-		        	   	 <label class="mr-5" for="email">Member ID</label>
-                         <input type="text" class="form-control" placeholder="MId" name="Mid">
-		        	   </div>
-
-        			  <!--  <div class="form-group text-right">
-						<button type="button" class="form-control">GET OTP</button>
-					   </div> -->
-					   <div class="form-group">
-					   	   <label class="otp-label" for="email">An OTP has been sent to your registered mobile number xxxxxxx123</label>
-                           <input type="text" class="form-control" placeholder="Enter OTP" name="Mid">
-					   </div>
-					</form>
-					<div class="mt-3 ml-2">
-					  <p>Need Help in Logging in? <a href="loginIssue">Click Here</a></p>
-					  <p>New to PJS? <a href="signup.php">SignUp Now</a></p>
-					</div>
-		        </div>
-		      </div>
-		    </div>
+		  <!------------------- Login Modal ----------------------------->
+		  <div class="restoreModal">
+			  <div class="modal fade loginPopup" id="loginPopup">
+			    <div class="modal-dialog modal-dialog-centered">
+			      <div class="modal-content">
+			        <div class="">
+			          <button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
+			        </div> 
+			        <div class="modal-body login-container">
+			        	<!-- loads from modal.html -->
+			        </div>
+			      </div>
+			    </div>
+			  </div>
+		  </div>
+          
+          <!------------------- Login Help ----------------------------->
+          <div class="restoreModal">
+	          <div class="modal fade loginPopup" id="loginPopup">
+			    <div class="modal-dialog modal-dialog-centered">
+			      <div class="modal-content">
+			        <div class="">
+			          <button type="button" class="close m-2" data-dismiss="modal">&times;</button>
+			        </div> 
+			        <div class="modal-body login-container">
+			        	<!-- loads from modal.html -->
+			        </div>
+			      </div>
+			    </div>
+			  </div>
 		  </div>
 
 		  	 <!-- The Modal -->
 		  <div class="modal fade" id="loginIssue">
 		    <div class="modal-dialog modal-dialog-centered">
 		      <div class="modal-content">
-		      
-		        <!-- Modal Header -->
 		        <div class="">
 		          <button type="button" class="close m-2" data-dismiss="modal">&times;</button>
 		        </div>
-		        
-		        <!-- Modal body -->
 		        <div class="modal-body">
 		        	<h2 class="modal-title text-center mb-5">Login</h2>
 		        	<form class="form-inline justify-content-md-center">
@@ -106,7 +98,6 @@
 		        	   	 <label class="mr-5" for="email">Member ID</label>
                          <input type="text" class="form-control" placeholder="MId" name="Mid">
 		        	   </div>
-
         			  <!--  <div class="form-group text-right">
 						<button type="button" class="form-control">GET OTP</button>
 					   </div> -->
@@ -164,5 +155,15 @@
 <script type="text/javascript" src="js/main.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="bootstrap4/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript">
+	var prevContent = $('.restoreModal').html();
+	$(document).on('click', '#close-login', function(){
+	  $( ".modal-body").replaceWith(prevContent);
+	});
 
+	$(document).on('click', '.open-login',function(){
+		
+	    $('.login-container').load('modal.html .loginContent');
+	});
+</script>
 </html>
