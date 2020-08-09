@@ -31,10 +31,10 @@
 				</div>
 			</div>
 			<div class="col-md-3 align-self-center text-right">
-				 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginPopup">
+				 <button type="button" class="btn btn-primary open-login" data-toggle="modal" data-target="#loginPopup">
 				    LOGIN/SIGUP
 				  </button>
-			</div>
+    		</div>
 			<div class="col-md-12 navbar-menu">
 				<nav class="navbar navbar-expand-sm">
 				  <ul class="navbar-nav">
@@ -89,8 +89,8 @@
 							  </ul>
 						</div>
 						<div class="col-md-6 align-self-center text-right">
-								<i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#modal1"></i>
-								<i type="button" class="fas fa-download mx-2" data-toggle="modal" data-target="#modal2"></i>
+								<i type="button" class="fas fa-phone-alt mx-2 contact-modal" data-toggle="modal" data-target="#modal1"></i>
+								<i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#modal2"></i>
 								<i type="button" class="fas fa-share mx-2" data-toggle="modal" data-target="#modal2"></i>
 						</div>
 					</div>
@@ -181,23 +181,8 @@
 		        <div class="">
 		          <button type="button" id="closeModal1" class="close mr-3" data-dismiss="modal">&times;</button>
 		        </div>
-		        
-		        <!-- Modal body -->
-		        <div class="restoreModal">
-			        <div class="modal-body  py-5">
-			          <div class="row">
-			          	  <div class="col-md-6 border-dark border-right text-center">
-			          	  	<p class="mb-0">xyz Jain ?</p>
-			          	  	<p>To proceed please login</p>	
-			          	  	<button type="button" class="btn btn-secondary openBtn">Login</button>
-			          	  	<a href="signup.php" class="btn btn-secondary">SignUp</a>
-			          	  </div>
-			          	  <div class="col-md-6 text-center">
-			          	  	   <p>Others who still want to cnnect</p>	
-			          	  	   <button type="button" class="btn btn-secondary contact">Contact Admin</button>
-			          	  </div>
-			          </div>
-			        </div>
+		        <div class="modal-body contact-container login-container py-5">
+		          
 		        </div>
 		      </div>
 		    </div>
@@ -214,10 +199,8 @@
 		        
 		        <div class="restoreModal2">
 			        <!-- Modal body -->
-			        <div class="modal-body2 mx-3 py-5 text-center">
-		          	  	<p class="mb-5">To proceed please login / signup</p>	
-		          	  	<button type="button" class="btn btn-secondary openBtn2">Login</button> 
-		          	  	<a href="signup.php" class="btn btn-secondary">SignUp</a> 
+			        <div class="modal-body2 lgn-sgn-container login-container mx-3 py-5 text-center">
+		          	  	 
 			        </div>
 		        </div>
 		      </div>
@@ -231,29 +214,18 @@
  <!-- <script data-require="bootstrap-select@*" data-semver="1.13.5" src="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/js/bootstrap-select.min.js"></script> -->
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="bootstrap4/dist/js/bootstrap.min.js"></script>
-
+<script type="text/javascript" src="js/main.js"></script>
 <script>
 
-	var prevContent = $('.restoreModal').html();
-	$(document).on('click', '#closeModal1', function(){
-	  $( ".modal-body").replaceWith(prevContent);
-	});
-
-	$(document).on('click', '.openBtn',function(){
-		
-	    $('.modal-body').load('modal.html .loginContent');
-	});
-
-	$(document).on('click', '.contact',function(){
-		
-	    $('.modal-body').load('modal.html .adminform');
-	});
 
 
-	var prevContent2 = $('.restoreModal2').html();
-	$(document).on('click', '#closeModal2', function(){
-	  $( ".modal-body2").replaceWith(prevContent2);
-	});
+	
+
+	
+
+
+	// var prevContent2 = $('.restoreModal2').html();
+	
 
 	$(document).on('click', '.openBtn2',function(){
 		
