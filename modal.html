@@ -112,3 +112,190 @@
 	</div>
 </div>
 
+<div class="loginContent">
+	<h2 class="modal-title text-center mb-5">Login</h2>
+		<form class="form-inline justify-content-md-center">
+		   <div class="form-group">
+		   	 <label class="mr-5" for="email">Member ID</label>
+	         <input type="text" class="form-control" placeholder="MId" name="Mid">
+		   </div>
+
+		  <!--  <div class="form-group text-right">
+			<button type="button" class="form-control">GET OTP</button>
+		   </div> -->
+		   <div class="form-group">
+		   	   <label class="otp-label" for="email">An OTP has been sent to your registered mobile number xxxxxxx123</label>
+	           <input type="text" class="form-control" placeholder="Enter OTP" name="Mid">
+		   </div>
+		</form>
+		<div class="mt-3 ml-2 text-left">
+		  <p>Need Help in Logging in? <a type="button" class="help-link" >Click Here</a></p>
+		  <p>New to PJS? <a href="signup.php">SignUp Now</a></p>
+		</div>
+</div>
+
+<div class="row login-help">
+	<div class="col-md-10 offset-md-1">
+		<ul class="list-unstyled">
+			<li class="row">
+				<div class="col-1"> 1.</div>
+					<div class="col-11">
+						<p class="forgot-id" onclick="displayInput()">
+						I have forgotten member id
+					    </p>
+						<div class="member-id">
+							<input type="text" name="" placeholder="Enter your registered mobile number">
+						<button type="submit" class="submit">Submit</button>	
+						</div>
+				    </div>
+		    </li>
+			<li class="row">
+				<div class="col-1">2.</div>
+				<div class="col-11">
+				<p>I have forgotten member id and register mobile number</p>
+			    </div> 
+			</li>
+			<li class="row">
+				<div class="col-1"> 3.</div>
+				<div class="col-11">
+				<p>I want to update my mobile no. with new mobile no.</p>
+			    </div> 
+			</li>
+			<li class="row">
+				<div class="col-1"> 4.</div>
+				<div class="col-11">
+					<p class="forgot-credential" onclick="displayForm()">Forgot all login credentials?</p>
+					<form class="forgot-login">
+						<h5 class="mb-2">Enter The Following Details</h4>
+						<div class="row">
+							<div class="col-md-6">First Name</div>
+							<div class="col-md-6"><input type="text" name=""></div>
+
+							<div class="col-md-6">Middle Name</div>
+							<div class="col-md-6"><input type="text" name=""></div>
+
+							<div class="col-md-6">Last Name</div>
+							<div class="col-md-6"><input type="text" name=""></div>
+
+							<div class="col-md-6">Date of Birth</div>
+							<div class="col-md-6"><input type="text" name=""></div>
+
+							<div class="col-md-6">New mobile number</div>
+							<div class="col-md-6"><input type="text" name=""></div>
+							<div class="col-12 text-right">
+								<p class="mb-0 mt-2"><small>Send details to admin</small> </p>
+								<button type="submit" class="send-credential">Send</button>
+							</div>
+						</div>
+					</form>
+				</div>
+			</li>
+	    </ul>
+	    <button class="float-right done">Done</button>
+	</div>
+</div>	
+
+<div class="submit-contact">
+	<p class="my-auto">Your MID has been sent to your registered phone number</p>
+	<button class="msg-sent float-right mt-2">OK</button>
+</div> 
+
+<div class="credential-msg">
+	<div class="my-auto">
+		<p>Your details has been sent to admin for verification</p>
+    <p>You will receive a callback soon on your new phone number</p>
+	</div>
+	<button class="msg-sent float-right mt-2">OK</button>
+</div>
+
+<div class="adminform">
+	<form>
+		<div class="form-group row">
+		   <label class="col-md-3 col-form-label ">First Name</label>
+		   <div class="col-md-9">
+		   	   <input type="text" class="form-control"  placeholder="Enter First Name">
+		   </div>
+	    </div>
+	    <div class="form-group row">
+		   <label class="col-md-3 col-form-label ">Last Name</label>
+		   <div class="col-md-9">
+		   	   <input type="text" class="form-control"  placeholder="Enter Last Name">
+		   </div>
+	    </div>
+	    <div class="form-group row">
+		   <label class="col-md-3 col-form-label">Mobile No.</label>	
+		   <div class="col-md-9">
+		   	   <input type="number" class="form-control" placeholder="Enter Mobile no.">
+		   </div>
+		</div>
+		<div class="form-group row">
+		   <label class="col-md-3 col-form-label">Email Id</label>	
+		   <div class="col-md-9">
+		   	  <input type="email" class="form-control" placeholder="Enter Email Id">
+		   </div>
+		</div>
+		<div class="form-group row">
+		   <label class="col-md-3 col-form-label">Address</label>
+		   <div class="col-md-9">
+		   	  <textarea class="form-control" rows="4"></textarea>
+		   </div>
+		</div>
+		<div class="text-right">
+			<small class="d-block">Send contact request to admin</small>
+		    <button type="button" class="btn btn-primary submit-credential">Send</button>
+		</div>
+	</form>
+</div>
+
+<!----------------------FEEDBACK------------------------------>
+<div class="row feeback">
+	<div class="col-md-10 offset-md-1">
+		<h3 class="text-center mb-2">Feedback Form</h3>
+		<form>
+			<div class="row">
+				<div class="col-md-5">
+					<p>Feedback Type</p>
+				</div>
+				<div class="col-md-7">
+					<select>
+					    <option value="">Select feedback type</option>
+					    <option value="">1</option>
+					    <option value="">2</option>
+					    <option value="">3</option>
+					</select>
+				</div>
+				<div class="col-md-5">
+					<p>Feedback</p>
+				</div>
+				<div class="col-md-7">
+					<textarea cols="30" placeholder="write your feedback here"></textarea>
+					<button class="btn btn-primary float-right" type="submit">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>
+
+<!-------------------------------UPDATE------------------------------>
+<div class="death-update">
+	<div class="col-md-10 offset-md-1">
+		<h3 class="text-center mb-3">Request for Death Update</h3>
+		<form>
+			<div class="row">
+				<div class="col-md-5">
+					<p>Member Id</p>
+				</div>
+				<div class="col-md-7">
+					<input type="number" name="">
+				</div>
+				<div class="col-md-5">
+					<p>Date of Death</p>
+				</div>
+				<div class="col-md-7">
+					<input type="date" name="">
+					<button class="btn btn-primary float-right mt-2" type="submit">Submit</button>
+				</div>
+			</div>
+		</form>
+	</div>
+</div>

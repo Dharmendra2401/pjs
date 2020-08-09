@@ -258,3 +258,16 @@
     font-size: 30px;
 }
 /*------------------------SAVED PROFILE ENDS------------------------------------*/
+
+/*------------------------MODEL------------------------------------*/
+.forgot-id, .forgot-credential{
+    cursor: pointer;
+}
+.member-id{
+    display:none;
+}
+
+.forgot-login{
+    display:none;
+}
+/*------------------------MODEL ENDS------------------------------------*/

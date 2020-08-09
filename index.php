@@ -69,7 +69,7 @@
 		  </div>
           
           <!------------------- Login Help ----------------------------->
-          <div class="restoreModal">
+          <div class="">
 	          <div class="modal fade loginPopup" id="loginPopup">
 			    <div class="modal-dialog modal-dialog-centered">
 			      <div class="modal-content">
@@ -156,14 +156,47 @@
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="bootstrap4/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript">
-	var prevContent = $('.restoreModal').html();
-	$(document).on('click', '#close-login', function(){
-	  $( ".modal-body").replaceWith(prevContent);
+	
+	$(document).on('click', '.help-link', function(){
+		$('.login-container').load('modal.html .login-help');
 	});
 
 	$(document).on('click', '.open-login',function(){
-		
-	    $('.login-container').load('modal.html .loginContent');
+	  $('.login-container').load('modal.html .loginContent');
+	   
 	});
+
+	$(document).on('click', '.submit',function(){
+	  $('.login-container').load('modal.html .submit-contact');
+	   
+	});
+
+	$(document).on('click', '.msg-sent',function(){
+	  $('.login-container').load('modal.html .login-help');
+	   
+	});
+
+	$(document).on('click', '.send-credential',function(){
+	  $('.login-container').load('modal.html .credential-msg');
+
+	  return false;
+	   
+	});
+
+	$(document).on('click', '.done',function(){
+	  $('.login-container').load('modal.html .loginContent');
+	   
+	});
+
+	function displayInput(){
+		$(".member-id").show();
+    	$(".done").hide();
+	}
+    
+    function displayForm(){
+    	$(".forgot-login").show();
+    	$(".done").hide();
+    }
+
 </script>
 </html>
