@@ -18,7 +18,6 @@ function showResult(str) {
 }
 
 
-
   $(document).on('click', '.help-link', function(){
     $('.login-container').load('modal.html .login-help');
   });

@@ -67,8 +67,8 @@
 			    <h5>MID1234567</h5>
 			</div>
 			<div class="col-md-6 align-self-end text-right">
-				<a type="button" class="btn btn-info mr-3" data-toggle="modal" data-target="#modal2">Save Profile</a>
-			    <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#modal2">Add Member</a>
+				<a type="button" class="btn btn-info mr-3 login-signup" data-toggle="modal" data-target="#modal2">Save Profile</a>
+			    <a type="button" class="btn btn-warning login-signup" data-toggle="modal" data-target="#modal2">Add Member</a>
 			</div>
 		</div>
 		
@@ -91,7 +91,7 @@
 						<div class="col-md-6 align-self-center text-right">
 								<i type="button" class="fas fa-phone-alt mx-2 contact-modal" data-toggle="modal" data-target="#modal1"></i>
 								<i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#modal2"></i>
-								<i type="button" class="fas fa-share mx-2" data-toggle="modal" data-target="#modal2"></i>
+								<i type="button" class="fas fa-share mx-2 login-signup" data-toggle="modal" data-target="#modal2"></i>
 						</div>
 					</div>
 			    </div>
