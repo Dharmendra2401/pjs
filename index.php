@@ -3,7 +3,7 @@
 <head>
 	 <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
-	<title> vts not avalable </title>
+	<title> vts not dfggdfgfdgdf</title>
 	<link rel="stylesheet" type="text/css" href="bootstrap4/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="fontawesome5/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
