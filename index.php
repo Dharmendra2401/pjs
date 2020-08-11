@@ -3,7 +3,11 @@
 <head>
 	 <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
+<<<<<<< HEAD
 	<title> vts     gfdgdffd   not </title>
+=======
+	<title> vts not harsh dfggdfgfdgdf is ther</title>
+>>>>>>> 45eb1cefea4e513bd6c2f38aa0fd52afe6b604af
 	<link rel="stylesheet" type="text/css" href="bootstrap4/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="fontawesome5/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
