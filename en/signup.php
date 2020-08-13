@@ -7,6 +7,7 @@ include "../config/config.php";
 <html>
 <head>
 	<?php include "../styles.php";  ?>
+
 </head>
 <body>
     <div class="container-fluid">
@@ -226,9 +227,11 @@ include "../config/config.php";
 									   		<input type="file" class="form-control profile-pic" onchange="GetFileSize()" id="file" accept="image/*" >
 											   <i class="fas fa-plus-circle add-icon"></i>
 											   <p id="fp"></p>
-											   <img id="blah" src="<?php echo RE_HOME_PATH ;?>/upload/demo.jpg" alt="your image" style="    position: absolute;
+											   <img id="blah" src="<?php echo RE_HOME_PATH ;?>/upload/demo.jpg" alt="your image" style="  position: absolute;
     top: 0px;
-    width: 100%;    z-index: -1;
+    width: 200px;
+    z-index: -1;
+    height: 200px;
 "/><span id="fileerror"><sapn>
 									   	</div>
 								   </div>
@@ -478,7 +481,7 @@ function GetFileSize() {
 					var sizemain=Math.round((fsize / 1024)) ;
 					if(sizemain>1024){
                     $('#file').val('');
-					$('#fileerror').html('<div class="text-danger">Please select image 1mb or less then</div>');
+					$('#fileerror').html('<div class="text-danger">Please select image size 1mb or less then</div>');
                     $('#blah').attr('src', '<?php echo RE_HOME_PATH ;?>/upload/demo.jpg');
 					}else{
 						$('#fileerror').html('');
@@ -510,5 +513,7 @@ function fixStepIndicator(n) {
   //... and adds the "active" class on the current step:
   x[n].className += " active";
 }
+
+
 </script>
 </html>
