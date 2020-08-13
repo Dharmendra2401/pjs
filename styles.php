@@ -4,7 +4,7 @@
 
 	<title>Vts</title>
 
-	<link rel="stylesheet" type="text/css" href="<?php echo RE_HOME_PATH; ?>bootstrap4/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="<?php echo RE_HOME_PATH; ?>css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo RE_HOME_PATH; ?>fontawesome5/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="<?php echo RE_HOME_PATH; ?>css/style.css">
 </head>

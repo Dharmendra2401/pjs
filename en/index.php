@@ -13,20 +13,12 @@ include "../config/config.php";
 		  </div>
 			
 		  <!------------------- Login Modal ----------------------------->
-		  <div class="restoreModal">
 			  <div class="modal fade loginPopup" id="loginPopup">
-			    <div class="modal-dialog modal-dialog-centered">
-			      <div class="modal-content">
-			        <div class="">
-			          <button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
-			        </div> 
-			        <div class="modal-body login-container">
+			    <div class="modal-dialog modal-dialog-centered login-container">
 			        	<!-- loads from modal.html -->
-			        </div>
-			      </div>
 			    </div>
 			  </div>
-		  </div>
+		  
 
     		<!-- carousel with thumnail -->
     		<div class="row">
