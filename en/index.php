@@ -65,5 +65,6 @@ include "../config/config.php";
     </div>
   
 </body>
+
 <?php include "../script.php" ?>
 </html>
