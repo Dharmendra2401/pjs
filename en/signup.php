@@ -1,53 +1,17 @@
+<?php 
+
+include "../config/config.php";
+?>
+
 <!DOCTYPE html>
 <html>
 <head>
-	 <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-	<title></title>
-	<link rel="stylesheet" type="text/css" href="bootstrap4/dist/css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="fontawesome5/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<?php include "../styles.php";  ?>
 </head>
 <body>
     <div class="container-fluid">
-    	<div class="row">
-    		<div class="col-md-3">
-    			<img class="" width="110" src="images/flooop.png">
-    		</div>
-    		<div class="col-md-6 d-flex justify-content-center">
-    			<div class="input-group my-auto">
-				  <div class="input-group-prepend">
-				    <span class="input-group-text"><i class="fa fa-search"></i></span>
-				  </div>
-				  <input type="text" class="form-control" placeholder="Search" aria-label="Username">
-				</div>
-    		</div>
-    		<div class="col-md-3 align-self-center text-right">
-				 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#loginPopup">
-				    LOGIN/SIGUP
-				  </button>
-    		</div>
-    		<div class="col-md-12">
-				<nav class="navbar navbar-expand-sm">
-				  <ul class="navbar-nav">
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">About Us</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">Events</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">Gallery</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">Schemes</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">Zones</a>
-				    </li>
-				  </ul>
-				</nav>
-		    </div>
+    	
+		<?php include "header.php";  ?>
 		    <div class="col-md-2">
 		    	<!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 				  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Personal Details</a>
@@ -67,102 +31,103 @@
 			    </ul>
 			</div>
 			<div class="col-md-10">	
-				<form class="container signup-form">
-	                    <div class="row">
-	                    	<div class="col-md-9 tab">
+			<div class="formerror"></div>
+				<form class="container" id="regForm" method="post" action="form-submit.php">
+	                    <div class="row tab">
+	                    	<div class="col-md-9 ">
 	                    		<h3 class="mb-3">Please Enter Personal Details <span class="text-danger">(* Required Fields)</span></h3>
 	                    		<div class="form-group row">
 	                    		   <label class="col-md-3 col-form-label "><span class="text-danger">*</span> First Name</label>
 								   <div class="col-md-9">
-								   	   <input type="text" class="form-control"  placeholder="Enter First Name">
+								   	   <input type="text" class="form-control" name="firstname"  placeholder="Enter first name" id="firstname">
 								   </div>
 							    </div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Middle Name</label>
 								   <div class="col-md-9">
-								   	   <input type="text" class="form-control" placeholder="Enter Middle Name">
+								   	   <input type="text" class="form-control" placeholder="Enter middle name" name="middlename"  id="middlename">
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Last Name</label>	
 								   <div class="col-md-9">
-								   	  <input type="text" class="form-control" placeholder="Enter Last Name">
+								   	  <input type="text" class="form-control" placeholder="Enter last name" name="lastname" id="lastname">
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"> Popular Name</label>	
 								   <div class="col-md-9">
-								   	  <input type="text" class="form-control" placeholder="Enter Popular Name">
+								   	  <input type="text" name="popularname" class="form-control" placeholder="Enter popular name" id="popular">
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Date of Birth	</label>	
 								   <div class="col-md-9">
-								   	  <input type="date" class="form-control" placeholder="Enter Date of Birth">
+								   	  <input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob">
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"> Birth Time</label>	
 								   <div class="col-md-9">
-								   	   <input type="time" class="form-control">
+								   	   <input type="time" class="form-control" name="birthtime" id="birthtime"   placeholder="Enter birth time" >
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"> Birth Place</label>	
 								   <div class="col-md-9">
-								   	  <input type="text" class="form-control">
+								   	  <input type="text" class="form-control" name="birthplace" placeholder="Enter birth place" id="birthplace" >
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3"><span class="text-danger">*</span> Gender</label>	
 								   <div class="col-md-9">
-								   	   <input type="radio"> <label class="mr-5">Male</label>
-								   	   <input type="radio"> <label>Female</label>
+								   	   <input type="radio" name="gender" value="male" checked> <label class="mr-5">Male</label>
+								   	   <input type="radio" name="gender" value="female"> <label>Female</label>
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3"><span class="text-danger">*</span> Status</label>	
 								   <div class="col-md-9">
-								   	  <input type="radio"> <label class="mr-4">Single</label>
-								   	   <input type="radio"> <label>Married</label>
+								   	  <input type="radio" value="single" name="status" checked> <label class="mr-4">Single</label>
+								   	   <input type="radio" value="married" name="status"> <label>Married</label>
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Mobile No.</label>	
 								   <div class="col-md-9">
-								   	   <input type="number" class="form-control" placeholder="Enter Mobile no.">
+								   	   <input type="number" class="form-control" placeholder="Enter mobile no."  name="mobileno" id="mobileno">
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Email Id</label>	
 								   <div class="col-md-9">
-								   	  <input type="email" class="form-control" placeholder="Enter Email Id">
+								   	  <input type="email" class="form-control" placeholder="Enter email id" id="email" name="email"><span id="emailerror"></span>
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Blood Group</label>	
 								   <div class="col-md-9">
-								   	   <input type="text" class="form-control" placeholder="Enter Blood Group">
+								   	   <input type="text" class="form-control" placeholder="Enter blood group" name="bloodgroup" id="bloodgroup">
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"> Height</label>	
 								   <div class="col-md-9">
-								   	   <input type="number" step="any" class="form-control" placeholder="Enter">
+								   	   <input type="number" step="any" class="form-control" placeholder="Enter height" name="height" id="height">
 								   </div>
 								</div>
 	                    	</div>
 	                    </div>
 					  
 
-	                    <div class="row">
-	                    	<div class="col-md-9 tab">
+	                    <div class="row tab" >
+	                    	<div class="col-md-9 ">
 	                    		 <h3 class="mb-3">Please Enter Residential Details <span class="text-danger">(* Required Fields)</span></h3>
 	                    		<div class="form-group row">
 	                    		   <label class="col-md-3 col-form-label "><span class="text-danger">*</span> Country</label>
 								   <div class="col-md-9">
-								   	   <select class="custom-select">
-								          <option selected>Select Country</option>
+								   	   <select class="custom-select" id="country">
+								          <option value="" selected>Select Country</option>
 								          <option value="1">india</option>
 								          <option value="2">japan</option>
 								       </select>
@@ -171,8 +136,8 @@
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> State</label>
 								   <div class="col-md-9">
-								   	     <select class="custom-select">
-								          <option selected>Select State</option>
+								   	     <select class="custom-select" id="state">
+								          <option value="" selected>Select State</option>
 								          <option value="1">mp</option>
 								          <option value="2">hp</option>
 								         </select>
@@ -181,40 +146,49 @@
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of city/town/village</label>	
 								   <div class="col-md-9">
-								   	  <input type="text" class="form-control" placeholder="Enter">
+								   <select class="custom-select" id="city">
+								          <option value="" selected>Select State</option>
+								          <option value="1">mp</option>
+								          <option value="2">hp</option>
+								         </select>
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Address</label>
 								   <div class="col-md-9">
-								   	  <textarea class="form-control" rows="4"></textarea>
+								   	  <textarea class="form-control" rows="4" id="address" placeholder="Enter address"></textarea>
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Pin Code</label>	
 								   <div class="col-md-9">
-								   	  <input type="number" class="form-control">
+								   	  <input type="number" class="form-control" id="pincode" placeholder="Enter pin code">
 								   </div>
 								</div>
 	                    	</div>
 	                    </div>
 					
-	                    <div class="row">
-	                    	<div class="col-md-9 tab">
+	                    <div class="row tab" >
+	                    	<div class="col-md-9">
 	                    		<h3 class="mb-3">Please Enter Your Educational & Occupational Details <span class="text-danger">(* Required Fields)</span></h3>
 	                    		<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Highest Education</label>	
 								   <div class="col-md-9">
-								   	  <input type="text" class="form-control">
+								   	  <input type="text" class="form-control" placeholder="Enter highest qualification" name="highest" id="highest">
 								   </div>
 								</div>
 	                    		<div class="form-group row">
 	                    		   <label class="col-md-3 col-form-label "><span class="text-danger">*</span> Occupation</label>
 								   <div class="col-md-9">
-								   	   <select class="custom-select">
-								          <option selected>Job/Bussiness/Housewife/Student</option>
-								          <option value="1">other</option>
-								          <option value="2">other1</option>
+								   	   <select class="custom-select" name="occupation" id="occupation">
+								          <option value="" selected>Select occupation</option>
+								          <option value="1">Job</option>
+										  <option value="2">Bussiness</option>
+										  <option value="3">Housewife</option>
+										  <option value="3">Student</option>
+										  
+
+										  
 								       </select>
 								   </div>
 							    </div>
@@ -222,31 +196,40 @@
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Please Add Details</label>
 								   <div class="col-md-9">
-								   	  <textarea class="form-control" rows="4"></textarea>
+								   	  <textarea class="form-control" rows="4" name="details" id="details" placeholder="Enter detail"></textarea>
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Income</label>
 								   <div class="col-md-9">
-								   	     <select class="custom-select">
-								          <option selected>Select Income Range</option>
+								   	     <select class="custom-select" name="income" id="income">
+								          <option value="" selected>Select Income Range</option>
 								          <option value="1">100000</option>
-								          <option value="2">200000</option>
+										  <option value="2">200000</option>
+										  <option value="3">300000</option>
+										  <option value="4">400000</option>
+										  <option value="5">500000</option>
+										  <option value="6">more then 500000</option>
 								         </select>
 								   </div>
 								</div>
 	                    	</div>
 	                    </div>
 					
-	                    <div class="row">
-	                    	<div class="col-md-9 tab">
+	                    <div class="row tab" >
+	                    	<div class="col-md-9 ">
 	                    		<h3 class="mb-3">Please Upload Your Own <span class="text-danger">(* Required Fields)</span></h3>
 	                    		<div class="form-group row">
 								   <label class="col-md-12 col-form-label">Profile photo size must be 1mb or less </label>	
 								   <div class="col-md-9">
 									   	<div class="pic-wrapper">
-									   		<input type="file" class="form-control profile-pic">
-								   	        <i class="fas fa-plus-circle add-icon"></i>
+									   		<input type="file" class="form-control profile-pic" onchange="GetFileSize()" id="file" accept="image/*" >
+											   <i class="fas fa-plus-circle add-icon"></i>
+											   <p id="fp"></p>
+											   <img id="blah" src="<?php echo RE_HOME_PATH ;?>/upload/demo.jpg" alt="your image" style="    position: absolute;
+    top: 0px;
+    width: 100%;    z-index: -1;
+"/><span id="fileerror"><sapn>
 									   	</div>
 								   </div>
 								</div>
@@ -255,6 +238,7 @@
 					    
 					    <div class="row">
 					    	<div class="col-md-12">
+								<div class="formerror"></div>
 					    		<div style="overflow:auto;">
 						            <div style="float:right;">
 						              <button class="btn" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
@@ -270,12 +254,11 @@
     </div>
 </body>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap4/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src=".../bootstrap4/dist/js/bootstrap.min.js"></script>
 
 <script>
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
-
 function showTab(n) {
   // This function will display the specified tab of the form...
   var x = document.getElementsByClassName("tab");
@@ -315,27 +298,209 @@ function nextPrev(n) {
 }
 
 function validateForm() {
-  // This function deals with validation of the form fields
-  var x, y, i, valid = true;
+	var x, y, i, 
+	valid = true;
   x = document.getElementsByClassName("tab");
   y = x[currentTab].getElementsByTagName("input");
+  
   // A loop that checks every input field in the current tab:
-  for (i = 0; i < y.length; i++) {
-    // If a field is empty...
-    if (y[i].value == "") {
-      // add an "invalid" class to the field:
-      y[i].className += " invalid";
-      // and set the current valid status to false
-      valid = false;
-    }
+  if(currentTab==0){
+  var firstname=$('#firstname').val();
+  var middlename=$('#middlename').val();
+  var lastname=$('#lastname').val();
+  var popularname=$('#popularname').val();
+  var dob=$('#dob').val();
+  var mobileno=$('#mobileno').val();
+  var email=$('#email').val();
+  var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+  var bloodgroup=$('#bloodgroup').val();
+
+if(firstname==''){
+$('#firstname').focus();
+$("#firstname").addClass("invalid");
+return false;
+}
+
+else if(lastname==''){
+$('#lastname').focus();
+$("#lastname").addClass("invalid");
+return false;
+}
+else if(lastname==''){
+$('#lastname').focus();
+$("#lastname").addClass("invalid");
+return false;
+}
+else if(dob==''){
+$('#dob').focus();
+$("#dob").addClass("invalid");
+return false;
+}
+else if(mobileno==''){
+$('#mobileno').focus();
+$("#mobileno").addClass("invalid");
+return false;
+}
+
+else if(mobileno==''){
+$('#mobileno').focus();
+$("#mobileno").addClass("invalid");
+return false;
+}
+else if(email==''){
+$('#email').focus();
+$("#email").addClass("invalid");
+return false;
+}
+
+
+else if (!testEmail.test(email))
+{   $('#email').focus();
+	//$('#emailerror').html("<span class='text-danger'>Please enter valid email<span>");
+$("#email").addClass("invalid");
+return false;
+}
+
+else if(bloodgroup==''){
+$('#bloodgroup').focus();
+$("#bloodgroup").addClass("invalid");
+return false;
+}else{
+return true;
+
+}
+
   }
+else if(currentTab==1){
+
+	var country=$('#country').val();
+	var state=$('#state').val();
+	var city=$('#city').val();
+	var address=$('#address').val();
+	var pincode=$('#pincode').val();
+
+if(country==''){
+$('#country').focus();
+$("#country").addClass("invalid");
+return false;
+}
+else if(state==''){
+$('#state').focus();
+$("#state").addClass("invalid");
+return false;
+}
+else if(city==''){
+$('#city').focus();
+$("#city").addClass("invalid");
+return false;
+}
+else if(address==''){
+$('#address').focus();
+$("#address").addClass("invalid");
+return false;
+}
+else if(pincode==''){
+$('#pincode').focus();
+$("#pincode").addClass("invalid");
+return false;
+}
+
+}
+else if(currentTab==2){
+var highest=$('#highest').val();
+var occupation=$('#occupation').val();
+var details=$('#details').val();
+var income=$('#income').val();
+if(highest==''){
+$('#highest').focus();
+$("#highest").addClass("invalid");
+return false;
+}
+else if(occupation==''){
+$('#occupation').focus();
+$("#occupation").addClass("invalid");
+return false;
+}
+else if(details==''){
+$('#details').focus();
+$("#details").addClass("invalid");
+return false;
+}
+else if(income==''){
+$('#income').focus();
+$("#income").addClass("invalid");
+return false;
+}
+else{
+return	true;
+}
+
+}
+else if(currentTab==3){
+var file=$('#file').val();
+if(file==''){
+	$('#fileerror').html('<div class="text-danger">Please select image</div>');
+	return false;
+}else{
+
+	return true;
+}
+
+
+}
+
+else{
+
+	return true;
+}
+
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
     document.getElementsByClassName("step")[currentTab].className += " finish";
   }
-  return valid; // return the valid status
+  return valid; // return the valid status}
 }
 
+
+function GetFileSize() {
+        var fi = document.getElementById('file'); // GET THE FILE INPUT.
+
+        // VALIDATE OR CHECK IF ANY FILE IS SELECTED.
+        if (fi.files.length > 0) {
+            // RUN A LOOP TO CHECK EACH SELECTED FILE.
+            for (var i = 0; i <= fi.files.length - 1; i++) {
+
+                var fsize = fi.files.item(i).size; 
+				// THE SIZE OF THE FILE.
+                // document.getElementById('fp').innerHTML =
+                //     document.getElementById('fp').innerHTML + '<br /> ' +
+                //         '<b>' + Math.round((fsize / 1024)) + '</b> KB';
+					var sizemain=Math.round((fsize / 1024)) ;
+					if(sizemain>1024){
+                    $('#file').val('');
+					$('#fileerror').html('<div class="text-danger">Please select image 1mb or less then</div>');
+                    $('#blah').attr('src', '<?php echo RE_HOME_PATH ;?>/upload/demo.jpg');
+					}else{
+						$('#fileerror').html('');
+					}
+            }
+        }
+    }
+	function readURL(input) {
+        if (input.files && input.files[0]) {
+            var reader = new FileReader();
+            
+            reader.onload = function (e) {
+                $('#blah').attr('src', e.target.result);
+            }
+            
+            reader.readAsDataURL(input.files[0]);
+        }
+    }
+    
+    $("#file").change(function(){
+        readURL(this);
+    });
 function fixStepIndicator(n) {
   // This function removes the "active" class of all steps...
   var i, x = document.getElementsByClassName("step");
@@ -346,5 +511,4 @@ function fixStepIndicator(n) {
   x[n].className += " active";
 }
 </script>
-
 </html>

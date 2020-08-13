@@ -100,15 +100,21 @@
 /*-----------------------------SIGNUP SECTION----------------------*/
 
 /*-------------------form------------------------*/
-.signup-form input.invalid {
+#regForm input.invalid {
   background-color: #ffdddd;
 }
+#regForm select.invalid {
+    background-color: #ffdddd;
+  }
+  #regForm textarea.invalid {
+    background-color: #ffdddd;
+  }
 
-.signup-form .tab {
+#regForm .tab {
   display: none;
 }
 
-.signup-form #prevBtn {
+#regForm #prevBtn {
   background-color: #bbbbbb;
 }
 
@@ -121,9 +127,7 @@
   background-color: #5c99ff;
 }
 
-.form-steps .step.finish {
-  /*background-color: #4CAF50;*/
-}
+
 /*-------------------form ends------------------------*/
 .pic-wrapper{
     position: relative;
