@@ -173,37 +173,26 @@
 		</div>    
 			
 			
+         <!------------------- Login Modal ----------------------------->
+		  <div class="modal fade loginPopup" id="loginPopup">
+		    <div class="modal-dialog modal-dialog-centered login-container">
+		        <!---------------- loads from modal.html---------- -->
+		    </div>
+		  </div>
 
+			  
 				 <!-- ---------------The Modal-1 ----------------------->
 		  <div class="modal fade loginPopup" id="modal1">
-		    <div class="modal-dialog modal-dialog-centered">
-		      <div class="modal-content">
-		        <div class="">
-		          <button type="button" id="closeModal1" class="close mr-3" data-dismiss="modal">&times;</button>
-		        </div>
-		        <div class="modal-body contact-container login-container py-5">
-		          
-		        </div>
-		      </div>
+		    <div class="modal-dialog modal-dialog-centered contact-container login-container">
+		     
 		    </div>
 		  </div>
 		         <!--------------- ----The Modal-1 ends---------------------->
 
 		         		 <!-- ---------------The Modal-2 ----------------------->
 		  <div class="modal fade loginPopup" id="modal2">
-		    <div class="modal-dialog modal-dialog-centered">
-		      <div class="modal-content">
-		        <div>
-		          <button type="button" id="closeModal2" class="close mr-3" data-dismiss="modal">&times;</button>
-		        </div>
+		    <div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
 		        
-		        <div class="restoreModal2">
-			        <!-- Modal body -->
-			        <div class="modal-body2 lgn-sgn-container login-container mx-3 py-5 text-center">
-		          	  	 
-			        </div>
-		        </div>
-		      </div>
 		    </div>
 		  </div>
 		         <!--------------- ----The Modal-2 ends---------------------->
@@ -227,10 +216,10 @@
 	// var prevContent2 = $('.restoreModal2').html();
 	
 
-	$(document).on('click', '.openBtn2',function(){
+	// $(document).on('click', '.openBtn2',function(){
 		
-	    $('.modal-body2').load('modal.html .loginContent');
-	});
+	//     $('.modal-body2').load('modal.html .loginContent');
+	// });
 
 </script>
 

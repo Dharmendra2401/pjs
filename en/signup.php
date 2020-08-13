@@ -315,144 +315,144 @@ function validateForm() {
   var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
   var bloodgroup=$('#bloodgroup').val();
 
-if(firstname==''){
-$('#firstname').focus();
-$("#firstname").addClass("invalid");
-return false;
-}
-
-else if(lastname==''){
-$('#lastname').focus();
-$("#lastname").addClass("invalid");
-return false;
-}
-else if(lastname==''){
-$('#lastname').focus();
-$("#lastname").addClass("invalid");
-return false;
-}
-else if(dob==''){
-$('#dob').focus();
-$("#dob").addClass("invalid");
-return false;
-}
-else if(mobileno==''){
-$('#mobileno').focus();
-$("#mobileno").addClass("invalid");
-return false;
-}
-
-else if(mobileno==''){
-$('#mobileno').focus();
-$("#mobileno").addClass("invalid");
-return false;
-}
-else if(email==''){
-$('#email').focus();
-$("#email").addClass("invalid");
-return false;
-}
-
-
-else if (!testEmail.test(email))
-{   $('#email').focus();
-	//$('#emailerror').html("<span class='text-danger'>Please enter valid email<span>");
-$("#email").addClass("invalid");
-return false;
-}
-
-else if(bloodgroup==''){
-$('#bloodgroup').focus();
-$("#bloodgroup").addClass("invalid");
-return false;
-}else{
-return true;
-
-}
-
-  }
-else if(currentTab==1){
-
-	var country=$('#country').val();
-	var state=$('#state').val();
-	var city=$('#city').val();
-	var address=$('#address').val();
-	var pincode=$('#pincode').val();
-
-if(country==''){
-$('#country').focus();
-$("#country").addClass("invalid");
-return false;
-}
-else if(state==''){
-$('#state').focus();
-$("#state").addClass("invalid");
-return false;
-}
-else if(city==''){
-$('#city').focus();
-$("#city").addClass("invalid");
-return false;
-}
-else if(address==''){
-$('#address').focus();
-$("#address").addClass("invalid");
-return false;
-}
-else if(pincode==''){
-$('#pincode').focus();
-$("#pincode").addClass("invalid");
-return false;
-}
-
-}
-else if(currentTab==2){
-var highest=$('#highest').val();
-var occupation=$('#occupation').val();
-var details=$('#details').val();
-var income=$('#income').val();
-if(highest==''){
-$('#highest').focus();
-$("#highest").addClass("invalid");
-return false;
-}
-else if(occupation==''){
-$('#occupation').focus();
-$("#occupation").addClass("invalid");
-return false;
-}
-else if(details==''){
-$('#details').focus();
-$("#details").addClass("invalid");
-return false;
-}
-else if(income==''){
-$('#income').focus();
-$("#income").addClass("invalid");
-return false;
-}
-else{
-return	true;
-}
-
-}
-else if(currentTab==3){
-var file=$('#file').val();
-if(file==''){
-	$('#fileerror').html('<div class="text-danger">Please select image</div>');
+	if(firstname==''){
+	$('#firstname').focus();
+	$("#firstname").addClass("invalid");
 	return false;
-}else{
+	}
 
+	else if(lastname==''){
+	$('#lastname').focus();
+	$("#lastname").addClass("invalid");
+	return false;
+	}
+	else if(lastname==''){
+	$('#lastname').focus();
+	$("#lastname").addClass("invalid");
+	return false;
+	}
+	else if(dob==''){
+	$('#dob').focus();
+	$("#dob").addClass("invalid");
+	return false;
+	}
+	else if(mobileno==''){
+	$('#mobileno').focus();
+	$("#mobileno").addClass("invalid");
+	return false;
+	}
+
+	else if(mobileno==''){
+	$('#mobileno').focus();
+	$("#mobileno").addClass("invalid");
+	return false;
+	}
+	else if(email==''){
+	$('#email').focus();
+	$("#email").addClass("invalid");
+	return false;
+	}
+
+
+	else if (!testEmail.test(email))
+	{   $('#email').focus();
+		//$('#emailerror').html("<span class='text-danger'>Please enter valid email<span>");
+	$("#email").addClass("invalid");
+	return false;
+	}
+
+	else if(bloodgroup==''){
+	$('#bloodgroup').focus();
+	$("#bloodgroup").addClass("invalid");
+	return false;
+	}else{
 	return true;
-}
+
+	}
+
+	}
+	else if(currentTab==1){
+
+		var country=$('#country').val();
+		var state=$('#state').val();
+		var city=$('#city').val();
+		var address=$('#address').val();
+		var pincode=$('#pincode').val();
+
+	if(country==''){
+	$('#country').focus();
+	$("#country").addClass("invalid");
+	return false;
+	}
+	else if(state==''){
+	$('#state').focus();
+	$("#state").addClass("invalid");
+	return false;
+	}
+	else if(city==''){
+	$('#city').focus();
+	$("#city").addClass("invalid");
+	return false;
+	}
+	else if(address==''){
+	$('#address').focus();
+	$("#address").addClass("invalid");
+	return false;
+	}
+	else if(pincode==''){
+	$('#pincode').focus();
+	$("#pincode").addClass("invalid");
+	return false;
+	}
+
+	}
+	else if(currentTab==2){
+	var highest=$('#highest').val();
+	var occupation=$('#occupation').val();
+	var details=$('#details').val();
+	var income=$('#income').val();
+	if(highest==''){
+	$('#highest').focus();
+	$("#highest").addClass("invalid");
+	return false;
+	}
+	else if(occupation==''){
+	$('#occupation').focus();
+	$("#occupation").addClass("invalid");
+	return false;
+	}
+	else if(details==''){
+	$('#details').focus();
+	$("#details").addClass("invalid");
+	return false;
+	}
+	else if(income==''){
+	$('#income').focus();
+	$("#income").addClass("invalid");
+	return false;
+	}
+	else{
+	return	true;
+	}
+
+	}
+	else if(currentTab==3){
+	var file=$('#file').val();
+	if(file==''){
+		$('#fileerror').html('<div class="text-danger">Please select image</div>');
+		return false;
+	}else{
+
+		return true;
+	}
 
 
-}
+	}
 
-else{
+	else{
 
-	return true;
-}
+		return true;
+	}
 
   // If the valid status is true, mark the step as finished and valid:
   if (valid) {
