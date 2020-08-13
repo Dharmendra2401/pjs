@@ -32,10 +32,6 @@ function showResult(str) {
      
   });
 
-  $(document).on('click', '.msg-sent',function(){
-    $('.login-container').load('modal.html .login-help');
-     
-  });
 
   $(document).on('click', '.send-credential',function(){
     $('.login-container').load('modal.html .credential-msg');

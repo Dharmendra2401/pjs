@@ -4,7 +4,7 @@
 	 <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 
-	<title>vts merge harsh dfggdfgfdgdf is ther </title>
+	<title>vts </title>
 
 	<link rel="stylesheet" type="text/css" href="bootstrap4/dist/css/bootstrap.min.css">
 	<link rel="stylesheet" type="text/css" href="fontawesome5/css/all.min.css">
@@ -55,20 +55,12 @@
 		  </div>
 
 		  <!------------------- Login Modal ----------------------------->
-		  <div class="restoreModal">
 			  <div class="modal fade loginPopup" id="loginPopup">
-			    <div class="modal-dialog modal-dialog-centered">
-			      <div class="modal-content">
-			        <div class="">
-			          <button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
-			        </div> 
-			        <div class="modal-body login-container">
-			        	<!-- loads from modal.html -->
-			        </div>
-			      </div>
+			    <div class="modal-dialog modal-dialog-centered login-container">
+			        <!---------------- loads from modal.html---------- -->
 			    </div>
 			  </div>
-		  </div>
+		 
 
     		<!-- carousel with thumnail -->
     		<div class="row">
@@ -107,7 +99,8 @@
     </div>
   
 </body>
-<script type="text/javascript" src="js/main.js"></script>
+
+<script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="bootstrap4/dist/js/bootstrap.min.js"></script>
 <script type="text/javascript" src="js/main.js"></script>
