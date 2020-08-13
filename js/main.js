@@ -60,11 +60,21 @@ function showResult(str) {
   });
 
   function displayInput(){
-    $(".member-id").show();
+    $(".member-id").toggle();
       $(".done").hide();
+  }
+
+  function displayEmailInput(){
+    $('.email-id').toggle();
+    $(".done").hide();
+  }
+
+  function displayDetailForm(){
+    $('.update-number').toggle();
+    $(".done").hide();
   }
     
     function displayForm(){
-      $(".forgot-login").show();
+      $(".forgot-login").toggle();
       $(".done").hide();
     }

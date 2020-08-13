@@ -302,14 +302,14 @@
 /*------------------------SAVED PROFILE ENDS------------------------------------*/
 
 /*------------------------MODEL------------------------------------*/
-.forgot-id, .forgot-credential{
+.points, .forgot-credential{
     cursor: pointer;
 }
-.member-id{
+.member-id, .email-id, .update-number, .forgot-login{
     display:none;
 }
 
-.forgot-login{
+/*.forgot-login{
     display:none;
-}
+}*/
 /*------------------------MODEL ENDS------------------------------------*/
