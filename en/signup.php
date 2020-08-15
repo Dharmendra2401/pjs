@@ -13,6 +13,7 @@ include "../config/config.php";
     <div class="container-fluid">
     	
 		<?php include "header.php";  ?>
+		<div class="col-md-12"><?php echo show_message();?></div>
 		    <div class="col-md-2">
 		    	<!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 				  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Personal Details</a>
@@ -32,8 +33,9 @@ include "../config/config.php";
 			    </ul>
 			</div>
 			<div class="col-md-10">	
+			
 			<div class="formerror"></div>
-				<form class="container" id="regForm" method="post" action="form-submit.php">
+				<form class="container" id="regForm" method="post" action="formsubmit.php" enctype="multipart/form-data">
 	                    <div class="row tab">
 	                    	<div class="col-md-9 ">
 	                    		<h3 class="mb-3">Please Enter Personal Details <span class="text-danger">(* Required Fields)</span></h3>
@@ -58,7 +60,7 @@ include "../config/config.php";
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"> Popular Name</label>	
 								   <div class="col-md-9">
-								   	  <input type="text" name="popularname" class="form-control" placeholder="Enter popular name" id="popular">
+								   	  <input type="text" name="popularnamess" class="form-control" placeholder="Enter popular name" id="popular">
 								   </div>
 								</div>
 								<div class="form-group row">
@@ -82,8 +84,8 @@ include "../config/config.php";
 								<div class="form-group row">
 								   <label class="col-md-3"><span class="text-danger">*</span> Gender</label>	
 								   <div class="col-md-9">
-								   	   <input type="radio" name="gender" value="male" checked> <label class="mr-5">Male</label>
-								   	   <input type="radio" name="gender" value="female"> <label>Female</label>
+								   	   <input type="radio" name="gender" value="1" checked> <label class="mr-5">Male</label>
+								   	   <input type="radio" name="gender" value="2"> <label>Female</label>
 								   </div>
 								</div>
 								<div class="form-group row">
@@ -96,7 +98,7 @@ include "../config/config.php";
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Mobile No.</label>	
 								   <div class="col-md-9">
-								   	   <input type="number" class="form-control" placeholder="Enter mobile no."  name="mobileno" id="mobileno">
+								   	   <input type="number" class="form-control" placeholder="Enter mobile no."  name="mobileno" id="mobileno"  onKeyPress="return isNumeric(event)">
 								   </div>
 								</div>
 								<div class="form-group row">
@@ -114,7 +116,7 @@ include "../config/config.php";
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"> Height</label>	
 								   <div class="col-md-9">
-								   	   <input type="number" step="any" class="form-control" placeholder="Enter height" name="height" id="height">
+								   	   <input type="number" step="any" class="form-control" placeholder="Enter height" name="height" id="height" onKeyPress="return isNumeric(event)">
 								   </div>
 								</div>
 	                    	</div>
@@ -127,45 +129,50 @@ include "../config/config.php";
 	                    		<div class="form-group row">
 	                    		   <label class="col-md-3 col-form-label "><span class="text-danger">*</span> Country</label>
 								   <div class="col-md-9">
-								   	   <select class="custom-select" id="country">
+								   	   <select class="custom-select" id="country" name="country">
 								          <option value="" selected>Select Country</option>
-								          <option value="1">india</option>
-								          <option value="2">japan</option>
+								          <option value="India">India</option>
+								         
 								       </select>
 								   </div>
 							    </div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> State</label>
 								   <div class="col-md-9">
-								   	     <select class="custom-select" id="state">
-								          <option value="" selected>Select State</option>
-								          <option value="1">mp</option>
-								          <option value="2">hp</option>
+								   	     <select class="custom-select" id="state" onchange="return getCity();" name="state">
+										  <option value="" selected>Select State</option>
+										  <?php
+										 $state=mysqli_query($con,'select DISTINCT(state) from states_city_country where state!="CHANDIGARG" and state!=""');
+										 while($show=mysqli_fetch_array($state)){ 
+										  
+										  ?>
+										  <option value="<?php echo $show['state'];  ?>"><?php echo $show['state'];  ?></option>
+										  <?php 
+										 } 
+										  ?>
 								         </select>
 								   </div>
 								</div>
 								<div class="form-group row">
-								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of city/town/village</label>	
+								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of district/town/village</label>	
 								   <div class="col-md-9">
-								   <select class="custom-select" id="city">
-								          <option value="" selected>Select State</option>
-								          <option value="1">mp</option>
-								          <option value="2">hp</option>
-								         </select>
+								  <span id="getcity"></span>
+								   </div>
+								</div>
+
+								<div class="form-group row">
+								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Pin Code</label>	
+								   <div class="col-md-9">
+								   	 <span id="getpincode"></span>
 								   </div>
 								</div>
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Address</label>
 								   <div class="col-md-9">
-								   	  <textarea class="form-control" rows="4" id="address" placeholder="Enter address"></textarea>
+								   	  <textarea class="form-control" rows="4" id="address" name="address" placeholder="Enter address"></textarea>
 								   </div>
 								</div>
-								<div class="form-group row">
-								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Pin Code</label>	
-								   <div class="col-md-9">
-								   	  <input type="number" class="form-control" id="pincode" placeholder="Enter pin code">
-								   </div>
-								</div>
+							
 	                    	</div>
 	                    </div>
 					
@@ -205,26 +212,26 @@ include "../config/config.php";
 								   <div class="col-md-9">
 								   	     <select class="custom-select" name="income" id="income">
 								          <option value="" selected>Select Income Range</option>
-								          <option value="1">100000</option>
-										  <option value="2">200000</option>
-										  <option value="3">300000</option>
-										  <option value="4">400000</option>
-										  <option value="5">500000</option>
-										  <option value="6">more then 500000</option>
+								          <option value="1">Less than 1 lakh</option>
+										  <option value="2">1 lakh to 2 lakh</option>
+										  <option value="3">2 lakh to 3 lakh</option>
+										  <option value="4">3 lakh to 4 lakh</option>
+										  <option value="5">more than 4 lakh</option>
+										  
 								         </select>
 								   </div>
 								</div>
 	                    	</div>
 	                    </div>
 					
-	                    <div class="row tab" >
+	                    <div class="row tab image-tab" >
 	                    	<div class="col-md-9 ">
 	                    		<h3 class="mb-3">Please Upload Your Own <span class="text-danger">(* Required Fields)</span></h3>
 	                    		<div class="form-group row">
 								   <label class="col-md-12 col-form-label">Profile photo size must be 1mb or less </label>	
 								   <div class="col-md-9">
 									   	<div class="pic-wrapper">
-									   		<input type="file" class="form-control profile-pic" onchange="GetFileSize()" id="file" accept="image/*" >
+									   		<input type="file" class="form-control profile-pic" onchange="GetFileSize()" id="file" name="profile" accept="image/*" >
 											   <i class="fas fa-plus-circle add-icon"></i>
 											   <p id="fp"></p>
 											   <img id="blah" src="<?php echo RE_HOME_PATH ;?>/upload/demo.jpg" alt="your image" style="  position: absolute;
@@ -256,10 +263,50 @@ include "../config/config.php";
     	</div>
     </div>
 </body>
-<script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src=".../bootstrap4/dist/js/bootstrap.min.js"></script>
+<?php  include "../script.php" ;?>
 
 <script>
+$(document).ready(function(){
+			$("#getcity").load("getcity.php");
+			$("#getpincode").load("getpincode.php");
+	
+});
+
+
+
+function getCity(){
+var state= $('#state').val();
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"getcity.php",
+data:{"state":state},
+success:function(data12){
+$("#getpincode").load("getpincode.php");
+$('#getcity').html(data12);
+$('#loadergif').fadeOut();
+}
+});
+}
+function getpincodes(){
+var city= $('#city').val();
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"getpincode.php",
+data:{"city":city},
+success:function(data122){
+$('#getpincode').html(data122);
+$('#loadergif').fadeOut();
+}
+});
+}
+
+
+
+
+
+
 var currentTab = 0; // Current tab is set to be the first tab (0)
 showTab(currentTab); // Display the current tab
 function showTab(n) {
@@ -453,7 +500,7 @@ function validateForm() {
 	}
 
 	else{
-
+        $('.image-tab').show();
 		return true;
 	}
 

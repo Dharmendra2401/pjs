@@ -91,7 +91,14 @@
 #custCarousel .carousel-indicators li:hover img {
     opacity: 0.75;
 }
-
+#loadergif{    text-align: center;
+    position: fixed;
+    width: 100%;
+    top: 0px;
+    left: 0;
+    z-index: 9999999;
+    background: #ffffff82;
+    padding: 15%;}
 /*-------------CAROUSEL WITH THYUMBNAIL ENDS----------------------*/
 
 /*-------------NAVBAR MENU----------------------*/
