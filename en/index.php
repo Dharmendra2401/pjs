@@ -12,12 +12,7 @@ include "../config/config.php";
     		<?php include "header.php";  ?>
 		  </div>
 			
-		  <!------------------- Login Modal ----------------------------->
-			  <div class="modal fade loginPopup" id="loginPopup">
-			    <div class="modal-dialog modal-dialog-centered login-container">
-			        	<!-- loads from modal.html -->
-			    </div>
-			  </div>
+		  
 		  
 
     		<!-- carousel with thumnail -->
