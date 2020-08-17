@@ -422,5 +422,13 @@
 .user-details{
     margin-bottom: 5px;
 }
+
+.signup-sm{
+    width: 100%;
+}
+
+.contact{
+    width: 100%;
+}
  
 }
