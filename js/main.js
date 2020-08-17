@@ -78,3 +78,13 @@ function showResult(str) {
       $(".forgot-login").toggle();
       $(".done").hide();
     }
+
+    $(".mobile-menu-icon").click(function() {
+      $('.navbar-menu').toggle("slide");
+    });
+
+    $(".btn-more").click(function() {
+      $('.more-info').show();
+      $('.btn-more').hide();
+    
+    });  
