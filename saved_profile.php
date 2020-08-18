@@ -107,17 +107,19 @@
 			<div class="col-12">
 				<ul class="list-unstyled user-list">
 					<li class="user-list-box">
-						<ul class="list-unstyled list-inline">
-							<li class="list-inline-item">
-								<i class="fas fa-heart"></i>
-								<img class="user-list-img" src="images/dummy.png">
-							</li>
-							<li class="list-inline-item">
-								<p>Lavish Jain</p>
-						        <p>MID1234567</p>
-						        <i class="far fa-trash-alt"></i>
-							</li>
-					    </ul>
+						<a href="profile.php">
+							<ul class="list-unstyled list-inline">
+								<li class="list-inline-item">
+									<i class="fas fa-heart"></i>
+									<img class="user-list-img" src="images/dummy.png">
+								</li>
+								<li class="list-inline-item">
+									<p>Lavish Jain</p>
+							        <p>MID1234567</p>
+							        <i class="far fa-trash-alt"></i>
+								</li>
+						    </ul>
+					    </a>
 					</li>
 				</ul>
 			</div>

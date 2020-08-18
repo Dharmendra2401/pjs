@@ -4,7 +4,7 @@
  <div class="row">
             <div class="col-md-3 sm-image-wrapper">
             	<i class="fas fa-bars mobile-menu-icon"></i>
-    			<img class="" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/flooop.png">
+    			<img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/flooop.png">
     		</div>
     		<div class="col-md-6 d-flex justify-content-center">
     			<div class="input-group my-auto">
@@ -17,6 +17,8 @@
 				</div>
     		</div>
     		<div class="col-md-3 align-self-center text-right">
+    			 <i class="fas fa-language sm-icon-language"></i>
+    			 <i class="far fa-bell sm-icon-alert"></i>
 				 <button type="button" class="btn btn-primary open-login" data-toggle="modal" data-target="#loginPopup">
 				    LOGIN/SIGUP
 				  </button>
