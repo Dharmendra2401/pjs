@@ -479,5 +479,23 @@
     font-size: 21px;
 }
 /*--------------------SAVED PROFILE ENDS---------------------------*/
+
+/*--------------------PROFILE---------------------------*/
+.user-tab{
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    margin: 20px 0;
+}
+
+.user-profile .info> div:nth-of-type(even){
+    line-height: 10px;
+    margin-bottom: 20px;
+}
+
+.address{
+   line-height: 18px !important;
+}
+/*--------------------PROFILE ENDS---------------------------*/
  
 }

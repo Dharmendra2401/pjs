@@ -27,7 +27,7 @@
 				    LOGIN/SIGUP
 				  </button>
     		</div>
-    		<div class="col-md-12">
+    		<!-- <div class="col-md-12">
 				<nav class="navbar navbar-expand-sm">
 				  <ul class="navbar-nav">
 				    <li class="nav-item">
@@ -47,7 +47,7 @@
 				    </li>
 				  </ul>
 				</nav>
-		    </div>
+		    </div> -->
 		    <div class="col-md-2 user-tab">
 		    	<ul class="nav nav-tabs">
 				    <li class="nav-item"><a class="nav-link active" href="#overview">Overview</a></li>
@@ -57,144 +57,147 @@
 				</ul>
 			</div>
 			<div class="col-md-10 tab-content user-profile">	
-                <div id="overview" class="row tab-pane active">
-                	<div class="col-md-12 tab">
-                		<h3>Personal Info</h3>
-                		<div class="row info">
-                			<div class="col-md-3">Full Name <strong>:</strong></div>
-                			<div class="col-md-9">lavish lokendra jain</div>
+                <div id="overview" class="tab-pane active">
+                    <div class="row">
+                        <div class="col-md-12 tab">
+                            <h3>Personal Info</h3>
+                            <div class="row info">
+                                <div class="col-md-3">Full Name <strong>:</strong></div>
+                                <div class="col-md-9">lavish lokendra jain</div>
 
-                			<div class="col-md-3">Popular Name<strong>:</strong></div>
-                			<div class="col-md-9">lavish</div>
+                                <div class="col-md-3">Popular Name<strong>:</strong></div>
+                                <div class="col-md-9">lavish</div>
 
-                			<div class="col-md-3">Gender <strong>:</strong></div>
-                			<div class="col-md-9">male</div>
+                                <div class="col-md-3">Gender <strong>:</strong></div>
+                                <div class="col-md-9">male</div>
 
-                			<div class="col-md-3">Status <strong>:</strong></div>
-                			<div class="col-md-9">single</div>
+                                <div class="col-md-3">Status <strong>:</strong></div>
+                                <div class="col-md-9">single</div>
 
-                			<div class="col-md-3">Blood Group<strong>:</strong></div>
-                			<div class="col-md-9">b+</div>
+                                <div class="col-md-3">Blood Group<strong>:</strong></div>
+                                <div class="col-md-9">b+</div>
 
-                			<div class="col-md-3">Height <strong>:</strong></div>
-                			<div class="col-md-9">5'9"</div>
-                		</div>
-                		<h3>Birth Details</h3>
-                		<div class="row info">
-                			<div class="col-md-3">Date of Birth <strong>:</strong></div>
-                			<div class="col-md-9">lavish lokendra jain</div>
-
-                			<div class="col-md-3">Birth Time<strong>:</strong></div>
-                			<div class="col-md-9">lavish</div>
-
-                			<div class="col-md-3">Birth Place <strong>:</strong></div>
-                			<div class="col-md-9">male</div>
-                		</div>
-                		<h3>Contact Info</h3>
-                		<div class="row info">
-                			<div class="col-md-3">Mobile No. <strong>:</strong></div>
-                			<div class="col-md-9">1234567890</div>
-
-                			<div class="col-md-3">Email Id<strong>:</strong></div>
-                			<div class="col-md-9">lavish@gmail.com</div>
-                		</div>
-                		<h3>Address Info</h3>
-                		<div class="row info">
-                			<div class="col-md-3">Address <strong>:</strong></div>
-                			<div class="col-md-9">
-                				<p>J-11 DHANVANTRI APPARTMENT M.O.G LINE,</p>
-                				<p>BALSAMAD, MADHYA PRADESH, INDIA</p>
-                				<p>452001</p>
+                                <div class="col-md-3">Height <strong>:</strong></div>
+                                <div class="col-md-9">5'9"</div>
                             </div>
-                		</div>
-                		<h3>Education</h3>
-                		<div class="row info">
-                			<div class="col-md-3">Education <strong>:</strong></div>
-                			<div class="col-md-9">bachelor of engineering</div>
-                		</div>
-                		<h3>Work</h3>
-                		<div class="row info">
-                			<div class="col-md-3">Occupation <strong>:</strong></div>
-                			<div class="col-md-9">job/software engineer</div>
+                            <h3>Birth Details</h3>
+                            <div class="row info">
+                                <div class="col-md-3">Date of Birth <strong>:</strong></div>
+                                <div class="col-md-9">lavish lokendra jain</div>
 
-                			<div class="col-md-3">Income<strong>:</strong></div>
-                			<div class="col-md-9">1-2 lakh</div>
-                		</div>
-                	</div>
+                                <div class="col-md-3">Birth Time<strong>:</strong></div>
+                                <div class="col-md-9">lavish</div>
+
+                                <div class="col-md-3">Birth Place <strong>:</strong></div>
+                                <div class="col-md-9">male</div>
+                            </div>
+                            <h3>Contact Info</h3>
+                            <div class="row info">
+                                <div class="col-md-3">Mobile No. <strong>:</strong></div>
+                                <div class="col-md-9">1234567890</div>
+
+                                <div class="col-md-3">Email Id<strong>:</strong></div>
+                                <div class="col-md-9">lavish@gmail.com</div>
+                            </div>
+                            <h3>Address Info</h3>
+                            <div class="row info">
+                                <div class="col-md-3">Address <strong>:</strong></div>
+                                <div class="col-md-9">
+                                    <p class="address">J-11 DHANVANTRI APPARTMENT M.O.G LINE,</p>
+                                    <p>BALSAMAD, MADHYA PRADESH, INDIA</p>
+                                    <p>452001</p>
+                                </div>
+                            </div>
+                            <h3>Education</h3>
+                            <div class="row info">
+                                <div class="col-md-3">Education <strong>:</strong></div>
+                                <div class="col-md-9">bachelor of engineering</div>
+                            </div>
+                            <h3>Work</h3>
+                            <div class="row info">
+                                <div class="col-md-3">Occupation <strong>:</strong></div>
+                                <div class="col-md-9">job/software engineer</div>
+
+                                <div class="col-md-3">Income<strong>:</strong></div>
+                                <div class="col-md-9">1-2 lakh</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-                <div id="basic-info" class="row tab-pane">
-                	<div class="col-md-12 tab">
-                		<h3>Personal Info</h3>
-                		<div class="row info">
-                			<div class="col-md-3">First Name <strong>:</strong></div>
-                			<div class="col-md-9">lavish</div>
+                <div id="basic-info" class="tab-pane">
+                    <div class="row">
+                        <div class="col-md-12 tab">
+                            <h3>Personal Info</h3>
+                            <div class="row info">
+                                <div class="col-md-3">First Name <strong>:</strong></div>
+                                <div class="col-md-9">lavish</div>
 
-                			<div class="col-md-3">Middle Name<strong>:</strong></div>
-                			<div class="col-md-9">lavish</div>
+                                <div class="col-md-3">Middle Name<strong>:</strong></div>
+                                <div class="col-md-9">lavish</div>
 
-                			<div class="col-md-3">Last Name <strong>:</strong></div>
-                			<div class="col-md-9">male</div>
+                                <div class="col-md-3">Last Name <strong>:</strong></div>
+                                <div class="col-md-9">male</div>
 
-                			<div class="col-md-3">Popular Name <strong>:</strong></div>
-                			<div class="col-md-9">single</div>
+                                <div class="col-md-3">Popular Name <strong>:</strong></div>
+                                <div class="col-md-9">single</div>
 
-                			<div class="col-md-3">Gender<strong>:</strong></div>
-                			<div class="col-md-9">b+</div>
+                                <div class="col-md-3">Gender<strong>:</strong></div>
+                                <div class="col-md-9">b+</div>
 
-                			<div class="col-md-3">Status <strong>:</strong></div>
-                			<div class="col-md-9">5'9"</div>
+                                <div class="col-md-3">Status <strong>:</strong></div>
+                                <div class="col-md-9">5'9"</div>
 
-                			<div class="col-md-3">Blood Group<strong>:</strong></div>
-                			<div class="col-md-9">b+</div>
+                                <div class="col-md-3">Blood Group<strong>:</strong></div>
+                                <div class="col-md-9">b+</div>
 
-                			<div class="col-md-3">Height <strong>:</strong></div>
-                			<div class="col-md-9">5'9"</div>
-                		</div>
-                		<h3>Birth Details</h3>
-                		<div class="row info">
-                			<div class="col-md-3">Date of Birth <strong>:</strong></div>
-                			<div class="col-md-9">01/01/01</div>
+                                <div class="col-md-3">Height <strong>:</strong></div>
+                                <div class="col-md-9">5'9"</div>
+                            </div>
+                            <h3>Birth Details</h3>
+                            <div class="row info">
+                                <div class="col-md-3">Date of Birth <strong>:</strong></div>
+                                <div class="col-md-9">01/01/01</div>
 
-                			<div class="col-md-3">Birth Time<strong>:</strong></div>
-                			<div class="col-md-9">2:00 am</div>
+                                <div class="col-md-3">Birth Time<strong>:</strong></div>
+                                <div class="col-md-9">2:00 am</div>
 
-                			<div class="col-md-3">Birth Place <strong>:</strong></div>
-                			<div class="col-md-9">maheshwar</div>
-                		</div>
-                	
-                		
-                		
-                	</div>
+                                <div class="col-md-3">Birth Place <strong>:</strong></div>
+                                <div class="col-md-9">maheshwar</div>
+                            </div>
+                        </div>
+                    </div>
                 </div>
-			    <div id="contact"  class="row tab-pane">
-			    	<h3>Contact Info</h3>
-            		<div class="row info">
-            			<div class="col-md-3">Mobile No. <strong>:</strong></div>
-            			<div class="col-md-9">1234567890</div>
+			    <div id="contact"  class="tab-pane">
+                   
+                        <h3>Contact Info</h3>
+                        <div class="row info">
+                            <div class="col-md-3">Mobile No. <strong>:</strong></div>
+                            <div class="col-md-9">1234567890</div>
 
-            			<div class="col-md-3">Email Id<strong>:</strong></div>
-            			<div class="col-md-9">lavish@gmail.com</div>
-            		</div>
-            		<h3>Address Info</h3>
-            		<div class="row info">
-            			<div class="col-md-3">Address  <strong>:</strong></div>
-            			<div class="col-md-9">J-11 DHANVANTRI APPARTMENT M.O.G LINE</div>
+                            <div class="col-md-3">Email Id<strong>:</strong></div>
+                            <div class="col-md-9">lavish@gmail.com</div>
+                        </div>
+                        <h3>Address Info</h3>
+                        <div class="row info">
+                            <div class="col-md-3">Address  <strong>:</strong></div>
+                            <div class="col-md-9 address">J-11 DHANVANTRI APPARTMENT M.O.G LINE</div>
 
-            			<div class="col-md-3">Name of city/town/village <strong>:</strong></div>
-            			<div class="col-md-9">indore</div>
+                            <div class="col-md-3">Name of city/town/village <strong>:</strong></div>
+                            <div class="col-md-9">indore</div>
 
-            			<div class="col-md-3">Pin Code  <strong>:</strong></div>
-            			<div class="col-md-9">452001</div>
+                            <div class="col-md-3">Pin Code  <strong>:</strong></div>
+                            <div class="col-md-9">452001</div>
 
-            			<div class="col-md-3">State <strong>:</strong></div>
-            			<div class="col-md-9">madya pradesh</div>
+                            <div class="col-md-3">State <strong>:</strong></div>
+                            <div class="col-md-9">madya pradesh</div>
 
-            			<div class="col-md-3">Country <strong>:</strong></div>
-            			<div class="col-md-9">India</div>
-            		</div>
+                            <div class="col-md-3">Country <strong>:</strong></div>
+                            <div class="col-md-9">India</div>
+                        </div>
+                    
 			    </div>
-			    <div id="education"  class="row tab-pane">
-			    	<h3>Education</h3>
+			    <div id="education"  class="tab-pane">
+			    	    <h3>Education</h3>
                 		<div class="row info">
                 			<div class="col-md-3">Education <strong>:</strong></div>
                 			<div class="col-md-9">bachelor of engineering</div>

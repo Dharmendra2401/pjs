@@ -64,6 +64,28 @@ function showResult(str) {
      
   });
 
+  $(document).on('click', '.openBtn-feed',function(){
+    
+      $('.feeback-body').load('modal.html .feeback');
+  });
+
+  $(document).on('click', '.open-update',function(){
+    
+      $('.update-body').load('modal.html .death-update');
+  });
+
+   $(document).on('click', '.feedback-msg',function(){
+    
+      $('.feeback-body').load('modal.html .feedback-success');
+      return false;
+  });
+
+    $(document).on('click', '.update-msg',function(){
+    
+      $('.update-body').load('modal.html .update-success');
+      return false;
+  });
+
   function displayInput(){
     $(".member-id").toggle();
       $(".done").hide();
