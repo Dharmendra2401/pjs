@@ -50,6 +50,11 @@ function showResult(str) {
       $('.modal-body').load('modal.html .adminform');
   });
 
+  $(document).on('click', '.submit-credential',function(){
+    
+      $('.modal-body').load('modal.html .verify-msg');
+  });
+
   $(document).on('click', '.login-signup', function(){
       $('.lgn-sgn-container').load('modal.html .lgn-sgn-wrapper');
   });

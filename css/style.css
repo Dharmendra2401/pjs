@@ -318,14 +318,19 @@
     height: 50px;
     border-radius: 50%;
     vertical-align: bottom;
+    position: static;
+    margin-left: 70px;
 }
 
 .user-list-box{
     width: 400px;
     padding: 10px;
-    border: 1px solid;
+    border: 1px solid #b7b7b7;
     margin: 20px;
     position: relative;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
 }
 
 .user-list ul li p{
@@ -334,16 +339,18 @@
     margin-bottom: 0;
 }
 .user-list-box .fa-heart{ 
-    font-size: 40px;
+    font-size: 30px;
     padding: 0 20px;
-    color: red;
+    color: #e83a3a;
+    position: absolute;
+    top: 21px;
 }
 
 .user-list-box .fa-trash-alt{
     position: absolute;
     top: 22px;
     right: 80px;
-    font-size: 30px;
+    font-size: 25px;
 }
 /*------------------------SAVED PROFILE ENDS------------------------------------*/
 
@@ -399,6 +406,8 @@
   }
 /*--------------------HEADER ENDS---------------------------*/
 
+/*--------------------USER DETAIL---------------------------*/
+
 .icon-mobile{
     position: absolute;
     right: -15px;
@@ -415,6 +424,11 @@
     width: 50%;
 }
 
+/*--------------------USER DETAIL ENDS---------------------------*/
+
+
+/*--------------------MODAL---------------------------*/
+
 .user-details h5 {
     margin-bottom: 20px;
 }
@@ -430,5 +444,40 @@
 .contact{
     width: 100%;
 }
+/*--------------------MODAL ENDS---------------------------*/
+
+
+/*--------------------SAVED PROFILE---------------------------*/
+.user-list-box {
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+.user-list-box .fa-heart {
+    font-size: 25px;
+    padding: 0 10px 0 10px;
+    color: #e83a3a;
+    position: absolute;
+    top: 21px;
+}
+
+.user-list-img {
+    width: 40px;
+    height: 40px;
+    position: static;
+    margin-left: 65px;
+}
+
+.user-list ul li p {
+    font-size: 14px;
+}
+
+.user-list-box .fa-trash-alt {
+    position: absolute;
+    top: 22px;
+    right: 37px;
+    font-size: 21px;
+}
+/*--------------------SAVED PROFILE ENDS---------------------------*/
  
 }
