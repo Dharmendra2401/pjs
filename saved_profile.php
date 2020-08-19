@@ -93,7 +93,7 @@
 				    </li>
 				    <li class="nav-item">
 				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Family</a>
-				      <div class="dropdown-menu family-dropdwn">
+				      <div class="dropdown-menu custom-dropdwn">
 					      <a class="dropdown-item" href="#">Family Tree</a>
 					      <a class="dropdown-item" href="#">Birthday's</a>
 					      <a class="dropdown-item open-update" type="button" data-toggle="modal" data-target="#update">Death Update</a>

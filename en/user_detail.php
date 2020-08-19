@@ -4,10 +4,10 @@
 	 <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
 	<link data-require="bootstrap-select@*" data-semver="1.13.5" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.css" />
-	<link rel="stylesheet" type="text/css" href="fontawesome5/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="css/style.css">
+	<link rel="stylesheet" type="text/css" href="../../fontawesome5/css/all.min.css">
+	<link rel="stylesheet" type="text/css" href="../../css/style.css">
 </head>
 <body>
 	<div class="container-fluid">
