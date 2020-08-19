@@ -35,7 +35,7 @@
 			<ul class="list-unstyled">
 				<li class="row">
 					<div class="col-1"> 1.</div>
-						<div class="col-11">
+						<div class="col-10">
 							<p class="points" onclick="displayInput()">
 							I have forgotten member id
 						    </p>
@@ -53,7 +53,7 @@
 			    </li>
 				<li class="row">
 					<div class="col-1">2.</div>
-					<div class="col-11">
+					<div class="col-10">
 					<p class="points" onclick="displayEmailInput()">I have forgotten member id and register mobile number</p>
 					<div class="email-id">
 						<div class="row">
@@ -69,7 +69,7 @@
 				</li>
 				<li class="row">
 					<div class="col-1"> 3.</div>
-					<div class="col-11">
+					<div class="col-10">
 					<p class="points" onclick="displayDetailForm()">I want to update my mobile no. with new mobile no.</p>
 					<form class="update-number">
 							<h5 class="mb-2">Enter The Following Details</h5>
@@ -139,7 +139,7 @@
 				</li>
 				<li class="row">
 					<div class="col-1"> 4.</div>
-					<div class="col-11">
+					<div class="col-10">
 						<p class="forgot-credential" onclick="displayForm()">Forgot all login credentials?</p>
 						<form class="forgot-login">
 							<h5 class="mb-2">Enter The Following Details</h5>
@@ -216,137 +216,144 @@
 <div class="modal-content credential-msg">
     <div class="modal-header">
       <button type="button" id="close-login" class="close" data-dismiss="modal">&times;</button>
-    </div> 
+    </div>
     <div class="modal-body">
 		<div class="my-auto">
 			<p>Your details has been sent to admin for verification</p>
-	    <p>You will receive a callback soon on your new phone number</p>
+	        <p>You will receive a callback soon on your new phone number</p>
 		</div>
     </div>
 </div>
 
-
-<div class="modal-content adminform">
-    <div class="">
-      <button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
-    </div> 
-    <div class="modal-body">
-		<form>
-			<div class="form-group row">
-			   <label class="col-md-3 col-form-label ">First Name</label>
-			   <div class="col-md-9">
-			   	   <input type="text" class="form-control"  placeholder="Enter First Name">
-			   </div>
-		    </div>
-		    <div class="form-group row">
-			   <label class="col-md-3 col-form-label ">Last Name</label>
-			   <div class="col-md-9">
-			   	   <input type="text" class="form-control"  placeholder="Enter Last Name">
-			   </div>
-		    </div>
-		    <div class="form-group row">
-			   <label class="col-md-3 col-form-label">Mobile No.</label>	
-			   <div class="col-md-9">
-			   	   <input type="number" class="form-control" placeholder="Enter Mobile no.">
-			   </div>
-			</div>
-			<div class="form-group row">
-			   <label class="col-md-3 col-form-label">Email Id</label>	
-			   <div class="col-md-9">
-			   	  <input type="email" class="form-control" placeholder="Enter Email Id">
-			   </div>
-			</div>
-			<div class="form-group row">
-			   <label class="col-md-3 col-form-label">Address</label>
-			   <div class="col-md-9">
-			   	  <textarea class="form-control" rows="4"></textarea>
-			   </div>
-			</div>
-			<div class="text-right">
-				<small class="d-block">Send contact request to admin</small>
-			    <button type="button" class="btn btn-primary submit-credential">Send</button>
-			</div>
-		</form>
+ 
+<form class="adminform">
+	<div class="form-group row">
+	   <label class="col-md-3 col-form-label ">First Name</label>
+	   <div class="col-md-9">
+	   	   <input type="text" class="form-control"  placeholder="Enter First Name">
+	   </div>
     </div>
-</div>
+    <div class="form-group row">
+	   <label class="col-md-3 col-form-label ">Last Name</label>
+	   <div class="col-md-9">
+	   	   <input type="text" class="form-control"  placeholder="Enter Last Name">
+	   </div>
+    </div>
+    <div class="form-group row">
+	   <label class="col-md-3 col-form-label">Mobile No.</label>	
+	   <div class="col-md-9">
+	   	   <input type="number" class="form-control" placeholder="Enter Mobile no.">
+	   </div>
+	</div>
+	<div class="form-group row">
+	   <label class="col-md-3 col-form-label">Email Id</label>	
+	   <div class="col-md-9">
+	   	  <input type="email" class="form-control" placeholder="Enter Email Id">
+	   </div>
+	</div>
+	<div class="form-group row">
+	   <label class="col-md-3 col-form-label">Address</label>
+	   <div class="col-md-9">
+	   	  <textarea class="form-control" rows="4"></textarea>
+	   </div>
+	</div>
+	<div class="text-right">
+		<small class="d-block">Send contact request to admin</small>
+	    <button type="button" class="btn btn-primary submit-credential">Send</button>
+	</div>
+</form>
+
+
 
 <!----------------------FEEDBACK------------------------------>
-<div class="feeback">
+<div class="row feeback">
 	<div class="col-md-10 offset-md-1">
-		<h3 class="text-center mb-2">Feedback Form</h3>
+		<h3 class="text-center mb-3">Feedback Form</h3>
 		<form>
 			<div class="row">
 				<div class="col-md-5">
-					<p>Feedback Type</p>
+					<label>Feedback Type</label>
 				</div>
 				<div class="col-md-7">
-					<select>
+					<div class="form-group">
+						<select class="form-control">
 					    <option value="">Select feedback type</option>
 					    <option value="">1</option>
 					    <option value="">2</option>
 					    <option value="">3</option>
 					</select>
+					</div>
 				</div>
 				<div class="col-md-5">
-					<p>Feedback</p>
+					<label>Feedback</label>
 				</div>
 				<div class="col-md-7">
-					<textarea cols="30" placeholder="write your feedback here"></textarea>
-					<button class="btn btn-primary float-right" type="submit">Submit</button>
+					<div class="form-group">
+						<textarea cols="30" class="form-control" placeholder="write your feedback here"></textarea>
+					</div>
+					<button class="btn btn-primary float-right feedback-msg" type="submit">Submit</button>
 				</div>
 			</div>
 		</form>
 	</div>
 </div>
-   
+
+<div class="feedback-success text-center">
+	<h6>Thank you.Your feedback has been recorded.</h6>
+</div>
 
 <!-------------------------------UPDATE------------------------------>
-<div class="modal-content death-update">
-    <div class="">
-      <button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
-    </div> 
-    <div class="modal-body">
-		<div class="row">
-			<div class="col-md-10 offset-md-1">
-				<h3 class="text-center mb-3">Request for Death Update</h3>
-				<form>
-					<div class="row">
-						<div class="col-md-5">
-							<p>Member Id</p>
-						</div>
-						<div class="col-md-7">
-							<input type="number" name="">
-						</div>
-						<div class="col-md-5">
-							<p>Date of Death</p>
-						</div>
-						<div class="col-md-7">
-							<input type="date" name="">
-							<button class="btn btn-primary float-right mt-2" type="submit">Submit</button>
-						</div>
+<div class="row death-update">
+	<div class="col-md-10 offset-md-1">
+		<h3 class="text-center mb-3">Request for Death Update</h3>
+		<form>
+			<div class="row">
+				<div class="col-md-5">
+					<label>Member Id</label>
+				</div>
+				<div class="col-md-7">
+					<div class="form-group">
+						<input class="form-control" type="number" name="">
 					</div>
-				</form>
+				</div>
+				<div class="col-md-5">
+					<label>Date of Death</label>
+				</div>
+				<div class="col-md-7">
+					<div class="form-group">
+						 <input class="form-control" type="date" name="">
+					</div>
+					<button class="btn btn-primary float-right mt-2 update-msg" type="submit">Submit</button>
+				</div>
 			</div>
-		</div>
+		</form>
 	</div>
 </div>
 
+<div class="update-success text-center">
+	<h6>Your request has been sent to admin.</h6>
+</div>
 
 <div class="modal-content contact-content">
-    <div class="">
-      <button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
-    </div> 
+    <div class="modal-header">
+    	<!-- <h4 class="modal-title">To proceed please login / signup</h4> -->
+      <button type="button" id="close-login" class="close" data-dismiss="modal">&times;</button>
+    </div>
     <div class="modal-body">
 		<div class="row">
 		  	  <div class="col-md-6 border-dark border-right text-center">
-			  	  	<p class="mb-0">xyz Jain ?</p>
-			  	  	<p>To proceed please login</p>	
-			  	  	<button type="button" class="btn btn-secondary open-login">Login</button>
-			  	  	<a href="signup.php" class="btn btn-secondary">SignUp</a>
+			  	  	<h5 class="mb-0">xyz Jain ?</h5>
+			  	  	<h5>To proceed please login</h5>
+			  	  	<div class="my-4">
+			  	  		<button type="button" class="btn btn-primary open-login">Login</button>
+			  	  	    <a href="signup.php" class="btn btn-primary signup-sm">SignUp</a>
+			  	  	</div>	
 		  	  </div>
 		  	  <div class="col-md-6 text-center">
-		  	  	   <p>Others who still want to cnnect</p>	
-		  	  	   <button type="button" class="btn btn-secondary contact">Contact Admin</button>
+		  	  	   <h5>Others who still want to connect</h5>
+		  	  	   <div class="my-4">
+		  	  	   	   <button type="button" class="btn btn-primary contact">Contact Admin</button>
+		  	  	   </div>	
 		  	  </div>
 		</div>
     </div>
@@ -355,18 +362,19 @@
 
 
 <div class="modal-content lgn-sgn-wrapper">
-    <div class="">
-      <button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
-    </div> 
-    <div class="modal-body">
-		<p class="mb-5">To proceed please login / signup</p>	
-	  	<button type="button" class="btn btn-secondary open-login">Login</button> 
-	  	<a href="signup.php" class="btn btn-secondary">SignUp</a>
+    <div class="modal-header">
+    	<h4 class="modal-title">To proceed please login / signup</h4>
+      <button type="button" id="close-login" class="close" data-dismiss="modal">&times;</button>
+    </div>
+    <div class="modal-body text-center">
+		<!-- <p class="mb-5">To proceed please login / signup</p>	 -->
+	  	<button type="button" class="btn btn-primary open-login mr-3">Login</button> 
+	  	<a href="signup.php" class="btn btn-primary signup-sm">SignUp</a>
 	</div>
 </div>
 
 <!-- -----------------------VERIFY CONTACT MODAL-------------------- -->
 <div class="verify-msg text-center">
-	<p>Your request has been sent to admin for further verifation</p>
+	<h6>Your request has been sent to admin for further verifation</h6>
 </div>
 <!-- -----------------------VERIFY CONTACT MODAL ENDS-------------------- -->

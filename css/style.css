@@ -1,4 +1,11 @@
 /*----------------------GLOBAL CSS---------------------------------------*/
+body{
+    color: #2c2c2c;
+}
+.btn-primary{
+    background-color: #446eb6;
+    border-color: #446eb6;
+}
 .modal-content{
     border: 0px;
 }
@@ -22,6 +29,28 @@
 /*----------------------GLOBAL CSS ENDS---------------------------------------*/
 
 /*-----------------------HEADER----------------------------------------------*/
+.mobile-menu-icon {
+    display: none;
+}
+
+.fa-language{
+    font-size: 30px;
+    vertical-align: middle;
+    padding-right: 15px;
+    color: #b5b5b5;
+}
+
+.fa-bell{
+    font-size: 30px;
+    vertical-align: middle;
+    padding-right: 15px;
+    color: #b5b5b5;
+}
+
+.input-group-text{
+    background-color: #72bf55;
+}
+
 #livesearch{
     display: none;
     border: 1px solid rgb(212, 212, 212);
@@ -195,7 +224,7 @@
 .user-img{
     height: 150px;
     width: 150px;
-    border-radius: 50%;
+    border-radius: 5px;
     object-fit: cover;
 }
 
@@ -211,8 +240,33 @@
     border: none;
 }
 
+.tab-bar .nav-tabs .active{
+    background-color: #fda619;
+    border-color: transparent;
+}
+
+.tab-bar .nav-tabs .nav-item{
+    position: relative;
+}
+
+.tab-bar .nav-tabs .active .triangle-down {
+    width: 0;
+    height: 0;
+    border-left: 15px solid transparent;
+    border-right: 15px solid transparent;
+    border-top: 20px solid #fda619;
+    position: absolute;
+    left: 20px;
+    right: 0;
+    bottom: -20px;
+}
+
 .tab-bar .nav-tabs .nav-link{
     color: #000000;
+}
+
+.tab-bar .nav-tabs .nav-link:hover {
+    border-color: transparent;
 }
 
 .user-container{
@@ -220,6 +274,12 @@
     background-image: linear-gradient(#446eb6, #3eb8e9);
     padding-top: 20px;
     padding-bottom: 20px;
+    display: -ms-flexbox;
+    display: flex;
+    -ms-flex-wrap: wrap;
+    flex-wrap: wrap;
+    margin-right: -15px;
+    margin-left: -15px;
 }
 
 .user-details h5{
@@ -232,6 +292,10 @@
 
 .user-details p strong{
     float: right;
+}
+
+.more-info{
+    display: none;
 }
 
 /*-------------USER DETAIL ENDS----------------------------------------------*/
@@ -279,14 +343,23 @@
     height: 50px;
     border-radius: 50%;
     vertical-align: bottom;
+    position: static;
+    margin-left: 70px;
 }
 
 .user-list-box{
     width: 400px;
     padding: 10px;
-    border: 1px solid;
+    border: 1px solid #b7b7b7;
     margin: 20px;
     position: relative;
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+}
+
+.user-list-box a{
+    color: #2c2c2c;
 }
 
 .user-list ul li p{
@@ -295,16 +368,18 @@
     margin-bottom: 0;
 }
 .user-list-box .fa-heart{ 
-    font-size: 40px;
+    font-size: 30px;
     padding: 0 20px;
-    color: red;
+    color: #e83a3a;
+    position: absolute;
+    top: 21px;
 }
 
 .user-list-box .fa-trash-alt{
     position: absolute;
     top: 22px;
     right: 80px;
-    font-size: 30px;
+    font-size: 25px;
 }
 /*------------------------SAVED PROFILE ENDS------------------------------------*/
 
@@ -320,3 +395,154 @@
     display:none;
 }*/
 /*------------------------MODEL ENDS------------------------------------*/
+
+
+/*--------------------MEDIA QUERY---------------------------------------*/
+@media only screen and (max-width: 600px) {
+/*-------------------------GLOBAL------------------------*/
+.sm-tr{
+    text-align: right;
+}
+
+.sm-mt10{
+  margin-top: 10px;
+}
+/*-------------------------GLOBAL ENDS-------------------*/
+
+/*--------------------HEADER---------------------------*/
+  .sm-image{
+    height: 70px;
+    width: 70px;
+    object-fit: cover;
+  }
+  .sm-icon-alert{
+    position: absolute;
+    top: -98px;
+    right: -10px;
+    font-size: 20px;
+  }
+
+  .sm-icon-language{
+    position: absolute;
+    top: -99px;
+    right: 18px;
+    font-size: 20px;
+  }
+
+  .mobile-menu-icon {
+    display: inline;
+    position: absolute;
+    top: 10px;
+    left: 10px;
+    font-size: 20px;
+  }   
+  .navbar-menu{
+    display: none;
+    width: 60%;
+    position: absolute;
+    top: 40px;
+  }  
+  .sm-image-wrapper{
+     text-align: center;
+  }
+
+   .open-login{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+/*--------------------HEADER ENDS---------------------------*/
+
+/*--------------------USER DETAIL---------------------------*/
+
+.icon-mobile{
+    position: absolute;
+    right: -15px;
+    top: -35px;
+    background: #70c5a4;
+}
+
+.icon-mobile i{
+    display: block; 
+    padding: 15px 5px;
+}
+
+.tab-bar .nav-tabs .nav-item{
+    width: 50%;
+}
+
+/*--------------------USER DETAIL ENDS---------------------------*/
+
+
+/*--------------------MODAL---------------------------*/
+
+.user-details h5 {
+    margin-bottom: 20px;
+}
+
+.user-details{
+    margin-bottom: 5px;
+}
+
+.signup-sm{
+    width: 100%;
+}
+
+.contact{
+    width: 100%;
+}
+/*--------------------MODAL ENDS---------------------------*/
+
+
+/*--------------------SAVED PROFILE---------------------------*/
+.user-list-box {
+    width: 100%;
+    margin: 20px 0 0 0;
+}
+
+.user-list-box .fa-heart {
+    font-size: 25px;
+    padding: 0 10px 0 10px;
+    color: #e83a3a;
+    position: absolute;
+    top: 21px;
+}
+
+.user-list-img {
+    width: 40px;
+    height: 40px;
+    position: static;
+    margin-left: 65px;
+}
+
+.user-list ul li p {
+    font-size: 14px;
+}
+
+.user-list-box .fa-trash-alt {
+    position: absolute;
+    top: 22px;
+    right: 37px;
+    font-size: 21px;
+}
+/*--------------------SAVED PROFILE ENDS---------------------------*/
+
+/*--------------------PROFILE---------------------------*/
+.user-tab{
+    -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
+    margin: 20px 0;
+}
+
+.user-profile .info> div:nth-of-type(even){
+    line-height: 10px;
+    margin-bottom: 20px;
+}
+
+.address{
+   line-height: 18px !important;
+}
+/*--------------------PROFILE ENDS---------------------------*/
+ 
+}

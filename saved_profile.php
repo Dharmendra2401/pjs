@@ -4,7 +4,7 @@
 	 <meta charset='utf-8'>
     <meta name='viewport' content='width=device-width, initial-scale=1'>
 	<title></title>
-	<link rel="stylesheet" type="text/css" href="bootstrap4/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" type="text/css" href="css/bootstrap.min.css">
 	<link data-require="bootstrap-select@*" data-semver="1.13.5" rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.5/css/bootstrap-select.css" />
 	<link rel="stylesheet" type="text/css" href="fontawesome5/css/all.min.css">
 	<link rel="stylesheet" type="text/css" href="css/style.css">
@@ -107,17 +107,19 @@
 			<div class="col-12">
 				<ul class="list-unstyled user-list">
 					<li class="user-list-box">
-						<ul class="list-unstyled list-inline">
-							<li class="list-inline-item">
-								<i class="fas fa-heart"></i>
-								<img class="user-list-img" src="images/dummy.png">
-							</li>
-							<li class="list-inline-item">
-								<p>Lavish Jain</p>
-						        <p>MID1234567</p>
-						        <i class="far fa-trash-alt"></i>
-							</li>
-					    </ul>
+						<a href="profile.php">
+							<ul class="list-unstyled list-inline">
+								<li class="list-inline-item">
+									<i class="fas fa-heart"></i>
+									<img class="user-list-img" src="images/dummy.png">
+								</li>
+								<li class="list-inline-item">
+									<p>Lavish Jain</p>
+							        <p>MID1234567</p>
+							        <i class="far fa-trash-alt"></i>
+								</li>
+						    </ul>
+					    </a>
 					</li>
 				</ul>
 			</div>
@@ -126,7 +128,7 @@
 </body>
 <script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-<script type="text/javascript" src="bootstrap4/dist/js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/bootstrap.min.js"></script>
 
 <script type="text/javascript">
 	$(document).on('click', '.openBtn-feed',function(){
