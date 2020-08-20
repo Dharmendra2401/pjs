@@ -10,7 +10,7 @@
 </head>
 <body>
     <div class="container-fluid">
-    	<div class="row">
+    	<div class="row bg-white">
     		<div class="col-md-3">
     			<img class="" width="110" src="images/flooop.png">
     		</div>
@@ -48,7 +48,7 @@
 				  </ul>
 				</nav>
 		    </div> -->
-		    <div class="col-md-2 user-tab">
+		    <div class="col-md-2 user-tab bg-color pt-3">
 		    	<ul class="nav nav-tabs">
 				    <li class="nav-item"><a class="nav-link active" href="#overview">Overview</a></li>
 				    <li class="nav-item"><a class="nav-link" href="#basic-info">Basic Info</a></li>
@@ -56,7 +56,7 @@
 				    <li class="nav-item"><a class="nav-link" href="#education">Education & Work</a></li>
 				</ul>
 			</div>
-			<div class="col-md-10 tab-content user-profile">	
+			<div class="col-md-10 tab-content user-profile shadow">	
                 <div id="overview" class="tab-pane active">
                     <div class="row">
                         <div class="col-md-12 tab">

@@ -1,7 +1,7 @@
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif">
 </div>
- <div class="row">
+ <div class="row bg-white">
             <div class="col-md-3 sm-image-wrapper">
             	<i class="fas fa-bars mobile-menu-icon"></i>
     			<img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/flooop.png">

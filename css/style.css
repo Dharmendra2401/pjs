@@ -1,7 +1,7 @@
 /*----------------------GLOBAL CSS---------------------------------------*/
 body{
     color: #2c2c2c;
-    background: #f1f1f1;
+    background: #eeeeee;
 }
 .btn-primary{
     background-color: #446eb6;
@@ -11,6 +11,10 @@ body{
 .btn-outline-primary{
     color: #446eb6;
     border-color: #446eb6;
+}
+
+.bg-color{
+    background-color: #eeeeee;
 }
 .modal-content{
     border: 0px;
@@ -335,6 +339,9 @@ body{
 
 .user-profile{
     line-height: 40px;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-bottom: 30px;
 }
 
 .user-profile .info> div:nth-of-type(even) {
@@ -360,6 +367,7 @@ body{
     border: 1px solid #b7b7b7;
     margin: 20px;
     position: relative;
+    background-color:#ffffff; 
     -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);

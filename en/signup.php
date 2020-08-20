@@ -14,7 +14,7 @@ include "../config/config.php";
     	
 		<?php include "header.php";  ?>
 		<div class="col-md-12"><?php echo show_message();?></div>
-		    <div class="col-md-2">
+		    <div class="col-md-2 bg-color pt-3">
 		    	<!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
 				  <a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Personal Details</a>
 
@@ -32,7 +32,7 @@ include "../config/config.php";
 			       <li class="step">Upload Photo</li>
 			    </ul>
 			</div>
-			<div class="col-md-10">	
+			<div class="col-md-10 shadow pt-4 mb-3">	
 			
 			<div class="formerror"></div>
 				<form class="container" id="regForm" method="post" action="formsubmit.php" enctype="multipart/form-data">
