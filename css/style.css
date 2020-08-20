@@ -1,12 +1,17 @@
 /*----------------------GLOBAL CSS---------------------------------------*/
 body{
     color: #2c2c2c;
-    background: #eeeeee;
+    background: #e8e8e8;
 }
 .btn-primary{
     background-color: #446eb6;
     border-color: #446eb6;
 }
+.btn-warning{
+    background-color: #fda619;
+    border-color: #fda619;
+}
+
 
 .btn-outline-primary{
     color: #446eb6;
@@ -16,6 +21,14 @@ body{
 .bg-color{
     background-color: #eeeeee;
 }
+
+.header{
+    text-align: center;
+    text-decoration: underline;
+    background: #70c5a4;
+    padding: 20px 0;
+}
+
 .modal-content{
     border: 0px;
 }
@@ -428,12 +441,23 @@ body{
 }
 
 .shadow{
-    border: 1px solid #e3e6f0;
+    /*border: 1px solid #e3e6f0;*/
     -webkit-box-shadow: 0px 2px 17px 2px rgba(0,0,0,0.55);
     -moz-box-shadow: 0px 2px 17px 2px rgba(0,0,0,0.55);
     box-shadow: 0px 2px 17px 2px rgba(0,0,0,0.55);
     background: #ffffff;
 }
+
+.admin-check-wrapper{
+    background: #c0c0c0;
+    padding: 20px 0;
+}
+
+.admin-check{
+    padding-right: 50px;
+    line-height: 22px;
+}
+
 
 
 

@@ -61,6 +61,7 @@
                     <div class="row">
                         <div class="col-md-12 tab">
                             <h3>Personal Info</h3>
+                            <hr>
                             <div class="row info mb-4">
                                 <div class="col-md-3">Full Name <strong>:</strong></div>
                                 <div class="col-md-9">lavish lokendra jain</div>
@@ -81,6 +82,7 @@
                                 <div class="col-md-9">5'9"</div>
                             </div>
                             <h3>Birth Details</h3>
+                            <hr>
                             <div class="row info mb-4">
                                 <div class="col-md-3">Date of Birth <strong>:</strong></div>
                                 <div class="col-md-9">lavish lokendra jain</div>
@@ -92,6 +94,7 @@
                                 <div class="col-md-9">male</div>
                             </div>
                             <h3>Contact Info</h3>
+                            <hr>
                             <div class="row info mb-4">
                                 <div class="col-md-3">Mobile No. <strong>:</strong></div>
                                 <div class="col-md-9">1234567890</div>
@@ -100,6 +103,7 @@
                                 <div class="col-md-9">lavish@gmail.com</div>
                             </div>
                             <h3>Address Info</h3>
+                            <hr>
                             <div class="row info mb-4">
                                 <div class="col-md-3">Address <strong>:</strong></div>
                                 <div class="col-md-9">
@@ -109,11 +113,13 @@
                                 </div>
                             </div>
                             <h3>Education</h3>
+                            <hr>
                             <div class="row info mb-4">
                                 <div class="col-md-3">Education <strong>:</strong></div>
                                 <div class="col-md-9">bachelor of engineering</div>
                             </div>
                             <h3>Work</h3>
+                            <hr>
                             <div class="row info mb-4">
                                 <div class="col-md-3">Occupation <strong>:</strong></div>
                                 <div class="col-md-9">job/software engineer</div>
@@ -128,6 +134,7 @@
                     <div class="row">
                         <div class="col-md-12 tab">
                             <h3>Personal Info</h3>
+                            <hr>
                             <div class="row info mb-4">
                                 <div class="col-md-3">First Name <strong>:</strong></div>
                                 <div class="col-md-9">lavish</div>
@@ -154,6 +161,7 @@
                                 <div class="col-md-9">5'9"</div>
                             </div>
                             <h3>Birth Details</h3>
+                            <hr>
                             <div class="row info mb-4">
                                 <div class="col-md-3">Date of Birth <strong>:</strong></div>
                                 <div class="col-md-9">01/01/01</div>
@@ -170,6 +178,7 @@
 			    <div id="contact"  class="tab-pane">
                    
                         <h3>Contact Info</h3>
+                        <hr>
                         <div class="row info mb-4">
                             <div class="col-md-3">Mobile No. <strong>:</strong></div>
                             <div class="col-md-9">1234567890</div>
@@ -178,6 +187,7 @@
                             <div class="col-md-9">lavish@gmail.com</div>
                         </div>
                         <h3>Address Info</h3>
+                        <hr>
                         <div class="row info mb-4">
                             <div class="col-md-3">Address  <strong>:</strong></div>
                             <div class="col-md-9 address">J-11 DHANVANTRI APPARTMENT M.O.G LINE</div>
@@ -198,11 +208,13 @@
 			    </div>
 			    <div id="education"  class="tab-pane">
 			    	    <h3>Education</h3>
+                        <hr>
                 		<div class="row info mb-4">
                 			<div class="col-md-3">Education <strong>:</strong></div>
                 			<div class="col-md-9">bachelor of engineering</div>
                 		</div>
                 		<h3>Work</h3>
+                        <hr>
                 		<div class="row info mb-4">
                 			<div class="col-md-3">Occupation <strong>:</strong></div>
                 			<div class="col-md-9">job/software engineer</div>
