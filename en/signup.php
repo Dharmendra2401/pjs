@@ -111,13 +111,13 @@ include "../config/config.php";
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Blood Group</label>	
 								   <div class="col-md-9">
 								   	   <!-- <input type="text" class="form-control" placeholder="Enter blood group" name="bloodgroup" id="bloodgroup"> -->
-								   	   <select class="form-control">
-								   	   	      <option>Select your blood group</option>
-								   	   	      <option>A+</option>
-								   	   	      <option>B+</option>
-								   	   	      <option>AB+</option>
-								   	   	      <option>O+</option>
-								   	   	      <option>O-</option>
+								   	   <select class="form-control" name="bloodgroup">
+								   	   	      <option value="">Select your blood group</option>
+								   	   	      <option value="1">A+</option>
+								   	   	      <option value="2">B+</option>
+								   	   	      <option value="3">AB+</option>
+								   	   	      <option value="4">O+</option>
+								   	   	      <option value="5">O-</option>
 								   	   </select>
 								   </div>
 								</div>

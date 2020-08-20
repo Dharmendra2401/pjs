@@ -22,7 +22,7 @@ define('TITLE_SITE','');
 
 define('META_DESCRIPTION', "");
 define('META_KEYWORDS', "");
-define('COMPANY_NAME', "CGFH");
+define('COMPANY_NAME', "");
 define('COMPANY_URL', "");
 define("MSG_ERROR","danger");
 define("MSG_SUCCESS","success");
