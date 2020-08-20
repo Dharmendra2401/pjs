@@ -1,10 +1,20 @@
 /*----------------------GLOBAL CSS---------------------------------------*/
 body{
     color: #2c2c2c;
+    background: #eeeeee;
 }
 .btn-primary{
     background-color: #446eb6;
     border-color: #446eb6;
+}
+
+.btn-outline-primary{
+    color: #446eb6;
+    border-color: #446eb6;
+}
+
+.bg-color{
+    background-color: #eeeeee;
 }
 .modal-content{
     border: 0px;
@@ -48,7 +58,8 @@ body{
 }
 
 .input-group-text{
-    background-color: #72bf55;
+    background-color: #446eb6;
+    color: #ffffff;
 }
 
 #livesearch{
@@ -71,7 +82,7 @@ body{
     padding: 5px 20px;
 }
 
-.family-dropdwn{
+.custom-dropdwn{
     left: unset;
 }
 
@@ -328,6 +339,9 @@ body{
 
 .user-profile{
     line-height: 40px;
+    padding-top: 20px;
+    padding-left: 20px;
+    margin-bottom: 30px;
 }
 
 .user-profile .info> div:nth-of-type(even) {
@@ -353,6 +367,7 @@ body{
     border: 1px solid #b7b7b7;
     margin: 20px;
     position: relative;
+    background-color:#ffffff; 
     -webkit-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
     -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
@@ -395,6 +410,39 @@ body{
     display:none;
 }*/
 /*------------------------MODEL ENDS------------------------------------*/
+
+
+
+
+
+
+/*---------------------------------------------ADMIN CSS----------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------*/
+.loggedin{
+    display: initial;
+}
+
+.ticket-header{
+    padding-top: 40px;
+    text-decoration: underline;
+}
+
+.shadow{
+    border: 1px solid #e3e6f0;
+    -webkit-box-shadow: 0px 2px 17px 2px rgba(0,0,0,0.55);
+    -moz-box-shadow: 0px 2px 17px 2px rgba(0,0,0,0.55);
+    box-shadow: 0px 2px 17px 2px rgba(0,0,0,0.55);
+    background: #ffffff;
+}
+
+
+
+/*---------------------------------------------ADMIN CSS ENDS------------------------------------------*/
+/*----------------------------------------------------------------------------------------------------*/
+
+
+
+
 
 
 /*--------------------MEDIA QUERY---------------------------------------*/

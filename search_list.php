@@ -35,8 +35,8 @@
 				    LOGIN/SIGUP
 				  </button> -->
 				  <div class="dropdown">
-				    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
-				      loggedin
+				    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+				      Username
 				    </button>
 				    <div class="dropdown-menu">
 				      <a class="dropdown-item" href="profile.php">View & update profile</a>
@@ -51,7 +51,7 @@
 			 <div class="modal fade loginPopup" id="feed">
 			    <div class="modal-dialog modal-dialog-centered">
 			      <div class="modal-content">
-			        <div class="">
+			        <div class="modal-header">
 			          <button type="button" id="closeModal1" class="close mr-3" data-dismiss="modal">&times;</button>
 			        </div>
 				        <div class="modal-body feeback-body">
@@ -64,7 +64,7 @@
 		    <div class="modal fade loginPopup" id="update">
 			    <div class="modal-dialog modal-dialog-centered">
 			      <div class="modal-content">
-			        <div class="">
+			        <div class="modal-header">
 			          <button type="button" id="closeModal1" class="close mr-3" data-dismiss="modal">&times;</button>
 			        </div>
 				        <div class="modal-body update-body">
@@ -110,16 +110,25 @@
 						<a href="profile.php">
 							<ul class="list-unstyled list-inline">
 								<li class="list-inline-item">
-									<i class="fas fa-heart"></i>
 									<img class="user-list-img" src="images/dummy.png">
 								</li>
 								<li class="list-inline-item">
 									<p>Lavish Jain</p>
 							        <p>MID1234567</p>
-							        <i class="far fa-trash-alt"></i>
 								</li>
 						    </ul>
 					    </a>
+					</li>
+					<li class="user-list-box">
+						<ul class="list-unstyled list-inline">
+							<li class="list-inline-item">
+								<img class="user-list-img" src="images/dummy.png">
+							</li>
+							<li class="list-inline-item">
+								<p>Lavish Jain</p>
+						        <p>MID1234567</p>
+							</li>
+					    </ul>
 					</li>
 				</ul>
 			</div>
@@ -129,15 +138,6 @@
 <script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="js/bootstrap.min.js"></script>
+<script type="text/javascript" src="js/main.js"></script>
 
-<script type="text/javascript">
-	$(document).on('click', '.openBtn-feed',function(){
-		
-	    $('.feeback-body').load('modal.html .feeback');
-	});
-	$(document).on('click', '.open-update',function(){
-		
-	    $('.update-body').load('modal.html .death-update');
-	});
-</script>
 </html>
