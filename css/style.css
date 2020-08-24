@@ -533,6 +533,22 @@ body{
 }
 /*---------------------LOGIN PAGE ENDS----------------------------*/
 
+
+/*---------------------REPORT PAGE----------------------------*/
+
+.sidebar{
+   /*padding: 10px 20px;*/
+}
+.sidebar li{
+   cursor: pointer;
+   padding: 10px 20px;
+}
+
+.sidebar li i{
+  float: right;
+}
+/*---------------------REPORT PAGE ENDS----------------------------*/
+
 .loggedin{
     display: initial;
 }
