@@ -1,5 +1,5 @@
 <?php
-//error_reporting(0);
+error_reporting(0);
 
 session_start();
 $host="localhost";
@@ -14,7 +14,6 @@ define('RE_HOME_PATH', "http://localhost/pjs_user/");
 define('RE_EN_PATH', "http://localhost/pjs_user/en/");
 define('RE_HOME_USER', "http://localhost/pjs_user/en/user/"); 
 define('RE_HOME_ADMIN', "http://localhost/pjs_user/en/admin/"); 
-//define('RE_ADMIN_PATH', "http://alldemo.in/apartment/admin/"); 
 define('WEBSITE_NAME','PJS');
 define('TITLE','PJS');
 define('TITLE_SITE','');
@@ -50,10 +49,11 @@ return $text;
 
 function admin_session_check()
 {
-    if($_SESSION['utype']=='')
+    if(($_SESSION['admin_email']=='') && ($_SESSION['admin_id']=='') )
     {	
     redirect(RE_HOME_ADMIN."index.php","Session expired.~@~".MSG_ERROR);
     }
+   
 }
 
 function user_session_check()
@@ -63,4 +63,9 @@ function user_session_check()
 	redirect(RE_EN_PATH."login.php","Session expired.~@~".MSG_ERROR);
 	}
 }	
+
+
+
+
+
 ?>

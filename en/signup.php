@@ -1,5 +1,4 @@
 <?php 
-
 include "../config/config.php";
 ?>
 
@@ -117,7 +116,10 @@ include "../config/config.php";
 								   	   	      <option value="2">B+</option>
 								   	   	      <option value="3">AB+</option>
 								   	   	      <option value="4">O+</option>
-								   	   	      <option value="5">O-</option>
+											   <option value="5">A-</option>
+								   	   	      <option value="6">B-</option>
+								   	   	      <option value="7">AB-</option>
+								   	   	      <option value="8">O-</option>
 								   	   </select>
 								   </div>
 								</div>
@@ -201,7 +203,8 @@ include "../config/config.php";
 								          <option value="1">Job</option>
 										  <option value="2">Bussiness</option>
 										  <option value="3">Housewife</option>
-										  <option value="3">Student</option>
+										  <option value="4">Student</option>
+										  <option value="5">Nothing</option>
 										  
 
 										  
@@ -274,41 +277,11 @@ include "../config/config.php";
 <?php  include "../script.php" ;?>
 
 <script>
-$(document).ready(function(){
-			$("#getcity").load("getcity.php");
-			$("#getpincode").load("getpincode.php");
-	
-});
 
 
 
-function getCity(){
-var state= $('#state').val();
-$('#loadergif').fadeIn();
-$.ajax({
-type:"POST",
-url:"getcity.php",
-data:{"state":state},
-success:function(data12){
-$("#getpincode").load("getpincode.php");
-$('#getcity').html(data12);
-$('#loadergif').fadeOut();
-}
-});
-}
-function getpincodes(){
-var city= $('#city').val();
-$('#loadergif').fadeIn();
-$.ajax({
-type:"POST",
-url:"getpincode.php",
-data:{"city":city},
-success:function(data122){
-$('#getpincode').html(data122);
-$('#loadergif').fadeOut();
-}
-});
-}
+
+
 
 
 

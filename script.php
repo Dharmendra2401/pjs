@@ -14,6 +14,13 @@
 <script type="text/javascript" src="<?php echo RE_HOME_PATH ; ?>js/main.js"></script>
 
 <script>
+$(document).ready(function(){
+			$("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
+			$("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
+	
+});
+
+
 function isNumeric (evt) {
    var theEvent = evt || window.event;
    var key = theEvent.keyCode || theEvent.which;
@@ -24,4 +31,33 @@ function isNumeric (evt) {
    if(theEvent.preventDefault) theEvent.preventDefault();
    }
    }
+
+
+function getCity(){
+var state= $('#state').val();
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"<?php echo RE_EN_PATH; ?>getcity.php",
+data:{"state":state},
+success:function(data12){
+$("#getpincode").load("getpincode.php");
+$('#getcity').html(data12);
+$('#loadergif').fadeOut();
+}
+});
+}
+function getpincodes(){
+var city= $('#city').val();
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"<?php echo RE_EN_PATH; ?>getpincode.php",
+data:{"city":city},
+success:function(data122){
+$('#getpincode').html(data122);
+$('#loadergif').fadeOut();
+}
+});
+}
 </script>

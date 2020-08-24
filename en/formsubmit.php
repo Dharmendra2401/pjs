@@ -25,6 +25,8 @@ $highest=mysqli_real_escape_string($con,trim( $_REQUEST['highest']));
 $occupation=mysqli_real_escape_string($con,trim( $_REQUEST['occupation']));
 $details=mysqli_real_escape_string($con,trim( $_REQUEST['details']));
 $income=mysqli_real_escape_string($con,trim( $_REQUEST['income']));
+$submitdate=date('Y-m-d');
+
 $file='';
 $file_namees=$_FILES["profile"]["name"]; 
  $file_tmpps=$_FILES["profile"]["tmp_name"];
@@ -40,10 +42,11 @@ $file_namees=$_FILES["profile"]["name"];
 
     
     }
+    
 
-if(($firstname!='')&& ($middlename!='') && ($lastname!='') && ($dob!='') && ($gender!='')&& ($mobileno!='')&& ($status!='')&& ($email!='')&& ($bloodgroup!='')&& ($country!='')&& ($state!='')&& ($city!='')&& ($address!='')&& ($pincode!='')&& ($highest!='')&& ($occupation!='')&& ($income!='')){
+if(($firstname!='')&& ($lastname!='') && ($dob!='') && ($gender!='')&& ($mobileno!='')&& ($status!='')&& ($email!='')&& ($bloodgroup!='')&& ($country!='')&& ($state!='')&& ($city!='')&& ($address!='')&& ($pincode!='')&& ($highest!='')&& ($occupation!='')&& ($income!='')){
 
- $insert=mysqli_query($con,"insert into staging (FIRST_NAME,LAST_NAME,DATE_OF_BIRTH,GENDER,MARITAL_STATUS,BLOOD_GROUP,POPULAR_NAME,HEIGHT,country,state,city,pincode,Full_Address,HIGHEST_EDU,OCCUPATION,OCP_DETAILS,INCOME,DISPLAY_PIC,PLACE_OF_BIRTH,MOBILE,EMAIL,TIME_OF_BIRTH,MIDDLE_NAME)values('".$firstname."','".$lastname."','".date($dob,strtotime('Y-m-d'))."','".$gender."','".$status."','".$bloodgroup."','".$popularname."','".$height."','".$country."','".$state."','".$city."','".$pincode."','".$address."','".$highest."','".$occupation."','".$details."','".$income."','".$url12."','".$birthplace."','".$mobileno."','".$email."','".$birthtime."','".$middlename."')");
+ $insert=mysqli_query($con,"insert into staging (FIRST_NAME,LAST_NAME,DATE_OF_BIRTH,GENDER,MARITAL_STATUS,BLOOD_GROUP,POPULAR_NAME,HEIGHT,country,state,city,pincode,Full_Address,HIGHEST_EDU,OCCUPATION,OCP_DETAILS,INCOME,DISPLAY_PIC,PLACE_OF_BIRTH,MOBILE,EMAIL,TIME_OF_BIRTH,MIDDLE_NAME,SUBMIT_DATE)values('".$firstname."','".$lastname."','".date($dob,strtotime('Y-m-d'))."','".$gender."','".$status."','".$bloodgroup."','".$popularname."','".$height."','".$country."','".$state."','".$city."','".$pincode."','".$address."','".$highest."','".$occupation."','".$details."','".$income."','".$url12."','".$birthplace."','".$mobileno."','".$email."','".$birthtime."','".$middlename."','".$submitdate."')");
 
 redirect(RE_EN_PATH."signup.php","Successfully registered with us~@~".MSG_SUCCESS);
 }else{

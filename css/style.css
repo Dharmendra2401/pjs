@@ -226,6 +226,7 @@ body{
     width: 200px;
     height: 200px;
     border: 1px solid;
+    z-index: 0;
 }
 
 .pic-wrapper .profile-pic{
