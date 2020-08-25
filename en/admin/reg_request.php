@@ -1,5 +1,7 @@
 <?php 
 include "../../config/config.php";
+admin_session_check();
+
 ?>
 <!DOCTYPE>
 <html>

@@ -27,11 +27,11 @@ if($_REQUEST['city']!='')
 {$statu.= 'and City LIKE "'.$_REQUEST['city'].'"';}
 
 if($_REQUEST['submitdate']!='')
-{$statu.= 'and SUBMIT_DATE = "'.date('Y-m-d',strtotime($_REQUEST['submitdate'])).'"';}
+{$statu.= 'and record_inserted_dttm = "'.date('Y-m-d',strtotime($_REQUEST['submitdate'])).'"';}
 
 if(isset($_REQUEST['ustatus']))
 {$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
-$stat="staging where 1=1 $statu order by REQUEST_ID desc";
+$stat="staging_approval where 1=1 $statu order by REQUEST_ID desc";
 
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
@@ -42,16 +42,16 @@ $rest = mysqli_query($con,"SELECT * FROM ".$stat);
 $row_count=mysqli_num_rows($rest);
 $rs = mysqli_query($con,$query);
 while($row=mysqli_fetch_assoc($rs)){
-    $currentdate=$row['SUBMIT_DATE'];
+    $currentdate=$row['record_inserted_dttm'];
 			
 ?>
 
 <tr>
 					                <td><?php echo $count;  ?></td>
-					                <td><?php echo $row['FIRST_NAME'].' '.$row['MIDDLE_NAME'].' '.$row['LAST_NAME'] ?></td>
-					                <td><?php echo $row['City']; ?></td>
+					                <td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
+					                <td><?php echo $row['city']; ?></td>
 					                <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
-					                <td><a href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['REQUEST_ID']);?>">Show Details</a></td>
+					                <td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a></td>
 					            </tr>
 <?php $count++; }
 if($row_count<=0){
