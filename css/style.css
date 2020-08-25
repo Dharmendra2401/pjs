@@ -567,8 +567,8 @@ body{
 }
 
 .admin-check-wrapper{
-    background: #c0c0c0;
     padding: 20px 0;
+    border-top: 2px solid #c0c0c0;
 }
 
 .admin-check{
