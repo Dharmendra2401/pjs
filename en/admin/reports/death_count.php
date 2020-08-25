@@ -133,70 +133,50 @@
                 </ul>
 			</div>
 			<div class="col-md-10 bg-white shadow">
-				<h3 class="text-center pt-3">Registered Users</h3>
-				<div class="text-right">
-					<button class="btn btn-outline-primary my-4">Export</button>
-				</div>
-				
+				<h3 class="text-center py-3">Death Count</h3>
 		        <table id="openEntries" class="table table-striped table-bordered" style="width:100%">
 			        <thead>
 			            <tr>
 			                <th>S.no.</th>
-			                <th>User Name</th>
-			                <th>MID</th>
+			                <th>Name</th>
 			                <th>Mobile No.</th>
-			                <th>State</th>
-			                <th>C/T/V</th>
-			                <th>Gender</th>
-			                <th>Status</th>
+			                <th>Email Id</th>
+			                <th>Address</th>
+			                <th>Requested For</th>
 			                <th>Age</th>
-			                <th>Blood</th>
-			                <th>Occupation</th>
-			                <th>Income</th>
+			                <th>C/T/V</th>
 			            </tr>
 			        </thead>
 			        <tbody>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
+			                <td>req</td>
 			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Indore</td>
 			            </tr>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
+			                <td>req</td>
 			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Indore</td>
 			            </tr>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
+			                <td>req</td>
 			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Indore</td>
 			            </tr>
 			        </tbody>
 			    </table>

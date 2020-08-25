@@ -540,13 +540,30 @@ body{
 .sidebar{
    /*padding: 10px 20px;*/
 }
-.sidebar li{
+.sidebar .li{
    cursor: pointer;
    padding: 10px 20px;
+   border: 1px solid #969696;
 }
 
 .sidebar li i{
   float: right;
+}
+
+.filter-header{
+  background: #70c5a4;
+  padding: 20px 10px;
+}
+
+.filter-header .header-txt{
+  font-size: 20px;
+  font-weight: 500;
+}
+
+.filter-header .clr-txt{
+    float: right;
+    text-decoration: underline;
+    cursor: pointer;
 }
 /*---------------------REPORT PAGE ENDS----------------------------*/
 

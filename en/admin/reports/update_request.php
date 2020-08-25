@@ -133,70 +133,38 @@
                 </ul>
 			</div>
 			<div class="col-md-10 bg-white shadow">
-				<h3 class="text-center pt-3">Registered Users</h3>
-				<div class="text-right">
-					<button class="btn btn-outline-primary my-4">Export</button>
-				</div>
-				
+				<h3 class="text-center py-3">Update Request Report</h3>
 		        <table id="openEntries" class="table table-striped table-bordered" style="width:100%">
 			        <thead>
 			            <tr>
 			                <th>S.no.</th>
-			                <th>User Name</th>
+			                <th>Name</th>
 			                <th>MID</th>
-			                <th>Mobile No.</th>
-			                <th>State</th>
-			                <th>C/T/V</th>
-			                <th>Gender</th>
-			                <th>Status</th>
-			                <th>Age</th>
-			                <th>Blood</th>
-			                <th>Occupation</th>
-			                <th>Income</th>
+			                <th>New Mobile No.</th>
+			                <th>Old Mobile No.</th>
 			            </tr>
 			        </thead>
 			        <tbody>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
+			                <td>Mid1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
-			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>5836782394</td>
 			            </tr>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
+			                <td>Mid1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
-			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>5836782394</td>
 			            </tr>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
+			                <td>Mid1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
-			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>5836782394</td>
 			            </tr>
 			        </tbody>
 			    </table>

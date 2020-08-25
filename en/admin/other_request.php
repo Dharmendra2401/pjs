@@ -69,10 +69,10 @@
 				    <li class="nav-item">
 				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
 				      <div class="dropdown-menu custom-dropdwn">	
-					      <a class="dropdown-item" href="reg_request.php">Registered Users Count</a>
-					      <a class="dropdown-item" href="#">Death Count</a>
-					      <a class="dropdown-item" href="#">OPJ Requests Report</a>
-					      <a class="dropdown-item" href="#">Update Request Count</a>
+					      <a class="dropdown-item" href="reports/reg_users.php">Registered Users Count</a>
+					      <a class="dropdown-item" href="reports/death_count.php">Death Count</a>
+					      <a class="dropdown-item" href="reports/req_report.php">OPJ Requests Report</a>
+					      <a class="dropdown-item" href="reports/update_request.php">Update Request Count</a>
 					  </div>
 				    </li>
 				    <li class="nav-item">

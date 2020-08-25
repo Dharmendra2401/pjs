@@ -68,7 +68,7 @@
 				    </li>
 				    <li class="nav-item">
 				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
-				      <div class="dropdown-menu custom-dropdwn">	
+				     <div class="dropdown-menu custom-dropdwn">	
 					      <a class="dropdown-item" href="reg_users.php">Registered Users Count</a>
 					      <a class="dropdown-item" href="death_count.php">Death Count</a>
 					      <a class="dropdown-item" href="req_report.php">OPJ Requests Report</a>
@@ -77,12 +77,12 @@
 				    </li>
 				    <li class="nav-item">
 				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" href="#">Tickets</a>
-				       <div class="dropdown-menu custom-dropdwn">	
+				      <div class="dropdown-menu custom-dropdwn">	
 					      <a class="dropdown-item" href="../reg_request.php">New User Registration Requests</a>
 					      <a class="dropdown-item" href="../contact_request.php">OPJ Contact Requests</a>
 					      <a class="dropdown-item" href="../update_request.php">User Updation Requests</a>
 					      <a class="dropdown-item" href="../other_request.php">Fake/Duplicate/Death Requests </a>
-					   </div>
+					  </div>
 				    </li>
 				  </ul>
 				</nav>
@@ -133,70 +133,50 @@
                 </ul>
 			</div>
 			<div class="col-md-10 bg-white shadow">
-				<h3 class="text-center pt-3">Registered Users</h3>
-				<div class="text-right">
-					<button class="btn btn-outline-primary my-4">Export</button>
-				</div>
-				
+				<h3 class="text-center py-3">OPJ Requests Report</h3>
 		        <table id="openEntries" class="table table-striped table-bordered" style="width:100%">
 			        <thead>
 			            <tr>
 			                <th>S.no.</th>
-			                <th>User Name</th>
-			                <th>MID</th>
+			                <th>Name</th>
 			                <th>Mobile No.</th>
-			                <th>State</th>
-			                <th>C/T/V</th>
-			                <th>Gender</th>
-			                <th>Status</th>
-			                <th>Age</th>
-			                <th>Blood</th>
-			                <th>Occupation</th>
-			                <th>Income</th>
+			                <th>Email Id</th>
+			                <th>Address</th>
+			                <th>Requested For</th>
+			                <th>Response</th>
+			                <th>Reason</th>
 			            </tr>
 			        </thead>
 			        <tbody>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Lavish Jain(Mid1234567)</td>
+			                <td>Approved</td>
+			                <td>----</td>
 			            </tr>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Lavish Jain(Mid1234567)</td>
+			                <td>Approved</td>
+			                <td>----</td>
 			            </tr>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Lavish Jain(Mid1234567)</td>
+			                <td>Approved</td>
+			                <td>----</td>
 			            </tr>
 			        </tbody>
 			    </table>
