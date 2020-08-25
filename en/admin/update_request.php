@@ -114,7 +114,7 @@
 		    </div>
 			<div class="row">
 				<div class="col-md-12 tab-content">
-				    <div id="open" class="tab-pane active pb-3"><br>
+				    <div id="open" class="tab-pane table-responsive active pb-3"><br>
 				        <table id="openEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
 					            <tr>
@@ -164,7 +164,7 @@
 					        </tbody>
 					    </table>
 				    </div>
-				    <div id="pending" class="tab-pane fade"><br>
+				    <div id="pending" class="tab-pane table-responsive fade"><br>
 				    	<table id="pendingEntries" class="table table-striped table-bordered" style="width:100%">
 					         <thead>
 					            <tr>
@@ -214,7 +214,7 @@
 					        </tbody>
 					    </table>
 				    </div>
-				    <div id="closed" class="tab-pane fade"><br>
+				    <div id="closed" class="tab-pane table-responsive fade"><br>
 				    	<table id="closedEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
 					            <tr>

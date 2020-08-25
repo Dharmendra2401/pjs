@@ -82,7 +82,7 @@ admin_session_check();
 <?php  include 'load_open.php'; ?>
 
 				    </div>
-				    <div id="pending" class="tab-pane fade"><br>
+				    <div id="pending" class="tab-pane table-responsive fade"><br>
 				    	<table id="pendingEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
 					            <tr>
@@ -132,7 +132,7 @@ admin_session_check();
 					        </tbody>
 					    </table>
 				    </div>
-				    <div id="closed" class="tab-pane fade"><br>
+				    <div id="closed" class="tab-pane table-responsive fade"><br>
 				    	<table id="closedEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
 					            <tr>
