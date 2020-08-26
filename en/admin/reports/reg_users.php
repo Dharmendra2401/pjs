@@ -94,43 +94,126 @@
 				<div class="filter-header">
 					<span class="header-txt">Filters</span>  <span class="clr-txt">Clear All</span>
 				</div>
-				
-                <ul class="list-unstyled sidebar">
-                	<li class="li">
-                		<div>AGE</div>
-						<input type="range" id="myRange" value="" min="" max="">
-		                <div id="rangeValue">1</div>
-                	</li>
-                	<li class="li">
-                		<div class="state">
-                			<span>STATE</span>
-                		    <i class="fas fa-angle-down"></i>
-                		</div>
-                		<div class="search-wrapper">
-                			<input type="text" id="myInput" onkeyup="stateFilter()" placeholder="Search for names.." title="Type in a name">
+				<form class="mb-0">
+	                <ul class="list-unstyled sidebar">
+	                	<li class="collapse-wrapper">
+	                        <div id="age-filter">
+							  <div class="card card-body">
+							      <div>AGE</div>
+								  <input type="range" id="myRange" value="" min="" max="">
+				                  <div id="rangeValue">1</div>
+				                  <select id="age-filter" class="form-control" onchange="test();">
+				                  	    <option>select</option>
+				                  	    <option>1</option>
+				                  	    <option>2</option>
+				                  	    <option>3</option>
+				                  </select>
+				                  <!-- <p id="result">text</p> -->
+				                 
+							  </div>
+							</div>
+					    </li>
 
-						  <ul class="list-unstyled" id="myUL">
-						  <li>
-						  	<input type="checkbox" id="1" name="" value="">
-						  	<label>Gujurat</label>
-						  </li>
-						  <li>
-						  	<input type="checkbox" id="2" name="" value="">
-						  	<label>Madhya Pradesh</label>
-						  </li>
-
-						  <li>
-						  	<input type="checkbox" id="" name="" value="">
-						  	<label>Mahrashtra</label>
-						  </li>
-						  <li>
-						  	<input type="checkbox" id="" name="" value="">
-						  	<label>Karnataka</label>
-						  </li>
-						  </ul>
-                		</div>
-                	</li>
-                </ul>
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="state">
+							    <span class="float-left">STATE</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="state">
+							  <div class="card card-body">
+							      
+							  </div>
+							</div>
+					    </li>
+	                	<li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#gender" role="button" aria-expanded="false" aria-controls="gender">
+							    <span class="float-left">GENDER</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="gender">
+							  <div class="card card-body">
+							      <input type="radio" id="male"  value="male">
+								  <label for="male">Male</label><br>
+								  <input type="radio" id="female" value="female">
+								  <label for="female">Female</label><br>
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#status" role="button" aria-expanded="false" aria-controls="status">
+							    <span class="float-left">STATUS</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="status">
+							  <div class="card card-body">
+							      <input type="radio" id="single"  value="male">
+								  <label for="male">Single</label><br>
+								  <input type="radio" id="married" value="female">
+								  <label for="female">Married</label><br>
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#age" role="button" aria-expanded="false" aria-controls="age">
+							    <span class="float-left">AGE</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="age">
+							  <div class="card card-body">
+							      <select>
+							      	   <option>Select your age</option>
+							      	   <option>10</option>
+							      	   <option>20</option>
+							      	   <option>30</option>
+							      	   <option>40</option>
+							      </select>
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#blood-group" role="button" aria-expanded="false" aria-controls="blood-group">
+							    <span class="float-left">BLOOD GROUP</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="blood-group">
+							  <div class="card card-body">
+							      <select>
+							      	   <option>Select your blood group</option>
+							      	   <option>A+</option>
+							      	   <option>B+</option>
+							      	   <option>AB+</option>
+							      	   <option>O+</option>
+							      </select>
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#occupation" role="button" aria-expanded="false" aria-controls="occupation">
+							    <span class="float-left">OCUCUPATION</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="occupation">
+							  <div class="card card-body">
+							      <input class="form-control" type="text" name="" placeholder="enter your occupation">
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#income" role="button" aria-expanded="false" aria-controls="income">
+							    <span class="float-left">INCOME</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="income">
+							  <div class="card card-body">
+							      <input class="form-control" type="text" name="" placeholder="enter your income">
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper text-right">
+					        <a class="btn btn-primary"  href="#" role="button">APPLY</a>
+					    </li>
+	                </ul>
+                </form>
 			</div>
 			<div class="col-md-10 bg-white shadow">
 				<h3 class="text-center pt-3">Registered Users</h3>
@@ -209,39 +292,23 @@
     <script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-    <script type="text/javascript">
+   <script type="text/javascript">
     	
     	$(document).ready(function() {
 		    $('#openEntries, #pendingEntries, #closedEntries').DataTable();
 
-		    $('#myRange').mousemove(function(){
+		    $('#myRange').mousemove(function(){	
 			    $('#rangeValue').text($('#myRange').val());
 			});
 
-			 $(".state").click(function(){
-			    $(".search-wrapper").toggle();
-			    $("i").toggleClass("fa-angle-down fa-angle-up");
-			  });
+			function test() { 
+				var e = document.getElementById("age-filter");
+var result = e.options[e.selectedIndex].value;
+document.getElementById("result").innerHTML = result;
+			}
+            
+
 		} );
     </script>
-    <script>
-		function stateFilter() {
-		    var input, filter, ul, li, label, i, txtValue;
-		    input = document.getElementById("myInput");
-		    filter = input.value.toUpperCase();
-		    ul = document.getElementById("myUL");
-		    li = ul.getElementsByTagName("li");
-		    for (i = 0; i < li.length; i++) {
-		        label = li[i].getElementsByTagName("label")[0];
-		        txtValue = label.textContent || label.innerText;
-		        if (txtValue.toUpperCase().indexOf(filter) > -1) {
-		            li[i].style.display = "";
-		        } else {
-		            li[i].style.display = "none";
-		        }
-		    }
-		}
-</script>
-    
 </body>
 </html>

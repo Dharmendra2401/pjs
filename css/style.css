@@ -535,7 +535,7 @@ body{
 /*---------------------LOGIN PAGE ENDS----------------------------*/
 
 
-/*---------------------REPORT PAGE----------------------------*/
+/*---------------------REPORT FILTER----------------------------*/
 
 .sidebar{
    /*padding: 10px 20px;*/
@@ -547,7 +547,12 @@ body{
 }
 
 .sidebar li i{
-  float: right;
+  /*float: right;*/
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: #2c2c2c;
 }
 
 .filter-header{
@@ -565,7 +570,22 @@ body{
     text-decoration: underline;
     cursor: pointer;
 }
-/*---------------------REPORT PAGE ENDS----------------------------*/
+
+.collapse-wrapper{
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #969696;
+    position: relative;
+}
+
+.collapse-wrapper .collapse .card{
+    display: inherit;
+}
+
+.collapse-wrapper .btn:focus{
+    box-shadow: none;
+}
+/*---------------------REPORT FILTER ENDS----------------------------*/
 
 .loggedin{
     display: initial;
