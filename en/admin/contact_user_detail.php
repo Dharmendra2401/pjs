@@ -115,16 +115,43 @@
             	<div class="row">
             	<div class="col-md-6 text-center">
             		<label class="form-check-label admin-check">
-		                <input type="radio" class="form-check-input" checked>Approve
+		                <input type="radio" name="radio" class="form-check-input">Approve
 		            </label>
 		            <label class="form-check-label admin-check">
-		                <input type="radio" class="form-check-input">Reject
+		                <input type="radio" id="selectRadio" name="radio" class="form-check-input" onclick="selectReason()">Reject
 		            </label>
             	</div>
             	<div class="col-md-6 text-center">
+            		<button id="btnSubmit" class="btn btn-success">Submit</button>
             		<button class="btn btn-success verify-user">Verified & Forward to User</button>
             		<button class="btn btn-warning">Pending</button>
             		<button class="btn btn-danger">Back</button>
+            	</div>
+            	<div id="select-block"  class="col-md-12">
+    			    <label>Select reason for rejection</label>
+            		<div class="row">
+            			<div class="col-md-2">
+            				<input type="checkbox" name="">
+            				<label>Name</label>
+            			</div>
+            			<div class="col-md-2">
+            				<input type="checkbox" name="">
+            				<label>DOB</label>
+            			</div>
+            			<div class="col-md-2">
+            				<input type="checkbox" name="">
+            				<label>Address</label>
+            			</div>
+            			<div class="col-md-2">
+            				<input type="checkbox" name="">
+            				<label>State</label>
+            			</div>
+            			<div class="col-md-4 mr-5">
+            				<input type="checkbox" id="other" name="" onclick="selectOther()">
+            				<label>Other</label>
+            				<textarea id="reasonTxt" class="form-control" rows="3" placeholder="Describe yourself here..."></textarea>
+            			</div>
+            		</div>
             	</div>
             </div>
             </div>
@@ -135,5 +162,30 @@
 	<script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+
+    <script>
+		function selectReason() {
+		  var radio = document.getElementById("selectRadio");
+		  var block = document.getElementById("select-block");
+		  var btn = document.getElementById("btnSubmit");
+		  if (radio.checked == true){
+		    block.style.display = "block";
+		    btn.style.display = "initial";
+		  } else {
+		     block.style.display = "none";
+		     btn.style.display = "none";
+		  }
+    }
+
+    function selectOther() {
+          var checkOther = document.getElementById("other");
+		  var text = document.getElementById("reasonTxt");
+		  if (checkOther.checked == true){
+		    text.style.display = "block";
+		  } else {
+		     text.style.display = "none";
+		  }
+    }
+</script>
 </body>
 </html>
