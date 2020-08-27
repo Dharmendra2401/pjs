@@ -43,13 +43,13 @@ if ($_SESSION['admin_email']!=''){
 	?>
   <div class="dropdown loggedin">
 				    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-				      Admin
+				    Admin PJS
 				    </button>
 				    <div class="dropdown-menu custom-dropdwn mt-2">
 				     <!--  <a class="dropdown-item" href="profile.php">View & update profile</a>
 				      <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 				      <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
-				      <a class="dropdown-item" href="http://localhost/pjs_user/en/admin/logout_admin.php">Logout</a>
+				      <a class="dropdown-item" href="<?php echo  RE_HOME_ADMIN; ?>logout_admin.php">Logout</a>
 				    </div>
 				  </div>
 
@@ -84,6 +84,12 @@ if ($_SESSION['admin_email']!=''){
 				    <li class="nav-item">
 				      <a class="nav-link" href="#">Zones</a>
 				    </li>
+					<?php 
+
+if ($_SESSION['admin_email']!=''){
+
+	?>
+
 				    <li class="nav-item">
 				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
 				      <div class="dropdown-menu custom-dropdwn">	
@@ -96,12 +102,13 @@ if ($_SESSION['admin_email']!=''){
 				    <li class="nav-item">
 				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" href="#">Tickets</a>
 				      <div class="dropdown-menu custom-dropdwn">	
-					      <a class="dropdown-item" href="#">New User Registration Requests</a>
+					      <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN; ?>reg_request.php">New User Registration Requests</a>
 					      <a class="dropdown-item" href="#">OPJ Contact Requests</a>
 					      <a class="dropdown-item" href="#">User Updation Requests</a>
 					      <a class="dropdown-item" href="#">Fake/Duplicate/Death Requests </a>
 					  </div>
 				    </li>
+<?php } ?>
 				  </ul>
 				</nav>
 			</div>

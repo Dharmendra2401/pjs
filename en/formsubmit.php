@@ -3,6 +3,7 @@ include "../config/config.php";
 require_once("../library/upload.php");
 
 $firstname=mysqli_real_escape_string($con,trim( $_REQUEST['firstname']));
+$fathername=mysqli_real_escape_string($con,trim( $_REQUEST['fathername']));
 $middlename=mysqli_real_escape_string($con,trim( $_REQUEST['middlename']));
 $lastname=mysqli_real_escape_string($con,trim( $_REQUEST['lastname']));
 $popularname=mysqli_real_escape_string($con,trim( $_REQUEST['popularnamess']));
@@ -25,6 +26,7 @@ $highest=mysqli_real_escape_string($con,trim( $_REQUEST['highest']));
 $occupation=mysqli_real_escape_string($con,trim( $_REQUEST['occupation']));
 $details=mysqli_real_escape_string($con,trim( $_REQUEST['details']));
 $income=mysqli_real_escape_string($con,trim( $_REQUEST['income']));
+$age=mysqli_real_escape_string($con,trim( $_REQUEST['age']));
 $submitdate=date('Y-m-d H:i:s');
 
 $file='';
@@ -46,7 +48,7 @@ $file_namees=$_FILES["profile"]["name"];
 
 if(($firstname!='')&& ($lastname!='') && ($dob!='') && ($gender!='')&& ($mobileno!='')&& ($status!='')&& ($email!='')&& ($bloodgroup!='')&& ($country!='')&& ($state!='')&& ($city!='')&& ($address!='')&& ($pincode!='')&& ($highest!='')&& ($occupation!='')&& ($income!='')){
 
- $insert=mysqli_query($con,"insert into staging_approval (first_name,last_name,date_of_birth,gender,martial_status,blood_group,popular_name,height,country,state,city,pincode,full_address,highest_edu,occupation,ocp_details,income,display_pic,place_of_birth,mobile,email,time_of_birth,middle_name,record_inserted_dttm)values('".$firstname."','".$lastname."','".date($dob,strtotime('Y-m-d'))."','".$gender."','".$status."','".$bloodgroup."','".$popularname."','".$height."','".$country."','".$state."','".$city."','".$pincode."','".$address."','".$highest."','".$occupation."','".$details."','".$income."','".$url12."','".$birthplace."','".$mobileno."','".$email."','".$birthtime."','".$middlename."','".$submitdate."')");
+ $insert=mysqli_query($con,"insert into staging_approval (first_name,last_name,date_of_birth,gender,martial_status,blood_group,popular_name,height,country,state,city,pincode,full_address,highest_edu,occupation,ocp_details,income,display_pic,place_of_birth,mobile,email,time_of_birth,middle_name,record_inserted_dttm,fathers_name,age)values('".$firstname."','".$lastname."','".date($dob,strtotime('Y-m-d'))."','".$gender."','".$status."','".$bloodgroup."','".$popularname."','".$height."','".$country."','".$state."','".$city."','".$pincode."','".$address."','".$highest."','".$occupation."','".$details."','".$income."','".$url12."','".$birthplace."','".$mobileno."','".$email."','".$birthtime."','".$middlename."','".$submitdate."','".$fathername."','".$age."')");
 
 redirect(RE_EN_PATH."signup.php","Successfully registered with us~@~".MSG_SUCCESS);
 }else{

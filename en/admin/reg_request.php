@@ -21,6 +21,7 @@ admin_session_check();
 		
 		<div class="container shadow">
 			<h3 class="ticket-header">New User Registration Request</h3>
+			<?php echo show_message();?>
 			<div class="tab-bar">
 				<div class="row">
 					<div class="col-md-6">
@@ -28,9 +29,9 @@ admin_session_check();
 						    <li class="nav-item">
 						      <a class="nav-link active" data-toggle="tab" href="#open"><div class="triangle-down"></div>Open</a>
 						    </li>
-						    <li class="nav-item">
+						    <!-- <li class="nav-item">
 						      <a class="nav-link" data-toggle="tab" href="#pending"><div class="triangle-down"></div>Pending </a>
-						    </li>
+						    </li> -->
 						    <li class="nav-item">
 						      <a class="nav-link" data-toggle="tab" href="#closed"><div class="triangle-down"></div>Closed </a>
 						    </li>

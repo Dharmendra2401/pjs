@@ -41,11 +41,11 @@ include "../config/config.php";
 	                    		<div class="form-group row">
 	                    		   <label class="col-md-3 col-form-label "><span class="text-danger">*</span> First Name</label>
 								   <div class="col-md-9">
-								   	   <input type="text" class="form-control" name="firstname"  placeholder="Enter first name" id="firstname">
+								   	   <input type="text" class="form-control" name="firstname"  placeholder="Enter first name" id="firstname" onchange="return chechSrc();">
 								   </div>
 							    </div>
 								<div class="form-group row">
-								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Middle Name</label>
+								   <label class="col-md-3 col-form-label">Middle Name</label>
 								   <div class="col-md-9">
 								   	   <input type="text" class="form-control" placeholder="Enter middle name" name="middlename"  id="middlename">
 								   </div>
@@ -53,9 +53,23 @@ include "../config/config.php";
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Last Name</label>	
 								   <div class="col-md-9">
-								   	  <input type="text" class="form-control" placeholder="Enter last name" name="lastname" id="lastname">
+								   	  <input type="text" class="form-control" placeholder="Enter last name" name="lastname" id="lastname" onchange="return chechSrc();">
 								   </div>
 								</div>
+                                <div class="form-group row">
+								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Age </label>	
+								   <div class="col-md-9">
+								   	   <input type="tel" maxlength="3" class="form-control" placeholder="Enter age"  name="age" id="age"  onKeyPress="return isNumeric(event)">
+								   </div>
+								</div>
+
+								<div class="form-group row">
+								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Father's Name</label>	
+								   <div class="col-md-9">
+								   	  <input type="text" class="form-control" placeholder="Enter father name" name="fathername" id="fathername" onchange="return chechSrc();">
+								   </div>
+								</div>
+
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"> Popular Name</label>	
 								   <div class="col-md-9">
@@ -65,7 +79,7 @@ include "../config/config.php";
 								<div class="form-group row">
 								   <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Date of Birth	</label>	
 								   <div class="col-md-9">
-								   	  <input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob">
+								   	  <input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob" onchange="return chechSrc();">
 								   </div>
 								</div>
 								<div class="form-group row">
@@ -279,7 +293,36 @@ include "../config/config.php";
 <script>
 
 
+function chechSrc(){
+var firstname=$('#firstname').val();
+var lastname=$('#lastname').val();
+var fathername=$('#fathername').val();
+var dob=$('#dob').val();
 
+
+$.ajax({
+method:'POST',
+url:'checksrc.php',
+data:{'firstname':firstname,'lastname':lastname,'fathername':fathername,'dob':dob},
+success:function(verify){
+if(verify>0){swal({
+  title: "Sorry!",
+  text: "User already exist!",
+  icon: "error",
+  button: "ok",
+});
+$("#firstname").val('');
+$("#lastname").val('');
+$("#dob").val('');
+$("#fathername").val('');
+}
+
+}
+
+})
+
+
+}
 
 
 
@@ -338,6 +381,7 @@ function validateForm() {
   if(currentTab==0){
   var firstname=$('#firstname').val();
   var middlename=$('#middlename').val();
+  var fathername=$('#fathername').val();
   var lastname=$('#lastname').val();
   var popularname=$('#popularname').val();
   var dob=$('#dob').val();
@@ -345,6 +389,7 @@ function validateForm() {
   var email=$('#email').val();
   var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
   var bloodgroup=$('#bloodgroup').val();
+  var age=$('#age').val();
 
 	if(firstname==''){
 	$('#firstname').focus();
@@ -357,11 +402,17 @@ function validateForm() {
 	$("#lastname").addClass("invalid");
 	return false;
 	}
-	else if(lastname==''){
-	$('#lastname').focus();
-	$("#lastname").addClass("invalid");
+	else if(age==''){
+	$('#age').focus();
+	$("#age").addClass("invalid");
 	return false;
 	}
+	else if(fathername==''){
+	$('#fathername').focus();
+	$("#fathername").addClass("invalid");
+	return false;
+	}
+	
 	else if(dob==''){
 	$('#dob').focus();
 	$("#dob").addClass("invalid");
@@ -396,7 +447,9 @@ function validateForm() {
 	$('#bloodgroup').focus();
 	$("#bloodgroup").addClass("invalid");
 	return false;
-	}else{
+	}
+	
+	else{
 	return true;
 
 	}

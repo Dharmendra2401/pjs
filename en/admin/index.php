@@ -3,29 +3,23 @@
 include "../../config/config.php" ;
 
 if($_SESSION['admin_email']!=''){
-
-  redirect(RE_HOME_ADMIN."homepage.php");
+  redirect(RE_EN_PATH."homepage.php");
 }
 
 if(isset($_REQUEST['login'])){
-
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
 $password=mysqli_real_escape_string($con,trim($_REQUEST['password']));
 if(($email!='')&&($password!=''))
-$login=mysqli_query($con,"select email,password from admin_login where email='".$email."' and password='".$password."' ");
+$login=mysqli_query($con,"select id,email,password from admin_login where email='".$email."' and password='".$password."' ");
 $cont=mysqli_num_rows($login);
-
 if($cont>0){
-
 $fetch=mysqli_fetch_array($login);
 $_SESSION['admin_email']=$fetch['email'];
+$_SESSION['fullname']=$fetch['first_name'].' '.$fetch['last_name'];
 $_SESSION['admin_id']=$fetch['id'];
-redirect(RE_HOME_ADMIN."homepage.php");
+redirect(RE_EN_PATH."index.php");
 }else{
-
   redirect(RE_HOME_ADMIN."index.php","Invalid email and password.~@~".MSG_ERROR);
-
-
 }
 
 
