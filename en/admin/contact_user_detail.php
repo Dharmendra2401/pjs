@@ -170,7 +170,7 @@
 		  var btn = document.getElementById("btnSubmit");
 		  if (radio.checked == true){
 		    block.style.display = "block";
-		    btn.style.display = "initial";
+		    btn.style.display = "block";
 		  } else {
 		     block.style.display = "none";
 		     btn.style.display = "none";
