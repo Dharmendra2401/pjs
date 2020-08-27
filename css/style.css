@@ -563,12 +563,17 @@ body{
 .filter-header .header-txt{
   font-size: 20px;
   font-weight: 500;
+  color: #ffffff;
 }
 
-.filter-header .clr-txt{
+.filter-header .custom-btn{
     float: right;
+    color: #ffffff;
     text-decoration: underline;
-    cursor: pointer;
+}
+
+.filter-header .custom-btn.btn:focus{
+    box-shadow: unset;
 }
 
 .collapse-wrapper{

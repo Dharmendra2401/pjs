@@ -92,24 +92,24 @@
 		<div class="row">
 			<div class="col-md-2 px-0 bg-white shadow">
 				<div class="filter-header">
-					<span class="header-txt">Filters</span>  <span class="clr-txt">Clear All</span>
+					<span class="header-txt">Filters</span>  <button class="btn btn-default custom-btn reset-btn">Clear All</button>
 				</div>
-				<form class="mb-0">
+				<form class="mb-0" id="filterForm">
 	                <ul class="list-unstyled sidebar">
 	                	<li class="collapse-wrapper">
 	                        <div id="age-filter">
 							  <div class="card card-body">
 							      <div>AGE</div>
-								  <input type="range" id="myRange" value="" min="" max="">
-				                  <div id="rangeValue">1</div>
-				                  <select id="age-filter" class="form-control" onchange="test();">
-				                  	    <option>select</option>
-				                  	    <option>1</option>
-				                  	    <option>2</option>
-				                  	    <option>3</option>
-				                  </select>
-				                  <!-- <p id="result">text</p> -->
-				                 
+									  <div>
+									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
+									    <span>Min</span>
+									    <input id="amount" type="number" value="100" min="0" max="100" oninput="rangeInput.value=amount.value" />
+									  </div>
+									  <div>
+									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
+									    <span>Max</span>
+									    <input id="amount" type="number" value="100" min="0" max="100" oninput="rangeInput.value=amount.value" />
+									  </div>
 							  </div>
 							</div>
 					    </li>
@@ -132,7 +132,7 @@
 							<i class="fas fa-angle-down"></i>
 	                        <div class="collapse" id="gender">
 							  <div class="card card-body">
-							      <input type="radio" id="male"  value="male">
+							      <input  type="radio" id="male"  value="male">
 								  <label for="male">Male</label><br>
 								  <input type="radio" id="female" value="female">
 								  <label for="female">Female</label><br>
@@ -146,9 +146,9 @@
 							<i class="fas fa-angle-down"></i>
 	                        <div class="collapse" id="status">
 							  <div class="card card-body">
-							      <input type="radio" id="single"  value="male">
+							      <input type="radio" id="single"  value="single">
 								  <label for="male">Single</label><br>
-								  <input type="radio" id="married" value="female">
+								  <input type="radio" id="married" value="married">
 								  <label for="female">Married</label><br>
 							  </div>
 							</div>
@@ -160,7 +160,7 @@
 							<i class="fas fa-angle-down"></i>
 	                        <div class="collapse" id="age">
 							  <div class="card card-body">
-							      <select>
+							      <select class="form-control">
 							      	   <option>Select your age</option>
 							      	   <option>10</option>
 							      	   <option>20</option>
@@ -177,7 +177,7 @@
 							<i class="fas fa-angle-down"></i>
 	                        <div class="collapse" id="blood-group">
 							  <div class="card card-body">
-							      <select>
+							      <select class="form-control">
 							      	   <option>Select your blood group</option>
 							      	   <option>A+</option>
 							      	   <option>B+</option>
@@ -210,7 +210,7 @@
 							</div>
 					    </li>
 					    <li class="collapse-wrapper text-right">
-					        <a class="btn btn-primary"  href="#" role="button">APPLY</a>
+					        <button class="btn btn-primary">APPLY</button>
 					    </li>
 	                </ul>
                 </form>
@@ -293,22 +293,15 @@
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
    <script type="text/javascript">
-    	
     	$(document).ready(function() {
 		    $('#openEntries, #pendingEntries, #closedEntries').DataTable();
 
-		    $('#myRange').mousemove(function(){	
-			    $('#rangeValue').text($('#myRange').val());
+		    // document.getElementById("filterForm").reset();
+
+		    $(".reset-btn").click(function(){
+			    $("#filterForm").trigger("reset");
 			});
-
-			function test() { 
-				var e = document.getElementById("age-filter");
-var result = e.options[e.selectedIndex].value;
-document.getElementById("result").innerHTML = result;
-			}
-            
-
-		} );
+		});
     </script>
 </body>
 </html>
