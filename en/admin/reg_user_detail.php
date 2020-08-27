@@ -172,8 +172,16 @@ if($status==2){
 		            </label>
             	</div>
             	<div class="col-md-6 text-center">
+<<<<<<< HEAD
             		<button class="btn btn-success" name="submit">Submit</button>
             		<a href="<?php echo RE_HOME_ADMIN;?>reg_request.php" class="btn btn-danger">Back</a>
+=======
+                    <div class="sm-mt10">
+                		<button class="btn btn-success">Submit</button>
+                		<button class="btn btn-warning">Pending</button>
+                		<button class="btn btn-danger">Back</button>
+                    </div>
+>>>>>>> 587dff9e409951a93740a2284c0b236a2b6b3d42
             	</div>
             </div>
      </form>

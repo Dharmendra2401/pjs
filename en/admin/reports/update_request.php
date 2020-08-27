@@ -36,13 +36,14 @@
     			 <i class="far fa-bell sm-icon-alert"></i>
 				 
 				  <div class="dropdown loggedin">
-				    <button type="button" class="btn btn-mobile btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+				    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
 				      Username
 				    </button>
 				    <div class="dropdown-menu custom-dropdwn mt-2">
+				     <!--  <a class="dropdown-item" href="profile.php">View & update profile</a>
+				      <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
+				      <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
 				      <a class="dropdown-item" href="index.php">Logout</a>
-				      <div class="triangle-up-black"></div>
-				      <div class="triangle-up-white"></div>
 				    </div>
 				  </div>
     		</div>
@@ -103,7 +104,7 @@
 									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
 									    <span>Min</span>
 									    <input id="amount" type="number" value="100" min="0" max="100" oninput="rangeInput.value=amount.value" />
-									  </div><br>
+									  </div>
 									  <div>
 									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
 									    <span>Max</span>
@@ -215,74 +216,42 @@
                 </form>
 			</div>
 			<div class="col-md-10 bg-white shadow">
-				<h3 class="text-center pt-3">Registered Users</h3>
-				<div class="text-right">
-					<button class="btn btn-outline-primary my-4">Export</button>
-				</div>
-				
-				<div class="table-responsive">
+				<h3 class="text-center py-3">Update Request Report</h3>
+				<div>
 					<table id="openEntries" class="table table-striped table-bordered" style="width:100%">
-			        <thead>
-			            <tr>
-			                <th>S.no.</th>
-			                <th>User Name</th>
-			                <th>MID</th>
-			                <th>Mobile No.</th>
-			                <th>State</th>
-			                <th>C/T/V</th>
-			                <th>Gender</th>
-			                <th>Status</th>
-			                <th>Age</th>
-			                <th>Blood</th>
-			                <th>Occupation</th>
-			                <th>Income</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr>
-			                <td>1</td>
-			                <td>Lavish</td>
-			                <td>Mis1234567</td>
-			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
-			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
-			            </tr>
-			            <tr>
-			                <td>1</td>
-			                <td>Lavish</td>
-			                <td>Mis1234567</td>
-			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
-			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
-			            </tr>
-			            <tr>
-			                <td>1</td>
-			                <td>Lavish</td>
-			                <td>Mis1234567</td>
-			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
-			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
-			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
-			            </tr>
-			        </tbody>
-			    </table>
+				        <thead>
+				            <tr>
+				                <th>S.no.</th>
+				                <th>Name</th>
+				                <th>MID</th>
+				                <th>New Mobile No.</th>
+				                <th>Old Mobile No.</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <tr>
+				                <td>1</td>
+				                <td>Lavish</td>
+				                <td>Mid1234567</td>
+				                <td>5839020394</td>
+				                <td>5836782394</td>
+				            </tr>
+				            <tr>
+				                <td>1</td>
+				                <td>Lavish</td>
+				                <td>Mid1234567</td>
+				                <td>5839020394</td>
+				                <td>5836782394</td>
+				            </tr>
+				            <tr>
+				                <td>1</td>
+				                <td>Lavish</td>
+				                <td>Mid1234567</td>
+				                <td>5839020394</td>
+				                <td>5836782394</td>
+				            </tr>
+				        </tbody>
+				    </table>
 				</div>
 			</div>
 	    </div>
@@ -294,15 +263,39 @@
     <script type="text/javascript" src="../../../js/main.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-   <script type="text/javascript">
+    <script type="text/javascript">
+    	
     	$(document).ready(function() {
 		    $('#openEntries, #pendingEntries, #closedEntries').DataTable();
 
-		    $(".reset-btn").click(function(){
-			    $("#filterForm").trigger("reset");
+		    $('#myRange').mousemove(function(){
+			    $('#rangeValue').text($('#myRange').val());
 			});
-	
-		});
+
+			 $(".state").click(function(){
+			    $(".search-wrapper").toggle();
+			    $("i").toggleClass("fa-angle-down fa-angle-up");
+			  });
+		} );
     </script>
+    <script>
+		function stateFilter() {
+		    var input, filter, ul, li, label, i, txtValue;
+		    input = document.getElementById("myInput");
+		    filter = input.value.toUpperCase();
+		    ul = document.getElementById("myUL");
+		    li = ul.getElementsByTagName("li");
+		    for (i = 0; i < li.length; i++) {
+		        label = li[i].getElementsByTagName("label")[0];
+		        txtValue = label.textContent || label.innerText;
+		        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		            li[i].style.display = "";
+		        } else {
+		            li[i].style.display = "none";
+		        }
+		    }
+		}
+</script>
+    
 </body>
 </html>

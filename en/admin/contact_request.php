@@ -69,10 +69,10 @@
 				    <li class="nav-item">
 				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
 				      <div class="dropdown-menu custom-dropdwn">	
-					      <a class="dropdown-item" href="reg_request.php">Registered Users Count</a>
-					      <a class="dropdown-item" href="#">Death Count</a>
-					      <a class="dropdown-item" href="#">OPJ Requests Report</a>
-					      <a class="dropdown-item" href="#">Update Request Count</a>
+					      <a class="dropdown-item" href="reports/reg_users.php">Registered Users Count</a>
+					      <a class="dropdown-item" href="reports/death_count.php">Death Count</a>
+					      <a class="dropdown-item" href="reports/req_report.php">OPJ Requests Report</a>
+					      <a class="dropdown-item" href="reports/update_request.php">Update Request Count</a>
 					  </div>
 				    </li>
 				    <li class="nav-item">
@@ -80,8 +80,8 @@
 				      <div class="dropdown-menu custom-dropdwn">	
 					      <a class="dropdown-item" href="reg_request.php">New User Registration Requests</a>
 					      <a class="dropdown-item" href="contact_request.php">OPJ Contact Requests</a>
-					      <a class="dropdown-item" href="#">User Updation Requests</a>
-					      <a class="dropdown-item" href="#">Fake/Duplicate/Death Requests </a>
+					      <a class="dropdown-item" href="update_request.php">User Updation Requests</a>
+					      <a class="dropdown-item" href="other_request.php">Fake/Duplicate/Death Requests </a>
 					  </div>
 				    </li>
 				  </ul>
@@ -114,7 +114,7 @@
 		    </div>
 			<div class="row">
 				<div class="col-md-12 tab-content">
-				    <div id="open" class="tab-pane active pb-3"><br>
+				    <div id="open" class="tab-pane table-responsive active pb-3"><br>
 				        <table id="openEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
 					            <tr>
@@ -131,7 +131,7 @@
 					                <td>Lavish</td>
 					                <td>xyz jain (test20)</td>
 					                <td>21/02/20</td>
-					                <td><a href="#">Show Details</a></td>
+					                <td><a href="contact_user_detail.php">Show Details</a></td>
 					            </tr>
 					            <tr>
 					                <td>2</td>
@@ -164,7 +164,7 @@
 					        </tbody>
 					    </table>
 				    </div>
-				    <div id="pending" class="tab-pane fade"><br>
+				    <div id="pending" class="tab-pane table-responsive fade"><br>
 				    	<table id="pendingEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
 					            <tr>
@@ -214,7 +214,7 @@
 					        </tbody>
 					    </table>
 				    </div>
-				    <div id="closed" class="tab-pane fade"><br>
+				    <div id="closed" class="tab-pane table-responsive fade"><br>
 				    	<table id="closedEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
 					            <tr>

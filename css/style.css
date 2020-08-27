@@ -1,4 +1,4 @@
-/*----------------------GLOBAL CSS---------------------------------------*/
+----------------------GLOBAL CSS---------------------------------------*/
 body{
     color: #2c2c2c;
     background: #e8e8e8;
@@ -535,20 +535,62 @@ body{
 /*---------------------LOGIN PAGE ENDS----------------------------*/
 
 
-/*---------------------REPORT PAGE----------------------------*/
+/*---------------------REPORT FILTER----------------------------*/
 
 .sidebar{
    /*padding: 10px 20px;*/
 }
-.sidebar li{
+.sidebar .li{
    cursor: pointer;
    padding: 10px 20px;
+   border: 1px solid #969696;
 }
 
 .sidebar li i{
-  float: right;
+  /*float: right;*/
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    font-size: 20px;
+    color: #2c2c2c;
 }
-/*---------------------REPORT PAGE ENDS----------------------------*/
+
+.filter-header{
+  background: #70c5a4;
+  padding: 20px 10px;
+}
+
+.filter-header .header-txt{
+  font-size: 20px;
+  font-weight: 500;
+  color: #ffffff;
+}
+
+.filter-header .custom-btn{
+    float: right;
+    color: #ffffff;
+    text-decoration: underline;
+}
+
+.filter-header .custom-btn.btn:focus{
+    box-shadow: unset;
+}
+
+.collapse-wrapper{
+    cursor: pointer;
+    padding: 10px 20px;
+    border: 1px solid #969696;
+    position: relative;
+}
+
+.collapse-wrapper .collapse .card{
+    display: inherit;
+}
+
+.collapse-wrapper .btn:focus{
+    box-shadow: none;
+}
+/*---------------------REPORT FILTER ENDS----------------------------*/
 
 .loggedin{
     display: initial;
@@ -632,6 +674,7 @@ body{
     width: 60%;
     position: absolute;
     top: 40px;
+    z-index: 1;
   }  
   .sm-image-wrapper{
      text-align: center;
@@ -659,7 +702,7 @@ body{
 }
 
 .tab-bar .nav-tabs .nav-item{
-    width: 50%;
+    width: 30%;
 }
 
 /*--------------------USER DETAIL ENDS---------------------------*/
@@ -727,7 +770,7 @@ body{
 }
 
 .user-profile .info> div:nth-of-type(even){
-    line-height: 10px;
+    line-height: 16px;
     margin-bottom: 20px;
 }
 
@@ -735,6 +778,53 @@ body{
    line-height: 18px !important;
 }
 /*--------------------PROFILE ENDS---------------------------*/
+
+/************************ ADMIN *********************************/
+
+.loggedin .btn-mobile{
+    width: 100%;
+    margin: 10px 0;
+}
+
+.loggedin .custom-dropdwn{
+    right: 0px;
+    text-align: center;
+}
+
+.loggedin .custom-dropdwn .triangle-up-white{
+    width: 0;
+    height: 0;
+    border-left: 8px solid transparent;
+    border-right: 8px solid transparent;
+    border-bottom: 18px solid #ffffff;
+    position: absolute;
+    top: -8px;
+    left: 130px;
+}
+
+.loggedin .custom-dropdwn .triangle-up-black{
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-bottom: 9px solid #555;
+    position: absolute;
+    top: -9px;
+    left: 128px;
+}
+
+#filterForm{
+  display: none;
+}
+
+.info strong{
+   padding-right: 10px;
+}
+
+.verify-user{
+   margin: 10px 0;
+}
+/************************ ADMIN ENDS *****************************/
  
 }
 
@@ -766,4 +856,4 @@ body{
   }
 }
 
-/*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------*/
+/*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

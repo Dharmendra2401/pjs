@@ -36,13 +36,14 @@
     			 <i class="far fa-bell sm-icon-alert"></i>
 				 
 				  <div class="dropdown loggedin">
-				    <button type="button" class="btn btn-mobile btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+				    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
 				      Username
 				    </button>
 				    <div class="dropdown-menu custom-dropdwn mt-2">
+				     <!--  <a class="dropdown-item" href="profile.php">View & update profile</a>
+				      <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
+				      <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
 				      <a class="dropdown-item" href="index.php">Logout</a>
-				      <div class="triangle-up-black"></div>
-				      <div class="triangle-up-white"></div>
 				    </div>
 				  </div>
     		</div>
@@ -95,24 +96,6 @@
 				</div>
 				<form class="mb-0" id="filterForm">
 	                <ul class="list-unstyled sidebar">
-	                	<li class="collapse-wrapper">
-	                        <div id="age-filter">
-							  <div class="card card-body">
-							      <div>AGE</div>
-									  <div>
-									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
-									    <span>Min</span>
-									    <input id="amount" type="number" value="100" min="0" max="100" oninput="rangeInput.value=amount.value" />
-									  </div><br>
-									  <div>
-									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
-									    <span>Max</span>
-									    <input id="amount" type="number" value="100" min="0" max="100" oninput="rangeInput.value=amount.value" />
-									  </div>
-							  </div>
-							</div>
-					    </li>
-
 					    <li class="collapse-wrapper">
 					        <a class="btn btn-default w-100" data-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="state">
 							    <span class="float-left">STATE</span>
@@ -139,20 +122,6 @@
 							</div>
 					    </li>
 					    <li class="collapse-wrapper">
-					        <a class="btn btn-default w-100" data-toggle="collapse" href="#status" role="button" aria-expanded="false" aria-controls="status">
-							    <span class="float-left">STATUS</span>
-							</a>
-							<i class="fas fa-angle-down"></i>
-	                        <div class="collapse" id="status">
-							  <div class="card card-body">
-							      <input type="radio" id="single"  value="single">
-								  <label for="male">Single</label><br>
-								  <input type="radio" id="married" value="married">
-								  <label for="female">Married</label><br>
-							  </div>
-							</div>
-					    </li>
-					    <li class="collapse-wrapper">
 					        <a class="btn btn-default w-100" data-toggle="collapse" href="#age" role="button" aria-expanded="false" aria-controls="age">
 							    <span class="float-left">AGE</span>
 							</a>
@@ -169,45 +138,6 @@
 							  </div>
 							</div>
 					    </li>
-					    <li class="collapse-wrapper">
-					        <a class="btn btn-default w-100" data-toggle="collapse" href="#blood-group" role="button" aria-expanded="false" aria-controls="blood-group">
-							    <span class="float-left">BLOOD GROUP</span>
-							</a>
-							<i class="fas fa-angle-down"></i>
-	                        <div class="collapse" id="blood-group">
-							  <div class="card card-body">
-							      <select class="form-control">
-							      	   <option>Select your blood group</option>
-							      	   <option>A+</option>
-							      	   <option>B+</option>
-							      	   <option>AB+</option>
-							      	   <option>O+</option>
-							      </select>
-							  </div>
-							</div>
-					    </li>
-					    <li class="collapse-wrapper">
-					        <a class="btn btn-default w-100" data-toggle="collapse" href="#occupation" role="button" aria-expanded="false" aria-controls="occupation">
-							    <span class="float-left">OCUCUPATION</span>
-							</a>
-							<i class="fas fa-angle-down"></i>
-	                        <div class="collapse" id="occupation">
-							  <div class="card card-body">
-							      <input class="form-control" type="text" name="" placeholder="enter your occupation">
-							  </div>
-							</div>
-					    </li>
-					    <li class="collapse-wrapper">
-					        <a class="btn btn-default w-100" data-toggle="collapse" href="#income" role="button" aria-expanded="false" aria-controls="income">
-							    <span class="float-left">INCOME</span>
-							</a>
-							<i class="fas fa-angle-down"></i>
-	                        <div class="collapse" id="income">
-							  <div class="card card-body">
-							      <input class="form-control" type="text" name="" placeholder="enter your income">
-							  </div>
-							</div>
-					    </li>
 					    <li class="collapse-wrapper text-right">
 					        <button class="btn btn-primary">APPLY</button>
 					    </li>
@@ -215,71 +145,51 @@
                 </form>
 			</div>
 			<div class="col-md-10 bg-white shadow">
-				<h3 class="text-center pt-3">Registered Users</h3>
-				<div class="text-right">
-					<button class="btn btn-outline-primary my-4">Export</button>
-				</div>
-				
+				<h3 class="text-center py-3">Death Count</h3>
 				<div class="table-responsive">
 					<table id="openEntries" class="table table-striped table-bordered" style="width:100%">
 			        <thead>
 			            <tr>
 			                <th>S.no.</th>
-			                <th>User Name</th>
-			                <th>MID</th>
+			                <th>Name</th>
 			                <th>Mobile No.</th>
-			                <th>State</th>
-			                <th>C/T/V</th>
-			                <th>Gender</th>
-			                <th>Status</th>
+			                <th>Email Id</th>
+			                <th>Address</th>
+			                <th>Requested For</th>
 			                <th>Age</th>
-			                <th>Blood</th>
-			                <th>Occupation</th>
-			                <th>Income</th>
+			                <th>C/T/V</th>
 			            </tr>
 			        </thead>
 			        <tbody>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
+			                <td>req</td>
 			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Indore</td>
 			            </tr>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
+			                <td>req</td>
 			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Indore</td>
 			            </tr>
 			            <tr>
 			                <td>1</td>
 			                <td>Lavish</td>
-			                <td>Mis1234567</td>
 			                <td>5839020394</td>
-			                <td>Madhya Pradesh</td>
+			                <td>abc@gmail.com</td>
 			                <td>Indore</td>
-			                <td>Male</td>
-			                <td>Single</td>
+			                <td>req</td>
 			                <td>22</td>
-			                <td>AB+</td>
-			                <td>Job</td>
-			                <td>2-3 lakh</td>
+			                <td>Indore</td>
 			            </tr>
 			        </tbody>
 			    </table>
@@ -294,15 +204,39 @@
     <script type="text/javascript" src="../../../js/main.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
-   <script type="text/javascript">
+    <script type="text/javascript">
+    	
     	$(document).ready(function() {
 		    $('#openEntries, #pendingEntries, #closedEntries').DataTable();
 
-		    $(".reset-btn").click(function(){
-			    $("#filterForm").trigger("reset");
+		    $('#myRange').mousemove(function(){
+			    $('#rangeValue').text($('#myRange').val());
 			});
-	
-		});
+
+			 $(".state").click(function(){
+			    $(".search-wrapper").toggle();
+			    $("i").toggleClass("fa-angle-down fa-angle-up");
+			  });
+		} );
     </script>
+    <script>
+		function stateFilter() {
+		    var input, filter, ul, li, label, i, txtValue;
+		    input = document.getElementById("myInput");
+		    filter = input.value.toUpperCase();
+		    ul = document.getElementById("myUL");
+		    li = ul.getElementsByTagName("li");
+		    for (i = 0; i < li.length; i++) {
+		        label = li[i].getElementsByTagName("label")[0];
+		        txtValue = label.textContent || label.innerText;
+		        if (txtValue.toUpperCase().indexOf(filter) > -1) {
+		            li[i].style.display = "";
+		        } else {
+		            li[i].style.display = "none";
+		        }
+		    }
+		}
+</script>
+    
 </body>
 </html>
