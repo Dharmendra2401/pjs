@@ -92,45 +92,44 @@
 		<div class="row">
 			<div class="col-md-2 px-0 bg-white shadow">
 				<div class="filter-header">
-					<span class="header-txt">Filters</span>  <span class="clr-txt">Clear All</span>
+					<span class="header-txt">Filters</span>  <button class="btn btn-default custom-btn reset-btn">Clear All</button>
 				</div>
-				
-                <ul class="list-unstyled sidebar">
-                	<li class="li">
-                		<div>AGE</div>
-						<input type="range" id="myRange" value="" min="" max="">
-		                <div id="rangeValue">1</div>
-                	</li>
-                	<li class="li">
-                		<div class="state">
-                			<span>STATE</span>
-                		    <i class="fas fa-angle-down"></i>
-                		</div>
-                		<div class="search-wrapper">
-                			<input type="text" id="myInput" onkeyup="stateFilter()" placeholder="Search for names.." title="Type in a name">
+				<form class="mb-0" id="filterForm">
+	                <ul class="list-unstyled sidebar">
+	                	<li class="collapse-wrapper">
+	                        <div id="age-filter">
+							  <div class="card card-body">
+							      <div>AGE</div>
+									  <div>
+									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
+									    <span>Min</span>
+									    <input id="amount" type="number" value="100" min="0" max="100" oninput="rangeInput.value=amount.value" />
+									  </div>
+									  <div>
+									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
+									    <span>Max</span>
+									    <input id="amount" type="number" value="100" min="0" max="100" oninput="rangeInput.value=amount.value" />
+									  </div>
+							  </div>
+							</div>
+					    </li>
 
-						  <ul class="list-unstyled" id="myUL">
-						  <li>
-						  	<input type="checkbox" id="1" name="" value="">
-						  	<label>Gujurat</label>
-						  </li>
-						  <li>
-						  	<input type="checkbox" id="2" name="" value="">
-						  	<label>Madhya Pradesh</label>
-						  </li>
-
-						  <li>
-						  	<input type="checkbox" id="" name="" value="">
-						  	<label>Mahrashtra</label>
-						  </li>
-						  <li>
-						  	<input type="checkbox" id="" name="" value="">
-						  	<label>Karnataka</label>
-						  </li>
-						  </ul>
-                		</div>
-                	</li>
-                </ul>
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="state">
+							    <span class="float-left">STATE</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="state">
+							  <div class="card card-body">
+							      
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper text-right">
+					        <button class="btn btn-primary">APPLY</button>
+					    </li>
+	                </ul>
+                </form>
 			</div>
 			<div class="col-md-10 bg-white shadow">
 				<h3 class="text-center py-3">OPJ Requests Report</h3>

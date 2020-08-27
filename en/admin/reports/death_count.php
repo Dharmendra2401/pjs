@@ -92,45 +92,57 @@
 		<div class="row">
 			<div class="col-md-2 px-0 bg-white shadow">
 				<div class="filter-header">
-					<span class="header-txt">Filters</span>  <span class="clr-txt">Clear All</span>
+					<span class="header-txt">Filters</span>  <button class="btn btn-default custom-btn reset-btn">Clear All</button>
 				</div>
-				
-                <ul class="list-unstyled sidebar">
-                	<li class="li">
-                		<div>AGE</div>
-						<input type="range" id="myRange" value="" min="" max="">
-		                <div id="rangeValue">1</div>
-                	</li>
-                	<li class="li">
-                		<div class="state">
-                			<span>STATE</span>
-                		    <i class="fas fa-angle-down"></i>
-                		</div>
-                		<div class="search-wrapper">
-                			<input type="text" id="myInput" onkeyup="stateFilter()" placeholder="Search for names.." title="Type in a name">
-
-						  <ul class="list-unstyled" id="myUL">
-						  <li>
-						  	<input type="checkbox" id="1" name="" value="">
-						  	<label>Gujurat</label>
-						  </li>
-						  <li>
-						  	<input type="checkbox" id="2" name="" value="">
-						  	<label>Madhya Pradesh</label>
-						  </li>
-
-						  <li>
-						  	<input type="checkbox" id="" name="" value="">
-						  	<label>Mahrashtra</label>
-						  </li>
-						  <li>
-						  	<input type="checkbox" id="" name="" value="">
-						  	<label>Karnataka</label>
-						  </li>
-						  </ul>
-                		</div>
-                	</li>
-                </ul>
+				<form class="mb-0" id="filterForm">
+	                <ul class="list-unstyled sidebar">
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="state">
+							    <span class="float-left">STATE</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="state">
+							  <div class="card card-body">
+							      
+							  </div>
+							</div>
+					    </li>
+	                	<li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#gender" role="button" aria-expanded="false" aria-controls="gender">
+							    <span class="float-left">GENDER</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="gender">
+							  <div class="card card-body">
+							      <input  type="radio" id="male"  value="male">
+								  <label for="male">Male</label><br>
+								  <input type="radio" id="female" value="female">
+								  <label for="female">Female</label><br>
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper">
+					        <a class="btn btn-default w-100" data-toggle="collapse" href="#age" role="button" aria-expanded="false" aria-controls="age">
+							    <span class="float-left">AGE</span>
+							</a>
+							<i class="fas fa-angle-down"></i>
+	                        <div class="collapse" id="age">
+							  <div class="card card-body">
+							      <select class="form-control">
+							      	   <option>Select your age</option>
+							      	   <option>10</option>
+							      	   <option>20</option>
+							      	   <option>30</option>
+							      	   <option>40</option>
+							      </select>
+							  </div>
+							</div>
+					    </li>
+					    <li class="collapse-wrapper text-right">
+					        <button class="btn btn-primary">APPLY</button>
+					    </li>
+	                </ul>
+                </form>
 			</div>
 			<div class="col-md-10 bg-white shadow">
 				<h3 class="text-center py-3">Death Count</h3>
