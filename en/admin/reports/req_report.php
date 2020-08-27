@@ -133,52 +133,55 @@
 			</div>
 			<div class="col-md-10 bg-white shadow">
 				<h3 class="text-center py-3">OPJ Requests Report</h3>
-		        <table id="openEntries" class="table table-striped table-bordered" style="width:100%">
-			        <thead>
-			            <tr>
-			                <th>S.no.</th>
-			                <th>Name</th>
-			                <th>Mobile No.</th>
-			                <th>Email Id</th>
-			                <th>Address</th>
-			                <th>Requested For</th>
-			                <th>Response</th>
-			                <th>Reason</th>
-			            </tr>
-			        </thead>
-			        <tbody>
-			            <tr>
-			                <td>1</td>
-			                <td>Lavish</td>
-			                <td>5839020394</td>
-			                <td>abc@gmail.com</td>
-			                <td>Indore</td>
-			                <td>Lavish Jain(Mid1234567)</td>
-			                <td>Approved</td>
-			                <td>----</td>
-			            </tr>
-			            <tr>
-			                <td>1</td>
-			                <td>Lavish</td>
-			                <td>5839020394</td>
-			                <td>abc@gmail.com</td>
-			                <td>Indore</td>
-			                <td>Lavish Jain(Mid1234567)</td>
-			                <td>Approved</td>
-			                <td>----</td>
-			            </tr>
-			            <tr>
-			                <td>1</td>
-			                <td>Lavish</td>
-			                <td>5839020394</td>
-			                <td>abc@gmail.com</td>
-			                <td>Indore</td>
-			                <td>Lavish Jain(Mid1234567)</td>
-			                <td>Approved</td>
-			                <td>----</td>
-			            </tr>
-			        </tbody>
-			    </table>
+				<div class="table-responsive">
+					<table id="openEntries" class="table table-striped table-bordered" style="width:100%">
+				        <thead>
+				            <tr>
+				                <th>S.no.</th>
+				                <th>Name</th>
+				                <th>Mobile No.</th>
+				                <th>Email Id</th>
+				                <th>Address</th>
+				                <th>Requested For</th>
+				                <th>Response</th>
+				                <th>Reason</th>
+				            </tr>
+				        </thead>
+				        <tbody>
+				            <tr>
+				                <td>1</td>
+				                <td>Lavish</td>
+				                <td>5839020394</td>
+				                <td>abc@gmail.com</td>
+				                <td>Indore</td>
+				                <td>Lavish Jain(Mid1234567)</td>
+				                <td>Approved</td>
+				                <td>----</td>
+				            </tr>
+				            <tr>
+				                <td>1</td>
+				                <td>Lavish</td>
+				                <td>5839020394</td>
+				                <td>abc@gmail.com</td>
+				                <td>Indore</td>
+				                <td>Lavish Jain(Mid1234567)</td>
+				                <td>Approved</td>
+				                <td>----</td>
+				            </tr>
+				            <tr>
+				                <td>1</td>
+				                <td>Lavish</td>
+				                <td>5839020394</td>
+				                <td>abc@gmail.com</td>
+				                <td>Indore</td>
+				                <td>Lavish Jain(Mid1234567)</td>
+				                <td>Approved</td>
+				                <td>----</td>
+				            </tr>
+				        </tbody>
+				    </table>
+				</div>
+		        
 			</div>
 	    </div>
 		 	
@@ -186,6 +189,7 @@
     <script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../js/main.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
     <script type="text/javascript">

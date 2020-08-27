@@ -36,14 +36,13 @@
     			 <i class="far fa-bell sm-icon-alert"></i>
 				 
 				  <div class="dropdown loggedin">
-				    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+				    <button type="button" class="btn btn-mobile btn-outline-primary dropdown-toggle" data-toggle="dropdown">
 				      Username
 				    </button>
 				    <div class="dropdown-menu custom-dropdwn mt-2">
-				     <!--  <a class="dropdown-item" href="profile.php">View & update profile</a>
-				      <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
-				      <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
 				      <a class="dropdown-item" href="index.php">Logout</a>
+				      <div class="triangle-up-black"></div>
+				      <div class="triangle-up-white"></div>
 				    </div>
 				  </div>
     		</div>
@@ -104,7 +103,7 @@
 									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
 									    <span>Min</span>
 									    <input id="amount" type="number" value="100" min="0" max="100" oninput="rangeInput.value=amount.value" />
-									  </div>
+									  </div><br>
 									  <div>
 									    <input id="rangeInput" type="range" min="0" max="100" oninput="amount.value=rangeInput.value" />
 									    <span>Max</span>
@@ -221,7 +220,8 @@
 					<button class="btn btn-outline-primary my-4">Export</button>
 				</div>
 				
-		        <table id="openEntries" class="table table-striped table-bordered" style="width:100%">
+				<div class="table-responsive">
+					<table id="openEntries" class="table table-striped table-bordered" style="width:100%">
 			        <thead>
 			            <tr>
 			                <th>S.no.</th>
@@ -283,6 +283,7 @@
 			            </tr>
 			        </tbody>
 			    </table>
+				</div>
 			</div>
 	    </div>
 		 	
@@ -290,17 +291,17 @@
     <script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../../js/main.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/jquery.dataTables.min.js"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/1.10.21/js/dataTables.bootstrap4.min.js"></script>
    <script type="text/javascript">
     	$(document).ready(function() {
 		    $('#openEntries, #pendingEntries, #closedEntries').DataTable();
 
-		    // document.getElementById("filterForm").reset();
-
 		    $(".reset-btn").click(function(){
 			    $("#filterForm").trigger("reset");
 			});
+	
 		});
     </script>
 </body>

@@ -131,7 +131,7 @@
 					                <td>Lavish</td>
 					                <td>xyz jain (test20)</td>
 					                <td>21/02/20</td>
-					                <td><a href="#">Show Details</a></td>
+					                <td><a href="contact_user_detail.php">Show Details</a></td>
 					            </tr>
 					            <tr>
 					                <td>2</td>

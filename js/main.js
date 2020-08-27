@@ -105,10 +105,19 @@ function showResult(str) {
       $(".forgot-login").toggle();
       $(".done").hide();
     }
-
+// for mobile menu-------------------------------
     $(".mobile-menu-icon").click(function() {
       $('.navbar-menu').toggle("slide");
     });
+
+// for admin filter in mobile----------------------------
+if ($(window).width() < 601) {
+   $(".filter-header").click(function() {
+      $('#filterForm').toggle("slide");
+    });
+}
+
+
 
     $(".btn-more").click(function() {
       $('.more-info').show();

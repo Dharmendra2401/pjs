@@ -122,7 +122,7 @@
 		            </label>
             	</div>
             	<div class="col-md-6 text-center">
-            		<button class="btn btn-success">Verified & Forward to User</button>
+            		<button class="btn btn-success verify-user">Verified & Forward to User</button>
             		<button class="btn btn-warning">Pending</button>
             		<button class="btn btn-danger">Back</button>
             	</div>

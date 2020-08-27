@@ -182,9 +182,11 @@
 		            </label>
             	</div>
             	<div class="col-md-6 text-center">
-            		<button class="btn btn-success">Submit</button>
-            		<button class="btn btn-warning">Pending</button>
-            		<button class="btn btn-danger">Back</button>
+                    <div class="sm-mt10">
+                        <button class="btn btn-success">Submit</button>
+                    <button class="btn btn-warning">Pending</button>
+                    <button class="btn btn-danger">Back</button>
+                    </div>
             	</div>
             </div>
             </div>

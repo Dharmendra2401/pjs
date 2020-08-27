@@ -99,7 +99,7 @@ admin_session_check();
 					                <td>Lavish</td>
 					                <td>indore</td>
 					                <td>21/02/20</td>
-					                <td><a href="#">Show Details</a></td>
+					                <td><a href="reg_user_detail.php">Show Details</a></td>
 					            </tr>
 					            <tr>
 					                <td>2</td>
