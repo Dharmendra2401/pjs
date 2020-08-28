@@ -103,36 +103,7 @@
 				</nav>
 			</div>
 		</div>
-		<div class="row">
-			<div class="col-12">
-				<ul class="list-unstyled user-list">
-					<li class="user-list-box">
-						<a href="profile.php">
-							<ul class="list-unstyled list-inline">
-								<li class="list-inline-item">
-									<img class="user-list-img" src="images/dummy.png">
-								</li>
-								<li class="list-inline-item">
-									<p>Lavish Jain</p>
-							        <p>MID1234567</p>
-								</li>
-						    </ul>
-					    </a>
-					</li>
-					<li class="user-list-box">
-						<ul class="list-unstyled list-inline">
-							<li class="list-inline-item">
-								<img class="user-list-img" src="images/dummy.png">
-							</li>
-							<li class="list-inline-item">
-								<p>Lavish Jain</p>
-						        <p>MID1234567</p>
-							</li>
-					    </ul>
-					</li>
-				</ul>
-			</div>
-		</div>
+		
 	</div>
 </body>
 <script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>

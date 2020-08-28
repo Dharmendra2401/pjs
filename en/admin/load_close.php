@@ -20,18 +20,18 @@
 $stat='';
 $statu='';
 
-if($_REQUEST['state']!='')
-{$statu.= 'and state LIKE "'.$_REQUEST['state'].'"';}
+if($_REQUEST['statetwo']!='')
+{$statu.= 'and state LIKE "'.$_REQUEST['statetwo'].'"';}
 
-if($_REQUEST['city']!='')
-{$statu.= 'and City LIKE "'.$_REQUEST['city'].'"';}
+if($_REQUEST['citytwo']!='')
+{$statu.= 'and city LIKE "'.$_REQUEST['citytwo'].'"';}
 
-if($_REQUEST['submitdate']!='')
-{$statu.= 'and record_inserted_dttm LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdate'])).'%"';}
+if($_REQUEST['submitdatetwo']!='')
+{$statu.= 'and record_inserted_dttm LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdatetwo'])).'%"';}
 
 if(isset($_REQUEST['ustatus']))
 {$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
-$stat="staging_approval where 1=1 and active_status='Y' $statu order by request_id desc";
+$stat="staging_approval where 1=1 and active_status='N' $statu order by request_id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;

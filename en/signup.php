@@ -256,7 +256,7 @@ include "../config/config.php";
 								   <label class="col-md-12 col-form-label">Profile photo size must be 1mb or less </label>	
 								   <div class="col-md-9">
 									   	<div class="pic-wrapper">
-									   		<input type="file" class="form-control profile-pic" onchange="GetFileSize()" id="file" name="profile" accept="image/*" >
+									   		<input type="file" class="form-control profile-pic" onchange="GetFileSize()" id="file" name="profile" accept="image/png, image/jpeg" >
 											   <i class="fas fa-plus-circle add-icon"></i>
 											   <p id="fp"></p>
 											   <img id="blah" src="<?php echo RE_HOME_PATH ;?>/upload/demo.jpg" alt="your image" style="  position: absolute;

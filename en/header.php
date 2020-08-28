@@ -8,13 +8,18 @@
     			<img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/flooop.png">
     		</div>
     		<div class="col-md-6 d-flex justify-content-center">
+
+			
     			<div class="input-group my-auto">
 				  <!-- <input type="text" class="form-control" placeholder="Search" aria-label="Username"> -->
-				  <input type="text" class="form-control" placeholder="Search" size="30" onkeyup="showResult(this.value)">
+				  <input type="text" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" >
+
+			
 				   <div class="input-group-append">
-				    <span class="input-group-text"><i class="fa fa-search"></i></span>
+				    <button onclick="return searchpage();" type="submit"> <span class="input-group-text"><i class="fa fa-search"></i></span></button>
 				  </div>
-                  <div id="livesearch"></div>
+             
+                  <div id="searchdata" class="searchdata"></div>
 				</div>
     		</div>
     		<div class="col-md-3 align-self-center text-right">
@@ -43,7 +48,7 @@ if ($_SESSION['admin_email']!=''){
 	?>
   <div class="dropdown loggedin">
 				    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-				    Admin PJS
+				   <?php echo $_SESSION['fullname']; ?>
 				    </button>
 				    <div class="dropdown-menu custom-dropdwn mt-2">
 				     <!--  <a class="dropdown-item" href="profile.php">View & update profile</a>

@@ -35,22 +35,44 @@ $file_namees=$_FILES["profile"]["name"];
 
 
  if($file_namees!=''){
-    $ext=explode(".",$file_namees);
-    // $extension = pathinfo($_FILES["image"]["name"], PATHINFO_EXTENSION);
-    $without_extension = substr($file_namees, 0, strrpos($file_namees, "."));
-     $url345="../upload/ ". str_replace(" ","",sha1($_FILES["profile"]["name"].time()).".".$ext[sizeof($ext)-1]);
-     $url12="upload/". str_replace(" ","",sha1($_FILES["profile"]["name"].time()).".".$ext[sizeof($ext)-1]);
-    move_uploaded_file($file_tmpps,$url345);
+    $ext=explode(".",$_FILES["profile"]["name"]);
+    $url="../uploads/". str_replace(" ","",sha1($_FILES["profile"]["name"].time()).".".$ext[sizeof($ext)-1]);
+    $url12="uploads/". str_replace(" ","",sha1($_FILES["profile"]["name"].time()).".".$ext[sizeof($ext)-1]);
+    move_uploaded_file($_FILES["profile"]["tmp_name"],$url);			
+    //$url12=imagename($url12);
+    //imagemulitple($url);
+    unlink($url12);
+
+
+
+    // $ext=explode(".",$file_namees);
+    //  $extension = pathinfo($_FILES["profile"]["name"], PATHINFO_EXTENSION);
+    //  $without_extension = substr($file_namees, 0, strrpos($file_namees, "."));
+    //  $url345="../uploads/ ". str_replace(" ","",sha1($_FILES["profile"]["name"].time()).".".$ext[sizeof($ext)-1]);
+    //  $url12="upload/". str_replace(" ","",sha1($_FILES["profile"]["name"].time()).".".$ext[sizeof($ext)-1]);
+    // move_uploaded_file($file_tmpps,$url345);
 
     
     }
     
+$getvalid=mysqli_query($con,"select first_name,last_name,fathers_name,date_of_birth from staging_approval where first_name='".$firstname."' and last_name='".$lastname."' and date_of_birth='".$dob."' ");
+
+$getcount=mysqli_num_rows($getvalid);
+
+
 
 if(($firstname!='')&& ($lastname!='') && ($dob!='') && ($gender!='')&& ($mobileno!='')&& ($status!='')&& ($email!='')&& ($bloodgroup!='')&& ($country!='')&& ($state!='')&& ($city!='')&& ($address!='')&& ($pincode!='')&& ($highest!='')&& ($occupation!='')&& ($income!='')){
 
+    if($getcount>0){
+
+        redirect(RE_EN_PATH."signup.php","Error! You are already registered with us~@~".MSG_ERROR);
+    
+    }
+else{
  $insert=mysqli_query($con,"insert into staging_approval (first_name,last_name,date_of_birth,gender,martial_status,blood_group,popular_name,height,country,state,city,pincode,full_address,highest_edu,occupation,ocp_details,income,display_pic,place_of_birth,mobile,email,time_of_birth,middle_name,record_inserted_dttm,fathers_name,age)values('".$firstname."','".$lastname."','".date($dob,strtotime('Y-m-d'))."','".$gender."','".$status."','".$bloodgroup."','".$popularname."','".$height."','".$country."','".$state."','".$city."','".$pincode."','".$address."','".$highest."','".$occupation."','".$details."','".$income."','".$url12."','".$birthplace."','".$mobileno."','".$email."','".$birthtime."','".$middlename."','".$submitdate."','".$fathername."','".$age."')");
 
 redirect(RE_EN_PATH."signup.php","Successfully registered with us~@~".MSG_SUCCESS);
+}
 }else{
     redirect(RE_EN_PATH."signup.php","Error! Please try again~@~".MSG_ERROR);
 

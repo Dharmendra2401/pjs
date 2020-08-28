@@ -16,7 +16,7 @@ if($status==1){
     
 
 
-    $insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,height,upd_user,record_insert_dttm,age) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$getdate['height']."','".$_SESSION['admin_id']."','".$submitdate."','".$getdate['age']."'  ) ");
+    $insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,height,upd_user,record_insert_dttm,age,middle_name) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$getdate['height']."','".$_SESSION['admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['middle_name']."'  ) ");
    
     $insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_insert_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['admin_id']."','".$submitdate."' )");
 
@@ -30,7 +30,7 @@ if($status==1){
     SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,height,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age from staging_approval where request_id='".$getid."' ";
     mysqli_query($con,$insert);
 
-    redirect(RE_HOME_ADMIN."reg_request.php","Successfull! User successfully approved~@~".MSG_SUCCESS);
+    redirect(RE_HOME_ADMIN."reg_request.php","User successfully approved~@~".MSG_SUCCESS);
 
 }
 if($status==2){

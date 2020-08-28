@@ -15,6 +15,7 @@
 <script>
 $(document).ready(function(){
 			$("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
+         $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
 			$("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
 	
 });
@@ -46,6 +47,21 @@ $('#loadergif').fadeOut();
 }
 });
 }
+
+function getCitytwo(){
+var state= $('#statetwo').val();
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"<?php echo RE_EN_PATH; ?>getcitytwo.php",
+data:{"state":state},
+success:function(data12){
+//$("#getpincode").load("getpincode.php");
+$('#getcitytwo').html(data12);
+$('#loadergif').fadeOut();
+}
+});
+}
 function getpincodes(){
 var city= $('#city').val();
 $('#loadergif').fadeIn();
@@ -59,4 +75,38 @@ $('#loadergif').fadeOut();
 }
 });
 }
+
+
+function searchBar(x,y)
+{
+  	
+  var search=$("#search").val();
+ if(search!=''){
+  y=10;
+  //$('#loadergif').fadeIn();
+  $.ajax({
+  type: 'POST',
+  url: "<?php echo RE_HOME_PATH; ?>load_search.php",
+  data: {"page":x,"pagesize":y,"search":search},
+  success: function(search){
+   $('.searchdata').show();
+	//$('#loadergif').fadeOut();
+  $("#searchdata").html(search);			    } 
+});
+
+ }
+ else{
+   $('.searchdata').hide();
+
+ }
+
+}
+
+function searchpage() {
+   var search=$("#search").val();
+   if(search!=''){
+        window.location.replace("<?php echo RE_HOME_ADMIN; ?>/search.php?id="+search);
+   }
+    } 
+
 </script>

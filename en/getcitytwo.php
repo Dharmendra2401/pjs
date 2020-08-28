@@ -2,7 +2,7 @@
 include "../config/config.php";
  $state=$_POST['state'];
 ?>
- <select class="custom-select" id="city" onchange="return getpincodes();" name="city">
+ <select class="custom-select" id="citytwo" >
 								          <option value="" selected>Select City</option>
                                          
                                           <?php  
