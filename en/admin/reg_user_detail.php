@@ -165,16 +165,43 @@ if($status==2){
             	<div class="row">
             	<div class="col-md-6 text-center">
             		<label class="form-check-label admin-check">
-		                <input type="radio" class="form-check-input" name="status" value="1" checked>Approve
+		                <input type="radio" id="approve" class="form-check-input" name="status" value="1" checked onclick="selectReason();">Approve
 		            </label>
 		            <label class="form-check-label admin-check">
-		                <input type="radio" class="form-check-input" name="status" value="2">Reject
+		                <input type="radio" id="selectRadio" class="form-check-input" name="status" value="2" onclick="selectReason();">Reject
 		            </label>
             	</div>
             	<div class="col-md-6 text-center">
             		<button class="btn btn-success" name="submit">Submit</button>
+                    <button class="btn btn-warning">Pending</button>
             		<a href="<?php echo RE_HOME_ADMIN;?>reg_request.php" class="btn btn-danger">Back</a>
             	</div>
+                <div id="select-block"  class="col-md-12">
+                    <label>Select reason for rejection</label>
+                    <div class="row">
+                        <div class="col-md-2">
+                            <input type="checkbox" name="">
+                            <label>Name</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="checkbox" name="">
+                            <label>DOB</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="checkbox" name="">
+                            <label>Address</label>
+                        </div>
+                        <div class="col-md-2">
+                            <input type="checkbox" name="">
+                            <label>State</label>
+                        </div>
+                        <div class="col-md-4 mr-5">
+                            <input type="checkbox" id="other" name="" onclick="selectOther();">
+                            <label>Other</label>
+                            <textarea id="reasonTxt" class="form-control" rows="3" placeholder="Describe yourself here..."></textarea>
+                        </div>
+                    </div>
+                </div>
             </div>
      </form>
 
@@ -182,7 +209,32 @@ if($status==2){
             
 		</div>
 	</div>
+     
+     <script>
+        function selectReason() {
+          var radio = document.getElementById("selectRadio");
+          var radioApprove = document.getElementById("approve");
+          var block = document.getElementById("select-block");
+          if (radio.checked == true){
+            block.style.display = "block";
+          }
 
+          else if (radioApprove.checked == true){
+            block.style.display = "none";
+          }
+
+       }
+
+        function selectOther() {
+              var checkOther = document.getElementById("other");
+              var text = document.getElementById("reasonTxt");
+              if (checkOther.checked == true){
+                text.style.display = "block";
+              } else {
+                 text.style.display = "none";
+              }
+           }
+    </script>
 </body>
 <?php include "../../script.php" ?>
 </html>

@@ -115,10 +115,10 @@
             	<div class="row">
             	<div class="col-md-6 text-center">
             		<label class="form-check-label admin-check">
-		                <input type="radio" class="form-check-input" checked>Approve
+		                <input type="radio" id="approve" name="radio" class="form-check-input">Approve
 		            </label>
 		            <label class="form-check-label admin-check">
-		                <input type="radio" class="form-check-input">Reject
+		                <input type="radio" id="selectRadio" name="radio" class="form-check-input">Reject
 		            </label>
             	</div>
             	<div class="col-md-6 text-center">
