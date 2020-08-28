@@ -181,7 +181,7 @@ else{
             	</div>
             	<div class="col-md-6 text-center">
             		<button class="btn btn-success" name="submit">Submit</button>
-                    <button class="btn btn-warning">Pending</button>
+                    <!-- <button class="btn btn-warning">Pending</button> -->
             		<a href="<?php echo RE_HOME_ADMIN;?>reg_request.php" class="btn btn-danger">Back</a>
             	</div>
                 <div id="select-block"  class="col-md-12">
