@@ -35,7 +35,7 @@ while($row=mysqli_fetch_assoc($rs)){
 								</li>
 								<li class="list-inline-item searchoption">
 									<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']  ?></p>
-							        <p>MID1234567</p>
+							        <p><?php echo $row['member_id'] ?></p>
 								</li>
 						    </ul>
 					    </a>

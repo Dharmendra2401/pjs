@@ -33,12 +33,20 @@ if($status==1){
     redirect(RE_HOME_ADMIN."reg_request.php","User successfully approved~@~".MSG_SUCCESS);
 
 }
-if($status==2){
+else if($status==2){
 
-
+     $reason=$_REQUEST['reason'];
+     //$reasontext=mysqli_real_escape_string($con,trim($_REQUEST['reasontext']));
+     $getreason=Implode(',',$reason);
+     $trimreason=rtrim($getreason,',');
+    $update=mysqli_query($con,"update staging_approval set reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
+    redirect(RE_HOME_ADMIN."reg_request.php","User successfully rejected~@~".MSG_SUCCESS);
     
 }
+else{
+    redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR);
 
+}
 
 
 
@@ -180,25 +188,25 @@ if($status==2){
                     <label>Select reason for rejection</label>
                     <div class="row">
                         <div class="col-md-2">
-                            <input type="checkbox" name="">
+                            <input type="checkbox" name="reason[]" value="Name" checked>
                             <label>Name</label>
                         </div>
                         <div class="col-md-2">
-                            <input type="checkbox" name="">
+                            <input type="checkbox" name="reason[]" value="Date Of Birth">
                             <label>DOB</label>
                         </div>
                         <div class="col-md-2">
-                            <input type="checkbox" name="">
+                            <input type="checkbox" name="reason[]" value="Address">
                             <label>Address</label>
                         </div>
                         <div class="col-md-2">
-                            <input type="checkbox" name="">
+                            <input type="checkbox" name="reason[]" value="State">
                             <label>State</label>
                         </div>
                         <div class="col-md-4 mr-5">
-                            <input type="checkbox" id="other" name="" onclick="selectOther();">
+                            <input type="checkbox" id="other" name="reason[]" value="Other" onclick="selectOther();">
                             <label>Other</label>
-                            <textarea id="reasonTxt" class="form-control" rows="3" placeholder="Describe yourself here..."></textarea>
+                            <textarea id="reasonTxt"  name="reason[]" class="form-control" rows="3" placeholder="Describe yourself here..." name="reasontext"></textarea>
                         </div>
                     </div>
                 </div>
