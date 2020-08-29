@@ -86,6 +86,10 @@ function showResult(str) {
       return false;
   });
 
+  //   $(document).on('click', '.view-link', function(){
+  //   $('.profile-detail').load('../modal.html .profile-modal');
+  // });
+
   function displayInput(){
     $(".member-id").toggle();
       $(".done").hide();

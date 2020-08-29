@@ -107,10 +107,27 @@
                         <div class="col-md-9">Regal-square, Indore</div>
 
                         <div class="col-md-3">Requested For<strong>:</strong></div>
-                        <div class="col-md-9">xyz jain(test20) <a href="#">View Details</a> </div>
+                        <div class="col-md-9">xyz jain(test20) &nbsp;
+                            <a target="_blank" href="reg_user_detail.php">View Details</a> 
+                        	<!-- <button type="button" class="btn btn-default view-link" data-toggle="modal" data-target="#profileModal">
+							  View Details
+							</button>  -->
+						</div>
                     </div>
                 </div>
             </div>
+
+            
+            <!-- The Modal -->
+  <div class="modal" id="profileModal">
+    <div class="modal-dialog profile-detail">
+     <!-- modal loads from modal.html -->
+    </div>
+  </div>
+  
+</div>
+
+
             <div class="admin-check-wrapper">
             	<div class="row">
             	<div class="col-md-6 text-center">
@@ -135,5 +152,6 @@
 	<script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
     <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
+    <script type="text/javascript" src="../../js/main.js"></script>
 </body>
 </html>
