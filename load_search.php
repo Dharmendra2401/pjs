@@ -24,7 +24,7 @@ while($row=mysqli_fetch_assoc($rs)){
 <div class="row">
 			<div class="col-12">
 				
-						<a href="profile.php">
+						<a href="<?php echo RE_EN_PATH; ?>user_detail.php?token=<?php echo base64_encode($row['member_id']);?>">
 							<ul class="list-unstyled list-inline">
 								<li class="list-inline-item">
                                     <?php 
@@ -34,8 +34,8 @@ while($row=mysqli_fetch_assoc($rs)){
 									<img class="user-list-img" src="<?php echo RE_HOME_PATH.''. $getimg['display_pic']; ?>">
 								</li>
 								<li class="list-inline-item searchoption">
-									<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']  ?></p>
-							        <p><?php echo $row['member_id'] ?></p>
+									<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']; ?></p>
+							        <p><?php echo $row['member_id']; ?></p>
 								</li>
 						    </ul>
 					    </a>
