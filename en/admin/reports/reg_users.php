@@ -91,7 +91,9 @@
 		<div class="row">
 			<div class="col-md-2 px-0 bg-white shadow">
 				<div class="filter-header">
-					<span class="header-txt">Filters</span>  <button class="btn btn-default custom-btn reset-btn">Clear All</button>
+					<span class="header-txt">Filters</span>
+					<i class="fas fa-plus"></i> 
+				    <button class="btn btn-default custom-btn reset-btn">Clear All</button>
 				</div>
 				<form class="mb-0" id="filterForm">
 	                <ul class="list-unstyled sidebar">

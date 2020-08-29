@@ -564,6 +564,10 @@ body{
   color: #ffffff;
 }
 
+.filter-header i{
+    display: none;
+}
+
 .filter-header .custom-btn{
     float: right;
     color: #ffffff;
@@ -680,9 +684,28 @@ body{
     display: none;
     width: 60%;
     position: absolute;
-    top: 40px;
+    top: 0px;
     z-index: 1;
-  }  
+    height: 100%;
+  }
+
+  .navbar-menu .close-icon{
+    font-size: 29px;
+    position: absolute;
+    right: 7px;
+    top: -7px;
+    color: #ffffff;
+  } 
+  
+  .navbar-menu .navbar-nav{
+    padding-top: 20px;
+  }
+
+  .navbar-nav .nav-item .nav-link {
+    padding: 15px 20px;
+    font-size: 18px;
+}
+
   .sm-image-wrapper{
      text-align: center;
   }
@@ -818,6 +841,12 @@ body{
     position: absolute;
     top: -9px;
     left: 128px;
+}
+
+.filter-header i{
+    color: #ffffff;
+    padding-left: 10px;
+    display: initial;
 }
 
 #filterForm{

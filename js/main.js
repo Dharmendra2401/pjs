@@ -105,14 +105,23 @@ function showResult(str) {
       $(".forgot-login").toggle();
       $(".done").hide();
     }
-// for mobile menu-------------------------------
+
+
+
+if ($(window).width() < 601) {
+
+  // for mobile menu-------------------------------
     $(".mobile-menu-icon").click(function() {
       $('.navbar-menu').toggle("slide");
     });
 
-// for admin filter in mobile----------------------------
-if ($(window).width() < 601) {
+    $(".close-icon").click(function() {
+      $(".navbar-menu").hide(500);
+    });
+
+ // for admin filter in mobile----------------------------   
    $(".filter-header").click(function() {
+      $(".filter-header i").toggleClass("fa-plus fa-minus");
       $('#filterForm').toggle("slide");
     });
 }

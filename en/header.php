@@ -72,6 +72,7 @@ if ($_SESSION['admin_email']!=''){
     		</div>
 
             <div class="col-md-12 navbar-menu">
+            	<span class="close-icon">&times;</span>
 				<nav class="navbar navbar-expand-sm">
 				  <ul class="navbar-nav">
 				    <li class="nav-item">
