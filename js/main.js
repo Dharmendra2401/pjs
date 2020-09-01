@@ -124,7 +124,7 @@ if ($(window).width() < 601) {
     });
 
  // for admin filter in mobile----------------------------   
-   $(".filter-header").click(function() {
+   $(".filter-header i").click(function() {
       $(".filter-header i").toggleClass("fa-plus fa-minus");
       $('#filterForm').toggle("slide");
     });
