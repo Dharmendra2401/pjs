@@ -99,9 +99,9 @@
 						    <li class="nav-item">
 						      <a class="nav-link active" data-toggle="tab" href="#open"><div class="triangle-down"></div>Open</a>
 						    </li>
-						    <li class="nav-item">
+						    <!-- <li class="nav-item">
 						      <a class="nav-link" data-toggle="tab" href="#pending"><div class="triangle-down"></div>Pending </a>
-						    </li>
+						    </li> -->
 						    <li class="nav-item">
 						      <a class="nav-link" data-toggle="tab" href="#closed"><div class="triangle-down"></div>Closed </a>
 						    </li>
@@ -164,7 +164,7 @@
 					        </tbody>
 					    </table>
 				    </div>
-				    <div id="pending" class="tab-pane table-responsive fade"><br>
+				    <!-- <div id="pending" class="tab-pane table-responsive fade"><br>
 				    	<table id="pendingEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
 					            <tr>
@@ -213,7 +213,7 @@
 					            </tr>
 					        </tbody>
 					    </table>
-				    </div>
+				    </div> -->
 				    <div id="closed" class="tab-pane table-responsive fade"><br>
 				    	<table id="closedEntries" class="table table-striped table-bordered" style="width:100%">
 					        <thead>
