@@ -5,7 +5,7 @@
  
             <div class="col-md-3 sm-image-wrapper">
             	<i class="fas fa-bars mobile-menu-icon"></i>
-    			<img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/flooop.png">
+    			<a href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/flooop.png"></a>
     		</div>
     		<div class="col-md-6 d-flex justify-content-center">
 
@@ -72,7 +72,7 @@ if ($_SESSION['admin_email']!=''){
     		</div>
 
             <div class="col-md-12 navbar-menu">
-            	<span class="close-icon">&times;</span>
+            	
 				<nav class="navbar navbar-expand-sm">
 				  <ul class="navbar-nav">
 				    <li class="nav-item">

@@ -176,7 +176,14 @@ admin_session_check();
 		</div> 	
     </div>
   <?php  include "../../script.php" ?>
-    <script type="text/javascript">
+	<script type="text/javascript">
+	$(function(){
+	$(".short1").addSortWidget();
+});
+$(function(){
+	$(".short2").addSortWidget();
+});
+
     	function BtnClickPage(x,y)
 {
   var state=$("#state").val();	

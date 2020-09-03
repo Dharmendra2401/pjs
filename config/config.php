@@ -56,16 +56,19 @@ function admin_session_check()
    
 }
 
-function user_session_check()
-{			
-	if(($_SESSION['cust_name']=='') || ($_SESSION['cust_email']=='') || ($_SESSION['cust_ver']=='') || ($_SESSION['cust_onl']=='') || ($_SESSION['cust_mem']==''))
-	{	
-	redirect(RE_EN_PATH."login.php","Session expired.~@~".MSG_ERROR);
-	}
-}	
 
+function generateNumericOTP($n) {
+    $n = 4;  
+    $generator = "1357902468"; 
+    $result = ""; 
+    for ($i = 1; $i <= $n; $i++) { 
+        $result .= substr($generator, (rand()%(strlen($generator))), 1); 
+    }  
+    return $result; 
+} 
+ 
 
-
+//print_r(generateNumericOTP($n)); 
 
 
 ?>
