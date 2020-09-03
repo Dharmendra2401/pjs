@@ -19,22 +19,22 @@ function showResult(str) {
 
 
   $(document).on('click', '.help-link', function(){
-    $('.login-container').load('modal.html .login-help');
+    $('.login-container').load('modal.php .login-help');
   });
 
   $(document).on('click', '.open-login',function(){
-    $('.login-container').load('modal.html .loginContent');
+    $('.login-container').load('modal.php .loginContent');
      
   });
 
   $(document).on('click', '.submit',function(){
-    $('.login-container').load('modal.html .submit-contact');
+    $('.login-container').load('modal.php .submit-contact');
      
   });
 
 
   $(document).on('click', '.send-credential',function(){
-    $('.login-container').load('modal.html .credential-msg');
+    $('.login-container').load('modal.php .credential-msg');
 
     return false;
      
@@ -42,47 +42,47 @@ function showResult(str) {
 
   $(document).on('click', '.contact-modal',function(){
     
-      $('.contact-container').load('modal.html .contact-content');
+      $('.contact-container').load('modal.php .contact-content');
   });
 
   $(document).on('click', '.contact',function(){
     
-      $('.modal-body').load('modal.html .adminform');
+      $('.modal-body').load('modal.php .adminform');
   });
 
   $(document).on('click', '.submit-credential',function(){
     
-      $('.modal-body').load('modal.html .verify-msg');
+      $('.modal-body').load('modal.php .verify-msg');
   });
 
   $(document).on('click', '.login-signup', function(){
-      $('.lgn-sgn-container').load('modal.html .lgn-sgn-wrapper');
+      $('.lgn-sgn-container').load('modal.php .lgn-sgn-wrapper');
   });
 
   $(document).on('click', '.done',function(){
-    $('.login-container').load('modal.html .loginContent');
+    $('.login-container').load('modal.php .loginContent');
      
   });
 
   $(document).on('click', '.openBtn-feed',function(){
     
-      $('.feeback-body').load('modal.html .feeback');
+      $('.feeback-body').load('modal.php .feeback');
   });
 
   $(document).on('click', '.open-update',function(){
     
-      $('.update-body').load('modal.html .death-update');
+      $('.update-body').load('modal.php .death-update');
   });
 
    $(document).on('click', '.feedback-msg',function(){
     
-      $('.feeback-body').load('modal.html .feedback-success');
+      $('.feeback-body').load('modal.php .feedback-success');
       return false;
   });
 
     $(document).on('click', '.update-msg',function(){
     
-      $('.update-body').load('modal.html .update-success');
+      $('.update-body').load('modal.php .update-success');
       return false;
   });
 

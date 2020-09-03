@@ -1,18 +1,103 @@
+<?php  include "modal.php"; ?>
 
-<!------------------- Login Modal ----------------------------->
-<div class="modal fade loginPopup" id="loginPopup">
-			    <div class="modal-dialog modal-dialog-centered login-container">
-			        	<!-- loads from modal.html -->
-			    </div>
-			  </div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH ; ?>js/jquery.steps.min.js"></script>
 <script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH ; ?>js/bootstrap.min.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH ; ?>js/main.js"></script>
-<script src="<?php echo RE_HOME_PATH; ?>js/sweetalert.min.js"></script>
+<script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sweetalert.min.js"></script>
+<script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sorttable.js"></script>
+
 <script>
+
+function checkMid(){
+var mid=$('#mid').val();
+$.ajax({
+type:'POST',
+url:'<?php echo RE_HOME_USER ;?>checkmid.php',
+data:{'mid':mid},
+success:function(midsuccess){
+if(midsuccess=='false'){
+$('#miderror').html('<div class="text-danger">Invalid MID you entered</div> ');
+$('#mid').val('');
+$('#getotp').hide();
+return false;
+}else{
+$('#miderror').html(''); 
+$('#getotp').show();
+return false;
+}
+}
+});
+}
+
+function getOtp(){
+var mid=$('#mid').val();
+$.ajax({
+type:'POST',
+url:'<?php echo RE_HOME_USER ;?>otprequest.php',
+data:{'mid':mid},
+success:function(otpnumber){
+  alert(otpnumber);
+if(otpnumber!=' '){
+timer(120);
+$('#mobilenumber').html(otpnumber);
+$('#logincontents').show();
+$('#getotp').hide();
+$('#loginbtn').show();
+return false; 
+}
+}
+}
+)
+}
+
+
+function Userlogin(){
+var mid=$('#mid').val();
+var otp=$('#otp').val();
+if(mid==''){
+
+
+}
+
+}
+
+
+let timerOn = true;
+
+function timer(remaining) {
+  var m = Math.floor(remaining / 60);
+  var s = remaining % 60;
+  
+  m = m < 10 ? '0' + m : m;
+  s = s < 10 ? '0' + s : s;
+  document.getElementById('timer').innerHTML = m + ':' + s;
+  remaining -= 1;
+  if(remaining >= 0 && timerOn) {
+    setTimeout(function() {
+        timer(remaining);
+    }, 1000);
+    return;
+  }
+
+  if(!timerOn) {
+    // Do validate stuff here
+    return;
+  }
+  
+  // Do timeout stuff here
+  $('#timer').html('');
+  $('#getotp').show();
+  $('#loginbtn').hide();
+}
+
+
+
+  $(function(){
+	$(".shortable").addSortWidget();
+});
 $(document).ready(function(){
 			$("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
          $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
@@ -86,7 +171,7 @@ function searchBar(x,y)
   //$('#loadergif').fadeIn();
   $.ajax({
   type: 'POST',
-  url: "<?php echo RE_HOME_PATH; ?>load_search.php",
+  url: "<?php echo RE_EN_PATH; ?>load_search.php",
   data: {"page":x,"pagesize":y,"search":search},
   success: function(search){
    $('.searchdata').show();
@@ -105,7 +190,7 @@ function searchBar(x,y)
 function searchpage() {
    var search=$("#search").val();
    if(search!=''){
-        window.location.replace("<?php echo RE_HOME_ADMIN; ?>/search.php?id="+search);
+        window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+search);
    }
     } 
 

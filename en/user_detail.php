@@ -163,7 +163,7 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.member_id,mem.middle_name,
 					          	  	  <p>Present Address <strong>:</strong></p>
 					          	  </div>
 					          	  <div class="col-md-9">
-					          	  	  <h5>xxxxxx</h5>
+					          	  	  <h5><?php echo $row['full_address'];  ?></h5>
 					          	  </div>
 					          </div>
 					          <h3>Education</h3>
@@ -172,7 +172,7 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.member_id,mem.middle_name,
 					          	  	  <p>Highest Education <strong>:</strong></p>
 					          	  </div>
 					          	  <div class="col-md-9">
-					          	  	  <h5>Bachelor of Engineering</h5>
+					          	  	  <h5><?php echo $row['highest_edu'];  ?></h5>
 					          	  </div>
 					          </div>
 					          <h3>Occupation</h3>
@@ -181,7 +181,11 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.member_id,mem.middle_name,
 					          	  	  <p>Occupation <strong>:</strong></p>
 					          	  </div>
 					          	  <div class="col-md-9">
-					          	  	  <h5>Job/Software Engineer</h5>
+					          	  	  <h5>
+										  <?php if($row['occupation']==1){ echo "
+											Job";} else if($row['occupation']==2) { echo "Bussiness";}
+											else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?>
+										  </h5>
 					          	  </div>
 					          </div>
 				          </div>
@@ -196,30 +200,7 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.member_id,mem.middle_name,
 		    </div>
 		</div>    
 			
-			
-         <!------------------- Login Modal ----------------------------->
-		  <div class="modal fade loginPopup" id="loginPopup">
-		    <div class="modal-dialog modal-dialog-centered login-container">
-		        <!---------------- loads from modal.html---------- -->
-		    </div>
-		  </div>
-
-			  
-				 <!-- ---------------The Modal-1 ----------------------->
-		  <div class="modal fade loginPopup" id="modal1">
-		    <div class="modal-dialog modal-dialog-centered contact-container login-container">
-		     
-		    </div>
-		  </div>
-		         <!--------------- ----The Modal-1 ends---------------------->
-
-		         		 <!-- ---------------The Modal-2 ----------------------->
-		  <div class="modal fade loginPopup" id="modal2">
-		    <div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
-		        
-		    </div>
-		  </div>
-		         <!--------------- ----The Modal-2 ends---------------------->
+		
 	  </div>       
     
 </body>

@@ -57,10 +57,9 @@ else{
 <!DOCTYPE>
 <html>
 <head>
-	<head>
 	<?php  include "../../styles.php" ?>
 </head>
-</head>
+
 <body>
 	<div class="container-fluid">
 	<?php  include "../header.php" ?>
@@ -172,15 +171,21 @@ else{
             <div class="admin-check-wrapper">
             	<div class="row">
             	<div class="col-md-6 text-center">
+
+<?php if($getdate['active_status']!="N"){  ?>
             		<label class="form-check-label admin-check">
 		                <input type="radio" id="approve" class="form-check-input" name="status" value="1" checked onclick="selectReason();">Approve
 		            </label>
 		            <label class="form-check-label admin-check">
 		                <input type="radio" id="selectRadio" class="form-check-input" name="status" value="2" onclick="selectReason();">Reject
 		            </label>
+<?php } ?>
+
             	</div>
             	<div class="col-md-6 text-center">
-            		<button class="btn btn-success" name="submit">Submit</button>
+                <?php if($getdate['active_status']!="N"){  ?>
+                <button class="btn btn-success" name="submit">Submit</button>
+                <?php } ?>
                     <!-- <button class="btn btn-warning">Pending</button> -->
             		<a href="<?php echo RE_HOME_ADMIN;?>reg_request.php" class="btn btn-danger">Back</a>
             	</div>

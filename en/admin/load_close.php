@@ -1,7 +1,7 @@
 <?php  require_once("../../config/config.php"); ?>
 
 <div class="table-responsive">
-<table id="dynamic-table" class="table table-striped table-bordered" style="width:100%" >
+<table id="dynamic-table" class="table table-striped table-bordered short1" >
 <thead>
 <tr class="table-headings">
 <!--<th width="2%">S.No</th>-->
