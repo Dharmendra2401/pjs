@@ -33,7 +33,7 @@ $subject="User Successfully Approved From '".WEBSITE_NAME."' ";
 $mes='';
 $mes.=" Dear ".$firstname." ".$middlename." ".$lastname.", you are succesfully approved by the admin and your login MEMBER ID (MID) is <strong>".$member_id."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
 $message=$mes;
-$to=$email;
+$to=$getdate['email'];
 sendemail($to,$form,$subject,$message);
 
 redirect(RE_HOME_ADMIN."reg_request.php","User successfully approved~@~".MSG_SUCCESS);
