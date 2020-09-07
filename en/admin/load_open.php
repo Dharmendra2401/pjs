@@ -6,10 +6,11 @@
 <tr class="table-headings">
 <!--<th width="2%">S.No</th>-->
 <th>S.no.</th>
-					                <th>Requested User Name</th>
-					                <th>City/Town/Village</th>
-					                <th>Requested Date</th>
-					                <th>View Details</th>
+<th>Refrence Id</th>
+<th>Requested User Name</th>
+<th>City/Town/Village</th>
+<th>Requested Date</th>
+<th>View Details</th>
 </tr>
 </thead>
 
@@ -29,6 +30,10 @@ if($_REQUEST['city']!='')
 if($_REQUEST['submitdate']!='')
 {$statu.= 'and record_inserted_dttm LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdate'])).'%"';}
 
+if($_REQUEST['refrenceidone']!='')
+{$statu.= 'and request_id LIKE "'.trim($_REQUEST['refrenceidone']).'"';}
+
+
 if(isset($_REQUEST['ustatus']))
 {$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
 $stat="staging_approval where 1=1 and active_status='Y' $statu order by request_id desc";
@@ -41,17 +46,18 @@ $rest = mysqli_query($con,"SELECT * FROM ".$stat);
 $row_count=mysqli_num_rows($rest);
 $rs = mysqli_query($con,$query);
 while($row=mysqli_fetch_assoc($rs)){
-    $currentdate=$row['record_inserted_dttm'];
-			
+$currentdate=$row['record_inserted_dttm'];
+
 ?>
 
 <tr>
-					                <td><?php echo $count;  ?></td>
-					                <td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
-					                <td><?php echo $row['city']; ?></td>
-					                <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
-					                <td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a></td>
-					            </tr>
+<td><?php echo $count;  ?></td>
+<td><?php echo $row['request_id'] ; ?></td>
+<td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
+<td><?php echo $row['city']; ?></td>
+<td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
+<td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a></td>
+</tr>
 <?php $count++; }
 if($row_count<=0){
 ?>

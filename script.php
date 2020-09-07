@@ -20,12 +20,13 @@ data:{'mid':mid},
 success:function(midsuccess){
 if(midsuccess=='false'){
 $('#miderror').html('<div class="text-danger">Invalid MID you entered</div> ');
-$('#mid').val('');
+//$('#mid').val('');
 $('#getotp').hide();
 return false;
 }else{
 $('#miderror').html(''); 
 $('#getotp').show();
+
 return false;
 }
 }
@@ -34,18 +35,21 @@ return false;
 
 function getOtp(){
 var mid=$('#mid').val();
+$('#loadergif').fadeIn();
 $.ajax({
 type:'POST',
 url:'<?php echo RE_HOME_USER ;?>otprequest.php',
 data:{'mid':mid},
 success:function(otpnumber){
-  alert(otpnumber);
 if(otpnumber!=' '){
 timer(120);
 $('#mobilenumber').html(otpnumber);
 $('#logincontents').show();
 $('#getotp').hide();
 $('#loginbtn').show();
+$('#resend').show();
+$('#mid'). attr('disabled','disabled');
+$('#loadergif').fadeOut();
 return false; 
 }
 }
@@ -55,10 +59,45 @@ return false;
 
 
 function Userlogin(){
-var mid=$('#mid').val();
+ 
+var mid=$('#mid').val(); 
 var otp=$('#otp').val();
 if(mid==''){
+  swal({
+  title: "Error",
+  text: "Please fill the MID",
+  icon: "error",
+});
+return false;
+}
+else if(otp==''){
+  swal({
+  title: "Error",
+  text: "Please fill the OTP",
+  icon: "error",
+});
 
+}else{
+$.ajax({
+method:'POST',
+url:'<?php echo RE_HOME_USER ;?>loginuser.php',
+data:{'mid':mid,'otp':otp},
+success:function(userlog){
+alert(userlog);
+if(userlog=='false'){
+  swal({
+  title: "Error",
+  text: "Error! Please enter the valid otp! ",
+  icon: "error",
+});
+}
+if(userlog=='true'){
+  window.location.replace("<?php echo RE_EN_PATH; ?>");
+}
+}
+
+
+})
 
 }
 
@@ -90,7 +129,8 @@ function timer(remaining) {
   // Do timeout stuff here
   $('#timer').html('');
   $('#getotp').show();
-  $('#loginbtn').hide();
+  
+  $('#resend').hide();
 }
 
 

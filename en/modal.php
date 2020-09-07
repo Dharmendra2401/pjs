@@ -15,20 +15,20 @@ require_once("../config/config.php");
 <form class="form-inline justify-content-md-center my-3" method="post">
 <div class="form-group">
 <label class="mr-5" for="email">Member ID </label>
-<input type="text" class="form-control" placeholder="MID" name="mid" id="mid" onchange="return checkMid();"  required>
+<input type="text" class="form-control" placeholder="MID" name="mid" id="mid" onkeyup="return checkMid();"  required>
 </div>
 <span id="miderror" class="form-group"></span>
 <div class="logincontents" >
 <div class="form-group"  id="logincontents" style="display:none;">
 <label class="otp-label" for="email">An OTP has been sent to your registered mobile number xxxxxxx<label id="mobilenumber"></label></label>
-<input type="text" class="form-control" placeholder="Enter OTP" name="otp">
+<input type="text" class="form-control" placeholder="Enter OTP" name="otp" id="otp" maxlength="4" onKeyPress="return isNumeric(event)">
 </div>
-<span id="timer"></span>
+<label class="mr-5" id="resend" style="display:none;">RESEND OTP :<span id="timer"></span></label>
 
 <div class="col-md-12">
 <div class="text-center my-4">
 <button type="button"  id="getotp" style="display:none;" class="btn btn-primary" onclick="return getOtp();">GET OTP</button>
-<button type="button" id="loginbtn" style="display:none;" class="btn btn-success" name="login">LOGIN</button>
+<button type="button" id="loginbtn" style="display:none;" class="btn btn-success" onclick="return Userlogin();" name="login">LOGIN</button>
 </div>
 </div>
 </div>

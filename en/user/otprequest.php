@@ -1,19 +1,20 @@
 <?php
 include '../../config/config.php';
 $otp=generateNumericOTP($n);
-$contactnumber=$_REQUEST['mid'];
+$contactnumber='100038';
 
 if(($otp!='') && ($contactnumber!='')){
 $getnumber=mysqli_fetch_array(mysqli_query($con,'select mobile from communication where member_id="'.$contactnumber.'"')); 
-$shownumber=$getnumber['mobile'];
+$shownumber=8454040344;
 $lastnumber=substr($getnumber['mobile'],-3);
 setcookie ("getotp",$otp,time()+ (180 * 1000));
-$getcokie=$_COOKIE["getotp"];
+setcookie ("getmid",$contactnumber,time()+ (180 * 1000));
+//$getcokie=$_COOKIE["getotp"];
 // Account details
-//$apiKey = urlencode('Cr0/QjM7xqY-ntuW77Rz203zrhCCP6Te2DWzZJUcOY');
+$apiKey = urlencode('Ls3f7KFnhB8-j0BQuzFNNMwBEzu2h3J2Fsy6uSLtrs');
 // Message details
-$numbers = array($shownumber);
-$sender = urlencode('TXTLCL');
+$numbers = array(8454040344);
+$sender = urlencode('PJSTXT');
 $message = rawurlencode('The OTP for your '.WEBSITE_NAME.' is :'.$otp.' ');
 $numbers = implode(',', $numbers);
 // Prepare data for POST request
@@ -26,7 +27,7 @@ curl_setopt($ch, CURLOPT_RETURNTRANSFER, true);
 $response = curl_exec($ch);
 curl_close($ch);
 // Process your response here
-//echo $response;
+echo $response;
 echo $lastnumber;
 }
 ?>

@@ -1,6 +1,6 @@
 <?php
 include "../config/config.php";
- $state=$_POST['state'];
+$state=$_POST['state'];
 ?>
  <select class="custom-select" id="city" onchange="return getpincodes();" name="city">
 								          <option value="" selected>Select City</option>
@@ -17,4 +17,3 @@ include "../config/config.php";
                                           <option value="<?php echo $showcity['city']; ?>"><?php echo $showcity['city']; ?> </option>
                                           <?php } } ?>
 								         </select>
-

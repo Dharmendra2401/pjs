@@ -18,6 +18,8 @@ define('WEBSITE_NAME','PJS');
 define('TITLE','PJS');
 define('TITLE_SITE','');
 
+define('FROM_EMAIL','admin@gmail.com');
+
 
 define('META_DESCRIPTION', "");
 define('META_KEYWORDS', "");
@@ -66,9 +68,27 @@ function generateNumericOTP($n) {
     }  
     return $result; 
 } 
- 
-
 //print_r(generateNumericOTP($n)); 
 
+
+function uniqtskid($con)
+{
+$prefix='RID';
+$rst11=mysqli_query($con,"select request_id from staging_approval order by request_id desc limit 1" ) or die(mysql_error());
+$getresultss=mysqli_num_rows($rst11);
+if(mysqli_num_rows($rst11) == 0){
+$uniqid =$prefix."0001";
+}
+else{
+while($row_val = mysqli_fetch_array($rst11) ){
+$usr12 = $row_val['request_id'];
+if($row_val['request_type']=='1'){
+ $str = ltrim($usr12, 'A');
+}
+$dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
+}$uniqid =$prefix.$dge;
+}
+return $uniqid;	
+}	
 
 ?>
