@@ -123,7 +123,7 @@ if ($_SESSION['user_email']!=''){
 				<a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
 				<div class="dropdown-menu custom-dropdwn">	
 					<a class="dropdown-item" href="reg_request.php">Registered Users Count</a>
-					<a class="dropdown-item" href="contact_request">Death Count</a>
+					<a class="dropdowncls-item" href="contact_request">Death Count</a>
 					<a class="dropdown-item" href="#">OPJ Requests Report</a>
 					<a class="dropdown-item" href="#">Update Request Count</a>
 				</div>
