@@ -8,25 +8,23 @@ $status=mysqli_real_escape_string($con,trim($_REQUEST['status']));
 
 if($status==1){
 $sorcevalue=strtoupper(substr($getdate['first_name'],0,3)).'_'.strtoupper(substr($getdate['last_name'],0,3)).'_'.strtoupper(substr($getdate['fathers_name'],0,3)).'_'.date('dmY',strtotime($getdate['date_of_birth'] ));
-
-
-$insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_insert_dttm)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['admin_id']."','".$submitdate."')");
+$insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['admin_id']."','".$submitdate."')");
 $member_id = mysqli_insert_id($con);
 
 
 
-$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,height,upd_user,record_insert_dttm,age,middle_name) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$getdate['height']."','".$_SESSION['admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['middle_name']."'  ) ");
+$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,height,upd_user,record_inserted_dttm,age,middle_name) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$getdate['height']."','".$_SESSION['admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['middle_name']."'  ) ");
 
-$insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_insert_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['admin_id']."','".$submitdate."' )");
+$insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_inserted_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['admin_id']."','".$submitdate."' )");
 
 
-$insertcommunication=mysqli_query($con,"INSERT into communication (member_id,mobile,email,upd_user,record_insert_dttm)values('".$member_id."','".$getdate['mobile']."' ,'".$getdate['email']."','".$_SESSION['admin_id']."', '".$submitdate."') ");
-$inserteducation_occp=mysqli_query($con,"insert into education_ocp(member_id,highest_edu,occupation,ocp_details,income,upd_user,record_insert_dttm) values('".$member_id."','".$getdate['highest_edu']."','".$getdate['occupation']."','".$getdate['ocp_details']."','".$getdate['income']."','".$_SESSION['admin_id']."','".$submitdate."')");
+$insertcommunication=mysqli_query($con,"INSERT into communication (member_id,mobile,email,upd_user,record_inserted_dttm)values('".$member_id."','".$getdate['mobile']."' ,'".$getdate['email']."','".$_SESSION['admin_id']."', '".$submitdate."') ");
+$inserteducation_occp=mysqli_query($con,"insert into education_ocp(member_id,highest_edu,occupation,ocp_details,income,upd_user,record_inserted_dttm) values('".$member_id."','".$getdate['highest_edu']."','".$getdate['occupation']."','".$getdate['ocp_details']."','".$getdate['income']."','".$_SESSION['admin_id']."','".$submitdate."')");
 
 
 $update=mysqli_query($con,"update staging_approval set active_status='N' where request_id='".$getid."' ");
-$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,height,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age)
-SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,height,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age from staging_approval where request_id='".$getid."' ";
+$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,height,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age,area)
+SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,height,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age,area from staging_approval where request_id='".$getid."' ";
 mysqli_query($con,$insert);
 
 $subject="User Successfully Approved From '".WEBSITE_NAME."' ";
@@ -46,6 +44,12 @@ $reason=$_REQUEST['reason'];
 $getreason=Implode(',',$reason);
 $trimreason=rtrim($getreason,',');
 $update=mysqli_query($con,"update staging_approval set reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
+$subject="User Approval Rejected From '".WEBSITE_NAME."' ";
+$mes='';
+$mes.=" Dear ".$firstname." ".$middlename." ".$lastname.", your user application is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
+$message=$mes;
+$to=$getdate['email'];
+sendemail($to,$form,$subject,$message);
 redirect(RE_HOME_ADMIN."reg_request.php","User successfully rejected~@~".MSG_SUCCESS);
 
 }

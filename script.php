@@ -8,6 +8,7 @@
 <script type="text/javascript" src="<?php echo RE_HOME_PATH ; ?>js/main.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sweetalert.min.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sorttable.js"></script>
+<script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/lightbox.js"></script>
 
 <script>
 
@@ -141,9 +142,12 @@ function timer(remaining) {
 $(document).ready(function(){
 			$("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
          $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
-			$("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
+      $("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
+      $("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
 	
 });
+
+
 
 
 function isNumeric (evt) {
@@ -166,6 +170,7 @@ type:"POST",
 url:"<?php echo RE_EN_PATH; ?>getcity.php",
 data:{"state":state},
 success:function(data12){
+$("#getarea").load("area.php");
 $("#getpincode").load("getpincode.php");
 $('#getcity').html(data12);
 $('#loadergif').fadeOut();
@@ -181,7 +186,7 @@ type:"POST",
 url:"<?php echo RE_EN_PATH; ?>getcitytwo.php",
 data:{"state":state},
 success:function(data12){
-//$("#getpincode").load("getpincode.php");
+$("#getarea").load("area.php");
 $('#getcitytwo').html(data12);
 $('#loadergif').fadeOut();
 }
@@ -195,10 +200,27 @@ type:"POST",
 url:"<?php echo RE_EN_PATH; ?>getpincode.php",
 data:{"city":city},
 success:function(data122){
+$("#getarea").load("area.php");
 $('#getpincode').html(data122);
 $('#loadergif').fadeOut();
 }
 });
+}
+
+function getArea(){
+var states= $('#state').val();
+var pincode= $('#pincodes').val();
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"<?php echo RE_EN_PATH; ?>area.php",
+data:{"pincode":pincode},
+success:function(data1224){
+$('#getarea').html(data1224);
+$('#loadergif').fadeOut();
+}
+});
+
 }
 
 

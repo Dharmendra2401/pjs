@@ -234,6 +234,8 @@ $("#submitdate").val('');
 $("#statetwo").val('');
 $("#citytwo").val('');
 $("#submitdatetwo").val('');
+$("#refrenceidtwo").val('');
+$("#refrenceidone").val('');
 BtnClickPage(1,10);
 BtnClickPagetwo(1,10);
 }

@@ -26,6 +26,31 @@ redirect(RE_EN_PATH."index.php");
 }
 
 
+if(isset($_POST['forgotpass'])){
+  
+$emails=mysqli_real_escape_string($con,trim($_REQUEST['getemail']));
+$getemail=mysqli_query($con,'select email from admin_login where email="'.$emails.'" ');
+$contt=mysqli_num_rows($getemail);
+
+if($contt>0){
+  $getpass=mysqli_fetch_array($getemail);
+  $subject="Request For Admin Password '".WEBSITE_NAME."' ";
+  $mes='';
+  $mes.=" Dear Admin, your login password is :<strong>".$getpass['password']."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
+  $message=$mes;
+  $to=$getdate['email'];
+  sendemail($to,$form,$subject,$message);
+  redirect(RE_HOME_ADMIN."index.php","Email successfully send~@~".MSG_SUCCESS);
+
+}else{
+  redirect(RE_HOME_ADMIN."index.php","Error! Please enter valid email!~@~".MSG_ERROR);
+}
+
+
+
+}
+
+
 ?>
 <!DOCTYPE html>
 <html>
@@ -53,6 +78,7 @@ redirect(RE_EN_PATH."index.php");
 
               
               <button class="btn btn-lg btn-success btn-block text-uppercase" type="submit" name="login">Login</button>
+              <button type="button" class="btn btn-lg btn-primary btn-block text-uppercase" data-toggle="modal" data-target="#forgotpass">Forgot Password</button>
              
              
             </form>
@@ -61,6 +87,30 @@ redirect(RE_EN_PATH."index.php");
       </div>
     </div>
   </div>
+
+  <div class="modal fade" id="forgotpass" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Forgot Password</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post">
+      <div class="modal-body">
+        <label>Email <span class="text-danger">*</span></label>
+        <input type="email" class="form-control" name="getemail" placeholder="Enter your email" required>
+      </div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="submit" name="forgotpass" class="btn btn-primary">Send</button>
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+  
 </body>
 <?php 
 include "../../script.php"

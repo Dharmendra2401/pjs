@@ -24,10 +24,10 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.member_id,mem.middle_name,
 	    	<div class="container">
 		    	<div class="row">
 					<div class="col-md-2 text-right">
-						<img class="user-img img-fluid" src="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>">
+					<a data-lightbox="example-1" href="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>">	<img class="user-img img-fluid" src="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>"></a>
 					</div>
 					<div class="col-md-4 pl-0 align-self-end sm-tr">
-					    <h2 class="text-white mb-1">Lavish Jain</h2>
+					    <h2 class="text-white mb-1"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></h2>
 					    <h5 class="text-white"><?php echo $row['member_id'] ;?></h5>
 					</div>
 					<div class="col-md-6 align-self-end text-right sm-mt10">

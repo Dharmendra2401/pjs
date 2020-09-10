@@ -31,7 +31,7 @@ if($_REQUEST['submitdate']!='')
 {$statu.= 'and record_inserted_dttm LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdate'])).'%"';}
 
 if($_REQUEST['refrenceidone']!='')
-{$statu.= 'and request_id LIKE "'.trim($_REQUEST['refrenceidone']).'"';}
+{$statu.= 'and request_id LIKE "%'.trim($_REQUEST['refrenceidone']).'%"';}
 
 
 if(isset($_REQUEST['ustatus']))

@@ -5,7 +5,7 @@
  
             <div class="col-md-3 sm-image-wrapper">
             	<i class="fas fa-bars mobile-menu-icon"></i>
-    			<a href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/flooop.png"></a>
+    			<a href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png" style="padding: 10px;"></a>
     		</div>
     		<div class="col-md-6 d-flex justify-content-center">
 
@@ -51,8 +51,8 @@ if ($_SESSION['admin_email']!=''){
 				   <?php echo $_SESSION['fullname']; ?>
 				    </button>
 				    <div class="dropdown-menu custom-dropdwn mt-2">
-				     <!--  <a class="dropdown-item" href="profile.php">View & update profile</a>
-				      <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
+				     <a class="dropdown-item" href="<?php echo  RE_HOME_ADMIN; ?>password_change.php">Change password</a>
+				      <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 				      <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
 				      <a class="dropdown-item" href="<?php echo  RE_HOME_ADMIN; ?>logout_admin.php">Logout</a>
 				    </div>
@@ -67,12 +67,13 @@ if ($_SESSION['admin_email']!=''){
 
 ?>
 
+
 				
 
     		</div>
 
             <div class="col-md-12 navbar-menu">
-            	
+			<span class="close-icon">&times;</span>
 				<nav class="navbar navbar-expand-sm">
 				  <ul class="navbar-nav">
 				    <li class="nav-item">
@@ -110,12 +111,40 @@ if ($_SESSION['admin_email']!=''){
 				      <div class="dropdown-menu custom-dropdwn">	
 					      <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN; ?>reg_request.php">New User Registration Requests</a>
 					      <a class="dropdown-item" href="#">OPJ Contact Requests</a>
-					      <a class="dropdown-item" href="#">User Updation Requests</a>
-					      <a class="dropdown-item" href="#">Fake/Duplicate/Death Requests </a>
 					  </div>
 				    </li>
 <?php } ?>
+<?php 
+if ($_SESSION['user_email']!=''){
+
+?>
+
+				<li class="nav-item">
+				  <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
+				  <div class="dropdown-menu custom-dropdwn">	
+					  <a class="dropdown-item" href="reg_request.php">Registered Users Count</a>
+					  <a class="dropdown-item" href="contact_request">Death Count</a>
+					  <a class="dropdown-item" href="#">OPJ Requests Report</a>
+					  <a class="dropdown-item" href="#">Update Request Count</a>
+				  </div>
+				</li>
+				<li class="nav-item">
+				  <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" href="#">Tickets</a>
+				  <div class="dropdown-menu custom-dropdwn">	
+					  <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN; ?>reg_request.php">New User Registration Requests</a>
+					  <a class="dropdown-item" href="#">OPJ Contact Requests</a>
+				  </div>
+				</li>
+<?php } ?>
+
+
+
+
+
 				  </ul>
 				</nav>
-			</div>
+			
+
+	</div>
+		
 			

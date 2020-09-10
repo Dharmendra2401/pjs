@@ -4,6 +4,26 @@ require_once("../config/config.php");
 
 ?>
 
+<div class="modal fade" id="forgotpass" tabindex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Modal title</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        ...
+      </div>
+      <div class="modal-footer">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+        <button type="button" class="btn btn-primary">Save changes</button>
+      </div>
+    </div>
+  </div>
+</div>
+
 <div class="modal fade loginPopup" id="loginPopup" tabindex="-1" role="dialog">
 <div class="modal-dialog modal-dialog-centered login-container">
 <div class="modal-content loginContent">
@@ -15,7 +35,7 @@ require_once("../config/config.php");
 <form class="form-inline justify-content-md-center my-3" method="post">
 <div class="form-group">
 <label class="mr-5" for="email">Member ID </label>
-<input type="text" class="form-control" placeholder="MID" name="mid" id="mid" onkeyup="return checkMid();"  required>
+<input type="number" class="form-control" placeholder="MID" name="mid" id="mid" onkeyup="return checkMid();"  required>
 </div>
 <span id="miderror" class="form-group"></span>
 <div class="logincontents" >
@@ -41,6 +61,8 @@ require_once("../config/config.php");
 </div>
 </div>
 </div>
+
+
 
 
 <div class="modal fade loginPopup" id="modal1">
@@ -336,6 +358,10 @@ require_once("../config/config.php");
 </div>
 </div>
 </div>
+
+
+
+
    
 
 <!-------------------------------UPDATE------------------------------>
