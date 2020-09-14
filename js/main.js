@@ -40,15 +40,6 @@ function showResult(str) {
      
   });
 
-  $(document).on('click', '.contact-modal',function(){
-    
-      $('.contact-container').load('modal.php .contact-content');
-  });
-
-  $(document).on('click', '.contact',function(){
-    
-      $('.modal-body').load('modal.php .adminform');
-  });
 
   $(document).on('click', '.submit-credential',function(){
     

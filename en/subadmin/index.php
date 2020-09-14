@@ -88,7 +88,7 @@ if($contt>0){
     </div>
   </div>
 
-  <div class="modal fade" id="forgotpass" >
+<div class="modal fade" id="forgotpass" >
   <div class="modal-dialog" role="document">
     <div class="modal-content">
       <div class="modal-header border-bottom-0">

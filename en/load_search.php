@@ -4,7 +4,7 @@ $stat='';
 $statu='';
 
 if($_REQUEST['search']!='')
-{$statu.= 'and (member_id LIKE "%'.$_REQUEST['search'].'%" or first_name LIKE "%'.$_REQUEST['search'].'%") ';}
+{$statu.= 'and (member_id LIKE "%'.$_REQUEST['search'].'%" or middle_name LIKE "%'.$_REQUEST['search'].'%" or first_name LIKE "%'.$_REQUEST['search'].'%") ';}
 
 
 if(isset($_REQUEST['ustatus']))

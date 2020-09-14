@@ -179,7 +179,7 @@ while($show=mysqli_fetch_array($state)){
 </div>
 </div>
 <div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of district/town/village</label>	
+<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of city/town/village</label>	
 <div class="col-md-9">
 <span id="getcity"></span>
 </div>

@@ -40,6 +40,7 @@ redirect(RE_HOME_ADMIN."reg_request.php","User successfully approved~@~".MSG_SUC
 else if($status==2){
 
 $reason=$_REQUEST['reason'];
+mysqli_query($con,"update staging_approval set active_status='R' where request_id='".$getid."' ");
 //$reasontext=mysqli_real_escape_string($con,trim($_REQUEST['reasontext']));
 $getreason=Implode(',',$reason);
 $trimreason=rtrim($getreason,',');
@@ -135,20 +136,26 @@ else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']=
 <h3>Address Info</h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Address  <strong>:</strong></div>
-<div class="col-md-9 address"><?php if($getdate['full_address']!=''){echo $getdate['full_address'];}else{echo "NA";} ; ?></div>
-
-<div class="col-md-3">Name of city/town/village <strong>:</strong></div>
-<div class="col-md-9"><?php if($getdate['city']!=''){echo $getdate['city'];}else{echo "NA";} ; ?></div>
-
-<div class="col-md-3">Area (Pin Code)  <strong>:</strong></div>
-<div class="col-md-9"><?php if($getdate['pincode']!=''){echo $getdate['pincode'];}else{echo "NA";} ; ?></div>
+<div class="col-md-3">Country <strong>:</strong></div>
+<div class="col-md-9"><?php if($getdate['country']!=''){echo $getdate['country'];}else{echo "NA";} ; ?></div>
 
 <div class="col-md-3">State <strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['state']!=''){echo $getdate['state'];}else{echo "NA";} ; ?></div>
 
-<div class="col-md-3">Country <strong>:</strong></div>
-<div class="col-md-9"><?php if($getdate['country']!=''){echo $getdate['country'];}else{echo "NA";} ; ?></div>
+
+
+<div class="col-md-3">Name of city/town/village <strong>:</strong></div>
+<div class="col-md-9"><?php if($getdate['city']!=''){echo $getdate['city'];}else{echo "NA";} ; ?></div>
+
+<div class="col-md-3">Pin Code <strong>:</strong></div>
+<div class="col-md-9"><?php if($getdate['pincode']!=''){echo $getdate['pincode'];}else{echo "NA";} ; ?></div>
+
+<div class="col-md-3">Area <strong>:</strong></div>
+<div class="col-md-9"><?php if($getdate['area']!=''){echo $getdate['area'];}else{echo "NA";} ; ?></div>
+
+<div class="col-md-3">Address  <strong>:</strong></div>
+<div class="col-md-9 address"><?php if($getdate['full_address']!=''){echo $getdate['full_address'];}else{echo "NA";} ; ?></div>
+
 </div>
 <h3>Education</h3>
 <hr>

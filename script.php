@@ -1,5 +1,81 @@
 <?php  include "modal.php"; ?>
 
+<div class="modal fade loginPopup" id="contactoption">
+<div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
+<div class="modal-content contact-content">
+<div class="">
+<button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
+</div> 
+<div class="modal-body">
+<div class="row">
+<div class="col-md-6 border-dark border-right text-center">
+<p class="mb-0">xyz Jain ?</p>
+<p>To proceed please login</p>	
+<button type="button" class="btn btn-secondary open-login">Login</button>
+<a href="signup.php" class="btn btn-secondary">SignUp</a>
+</div>
+<div class="col-md-6 text-center">
+<p>Others who still want to connect</p>	
+<button type="button" class="btn btn-secondary" onclick="return openadminpop();">Contact Admin</button>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+
+
+
+<!----------------------CONTACT ADMIN------------------------------>
+
+<div class="modal fade loginPopup" id="opjcontact">
+<div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
+<div class="modal-content adminform">
+<div class="modal-header">
+<h3 class="modal-title">OPJ Contact Request form</h3>
+<button type="button" id="close-login" class="close" data-dismiss="modal">×</button>
+</div>
+<div class="modal-body">
+<form>
+<div class="form-group row">
+<label class="col-md-4 col-form-label "><span class="text-danger">*</span> First Name</label>
+<div class="col-md-8">
+<input type="text" class="form-control"  placeholder="Enter First Name" name="opjfirstname" id="opjfirstname">
+</div>
+</div>
+<div class="form-group row">
+<label class="col-md-4 col-form-label "><span class="text-danger">*</span> Last Name</label>
+<div class="col-md-8">
+<input type="text" class="form-control"  placeholder="Enter Last Name" name="opjlastname" id="opjlastname">
+</div>
+</div>
+<div class="form-group row">
+<label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Mobile No.</label>	
+<div class="col-md-8">
+<input type="number" class="form-control" placeholder="Enter Mobile no." name="opjmobile" id="opjmobile">
+</div>
+</div>
+<div class="form-group row">
+<label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Email Id</label>	
+<div class="col-md-8">
+<input type="email" class="form-control" placeholder="Enter Email Id" name="opjemail" id="opjemail">
+</div>
+</div>
+<div class="form-group row">
+<label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Address</label>
+<div class="col-md-8">
+<textarea class="form-control" rows="4" name="opjaddress" id="opjaddress"></textarea>
+</div>
+</div>
+<div class="text-right">
+<small class="d-block">Send contact request to admin</small>
+<input type="submit" class="btn btn-primary" onclick="return contactadmin();">
+</div>
+</form>
+</div>
+</div>
+</div>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH ; ?>js/jquery.steps.min.js"></script>
@@ -11,6 +87,20 @@
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/lightbox.js"></script>
 
 <script>
+
+function openadminpop(){
+$('#opjcontact').modal('show');
+$('#contactoption').modal('hide');
+
+}
+
+function contactadmin(){
+var opjfname=$('#opjfirstname').val();
+return false;
+
+
+}
+
 
 function checkMid(){
 var mid=$('#mid').val();
@@ -42,6 +132,7 @@ type:'POST',
 url:'<?php echo RE_HOME_USER ;?>otprequest.php',
 data:{'mid':mid},
 success:function(otpnumber){
+  alert(otpnumber);
 if(otpnumber!=' '){
 timer(120);
 $('#mobilenumber').html(otpnumber);

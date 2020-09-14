@@ -180,8 +180,38 @@ while($show=mysqli_fetch_array($state)){
 </div>
 </div> 	
 </div>
+
+
+
+<div class="modal fade" id="viewreason" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header border-bottom-0">
+        <h5 class="modal-title" id="exampleModalLabel">Reasons For Rejection</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <form method="post">
+      <div id="reason" class="rpadding"></div>
+      <div class="modal-footer border-top-0">
+        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+       
+      </div>
+      </form>
+    </div>
+  </div>
+</div>
+
 <?php  include "../../script.php" ?>
 <script type="text/javascript">
+
+function viewreason(reas){
+
+$('#reason').html(reas)
+alert(reas);
+}
+
 $(function(){
 $(".short1").addSortWidget();
 });
