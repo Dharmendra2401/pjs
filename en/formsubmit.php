@@ -34,7 +34,7 @@ $file='';
 $file_namees=$_FILES["profile"]["name"]; 
 $file_tmpps=$_FILES["profile"]["tmp_name"];
 
-$request_id='RID'.date('dmyhms');
+$request_id=uniqueid($con);
 
 $getvalid=mysqli_query($con,"select first_name,last_name,fathers_name,date_of_birth from staging_approval where first_name='".$firstname."' and last_name='".$lastname."' and date_of_birth='".$dob."' ");
 

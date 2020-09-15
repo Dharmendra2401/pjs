@@ -3,7 +3,7 @@ include "../config/config.php";
 $city=$_POST['city'];
 
 ?>
-<select class="custom-select" id="pincodes" name="pincode" onchange="return getArea();" >
+<select class="custom-select upincode" id="pincodes" name="pincode" onchange="return getArea();" >
 <option value="" selected>Select pincode</option>
 
 <?php  

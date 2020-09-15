@@ -2,7 +2,7 @@
 include "../config/config.php";
  $state=$_POST['state'];
 ?>
- <select class="custom-select" id="citytwo" >
+ <select class="custom-select ustate" id="citytwo" >
 								          <option value="" selected>Select City</option>
                                          
                                           <?php  

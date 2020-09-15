@@ -148,6 +148,7 @@ body{
     position: fixed;
     width: 100%;
     top: 0px;
+    height: 100%;
     left: 0;
     z-index: 9999999;
     background: #ffffff82;
@@ -605,6 +606,8 @@ body{
 .ticket-header{
     padding-top: 40px;
     text-decoration: underline;
+    padding-bottom: 15px;
+
 }
 
 .shadow{
@@ -913,5 +916,8 @@ body{
 .btn-warning:hover{color:white;}
 .rpadding{    padding: 20px;
 }
-
+.rounded-circle i{width: 8px;
+    padding-top: 3px;
+    height: 15px;    text-align: center;
+    font-size: 9px}
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

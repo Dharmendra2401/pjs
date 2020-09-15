@@ -1,7 +1,7 @@
 <?php 
 
 include "../../config/config.php";
-admin_session_check();
+sub_admin_session_check();
 
 ?>
 

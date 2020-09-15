@@ -1,7 +1,7 @@
 
 <?php print_r($_SESSION); ?>
 <div id="loadergif" style="display:none;">
-<img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif">
+<img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
 <div class="row bg-white">
 
@@ -31,12 +31,12 @@
 
 <?php 
 
-if ($_SESSION['admin_email']!=''){
+if ($_SESSION['sub_admin_email']!=''){
 
 ?>
 <div class="dropdown loggedin">
 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-<?php echo $_SESSION['fullname']; ?>
+<?php echo $_SESSION['sub_admin_fullname']; ?>
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="<?php echo  RE_HOME_ADMIN; ?>password_change.php">Change password</a>
@@ -70,7 +70,26 @@ if ($_SESSION['admin_email']!=''){
 
 <?php
 
-}else{
+}else if ($_SESSION['admin_id']!=''){
+
+    ?>
+    <div class="dropdown loggedin">
+    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+    <?php echo $_SESSION['admin_fullname']; ?>
+    </button>
+    <div class="dropdown-menu custom-dropdwn mt-2">
+    <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN;?>password_change.php">Password Change</a>
+    <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
+    <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
+    <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN;?>logout_admin.php">Logout</a>
+    
+    </div>
+    </div>
+    
+    
+    <?php
+    
+    }else{
 
 
 
@@ -109,7 +128,7 @@ LOGIN/SIGUP
 </li>
 <?php 
 }
-if ($_SESSION['admin_email']!=''){
+if ($_SESSION['sub_admin_email']!=''){
 
 ?>
 
@@ -125,7 +144,7 @@ if ($_SESSION['admin_email']!=''){
 <li class="nav-item">
 <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" href="#">Tickets</a>
 <div class="dropdown-menu custom-dropdwn">	
-<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN; ?>reg_request.php">New User Registration Requests</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_request.php">New User Registration Requests</a>
 <a class="dropdown-item" href="#">OPJ Contact Requests</a>
 </div>
 </li>
@@ -151,9 +170,26 @@ if ($_SESSION['user_email']!=''){
 <a class="dropdown-item" href="#">OPJ Contact Requests</a>
 </div>
 </li>
+<?php } 
+
+if ($_SESSION['admin_email']!=''){
+
+?>
+
+<li class="nav-item">
+<a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Masters</a>
+<div class="dropdown-menu custom-dropdwn">	
+<a class="dropdown-item" href="#">About Us</a>
+<a class="dropdown-item" href="#">Events</a>
+<a class="dropdown-item" href="#">Gallery</a>
+<a class="dropdown-item" href="#">Schemes</a>
+<a class="dropdown-item" href="#">Zone</a>
+</div>
+</li>
+<li class="nav-item">
+<a class="nav-link" href="<?php echo RE_HOME_SUPERADMIN;?>sub_admin.php">Sub Admins</a>
+</li>
 <?php } ?>
-
-
 
 
 

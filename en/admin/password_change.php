@@ -1,5 +1,5 @@
 <?php include "../../config/config.php" ;
-sub_admin_session_check();
+admin_session_check();
 if(isset($_REQUEST['passwordchange'])){
 
 $oldpass=mysqli_real_escape_string($con,trim($_REQUEST['oldpassword']));
@@ -7,7 +7,7 @@ $newpass=mysqli_real_escape_string($con,trim($_REQUEST['newpassword']));
 $cpassword=mysqli_real_escape_string($con,trim($_REQUEST['cpassword']));
 if(($oldpass!='') && ($newpass!='')&& ($cpassword!='') ){
 if(($newpass==$cpassword)){
-$update=mysqli_query($con,'update sub_admin_login set password="'.$newpass.'" where id="'.$_SESSION['sub_admin_id'].'"');
+$update=mysqli_query($con,'update admin_login set password="'.$newpass.'" where id=1');
 redirect(RE_HOME_ADMIN."password_change.php","Password updated successfully~@~".MSG_SUCCESS);
 }
 redirect(RE_HOME_ADMIN."password_change.php","Error! Confirm password is incorrect~@~".MSG_ERROR);
@@ -44,14 +44,14 @@ redirect(RE_HOME_ADMIN."password_change.php","Error! Please try again~@~".MSG_ER
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> New Password </label>	
 <div class="col-md-8">
-<input type="password" class="form-control" name="newpassword" minlength="4" maxlength="10" placeholder="Enter new password" id="newpassword" required>
+<input type="text" class="form-control" name="newpassword" minlength="4" maxlength="10" placeholder="Enter new password" id="newpassword" required>
 </div>
 </div>
 
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> Confirm New Password </label>	
 <div class="col-md-8">
-<input type="password" class="form-control" name="cpassword" maxlength="10" placeholder="Confirm new password" id="cpassword" required>
+<input type="text" class="form-control" name="cpassword" maxlength="10" placeholder="Confirm new password" id="cpassword" required>
 </div>
 </div>
 

@@ -85,6 +85,8 @@
 <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sweetalert.min.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sorttable.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/lightbox.js"></script>
+<script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/bootbox.min.js"></script>
+
 
 <script>
 
@@ -232,9 +234,13 @@ function timer(remaining) {
 });
 $(document).ready(function(){
 			$("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
-         $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
+      $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
       $("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
       $("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
+      $("#ugetcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
+      $("#ugetcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
+      $("#ugetpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
+      $("#ugetarea").load("<?php echo RE_EN_PATH; ?>area.php");
 	
 });
 

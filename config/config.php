@@ -13,7 +13,8 @@ if(mysqli_connect_errno()){ echo "Failed to connect to db".mysqli_connect_errno(
 define('RE_HOME_PATH', "http://localhost/pjs_user/"); 
 define('RE_EN_PATH', "http://localhost/pjs_user/en/");
 define('RE_HOME_USER', "http://localhost/pjs_user/en/user/"); 
-define('RE_HOME_ADMIN', "http://localhost/pjs_user/en/admin/"); 
+define('RE_HOME_ADMIN', "http://localhost/pjs_user/en/subadmin/");
+define('RE_HOME_SUPERADMIN', "http://localhost/pjs_user/en/admin/"); 
 define('WEBSITE_NAME','PJS');
 define('TITLE','PJS');
 define('TITLE_SITE','');
@@ -49,12 +50,21 @@ $text = substr($text, 0, $pos[$limit]) . '...';
 return $text;
 }
 
+function sub_admin_session_check()
+{
+    if(($_SESSION['sub_admin_email']=='') && ($_SESSION['sub_admin_id']=='') )
+    {	
+    redirect(RE_HOME_ADMIN."index.php","Session expired.~@~".MSG_ERROR);
+    }
+   
+}
+
 function admin_session_check()
 {
     if(($_SESSION['admin_email']=='') && ($_SESSION['admin_id']=='') )
     {	
-    redirect(RE_HOME_ADMIN."index.php","Session expired.~@~".MSG_ERROR);
-    }
+    redirect(RE_HOME_SUPERADMIN."index.php","Session expired.~@~".MSG_ERROR);
+}
    
 }
 
@@ -67,14 +77,25 @@ function generateNumericOTP($n) {
         $result .= substr($generator, (rand()%(strlen($generator))), 1); 
     }  
     return $result; 
+}
+
+function generatepassword($pass) {
+    $pass = 6;  
+    $generator = "1357902468"; 
+    $res = ""; 
+    for ($i = 1; $i <= $pass; $i++) { 
+        $res .= substr($generator, (rand()%(strlen($generator))), 1); 
+    }  
+    return $res; 
 } 
+
 //print_r(generateNumericOTP($n)); 
 
 
 function uniqtskid($con)
 {
-$prefix='RID';
-$rst11=mysqli_query($con,"select request_id from staging_approval order by request_id desc limit 1" ) or die(mysql_error());
+$prefix='ADMN';
+$rst11=mysqli_query($con,"select id,request_id from sub_admin_login order by id desc limit 1" ) or die(mysql_error());
 $getresultss=mysqli_num_rows($rst11);
 if(mysqli_num_rows($rst11) == 0){
 $uniqid =$prefix."0001";
@@ -82,9 +103,25 @@ $uniqid =$prefix."0001";
 else{
 while($row_val = mysqli_fetch_array($rst11) ){
 $usr12 = $row_val['request_id'];
-if($row_val['request_type']=='1'){
- $str = ltrim($usr12, 'A');
+$str = ltrim($usr12, 'ADMN');
+$dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
+}$uniqid =$prefix.$dge;
 }
+return $uniqid;	
+}	
+
+function uniqueid($con)
+{
+$prefix='RID';
+$rst11=mysqli_query($con,"select id,request_id from staging_approval order by id desc limit 1" ) or die(mysql_error());
+$getresultss=mysqli_num_rows($rst11);
+if(mysqli_num_rows($rst11) == 0){
+$uniqid =$prefix."0001";
+}
+else{
+while($row_val = mysqli_fetch_array($rst11) ){
+$usr12 = $row_val['request_id'];
+$str = ltrim($usr12, 'RID');
 $dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
 }$uniqid =$prefix.$dge;
 }

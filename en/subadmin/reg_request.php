@@ -1,6 +1,6 @@
 <?php 
 include "../../config/config.php";
-admin_session_check();
+sub_admin_session_check();
 ?>
 <!DOCTYPE>
 <html>
@@ -207,9 +207,7 @@ while($show=mysqli_fetch_array($state)){
 <script type="text/javascript">
 
 function viewreason(reas){
-
 $('#reason').html(reas)
-alert(reas);
 }
 
 $(function(){
