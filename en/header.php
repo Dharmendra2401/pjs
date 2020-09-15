@@ -1,5 +1,4 @@
 
-<?php print_r($_SESSION); ?>
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
