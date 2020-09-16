@@ -139,6 +139,7 @@ else if(opjaddress==''){
   return false;
 }
 else{ 
+$('#loadergif').fadeIn();
 $.ajax({
 method:'POST',
 url:'<?php echo RE_HOME_PATH ;?>opjsubmit.php',
@@ -148,6 +149,7 @@ if(opjrequest=='true'){
 $('#opform')[0]. reset();
 $('#opjcontact').modal('hide');
 $('#opjerror').html('');
+$('#loadergif').fadeOut();
 bootbox.alert("Your request has been send to admin for further verification");
 }
 }
