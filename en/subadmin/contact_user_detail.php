@@ -1,156 +1,143 @@
+<?php 
+include "../../config/config.php";
+sub_admin_session_check();
+$getid=base64_decode($_REQUEST['id']);
+$getdetails=mysqli_fetch_array(mysqli_query($con,'select * from non_member_request where request_id="'.$getid.'" '));
+$getuser=mysqli_fetch_array(mysqli_query($con,'select first_name,last_name from member where member_id="'.$getdetails['user_id'].'" '));
+$getemails=mysqli_fetch_array(mysqli_query($con,'select email from communication where member_id="'.$getdetails['user_id'].'" '));
+if(isset($_REQUEST['submit'])){
+echo $status=$_REQUEST['status'];
+
+if($status==1){
+$update=mysqli_query($con,"update non_member_request set request_status='N' where request_id='".$getid."' ");
+$subject="User Successfully Approved From '".WEBSITE_NAME."' ";
+$mes='';
+$mes.=" Dear ".$getdetails['first_name']." ".$getdetails['last_name']." , you are succesfully approved by the admin and your details have been share to the user ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$message=$mes;
+$to=$getdetails['email'];
+sendemail($to,$form,$subject,$message);
+
+$subjectt="OPJ Contact Request From '".WEBSITE_NAME."' ";
+$mess='';
+$mess.=" Dear ".$getuser['first_name']." ".$getuser['last_name']." , an OPJ Contact Requested to contact you here is the detail of opj user ";
+$mess.="Name : ".$getdetails['first_name']." ".$getdetails['last_name']."<br>Mobile : ".$getdetails['mobile']."<br>Email : ".$getdetails['email']."<br> Address : ".$getdetails['address']." <br>";
+$mess.="if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$messages=$mess;
+$too=$getemails['email'];
+sendemail($too,$form,$subjectt,$messages);
+
+redirect(RE_HOME_ADMIN."opj_request.php","User successfully approved~@~".MSG_SUCCESS);
+
+}
+else if($status==0){
+$trimreason=mysqli_real_escape_string($con,trim($_REQUEST['reason']));
+$update=mysqli_query($con,"update non_member_request set request_status='R',reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
+$subject="Admin Approval OPJ Contact Request Rejected From '".WEBSITE_NAME."' ";
+$mes='';
+$mes.=" Dear ".$getuser['first_name']." ".$getuser['last_name'].", your OPJ Contact Request is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
+$message=$mes;
+$to=$getdate['email'];
+sendemail($to,$form,$subject,$message);
+redirect(RE_HOME_ADMIN."opj_request.php","User successfully rejected~@~".MSG_SUCCESS);
+
+}
+else{
+redirect(RE_HOME_ADMIN."opj_request.php","Error! Please try again~@~".MSG_ERROR);
+
+}
+
+
+
+}
+
+
+?>
 <!DOCTYPE>
 <html>
 <head>
-	<head>
-	 <meta charset='utf-8'>
-    <meta name='viewport' content='width=device-width, initial-scale=1'>
-
-	<title>Vts</title>
-
-	<link rel="stylesheet" type="text/css" href="../../css/bootstrap.min.css">
-	<link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/1.10.21/css/dataTables.bootstrap4.min.css">
-	<link rel="stylesheet" type="text/css" href="../../fontawesome5/css/all.min.css">
-	<link rel="stylesheet" type="text/css" href="../../css/style.css">
-</head>
+<?php 
+include "../../styles.php"
+?>
 </head>
 <body>
-	<div class="container-fluid">
-		<div class="row bg-white">
-            <div class="col-md-3 sm-image-wrapper">
-            	<i class="fas fa-bars mobile-menu-icon"></i>
-    			<img class="sm-image" width="110" src="../../images/flooop.png">
-    		</div>
-    		<div class="col-md-6 d-flex justify-content-center">
-    			<div class="input-group my-auto">
-				  <!-- <input type="text" class="form-control" placeholder="Search" aria-label="Username"> -->
-				  <input type="text" class="form-control" placeholder="Search member by name or member id" size="30" onkeyup="showResult(this.value)">
-				   <div class="input-group-append">
-				    <span class="input-group-text"><i class="fa fa-search"></i></span>
-				  </div>
-                  <div id="livesearch"></div>
-				</div>
-    		</div>
-    		<div class="col-md-3 align-self-center text-right">
-    			 <i class="fas fa-language sm-icon-language"></i>
-    			 <i class="far fa-bell sm-icon-alert"></i>
-				 
-				  <div class="dropdown loggedin">
-				    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-				      Username
-				    </button>
-				    <div class="dropdown-menu custom-dropdwn mt-2">
-				     <!--  <a class="dropdown-item" href="profile.php">View & update profile</a>
-				      <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
-				      <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
-				      <a class="dropdown-item" href="index.php">Logout</a>
-				    </div>
-				  </div>
-    		</div>
+<div class="container-fluid">
+<?php include "../header.php"  ?>
+</div>
+<div class="container mb-4 px-0 shadow">
+<h2 class="header">User Details</h2>
+<div class="row user-profile">
+<div class="col-md-12">
+<h3>Personal Info</h3>
+<hr>
+<form method="post">
+<div class="row info mb-4">
+<div class="col-md-3">Name <strong>:</strong></div>
+<div class="col-md-9"><?php echo $getdetails['first_name'].' '.$getdetails['last_name'];  ?></div>
 
-            <div class="col-md-12 navbar-menu">
-				<nav class="navbar navbar-expand-sm">
-				  <ul class="navbar-nav">
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">About Us</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">Events</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">Gallery</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">Schemes</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link" href="#">Zones</a>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
-				      <div class="dropdown-menu custom-dropdwn">	
-					      <a class="dropdown-item" href="reports/reg_users.php">Registered Users Count</a>
-					      <a class="dropdown-item" href="reports/death_count.php">Death Count</a>
-					      <a class="dropdown-item" href="reports/req_report.php">OPJ Requests Report</a>
-					      <a class="dropdown-item" href="reports/update_request.php">Update Request Count</a>
-					  </div>
-				    </li>
-				    <li class="nav-item">
-				      <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" href="#">Tickets</a>
-				       <div class="dropdown-menu custom-dropdwn">	
-					      <a class="dropdown-item" href="reg_request.php">New User Registration Requests</a>
-					      <a class="dropdown-item" href="contact_request.php">OPJ Contact Requests</a>
-					      <a class="dropdown-item" href="update_request.php">User Updation Requests</a>
-					      <a class="dropdown-item" href="other_request.php">Fake/Duplicate/Death Requests </a>
-					  </div>
-				    </li>
-				  </ul>
-				</nav>
-			</div>
-		</div>
-		<div class="container mb-4 px-0 shadow">
-			<h2 class="header">User Details</h2>
-			<div class="row user-profile">
-                <div class="col-md-12">
-                    <h3>Personal Info</h3>
-                    <hr>
-                    <div class="row info mb-4">
-                        <div class="col-md-3">Name <strong>:</strong></div>
-                        <div class="col-md-9">lavish</div>
+<div class="col-md-3">Mobile Number<strong>:</strong></div>
+<div class="col-md-9"><?php echo $getdetails['mobile'];?></div>
 
-                        <div class="col-md-3">Mobile Number<strong>:</strong></div>
-                        <div class="col-md-9">2345623178</div>
+<div class="col-md-3">Email Id<strong>:</strong></div>
+<div class="col-md-9"><?php echo $getdetails['email'];?></div>
 
-                        <div class="col-md-3">Email Id<strong>:</strong></div>
-                        <div class="col-md-9">xyz@gmail.com</div>
+<div class="col-md-3">Address <strong>:</strong></div>
+<div class="col-md-9"><?php echo $getdetails['address'];?></div>
 
-                        <div class="col-md-3">Address <strong>:</strong></div>
-                        <div class="col-md-9">Regal-square, Indore</div>
-
-                        <div class="col-md-3">Requested For<strong>:</strong></div>
-                        <div class="col-md-9">xyz jain(test20) &nbsp;
-                            <a target="_blank" href="reg_user_detail.php">View Details</a> 
-                        	<!-- <button type="button" class="btn btn-default view-link" data-toggle="modal" data-target="#profileModal">
-							  View Details
-							</button>  -->
-						</div>
-                    </div>
-                </div>
-            </div>
-
-            
-            <!-- The Modal -->
-  <div class="modal" id="profileModal">
-    <div class="modal-dialog profile-detail">
-     <!-- modal loads from modal.html -->
-    </div>
-  </div>
-  
+<div class="col-md-3">Requested For<strong>:</strong></div>
+<div class="col-md-9"><?php 
+echo $getuser['first_name'].' '.$getuser['last_name'].' ('.$getdetails['user_id'].')';
+?> &nbsp;
+<a target="_blank" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail2.php?id=<?php echo base64_encode($getdetails['user_id']);?>">View Details</a> 
+<!-- <button type="button" class="btn btn-default view-link" data-toggle="modal" data-target="#profileModal">
+View Details
+</button>  -->
+</div>
+<div class="col-md-3 rejection" style="display:none;">Reason for rejection <strong>:</strong></div>
+<div class="col-md-4 rejection" style="display:none;"><input type="text" name="reason" class="form-control" id="reason" placeholder="Enter the reason here" maxlength="100"></div>
+</div>
+</div>
 </div>
 
 
-            <div class="admin-check-wrapper">
-            	<div class="row">
-            	<div class="col-md-6 text-center">
-            		<label class="form-check-label admin-check">
-		                <input type="radio" id="approve" name="radio" class="form-check-input">Approve
-		            </label>
-		            <label class="form-check-label admin-check">
-		                <input type="radio" id="selectRadio" name="radio" class="form-check-input">Reject
-		            </label>
-            	</div>
-            	<div class="col-md-6 text-center">
-            		<button class="btn btn-success verify-user">Verified & Forward to User</button>
-            		<button class="btn btn-danger">Back</button>
-            	</div>
-            </div>
-            </div>
-            
-		</div>
-	</div>
+<?php  if($getdetails['request_status']!='N'){ ?>
+<div class="admin-check-wrapper">
+<div class="row">
+<div class="col-md-6 text-center">
+<label class="form-check-label admin-check">
+<input type="radio" id="approve" name="status" value="1" class="form-check-input" checked>Approve
+</label>
+<label class="form-check-label admin-check">
+<input type="radio" id="selectRadio" name="status" value="0" class="form-check-input">Reject
+</label>
+</div>
+<?php } ?>
+<div class="col-md-6 text-center">
+<?php  if($getdetails['request_status']!='N'){ ?>
+<button type="submit" name="submit" class="btn btn-success verify-user">Submit</button>
+<?php } ?>
+<a class="btn btn-danger" href="<?php echo RE_HOME_ADMIN; ?>opj_request.php">Back</a>
+</div>
 
-	<script data-require="popper.js@*" data-semver="1.12.9" src="https://unpkg.com/popper.js@1.12.9/dist/umd/popper.min.js"></script>
-    <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-    <script type="text/javascript" src="../../js/bootstrap.min.js"></script>
-    <script type="text/javascript" src="../../js/main.js"></script>
+</div>
+</div>
+
+</div>
+</div>
+</form>
+<?php  include "../../script.php" ?>
+<script>
+$(document).ready(function() {
+$("input[name='status']").click(function() {
+var status = $(this).val();
+if(status=='0'){
+$('.rejection').show();
+$('#reason').attr('required',true);
+}else{
+$('.rejection').hide();	
+}
+
+});
+});
+</script>
 </body>
 </html>

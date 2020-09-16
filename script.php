@@ -32,11 +32,13 @@
 <div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
 <div class="modal-content adminform">
 <div class="modal-header">
-<h3 class="modal-title">OPJ Contact Request form</h3>
+<h3 class="modal-title">OPJ Cntact Request Form</h3>
 <button type="button" id="close-login" class="close" data-dismiss="modal">×</button>
 </div>
 <div class="modal-body">
-<form>
+<p class="text-center bg-light">Fill Form To Connect With <?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></p>
+<form id="opform">
+<input type="hidden" value="<?php echo $idd ;?>" idd="userid">
 <div class="form-group row">
 <label class="col-md-4 col-form-label "><span class="text-danger">*</span> First Name</label>
 <div class="col-md-8">
@@ -64,12 +66,13 @@
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Address</label>
 <div class="col-md-8">
-<textarea class="form-control" rows="4" name="opjaddress" id="opjaddress"></textarea>
+<textarea class="form-control" rows="4" name="opjaddress" placeholder="Enter your address" id="opjaddress"></textarea>
 </div>
 </div>
+<div class="col-md-12"><div id="opjerror"></div></div>
 <div class="text-right">
-<small class="d-block">Send contact request to admin</small>
-<input type="submit" class="btn btn-primary" onclick="return contactadmin();">
+<small>Send contact request to admin</small><br>
+<button type="button" class="btn btn-primary" onclick="return contactAdmin();">Submit </button>
 </div>
 </form>
 </div>
@@ -96,10 +99,62 @@ $('#contactoption').modal('hide');
 
 }
 
-function contactadmin(){
-var opjfname=$('#opjfirstname').val();
-return false;
+function contactAdmin(){
+var opjfirstname=$('#opjfirstname').val();
+var opjlastname=$('#opjlastname').val();
+var opjmobile=$('#opjmobile').val();
+var opjemail=$('#opjemail').val();
+var opjaddress=$('#opjaddress').val();
+var userid="<?php echo $idd ;?>";
+var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+if(opjfirstname==''){
+  $('#opjerror').html('<div class="alert alert-danger">Please enter the firstname</div>');
+  $('#opjfirstname').focus();
+  return false;
+}
+else if(opjlastname==''){
+  $('#opjerror').html('<div class="alert alert-danger">Please enter the lastname</div>');
+  $('#opjlastname').focus();
+  return false;
+}
+else if(opjmobile==''){
+  $('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
+  $('#opjmobile').focus();
+  return false;
+}
+else if(opjemail==''){
+  $('#opjerror').html('<div class="alert alert-danger">Please enter the email </div>');
+  $('#opjemail').focus();
+  return false;
+}
+else if (!testEmail.test(opjemail))
+	{   
+  $('#opjerror').html('<div class="alert alert-danger">Please enter the valid email </div>');
+  $('#opjemail').focus();
+	return false;
+	}
+else if(opjaddress==''){
+  $('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
+  $('#opjaddress').focus();
+  return false;
+}
+else{ 
+$.ajax({
+method:'POST',
+url:'<?php echo RE_HOME_PATH ;?>opjsubmit.php',
+data:{'opjfirstname':opjfirstname,'opjlastname':opjlastname,'opjmobile':opjmobile,'opjemail':opjemail,'opjaddress':opjaddress,'userid':userid},
+success:function(opjrequest){
+if(opjrequest=='true'){
+$('#opform')[0]. reset();
+$('#opjcontact').modal('hide');
+$('#opjerror').html('');
+bootbox.alert("Your request has been send to admin for further verification");
+}
+}
 
+});
+
+}
 
 }
 
@@ -237,10 +292,6 @@ $(document).ready(function(){
       $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
       $("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
       $("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
-      $("#ugetcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
-      $("#ugetcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
-      $("#ugetpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
-      $("#ugetarea").load("<?php echo RE_EN_PATH; ?>area.php");
 	
 });
 

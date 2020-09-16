@@ -52,41 +52,41 @@ return $text;
 
 function sub_admin_session_check()
 {
-    if(($_SESSION['sub_admin_email']=='') && ($_SESSION['sub_admin_id']=='') )
-    {	
-    redirect(RE_HOME_ADMIN."index.php","Session expired.~@~".MSG_ERROR);
-    }
-   
+if(($_SESSION['sub_admin_email']=='') && ($_SESSION['sub_admin_id']=='') )
+{	
+redirect(RE_HOME_ADMIN."index.php","Session expired.~@~".MSG_ERROR);
+}
+
 }
 
 function admin_session_check()
 {
-    if(($_SESSION['admin_email']=='') && ($_SESSION['admin_id']=='') )
-    {	
-    redirect(RE_HOME_SUPERADMIN."index.php","Session expired.~@~".MSG_ERROR);
+if(($_SESSION['admin_email']=='') && ($_SESSION['admin_id']=='') )
+{	
+redirect(RE_HOME_SUPERADMIN."index.php","Session expired.~@~".MSG_ERROR);
 }
-   
+
 }
 
 
 function generateNumericOTP($n) {
-    $n = 4;  
-    $generator = "1357902468"; 
-    $result = ""; 
-    for ($i = 1; $i <= $n; $i++) { 
-        $result .= substr($generator, (rand()%(strlen($generator))), 1); 
-    }  
-    return $result; 
+$n = 4;  
+$generator = "1357902468"; 
+$result = ""; 
+for ($i = 1; $i <= $n; $i++) { 
+$result .= substr($generator, (rand()%(strlen($generator))), 1); 
+}  
+return $result; 
 }
 
 function generatepassword($pass) {
-    $pass = 6;  
-    $generator = "1357902468"; 
-    $res = ""; 
-    for ($i = 1; $i <= $pass; $i++) { 
-        $res .= substr($generator, (rand()%(strlen($generator))), 1); 
-    }  
-    return $res; 
+$pass = 6;  
+$generator = "1357902468"; 
+$res = ""; 
+for ($i = 1; $i <= $pass; $i++) { 
+$res .= substr($generator, (rand()%(strlen($generator))), 1); 
+}  
+return $res; 
 } 
 
 //print_r(generateNumericOTP($n)); 
@@ -122,6 +122,25 @@ else{
 while($row_val = mysqli_fetch_array($rst11) ){
 $usr12 = $row_val['request_id'];
 $str = ltrim($usr12, 'RID');
+$dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
+}$uniqid =$prefix.$dge;
+}
+return $uniqid;	
+}
+
+
+function uniqueopj($con)
+{
+$prefix='OPJ';
+$rst11=mysqli_query($con,"select id,request_id from non_member_request order by id desc limit 1" ) or die(mysql_error());
+$getresultss=mysqli_num_rows($rst11);
+if(mysqli_num_rows($rst11) == 0){
+$uniqid =$prefix."0001";
+}
+else{
+while($row_val = mysqli_fetch_array($rst11) ){
+$usr12 = $row_val['request_id'];
+$str = ltrim($usr12, 'OPJ');
 $dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
 }$uniqid =$prefix.$dge;
 }

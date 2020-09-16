@@ -1,4 +1,5 @@
 
+<?php print_r($_SESSION); ?>
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
@@ -144,7 +145,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" href="#">Tickets</a>
 <div class="dropdown-menu custom-dropdwn">	
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_request.php">New User Registration Requests</a>
-<a class="dropdown-item" href="#">OPJ Contact Requests</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>opj_request.php">OPJ Contact Requests</a>
 </div>
 </li>
 <?php } ?>

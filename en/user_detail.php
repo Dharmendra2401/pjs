@@ -136,7 +136,7 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.member_id,mem.middle_name,
 					      	  	  <p>Birth Time <strong>:</strong></p>
 					      	  </div>
 					      	  <div class="col-md-9 text-uppercase">
-					      	      <h5><?php if($row['time_of_birth']!='') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></h5>
+					      	      <h5><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></h5>
 					      	  </div>
 					      	  
 					      	  <div class="col-md-3">    	  
