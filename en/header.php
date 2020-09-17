@@ -95,7 +95,7 @@ if ($_SESSION['sub_admin_email']!=''){
 
 ?>
 
-<button type="button" class="btn btn-primary open-login" data-toggle="modal" data-target="#loginPopup">
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
 LOGIN/SIGUP
 </button>
 

@@ -68,6 +68,21 @@ redirect(RE_HOME_SUPERADMIN."index.php","Session expired.~@~".MSG_ERROR);
 
 }
 
+function user_session_check()
+{
+if(($_SESSION['user_mid']=='') && ($_SESSION['ufullname']=='') )
+{	
+redirect(RE_HOME_PATH."index.php","Session expired.~@~".MSG_ERROR);
+}
+
+}
+
+function commonsession(){
+if(($_SESSION['admin_email']!='') || ($_SESSION['sub_admin_email']!='') || ($_SESSION['user_mid']!='') ){
+redirect(RE_HOME_PATH."index.php","Session expired.~@~".MSG_ERROR);
+}
+
+}
 
 function generateNumericOTP($n) {
 $n = 4;  

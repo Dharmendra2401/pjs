@@ -1,11 +1,7 @@
 
 <?php  
 include "../../config/config.php" ;
-
-if($_SESSION['sub_admin_email']!=''){
-redirect(RE_EN_PATH."homepage.php");
-}
-
+commonsession();
 if(isset($_REQUEST['login'])){
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
 $password=mysqli_real_escape_string($con,trim($_REQUEST['password']));
