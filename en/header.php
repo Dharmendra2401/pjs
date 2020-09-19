@@ -1,5 +1,4 @@
 
-<?php print_r($_SESSION); ?>
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
@@ -122,11 +121,20 @@ LOGIN/SIGUP
 <li class="nav-item">
 <a class="nav-link" href="#">Zones</a>
 </li>
-<?php if($_SESSION['user_mid']!=''){ ?>
+<?php if($_SESSION['user_mid']==''){ ?>
 <li class="nav-item">
-<a class="nav-link" href="#">My Family</a>
+<!-- <a class="nav-link" href="#">My Family</a> -->
+  <div class="dropdown nav-link">
+    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+      My Family
+    </button>
+    <div class="dropdown-menu">
+      <a class="dropdown-item" href="tree.php">Family Tree</a>
+      <a class="dropdown-item" href="#">Death Update</a>
+    </div>
+  </div>
 </li>
-<?php 
+<?php
 }
 if ($_SESSION['sub_admin_email']!=''){
 
