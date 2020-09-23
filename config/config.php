@@ -19,7 +19,7 @@ define('WEBSITE_NAME','PJS');
 define('TITLE','PJS');
 define('TITLE_SITE','');
 
-define('FROM_EMAIL','admin@gmail.com');
+define('FROM_EMAIL','pjsadmin@gmail.com');
 
 
 define('META_DESCRIPTION', "");
@@ -34,13 +34,15 @@ define("MSG_WARNING","warning");
 include_once('functions.php');
 include_once('paging.php');
 date_default_timezone_set("Asia/Kolkata");
-function sendemail($to,$from="",$subject,$message)
-{
-$headers = "MIME-Version: 1.0" . "\r\n";
-$headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
-$headers .= 'From: '.WEBSITE_NAME.' <'.FROM_EMAIL.'>' . "\r\n";
-mail($to,$subject,$message,$headers);
-}
+// function sendemail($to,$from="",$subject,$message)
+// {
+// $headers = "MIME-Version: 1.0" . "\r\n";
+// $headers .= "Content-type:text/html;charset=UTF-8" . "\r\n";
+// $headers .= 'From: '.WEBSITE_NAME.' <'.FROM_EMAIL.'>' . "\r\n";
+// mail($to,$subject,$message,$headers);
+// }
+
+
 function limit_text($text, $limit) {
 if (str_word_count($text, 0) > $limit) {
 $words = str_word_count($text, 2);
@@ -161,5 +163,7 @@ $dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
 }
 return $uniqid;	
 }	
+
+
 
 ?>

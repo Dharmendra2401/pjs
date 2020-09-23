@@ -1,5 +1,6 @@
 
-<?php print_r($_SESSION); ?>
+<?php print_r($_SESSION);?>
+
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
@@ -40,6 +41,7 @@ if ($_SESSION['sub_admin_email']!=''){
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="<?php echo  RE_HOME_ADMIN; ?>password_change.php">Change password</a>
+
 <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
 <a class="dropdown-item" href="<?php echo  RE_HOME_ADMIN; ?>logout_admin.php">Logout</a>
@@ -146,14 +148,13 @@ if ($_SESSION['sub_admin_email']!=''){
 <div class="dropdown-menu custom-dropdwn">	
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_request.php">New User Registration Requests</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>opj_request.php">OPJ Contact Requests</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>user_updation_request.php">User Updation Requests</a>
 </div>
 </li>
 <?php } ?>
 <?php 
 if ($_SESSION['user_email']!=''){
-
 ?>
-
 <li class="nav-item">
 <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
 <div class="dropdown-menu custom-dropdwn">	

@@ -1,12 +1,13 @@
 <?php 
 include "../../config/config.php";
+include "../mail/index.php" ;
 sub_admin_session_check();
 $getid=base64_decode($_REQUEST['id']);
 $getdetails=mysqli_fetch_array(mysqli_query($con,'select * from non_member_request where request_id="'.$getid.'" '));
 $getuser=mysqli_fetch_array(mysqli_query($con,'select first_name,last_name from member where member_id="'.$getdetails['user_id'].'" '));
 $getemails=mysqli_fetch_array(mysqli_query($con,'select email from communication where member_id="'.$getdetails['user_id'].'" '));
 if(isset($_REQUEST['submit'])){
-echo $status=$_REQUEST['status'];
+$status=$_REQUEST['status'];
 
 if($status==1){
 $update=mysqli_query($con,"update non_member_request set request_status='N' where request_id='".$getid."' ");
@@ -15,16 +16,16 @@ $mes='';
 $mes.=" Dear ".$getdetails['first_name']." ".$getdetails['last_name']." , you are succesfully approved by the admin and your details have been share to the user ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$getdetails['email'];
-sendemail($to,$form,$subject,$message);
+sendmails($to,$message,$subject);
 
 $subjectt="OPJ Contact Request From '".WEBSITE_NAME."' ";
 $mess='';
-$mess.=" Dear ".$getuser['first_name']." ".$getuser['last_name']." , an OPJ Contact Requested to contact you here is the detail of opj user ";
+$mess.=" Dear ".$getuser['first_name']." ".$getuser['last_name']." , an OPJ Contact Requested to contact you here is the detail of opj user : <br>";
 $mess.="Name : ".$getdetails['first_name']." ".$getdetails['last_name']."<br>Mobile : ".$getdetails['mobile']."<br>Email : ".$getdetails['email']."<br> Address : ".$getdetails['address']." <br>";
 $mess.="if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $messages=$mess;
 $too=$getemails['email'];
-sendemail($too,$form,$subjectt,$messages);
+sendmails($too,$messages,$subjectt);
 
 redirect(RE_HOME_ADMIN."opj_request.php","User successfully approved~@~".MSG_SUCCESS);
 
@@ -32,12 +33,12 @@ redirect(RE_HOME_ADMIN."opj_request.php","User successfully approved~@~".MSG_SUC
 else if($status==0){
 $trimreason=mysqli_real_escape_string($con,trim($_REQUEST['reason']));
 $update=mysqli_query($con,"update non_member_request set request_status='R',reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
-$subject="Admin Approval OPJ Contact Request Rejected From '".WEBSITE_NAME."' ";
+$subject="Admin Approval OPJ Contact Request Rejected From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getuser['first_name']." ".$getuser['last_name'].", your OPJ Contact Request is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
+$mes.=" Dear ".$getdetails['first_name']." ".$getdetails['last_name'].", your OPJ Contact Request is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
-$to=$getdate['email'];
-sendemail($to,$form,$subject,$message);
+$to=$getdetails['email'];
+sendmails($to,$message,$subject);
 redirect(RE_HOME_ADMIN."opj_request.php","User successfully rejected~@~".MSG_SUCCESS);
 
 }

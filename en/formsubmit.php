@@ -1,7 +1,7 @@
 <?php 
 include "../config/config.php";
 require_once("../library/upload.php");
-
+include 'mail/index.php';
 $firstname=mysqli_real_escape_string($con,trim( $_REQUEST['firstname']));
 $fathername=mysqli_real_escape_string($con,trim( $_REQUEST['fathername']));
 $middlename=mysqli_real_escape_string($con,trim( $_REQUEST['middlename']));
@@ -50,12 +50,12 @@ redirect(RE_EN_PATH."signup.php","Error! You are already registered with us~@~".
 
 }
 else{
-$subject="Successfull Registration User From '".WEBSITE_NAME."' ";
+$subject="Successfull Registration User From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$firstname." ".$middlename." ".$lastname.", you are succesfully registered with ".WEBSITE_NAME." and your REFRENCE ID is <strong>".$request_id."</strong>, wait till the admin approval if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
+$mes.=" Dear ".$firstname." ".$middlename." ".$lastname.", you are successfully registered with ".WEBSITE_NAME." and your REFRENCE ID is <strong>".$request_id."</strong>, wait till the admin approval if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$email;
-sendemail($to,$form,$subject,$message);
+sendmails($to,$message,$subject);
 if($_FILES["profile"]["name"]!=''){
 $ext=explode(".",$_FILES["profile"]["name"]);
 $url="../uploads/". str_replace(" ","",sha1($_FILES["profile"]["name"].time()).".".$ext[sizeof($ext)-1]);

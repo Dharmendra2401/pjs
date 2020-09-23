@@ -919,5 +919,9 @@ body{
 .rounded-circle i{width: 8px;
     padding-top: 3px;
     height: 15px;    text-align: center;
-    font-size: 9px}
+    font-size: 9px;}
+.bg-light.mobile{border: 1px solid #80808070;
+background-color: #f8f9fa!important;
+padding: 3px;
+border-radius: 3px;}
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

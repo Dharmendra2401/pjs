@@ -1,4 +1,5 @@
 <?php include "../../config/config.php" ;
+include "../mail/index.php" ;
 admin_session_check();
 if(isset($_REQUEST['submit'])){
 $firstname=mysqli_real_escape_string($con,trim($_REQUEST['firstname']));
@@ -18,12 +19,12 @@ $request_id=uniqtskid($con);
 if(($firstname!='') && ($lastname!='')  && ($mobile!='') && ($country!='')  && ($state!='') && ($city!='')  && ($pincode!='') ){
 
 mysqli_query($con,'insert into sub_admin_login (request_id,first_name,last_name,mobile,email,password,record_inserted_dttm,city,state,pincode,active_status,country,area) values("'.$request_id.'","'.$firstname.'","'.$lastname.'","'.$mobile.'","'.$email.'","'.$password.'","'.$submitdate.'","'.$city.'","'.$state.'","'.$pincode.'","N","'.$country.'","'.$area.'")');
-$subject="Registered As Sb Admin '".WEBSITE_NAME."' ";
+$subject="Registered As Sub Admin ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$firstname." ".$lastname.", you are succesfully registered with us and your refrence id is :<strong>".$request_id."</strong> wait till the admin approval mail, if any query email us <a href='".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.=" Dear ".$firstname." ".$lastname.", you are successfully registered as SUB ADMIN and your refrence id is :<strong>".$request_id."</strong> wait till the admin approval mail, if any query email us <a href='".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$email;
-sendemail($to,$form,$subject,$message);
+sendmails($to,$message,$subject);
 redirect(RE_HOME_SUPERADMIN."sub_admin.php","Record successfully created~@~".MSG_SUCCESS);
 }
 redirect(RE_HOME_SUPERADMIN."sub_admin.php","Error!Please try again~@~".MSG_ERROR);

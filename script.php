@@ -135,69 +135,55 @@
 <li class="row">
 <div class="col-1"> 1.</div>
 <div class="col-11">
-<p class="points" onclick="displayDetailForm()">I want to update my mobile no. with new mobile no.</p>
+<p class="points bg-light" onclick="displayFirt()">I want to update my mobile no. with new mobile no.</p>
 <form class="update-number" id="update-number">
 <h5 class="mb-2">Enter The Following Details</h5>
 <div class="row">
 <div class="col-md-5">
-<label>New Mobile No.</label> 
+<label><span class="text-danger">*</span> New Mobile No.</label> 
 </div>
 <div class="col-md-7">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" name="">
-</div>
-
-</div>
-
-<div class="col-md-5">
-<label>Old Mobile No.</label> 
-</div>
-<div class="col-md-7">
-<div class="form-group"> 
-<input class="form-control form-control-sm" type="text" name="">
+<input class="form-control form-control-sm" type="number" min="10" name="newmobile" id="newmobile" placeholder="Enter new mobile no">
 </div>
 </div>
 
 <div class="col-md-5">
-<label>Member Id</label> 
+<label><span class="text-danger">*</span> Old Mobile No.</label> 
 </div>
 <div class="col-md-7">
 <div class="form-group"> 
-<input class="form-control form-control-sm" type="text" name="">
+<input class="form-control form-control-sm" type="number" name="oldmobile" id="oldmobile" placeholder="Enter old mobile no">
 </div>
 </div>
 
 <div class="col-md-5">
-<label>Name</label> 
+<label><span class="text-danger">*</span> Member Id (MID)</label> 
 </div>
 <div class="col-md-7">
 <div class="form-group"> 
-<input class="form-control form-control-sm" type="text" name="">
+<input class="form-control form-control-sm" type="number" name="memberid" id="memberid" placeholder="Enter member id (MID)">
 </div>
 </div>
 
 <div class="col-md-5">
-<label>Date of Birth</label>
+<label><span class="text-danger">*</span> Description</label> 
 </div>
 <div class="col-md-7">
 <div class="form-group"> 
-<input class="form-control form-control-sm" type="date" name="">
+<textarea class="form-control form-control-sm" name="description" id="description" placeholder="Enter the description here"></textarea>
 </div>
 </div>
 
-<div class="col-md-5">
-<label>Email id</label> 
-</div>
-<div class="col-md-7">
-<div class="form-group"> 
-<input class="form-control form-control-sm" type="email" name="">
-</div>
-</div>
 
+<div class="col-12">
+<span id="errorfirst"></span>
+</div>
 <div class="col-12 text-right">
 <p class="mb-0 mt-2"><small>Send details to admin</small> </p>
-<button type="submit" class=" btn btn-primary btn-sm">Send</button>
+<button type="button" onclick="return UpdateNumber();" class="btn btn-primary btn-sm">Send</button>
 </div>
+
 </div>
 </form>
 </div> 
@@ -205,16 +191,16 @@
 <li class="row">
 <div class="col-1"> 2.</div>
 <div class="col-11">
-<p class="forgot-credential" onclick="displayForm()">Forgot all login credentials?</p>
+<p class="forgot-credential bg-light" onclick="return displaySecond()">Forgot all login credentials?</p>
 <form class="forgot-login" id="forgot-login-form">
 <h5 class="mb-2">Enter The Following Details</h5>
 <div class="row">
 <div class="col-md-6">
-<label>First Name</label> 
+<label><span class="text-danger">*</span> First Name</label> 
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" name="">
+<input class="form-control form-control-sm" type="text" id="emailfirst_name" name="emailfirst_name" placeholder="Enter first name">
 </div>
 </div>
 
@@ -223,46 +209,48 @@
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" name="">
+<input class="form-control form-control-sm" type="text" name="emailmiddle_name" id="emailmiddle_name" placeholder="Enter middle name">
 </div>
 </div>
 
 <div class="col-md-6">
-<label>Last Name</label> 
+<label><span class="text-danger">*</span> Last Name</label> 
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" name="">
+<input class="form-control form-control-sm" type="text" name="emaillast_name" id="emaillast_name" placeholder="Enter last name">
 </div>
 </div>
 
 <div class="col-md-6">
-<label>Date of Birth</label> 
+<label><span class="text-danger">*</span> Fathers Name</label> 
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="date" name="">
+<input class="form-control form-control-sm" type="text" name="emaillast_name" id="emaillast_name" placeholder="Enter last name">
 </div>
 </div>
 
 <div class="col-md-6">
-<label>New mobile number</label> 
+<label><span class="text-danger">*</span> Date of Birth</label> 
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" name="">
+<input class="form-control form-control-sm" type="date" name="emaildob" id="emaildob" placeholder="Enter date of birth">
 </div>
 </div>
+
+
 <div class="col-12 text-right">
-<p class="mb-0 mt-2"><small>Send details to admin</small> </p>
-<button type="submit" class="send-credential btn btn-primary btn-sm">Send</button>
+<p class="mb-0 mt-2"><small class="bg-light">details to admin</small> </p>
+<button type="button" onclick="return emailshoot();" class="btn btn-primary btn-sm">Send</button>
 </div>
 </div>
+
 </form>
 </div>
 </li>
 </ul>
-<button class="btn btn-primary btn-sm float-right done">Done</button>
 </div>
 </div>	
 </div>	
@@ -295,9 +283,82 @@ $('#help').modal('show');
 $('#login').modal('hide');
 }
 
-function displayDetailForm(){
+function displayFirt(){
 $('#update-number').show();
 $('#forgot-login-form').hide();
+}
+function displaySecond(){
+$('#update-number').hide();
+$('#forgot-login-form').show();
+}
+
+function UpdateNumber(){
+  
+var newnumber=$('#newmobile').val();
+var oldnumber=$('#oldmobile').val();
+var memberid=$('#memberid').val();
+var description=$('#description').val();
+
+if(newnumber==''){
+$('#newmobile').focus();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter new mobile number</div> ');
+return false;
+}
+if(newnumber.length<10){
+$('#newmobile').focus();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter valid new mobile number</div> ');
+return false;
+}
+else if(oldnumber==''){
+$('#oldmobile').focus();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter old mobile number</div> ');
+return false;
+}
+else if(memberid==''){
+$('#memberid').focus();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter member id</div> ');
+return false;
+}else if(description==''){
+$('#description').focus();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter description</div> ');
+return false;
+}else{
+//$('#loadergif').fadeIn();
+$.ajax({
+method:'POST',
+url:'<?php echo RE_HOME_PATH ;?>newnumber.php',
+data:{'newnumber':newnumber,'oldnumber':oldnumber,'memberid':memberid,'description':description},
+success:function(data1234){
+if(data1234=='true'){
+$('#update-number')[0]. reset();
+$('#help').modal('hide');
+$('#update-number').hide();
+$('#errorfirst').html('');
+//$('#loadergif').fadeOut();
+bootbox.alert('Your details has been sent to Admin for verification, You will receive a callback soon on your new phone number');
+}
+if(data1234=='Error'){
+$('#update-number')[0]. reset();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please check your old mobile number and member id(MID)</div>');
+$('#loadergif').fadeOut();
+}
+if(data1234=='false'){
+$('#update-number')[0]. reset();
+$('#update-number').hide();
+$('#help').modal('hide');
+bootbox.alert('Error! Please try again');
+$('#loadergif').fadeOut();
+}
+}
+});
+}
+}
+
+function emailshoot(){
+var firstname=$('emailfirst_name').val();
+var lastname=$('emaillast_name').val();
+var lastname=$('emaillast_name').val();
+
 }
 
 function contactAdmin(){
@@ -393,7 +454,7 @@ type:'POST',
 url:'<?php echo RE_HOME_USER ;?>otprequest.php',
 data:{'mid':mid},
 success:function(otpnumber){
-  alert(otpnumber);
+alert(otpnumber);
 if(otpnumber!=' '){
 timer(120);
 $('#mobilenumber').html(otpnumber);
