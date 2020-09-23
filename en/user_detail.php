@@ -78,8 +78,8 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 					<div class="col-md-6 align-self-center text-right">
 						<div class="icon-mobile">
 							<i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#contactoption"></i>
-							<i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#modal2"></i>
-							<i type="button" class="fas fa-share mx-2 login-signup" data-toggle="modal" data-target="#modal2"></i>
+							<i type="button" class="fas fa-download mx-2" data-toggle="modal" data-target="#commonmodal"></i>
+							<i type="button" class="fas fa-share mx-2" data-toggle="modal" data-target="#commonmodal"></i>
 						</div>
 					</div>
 				</div>
