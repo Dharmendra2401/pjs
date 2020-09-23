@@ -227,7 +227,7 @@
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" name="emaillast_name" id="emaillast_name" placeholder="Enter last name">
+<input class="form-control form-control-sm" type="text" name="emailfathers_name" id="emailfathers_name" placeholder="Enter fathers name">
 </div>
 </div>
 
@@ -239,7 +239,9 @@
 <input class="form-control form-control-sm" type="date" name="emaildob" id="emaildob" placeholder="Enter date of birth">
 </div>
 </div>
-
+<div class="col-md-12">
+<span id="errorcrediential"></span>
+</div>
 
 <div class="col-12 text-right">
 <p class="mb-0 mt-2"><small class="bg-light">details to admin</small> </p>
@@ -366,9 +368,52 @@ $('#loadergif').fadeOut();
 }
 
 function emailshoot(){
-var firstname=$('emailfirst_name').val();
-var lastname=$('emaillast_name').val();
-var lastname=$('emaillast_name').val();
+var firstname=$('#emailfirst_name').val();
+var middlename=$('#emailmiddle_name').val();
+var lastname=$('#emaillast_name').val();
+var fathersname=$('#emailfathers_name').val();
+var dob=$('#emaildob').val();
+if(firstname==''){
+$('#emailfirst_name').focus(); 
+$('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter first name</div>');
+return false;
+}
+else if(lastname==''){
+$('#emaillast_name').focus(); 
+$('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter last name</div>');
+return false;
+
+}
+else if(fathersname==''){
+$('#fathersname').focus(); 
+$('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter fathers name</div>');
+return false;
+
+}
+else if(dob==''){
+$('#emaildob').focus(); 
+$('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter date of birth</div>');
+return false;
+
+}else{
+//$('#loadergif').fadeIn();
+$.ajax({
+method:'POST',
+url:'<?php echo RE_HOME_PATH ;?>emailsend.php',
+data:{'firstname':firstname,'lastname':lastname,'fathersname':fathersname,'dob':dob,'middlename':middlename},
+success:function(emailshoot){
+  alert(emailshoot);
+if(emailshoot=='true'){
+$('#forgot-login-form')[0]. reset();
+$('#forgot-login-form').modal('hide');
+$('#errorcrediential').html('');
+$('#loadergif').fadeOut();
+bootbox.alert("Your details has been sent to Admin for verification.<br> You will receive a callback soon on your new phone number");
+}
+}
+
+});
+}
 
 }
 

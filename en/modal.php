@@ -129,31 +129,3 @@ require_once("../config/config.php");
 </div>
 
 
-
-
-
-
-
-
-<!-- -----------------------VERIFY CONTACT MODAL-------------------- -->
-<div class="verify-msg text-center">
-<p>Your request has been sent to admin for further verification</p>
-</div>
-<!-- -----------------------VERIFY CONTACT MODAL ENDS-------------------- -->
-
-
-<!-- <div class="modal-content profile-modal">  -->
-
-<!-- Modal Header -->
-<div class="modal-header">
-<h4 class="modal-title">User Profile</h4>
-<button type="button" class="close" data-dismiss="modal">&times;</button>
-</div>
-
-<!-- Modal body -->
-<div class="modal-body">
-Modal body..
-</div>
-</div>
-</div>
-</div>
