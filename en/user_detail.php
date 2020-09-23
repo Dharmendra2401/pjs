@@ -32,13 +32,36 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 					</div>
 					<div class="col-md-6 align-self-end text-right sm-mt10">
 						<a type="button" class="btn btn-info mr-3 login-signup" data-toggle="modal" data-target="#modal2">Save Profile</a>
-					    <a type="button" class="btn btn-warning login-signup" data-toggle="modal" data-target="#modal2">Add Member</a>
+					    <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#relation">Add Member</a>
 					</div>
 				</div>
 		    </div>
 	    </div>
 		
-		
+		<div class="modal fade" id="relation">
+			<div class="modal-dialog modal-dialog-centered relation-wrapper login-container">
+			<div class="modal-content relation-wrapper">
+			<div class="">
+			<button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
+			</div> 
+			<div class="modal-body">
+			    <select class="form-control">
+			    	  <option>Grandfather</option>
+			    	  <option>Grandmother</option>
+			    	  <option>Father</option>
+			    	  <option>Mother</option>
+			    	  <option>Son</option>
+			    	  <option>Daughter</option>
+			    	  <option>Brother</option>
+			    	  <option>Sister</option>
+			    	  <option>Son-in-law</option>
+			    	  <option>Son-in-daughter</option>
+			    </select>
+			    <button class="btn btn-primary float-right my-3">Save</button>
+			</div>
+			</div>
+			</div>
+		</div>
 		<div class="container shadow mb-4 pb-3">
 			<div class="tab-bar">
 				<div class="row">
