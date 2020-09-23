@@ -31,7 +31,7 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 					    <h5 class="text-white"><?php echo $row['member_id'] ;?></h5>
 					</div>
 					<div class="col-md-6 align-self-end text-right sm-mt10">
-						<a type="button" class="btn btn-info mr-3 login-signup" data-toggle="modal" data-target="#modal2">Save Profile</a>
+						<a type="button" class="btn btn-info mr-3" data-toggle="modal" data-target="#commonmodal">Save Profile</a>
 					    <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#relation">Add Member</a>
 					</div>
 				</div>

@@ -257,7 +257,18 @@
 </div>
 </div>
 
-
+<div class="modal fade loginPopup" id="commonmodal">
+<div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
+<div class="modal-content lgn-sgn-wrapper">
+<div class="">
+<button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
+</div> 
+<div class="modal-body">
+<p class="mb-5">To proceed please login / signup</p>	
+<button type="button" class="btn btn-secondary open-login">Login</button> 
+<a href="signup.php" class="btn btn-secondary">SignUp</a>
+</div>
+</div>
 
 <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH ; ?>js/jquery.steps.min.js"></script>
