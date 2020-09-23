@@ -15,71 +15,7 @@ function showResult(str) {
   }
   xmlhttp.open("GET","livesearch.php?q="+str,true);
   xmlhttp.send();
-}
-
-
-  $(document).on('click', '.help-link', function(){
-    $('.login-container').load('modal.php .login-help');
-  });
-
-  $(document).on('click', '.open-login',function(){
-    $('.login-container').load('modal.php .loginContent');
-     
-  });
-
-  $(document).on('click', '.submit',function(){
-    $('.login-container').load('modal.php .submit-contact');
-     
-  });
-
-
-  $(document).on('click', '.send-credential',function(){
-    $('.login-container').load('modal.php .credential-msg');
-
-    return false;
-     
-  });
-
-
-  $(document).on('click', '.submit-credential',function(){
-    
-      $('.modal-body').load('modal.php .verify-msg');
-  });
-
-  $(document).on('click', '.login-signup', function(){
-      $('.lgn-sgn-container').load('modal.php .lgn-sgn-wrapper');
-  });
-
-  $(document).on('click', '.done',function(){
-    $('.login-container').load('modal.php .loginContent');
-     
-  });
-
-  $(document).on('click', '.openBtn-feed',function(){
-    
-      $('.feeback-body').load('modal.php .feeback');
-  });
-
-  $(document).on('click', '.open-update',function(){
-    
-      $('.update-body').load('modal.php .death-update');
-  });
-
-   $(document).on('click', '.feedback-msg',function(){
-    
-      $('.feeback-body').load('modal.php .feedback-success');
-      return false;
-  });
-
-    $(document).on('click', '.update-msg',function(){
-    
-      $('.update-body').load('modal.php .update-success');
-      return false;
-  });
-
-  //   $(document).on('click', '.view-link', function(){
-  //   $('.profile-detail').load('../modal.html .profile-modal');
-  // });
+} 
 
   function displayInput(){
     $(".member-id").toggle();
