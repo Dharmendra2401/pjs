@@ -17,7 +17,7 @@ include "../config/config.php";
 				</div>
 		 <div class="row mt-3">
 				 <div class="col-md-4">
-					<h4>Click here to Update Dead Person</h4>
+					<h5 class="text-center">Click here to Update Dead Person</h5>
 					<div>
 						<form action="" enctype="multipart/form-data" id="dead_person_form">
 							<div class="form-group">
@@ -50,7 +50,7 @@ include "../config/config.php";
 
 							 <input type="file" class="form-control" id="file" name="file">
 							</div>
-							<button type="button" class="btn btn-primary float-right dead_person">Submit</button>
+							<button type="button" class="btn btn-primary mb-2 float-right dead_person">Submit</button>
 						</form>
 					</div>
 					<form method="post" action="">
