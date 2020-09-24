@@ -6,8 +6,16 @@ $idd=base64_decode($_REQUEST['token']);
 if($idd==''){
 	redirect(RE_EN_PATH."index.php");
 }
+$login_user='';
+if (isset($_SESSION['user_mid'])) {
+	$login_user=$_SESSION['user_mid'];
+}
+else{
+$login_user='';
+}
 
-$row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.height,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id where mem.member_id='".$idd."' "));
+
+$row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' AND sp.reference_member_Id='$idd' ,'saved','notsaved') as sp_status,mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.height,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on  mem.member_id=sp.reference_member_Id  where mem.member_id= '$idd'"));
 
 ?>
 <!DOCTYPE html>
@@ -31,7 +39,17 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 					    <h5 class="text-white"><?php echo $row['member_id'] ;?></h5>
 					</div>
 					<div class="col-md-6 align-self-end text-right sm-mt10">
-						<a type="button" class="btn btn-info mr-3" data-toggle="modal" data-target="#commonmodal">Save Profile</a>
+						<?php if (isset($_SESSION['user_mid'])) { if ( $row['sp_status']=='saved') {?>
+							<a type="button" class="btn btn-info mr-3 login-signup">Saved</a>
+						<?php } else {?>
+							<a type="button" class="btn btn-info mr-3 login-signup save_user_profile" id="<?php echo $row['member_id'] ;?>" data-current="<?php echo $_SESSION['user_mid'];?>">Save Profile  </a>
+						<?php }?>
+			
+
+						<?php   } else { ?> 
+							<a type="button" class="btn btn-info mr-3 login-signup" data-toggle="modal" data-target="#modal2">Save Profile</a>
+						<?php }  ?>
+						
 					    <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#relation">Add Member</a>
 					</div>
 				</div>
@@ -81,8 +99,8 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 					<div class="col-md-6 align-self-center text-right">
 						<div class="icon-mobile">
 							<i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#contactoption"></i>
-							<i type="button" class="fas fa-download mx-2" data-toggle="modal" data-target="#commonmodal"></i>
-							<i type="button" class="fas fa-share mx-2" data-toggle="modal" data-target="#commonmodal"></i>
+							<i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#modal2"></i>
+							<i type="button" class="fas fa-share mx-2 login-signup" data-toggle="modal" data-target="#modal2"></i>
 						</div>
 					</div>
 				</div>
@@ -233,3 +251,29 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 <?php include "../script.php"; ?>
 
 </html>
+<script type="text/javascript">
+	$('.save_user_profile').on('click', function (event) {
+		//$_SESSION['user_mid']
+		var user_mid = $(this).data('current') // Extract info from data-* attributes
+		var reference_user_mid=$(this).attr('id');
+		//
+		$.post("/pjs_user/en/PJS-demo/save_user_profile.php",
+		{
+			current_user:user_mid,
+			reference_user_mid: reference_user_mid
+		},
+		function(data,status){
+			var status1=status;
+			console.log(status1);
+			if (status1=='success') {
+			// window.location.reload();
+			$('.save_user_profile').text('saved')
+			}
+			else{
+				$('.save_user_profile').text('something is not good please try again')
+			}
+		});
+		//
+
+	})
+</script>

@@ -45,22 +45,39 @@ include "../config/config.php";
       </div> -->
 
       <div class="col-md-10 offset-md-1 schemes-bg">
+            <div class="col-12 my-4">
+                <div class="col-12">
+                 <p>
+                   इस सेक्शन में पोरवाड़ सामाजिक मंच के कितने ज़ोन्स है और हर ज़ोन के अध्यक्ष या वालंटियर के निम्नलिखित जानकारी दे
+                 </p>
+                 <ul>
+                   <li>फोटो</li>
+                   <li>नाम</li>
+                   <li>पता</li>
+                   <li>फ़ोन नंबर</li>
+                   <li>ईमेल</li>
+                 </ul>
+              </div>
+            </div>
             <div class="row my-4">
               <div class="col-md-3 px-4">
                 <img width="100%" class="img-fluid" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
               </div>
               <div class="col-md-9">
-                  <h3>JIO Mobile Accidental Damage Protection Plan</h3>
-                  <p>Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
-                  </p>
-                  <p>Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
-                  </p>
-                  <p>Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
-                  </p>
-                  <span>Show More</span>
+                  <div class="row">
+                      <div class="col-md-2 font-weight-bold">
+                          <p>Name :</p>
+                          <p>Address :</p>
+                          <p>Phone Number :</p>
+                          <p>Email :</p>
+                      </div>
+                      <div class="col-md-10">
+                          <p>munish</p>
+                          <p>indore</p>
+                          <p>1234567890</p>
+                          <p>munish@gmail.com</p>
+                      </div>
+                  </div>
               </div>
             </div>
             <hr>
@@ -69,22 +86,20 @@ include "../config/config.php";
                 <img width="100%" class="img-fluid" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
               </div>
               <div class="col-md-9">
-                  <h3>JIO Mobile Accidental Damage Protection Plan</h3>
-                  <p>Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
-                  </p>
-              </div>
-            </div>
-            <hr>
-            <div class="row my-4">
-              <div class="col-md-3 px-4">
-                <img width="100%" class="img-fluid" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
-              </div>
-              <div class="col-md-9">
-                  <h3>JIO Mobile Accidental Damage Protection Plan</h3>
-                  <p>Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
-                  </p>
+                  <div class="row">
+                      <div class="col-md-2 font-weight-bold">
+                          <p>Name :</p>
+                          <p>Address :</p>
+                          <p>Phone Number :</p>
+                          <p>Email :</p>
+                      </div>
+                      <div class="col-md-10">
+                          <p>saurav</p>
+                          <p>indore</p>
+                          <p>1256567890</p>
+                          <p>saurav@gmail.com</p>
+                      </div>
+                  </div>
               </div>
             </div>
             <hr>

@@ -724,5 +724,32 @@ function searchpage() {
         window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+search);
    }
     } 
+    
+    $("#feedback_submit").on("click", function () {
+    //$_SESSION['user_mid']
+    var feedback_type=$(".feedback_type:visible option:selected").val();
+    var feedback_desc=$(".feedback_desc").val();
+    var current_user=$(".curr_mid").val();
+    //
+    $.post("/pjs_user/en/PJS-demo/feedback_submit.php",
+    {
+      current_user:current_user,
+      feedback_type: feedback_type,
+      feedback_desc:feedback_desc
+    },
+    function(data,status){
+      var status1=status;
+      console.log(status1);
+      if (status1=='success') {
+      // window.location.reload();
+        $('#modal45').modal('hide')
+        $('#feedback_alert').modal('show')
+      }
+      else{
+        alert("Data: not updated");
+      }
+    });
+    //
+  })
 
 </script>

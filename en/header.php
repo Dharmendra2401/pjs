@@ -107,19 +107,19 @@ LOGIN/SIGUP
 <nav class="navbar navbar-expand-sm">
 <ul class="navbar-nav">
 <li class="nav-item">
-<a class="nav-link" href="#">About Us</a>
+<a class="nav-link" href="about_us.php">About Us</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Events</a>
+<a class="nav-link" href="events.php">Events</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Gallery</a>
+<a class="nav-link" href="gallery.php">Gallery</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Schemes</a>
+<a class="nav-link" href="schemes.php">Schemes</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Zones</a>
+<a class="nav-link" href="zones.php">Zones</a>
 </li>
 <?php if($_SESSION['user_mid']==''){ ?>
 <li class="nav-item">
@@ -197,6 +197,8 @@ if ($_SESSION['admin_email']!=''){
 </li>
 <?php } ?>
 
+
+<input type="hidden" name="" class="curr_mid" value="<?php echo $_SESSION['user_mid'];?>">
 
 
 </ul>

@@ -14,41 +14,41 @@ include "../config/config.php";
 		<div class="col-md-10 offset-md-1 about-us-bg">
 		    <h2 class="my-4 text-center">About Us</h2>
 		    <div>
-			    <h3>JIO Card</h3>
+			    <p class="hindi-text">
+			      पोरवाड़ समाज के सभी बंधुओ को सादर जय जिनेन्द्र। 
+				पोरवाड़ सामाजिक मंच के गठन के कुछ मूल उद्देश्य :
+
+				१. मंच के गठन के पीछे एक सोच यह है की पंथवाद और धार्मिक क्रियाओं को अलग रखकर समाज के सभी बंधु मंच पर एक साथ आवें। 
+				२. मंच का मुख्या उद्देश्य समाज में आर्थिक रूप से पिछड़े परिवार एवं सदस्यों को रोज़गार के लिए सहायता करना। 
+				३. समाज में उपलब्ध कुशलता को समाज के अन्य व्यावसायिक एवं उद्यमी तक पहुँचाना
+				४. समाज के सभी क्षेत्र के विशेषज्ञ , उच्च शिक्षित व व्यावसायिक वर्ग से सामंजस्य बनाकर अन्य सदस्यों को लाभान्वित करना ( जैसे - चिकित्सा के लिए समाज के सभी डॉक्टर बंधुओं से संपर्क , इसी तरह  सी ए, इंजीनियर , बिल्डर, प्रोफेसर, उद्द्यमी एवं रोज़गार सम्बन्धी ट्रेनिंग देने वाले अन्य प्रतिष्ठि वर्ग से सहायता लेना। 
+				५. समाज के बच्चो को योग्यता अनुसार पढ़ने एवं उच्च शिक्षा के क्षेत्र में उपलब्ध अवसरों की जानकारी उपलब्ध करना। 
+				६. समय समय पर समाज के अन्य विषयों एवं सुझावों का समावेश करना । 
+	
+			    </p>
+			</div>
+			<div>
+				<h3>What is a PJS Member ID and why should you register to get it?</h3>
 				<ul>
-				    <li>Your individual Identity in the community</li>
-				    <li>Will change the way we live &amp; Transact</li>
-				    <li>A tool of contact &amp; communicate without introduction</li>
-				    <li>Will transform the community at large with the support of technology</li>
+				    <li>We’re going digital and hence moving towards paperless</li>
+				    <li>PJS Member ID provides an individual Identity to you in the community</li>
+				    <li>This will help you take count of you in the Community level census digitally</li>
+				    <li>The Member ID will help you register in community events using digital medium</li>
+				    <li>It will provide you opportunity to connect with other community members for matrimonial, business and other general assistance</li>
+				    <li>Other purposes as per need and suggestion</li>
 				</ul>
 			</div>
 			<div>
-				<h3>Benefits to Card Holders</h3>
-				<ol>
-				    <li>A unique identification no. for each holder.</li>
-				    <li>Proves an guarantee to identity</li>
-				    <li>Can avail special shopping discounts at retail outlets registered with Jio pan India</li>
-				    <li>Avail discounts on Medical bills from selected outlets and doctors on panel charge  their minimum fees</li>
-				    <li>Social  help from the Community to the community in different ways</li>
-				</ol>
+				<h3>Upcoming Features</h3>
+				<ul>
+				    <li>PJS Card for Porwad Jain Samaaj members</li>
+				    <li>A guarantee to your identity</li>
+				    <li>Social help from the Community to the community in different ways</li>
+				    <li>Special Schemes for Business community</li>
+				    <li>Loyalty Card Programmes for all</li>
+				    <li>Insurance and Health Schemes</li>
+				</ul>
 			</div>
-			<div>
-				<h3>Benefits to the Community</h3>
-				<ol>
-				    <li>Helps build actual Census report</li>
-				    <li>Expansion in “Circle of trust”</li>
-				    <li>Brings more people to join</li>
-				</ol>
-			</div>
-			<div>
-				<h3>Future Benefits</h3>
-				<ol>
-				    <li>Credit rating for commercial world</li>
-				    <li>Loyalty Card Programmes</li>
-				    <li>Insurance premium discount</li>
-				    <li>It will work as the biggest cause for the community” Sadharmik Bhakti “</li>
-				</ol>
-			</div> 
         </div>
 	</div>
 </body>
