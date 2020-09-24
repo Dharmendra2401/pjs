@@ -1,6 +1,3 @@
-
-<?php print_r($_SESSION);?>
-
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
@@ -61,7 +58,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="#">View & Update Profile</a>
 <a class="dropdown-item" href="#">Saved Profile</a>
-<a class="dropdown-item" href="#">Feedback</a>
+<a class="dropdown-item" data-toggle="modal" data-target="#modal45">Feedback</a>
 <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
 <a class="dropdown-item" href="<?php echo  RE_HOME_USER;?>logout_user.php">Logout</a>
@@ -127,15 +124,14 @@ LOGIN/SIGUP
 <?php if($_SESSION['user_mid']==''){ ?>
 <li class="nav-item">
 <!-- <a class="nav-link" href="#">My Family</a> -->
-  <div class="dropdown nav-link">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
       My Family
-    </button>
-    <div class="dropdown-menu">
+    </a>
+    <div class="dropdown-menu custom-dropdwn">
       <a class="dropdown-item" href="tree.php">Family Tree</a>
       <a class="dropdown-item" href="#">Death Update</a>
     </div>
-  </div>
+  
 </li>
 <?php
 }

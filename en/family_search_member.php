@@ -56,20 +56,7 @@ if ($row_count>3){
 if($row_count<=0){
 ?>
 
-<div class="text-center"><td valign="top" colspan="12" class="dataTables_empty" align="center">No records found</div></tr>
+<div class="text-center"><td valign="top" colspan="12" class="dataTables_empty" align="center">No records found</td></div>
 
 <?php }?>
 
-
-</div>
-<div>
-
-<?php
-
-//$txtpage= paginationjquery($con,$stat,$limit,$page,"?","");					   
-
-//echo "<table width='100%'><tr><td  style='padding:3px;'><div class='dataTables_paginate paging_bootstrap'>".$txtpage."</div></td></tr></table>";
-
-?>
-</div>
-</div>  

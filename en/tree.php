@@ -36,7 +36,7 @@ include "../config/config.php";
 
                
                 ?>
-         </div>
+          </div>
          <div id="add" class="col-md-4 ">
              
          </div>
@@ -66,7 +66,7 @@ include "../config/config.php";
                       <option>Son-in-law</option>
                       <option>Sister-in-law</option>
                 </select>
-                <button class="btn btn-primary float-right mt-3">Save</button>
+                <button id="save-type" class="btn btn-primary float-right mt-3" data-dismiss="modal">Save</button>
             </div>
         </div>
       </div>
@@ -75,6 +75,85 @@ include "../config/config.php";
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
 <?php include "../script.php"; ?>
+<script type="text/javascript">
+  $('#exampleModal').on('show.bs.modal', function (event) {
+  var button = $(event.relatedTarget) // Button that triggered the modal
+  var recipient = button.data('whatever') // Extract info from data-* attributes
+   var gender = button.data('gender')
+   var member_id= $("#current-users").val();
+  // relationship_type_user
+   var modal = $(this)
+   if (gender=='M') {
+    modal.find('.male').css('display','block');
+    modal.find('.female').css('display','none');
+   }
+   else{
+    modal.find('.female').css('display','block');
+    modal.find('.male').css('display','none');
+   }
+   //console.log(gender);
+  // If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+  // Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+  
+  modal.find('.modal-title').text('New message to ' + recipient)
+  modal.find('.modal-body #referenc-id').val(recipient)
+  modal.find('.modal-body #Member_Id').val(member_id)
+})
+  
+  $(".send_request").on("click", function () {
+    var member_id=$("#Member_Id").val()
+    var reference=$("#referenc-id").val()
+    var relationship_type=$("select option:selected").val()
+    console.log(member_id);
+    console.log(reference);
+    console.log(relationship_type);
+  })
 
+
+
+
+
+
+  $('#save-type').on("click", function () {
+     var card = "";
+         card += "<div class='card my-2'>";
+         card += "<div class='card-body'>";
+         card += "<div class='row'>";
+         card += "<div class='col-md-2'>";
+         card += "<img width='50' src='http://localhost/pjs_user/uploads/ae8c6497745f41803906e384ceff91ddc5b6149d.jpg'>";
+         card += "</div>";
+         card += "<div class='col-md-10'>";
+         card += "<span>Name:</span>";
+         card += "<span>munish</span>";
+         card += "<br>";
+         card += "<span>Brother</span>";
+         card += "<span class='badge badge-primary float-right'>Request Sent</span>";
+         card += "<br>";
+         card += "<span class='badge badge-primary float-right ml-1'>Alive</span>";
+         card += "</div>";
+         card += "</div>";
+         card += "</div>";
+         card += "</div>";
+
+    $("#add").append(card);
+    $(".user-list-img").appendTo(card);
+});
+
+
+      
+</script>
+<script>   
+        var up = document.getElementById('GFG_UP'); 
+        var down = document.getElementById('GFG_DOWN'); 
+        up.innerHTML = "Click on the button to " 
+                + "copy a DIV into another DIV.";  
+          
+        function GFG_Fun() { 
+            var $el = $('.child').clone(); 
+            $('#parent2').append($el); 
+            down.innerHTML = "Inner DIV is copied " 
+                    + "to another element."; 
+        }  
+    </script>
 
 </html>

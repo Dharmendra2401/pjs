@@ -45,6 +45,7 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 			<button type="button" id="close-login" class="close m-2" data-dismiss="modal">&times;</button>
 			</div> 
 			<div class="modal-body">
+				<h3>Select Relation</h3>
 			    <select class="form-control">
 			    	  <option>Grandfather</option>
 			    	  <option>Grandmother</option>
@@ -62,6 +63,8 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 			</div>
 			</div>
 		</div>
+
+		
 		<div class="container shadow mb-4 pb-3">
 			<div class="tab-bar">
 				<div class="row">
