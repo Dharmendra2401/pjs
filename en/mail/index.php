@@ -11,13 +11,15 @@ $mail->isSMTP();                                      // Set mailer to use SMTP
 $mail->Host = 'smtp.gmail.com';  // Specify main and backup SMTP servers
 $mail->SMTPAuth = true;                               // Enable SMTP authentication
 $mail->Username = 'pjsharshshukla@gmail.com';                 // SMTP username
-$mail->Password = 'pjsharshshukla@123';                           // SMTP password
+$mail->Password = 'vkfxpglfxmedhtpy';
+//$mail->Username = 'support@porwadjain.com';                 // SMTP username
+//$mail->Password = 'support123';                           // SMTP password
 $mail->SMTPSecure = 'tls';                            // Enable TLS encryption, `ssl` also accepted
 $mail->Port = 587;                                    // TCP port to connect to
 
-//$mail->setFrom(FROM_EMAIL, WEBSITE_NAME);
-$mail->From = 'pjssamaj@gmail.com';
-$mail->FromName = 'PJS';
+$mail->setFrom('support@porwadjain.com', 'PJS');
+//$mail->From = 'support@porwadjain.com';
+//$mail->FromName = 'PJS';
 $mail->addAddress($to);     // Add a recipient
 $mail->addReplyTo('info@example.com', 'Information');
 //$mail->addCC('cc@example.com');

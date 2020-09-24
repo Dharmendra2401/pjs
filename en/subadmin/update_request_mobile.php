@@ -24,6 +24,7 @@ sendmails($to,$message,$subject);
 redirect(RE_HOME_ADMIN."user_updation_request.php","User mobile no. successfully approved~@~".MSG_SUCCESS);
 } 
 if($status==0){
+mysqli_query($con,'update member_request set status_of_request="R" ,reason_of_rejection="'.$reason.'" where id="'.$token.'" ');
 
 $subject="User Mobile No. Updation Rejected From ".WEBSITE_NAME." ";
 $mes='';
@@ -79,7 +80,7 @@ include "../../styles.php"
 <div class="admin-check-wrapper">
 <div class="row">
 <div class="col-md-6 text-center">
-<?php if($getvalutwo['status_of_request']=='Y'){?>
+<?php if($getvalutwo['status_of_request']!='N'){?>
 <label class="form-check-label admin-check">
 <input type="radio" id="approve" name="status" value="1" class="form-check-input" checked>Approve
 </label>
@@ -90,7 +91,7 @@ include "../../styles.php"
 </div>
 <div class="col-md-6 text-center">
 <div class="sm-mt10">
-<?php if($getvalutwo['status_of_request']=='Y'){  ?>
+<?php if($getvalutwo['status_of_request']!='N'){  ?>
 <button class="btn btn-success" name="submit">Submit</button>
 <?php } ?>
 <a class="btn btn-danger" href="<?php echo RE_HOME_ADMIN; ?>user_updation_request.php">Back</a>

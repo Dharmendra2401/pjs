@@ -111,7 +111,7 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Mobile No.</label>	
 <div class="col-md-9">
-<input type="tel" class="form-control" placeholder="Enter mobile no." maxlength="15"  name="mobileno" id="mobileno"  onKeyPress="return isNumeric(event)">
+<input type="tel" class="form-control" placeholder="Enter mobile no."   name="mobileno" id="mobileno"  onKeyPress="return isNumeric(event)">
 </div>
 </div>
 <div class="form-group row">
@@ -140,8 +140,11 @@ include "../config/config.php";
 </div>
 <div class="form-group row">
 <label class="col-md-3 col-form-label"> Height</label>	
-<div class="col-md-9">
-<input type="number" step="any" class="form-control" placeholder="Enter height" name="height" id="height" onKeyPress="return isNumeric(event)">
+<div class="col-md-3">
+<input type="text" step="any" class="form-control" placeholder="Enter feet" maxlength="2" name="feet" id="feet" onKeyPress="return isNumeric(event)"><span class="label-two">Feet</span>
+</div>
+<div class="col-md-3">
+<input type="text" step="any" class="form-control" placeholder="Enter inches" maxlength="2" name="inches" id="inches" onKeyPress="return isNumeric(event)"><span class="label-two">Inches</span>
 </div>
 </div>
 </div>
@@ -256,8 +259,8 @@ while($show=mysqli_fetch_array($state)){
 </div>
 </div>
 
-<div class="row tab image-tab" >
-<div class="col-md-9 ">
+<div class="row tab" id="image-tab">
+<div class="col-md-9 " >
 <h3 class="mb-3">Please Upload Your Own <span class="text-danger">(* Required Fields)</span></h3>
 <div class="form-group row">
 <label class="col-md-12 col-form-label">Profile photo size must be 1mb or less </label>	
@@ -343,7 +346,7 @@ showTab(currentTab); // Display the current tab
 function showTab(n) {
 // This function will display the specified tab of the form...
 var x = document.getElementsByClassName("tab");
-x[n].style.display = "block";
+var harsh=x[n].style.display = "block";
 //... and fix the Previous/Next buttons:
 if (n == 0) {
 document.getElementById("prevBtn").style.display = "none";
@@ -371,6 +374,7 @@ currentTab = currentTab + n;
 // if you have reached the end of the form...
 if (currentTab >= x.length) {
 // ... the form gets submitted:
+$('#image-tab').show();
 document.getElementById("regForm").submit();
 return false;
 }
@@ -383,7 +387,6 @@ var x, y, i,
 valid = true;
 x = document.getElementsByClassName("tab");
 y = x[currentTab].getElementsByTagName("input");
-
 // A loop that checks every input field in the current tab:
 if(currentTab==0){
   var firstname=$('#firstname').val();
@@ -431,7 +434,7 @@ if(currentTab==0){
 	return false;
 	}
 
-	else if(mobileno==''){
+	else if(mobileno.length<10){
 	$('#mobileno').focus();
 	$("#mobileno").addClass("invalid");
 	return false;
@@ -462,7 +465,7 @@ if(currentTab==0){
 	}
 
 }
-else if(currentTab==1){
+if(currentTab==1){
 
 var country=$('#country').val();
 var state=$('#state').val();
@@ -503,7 +506,7 @@ return false;
 }
 
 }
-else if(currentTab==2){
+if(currentTab==2){
 var highest=$('#highest').val();
 var occupation=$('#occupation').val();
 var details=$('#details').val();
@@ -533,23 +536,18 @@ return	true;
 }
 
 }
-else if(currentTab==3){
+if(currentTab==3){
 var file=$('#file').val();
 if(file==''){
 $('#fileerror').html('<div class="text-danger">Please select image</div>');
 return false;
-}else{
 
-return true;
+}
+$('#image-tab').show();
+
 }
 
 
-}
-
-else{
-$('.image-tab').show();
-return true;
-}
 
 // If the valid status is true, mark the step as finished and valid:
 if (valid) {

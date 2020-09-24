@@ -205,7 +205,7 @@
 </div>
 
 <div class="col-md-6">
-<label>Middle Name</label> 
+<label><span class="text-danger">*</span> Middle Name</label> 
 </div>
 <div class="col-md-6">
 <div class="form-group">
@@ -285,6 +285,7 @@
 
 <script>
 
+
 function openadminpop(){
 $('#opjcontact').modal('show');
 $('#contactoption').modal('hide');
@@ -336,7 +337,7 @@ $('#description').focus();
 $('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter description</div> ');
 return false;
 }else{
-//$('#loadergif').fadeIn();
+$('#loadergif').fadeIn();
 $.ajax({
 method:'POST',
 url:'<?php echo RE_HOME_PATH ;?>newnumber.php',
@@ -347,7 +348,7 @@ $('#update-number')[0]. reset();
 $('#help').modal('hide');
 $('#update-number').hide();
 $('#errorfirst').html('');
-//$('#loadergif').fadeOut();
+$('#loadergif').fadeOut();
 bootbox.alert('Your details has been sent to Admin for verification, You will receive a callback soon on your new phone number');
 }
 if(data1234=='Error'){
@@ -378,6 +379,11 @@ $('#emailfirst_name').focus();
 $('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter first name</div>');
 return false;
 }
+if(middlename==''){
+$('#emailmiddle_name').focus(); 
+$('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter middle name</div>');
+return false;
+}
 else if(lastname==''){
 $('#emaillast_name').focus(); 
 $('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter last name</div>');
@@ -396,20 +402,31 @@ $('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please ent
 return false;
 
 }else{
-//$('#loadergif').fadeIn();
+$('#loadergif').fadeIn();
 $.ajax({
 method:'POST',
 url:'<?php echo RE_HOME_PATH ;?>emailsend.php',
 data:{'firstname':firstname,'lastname':lastname,'fathersname':fathersname,'dob':dob,'middlename':middlename},
 success:function(emailshoot){
-  alert(emailshoot);
+
 if(emailshoot=='true'){
 $('#forgot-login-form')[0]. reset();
 $('#forgot-login-form').modal('hide');
+$('#help').modal('hide');
 $('#errorcrediential').html('');
 $('#loadergif').fadeOut();
-bootbox.alert("Your details has been sent to Admin for verification.<br> You will receive a callback soon on your new phone number");
+bootbox.alert("Your details has been sent to your registered email id");
 }
+
+if(emailshoot=='false'){
+  $('#forgot-login-form')[0]. reset();
+  $('#help').modal('hide');
+//$('#forgot-login-form').modal('hide');
+$('#errorcrediential').html('');
+$('#loadergif').fadeOut();
+bootbox.alert("Error! Please try again.");
+}
+
 }
 
 });
@@ -486,7 +503,7 @@ type:'POST',
 url:'<?php echo RE_HOME_USER ;?>checkmid.php',
 data:{'mid':mid},
 success:function(midsuccess){
-  alert(midsuccess);
+alert(midsuccess);
 if(midsuccess=='false'){
 $('#miderror').html('<div class="text-danger">Invalid MID you entered</div> ');
 //$('#mid').val('');
@@ -697,7 +714,7 @@ function searchBar(x,y)
 {
   	
   var search=$("#search").val();
- if(search!=''){
+ 
   y=10;
   //$('#loadergif').fadeIn();
   $.ajax({
@@ -710,19 +727,14 @@ function searchBar(x,y)
   $("#searchdata").html(search);			    } 
 });
 
- }
- else{
-   $('.searchdata').hide();
-
- }
+ 
+ 
 
 }
 
 function searchpage() {
-   var search=$("#search").val();
-   if(search!=''){
-        window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+search);
-   }
-    } 
+var search=$("#search").val();
+window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+search);
+} 
 
 </script>

@@ -47,7 +47,7 @@ include "../../styles.php"
 <br>
 <div class="row">
 <div class="col-md-5">
-<input type="text" class="form-control" placeholder="Enter Refrence id or Name" id="refrenceidone">
+<input type="text" class="form-control" placeholder="Enter mobile no" id="refrenceidone">
 </div>
 
 <div class="col-md-3">
@@ -94,23 +94,23 @@ include "../../styles.php"
 </div> 	
 </div>
 <div class="modal fade" id="viewreason" >
-  <div class="modal-dialog" role="document">
-    <div class="modal-content">
-      <div class="modal-header border-bottom-0">
-        <h5 class="modal-title" id="exampleModalLabel">Reasons For Rejection</h5>
-        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-          <span aria-hidden="true">&times;</span>
-        </button>
-      </div>
-      <form method="post">
-      <div id="reason" class="rpadding"></div>
-      <div class="modal-footer border-top-0">
-        <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-       
-      </div>
-      </form>
-    </div>
-  </div>
+<div class="modal-dialog" role="document">
+<div class="modal-content">
+<div class="modal-header border-bottom-0">
+<h5 class="modal-title" id="exampleModalLabel">Reason For Rejection</h5>
+<button type="button" class="close" data-dismiss="modal" aria-label="Close">
+<span aria-hidden="true">&times;</span>
+</button>
+</div>
+<form method="post">
+<div id="reason" class="rpadding"></div>
+<div class="modal-footer border-top-0">
+<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
+
+</div>
+</form>
+</div>
+</div>
 </div>
 
 <?php  include "../../script.php" ?>

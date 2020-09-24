@@ -8,13 +8,13 @@ $submitdate=date('Y-m-d H:i:s');
 $status=mysqli_real_escape_string($con,trim($_REQUEST['status']));
 
 if($status==1){
+$member_id = uniquemid($con);
 $sorcevalue=strtoupper(substr($getdate['first_name'],0,3)).'_'.strtoupper(substr($getdate['last_name'],0,3)).'_'.strtoupper(substr($getdate['fathers_name'],0,3)).'_'.date('dmY',strtotime($getdate['date_of_birth'] ));
-$insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."')");
-$member_id = mysqli_insert_id($con);
 
 
+$insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm,id)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$member_id."')");
 
-$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,height,upd_user,record_inserted_dttm,age,middle_name,area) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$getdate['height']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['middle_name']."','".$getdate['area']."'  ) ");
+$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,middle_name,area,feet,inches) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['middle_name']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."'  ) ");
 
 $insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_inserted_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['sub_admin_id']."','".$submitdate."' )");
 
@@ -24,8 +24,8 @@ $inserteducation_occp=mysqli_query($con,"insert into education_ocp(member_id,hig
 
 
 $update=mysqli_query($con,"update staging_approval set active_status='N' where request_id='".$getid."' ");
-$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,height,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age,area)
-SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,height,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age,area from staging_approval where request_id='".$getid."' ";
+$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age,area,feet,inches)
+SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
 mysqli_query($con,$insert);
 
 $subject="User Successfully Approved From ".WEBSITE_NAME." ";

@@ -924,4 +924,18 @@ body{
 background-color: #f8f9fa!important;
 padding: 3px;
 border-radius: 3px;}
+input[type=number] {
+    -moz-appearance: textfield !important;
+  }
+  input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+.label-two{float: right;
+    background: #446eb6;
+    margin-top: -37px;
+    padding: 6px;
+    color: white;
+    border-radius: 0px 4px 3px 0px;}
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

@@ -162,7 +162,25 @@ $dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
 }$uniqid =$prefix.$dge;
 }
 return $uniqid;	
-}	
+}
+
+function uniquemid($con)
+{
+$prefix='MID';
+$rst111=mysqli_query($con,"select id,id_unique from key_member_id order by id_unique desc limit 1" ) or die(mysql_error());
+$getresultsss=mysqli_num_rows($rst111);
+if(mysqli_num_rows($rst111) == 0){
+$uniqidd =$prefix."0001";
+}
+else{
+while($row_val = mysqli_fetch_array($rst111) ){
+$usr12 = $row_val['id'];
+$str = ltrim($usr12, 'MID');
+$dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
+}$uniqidd =$prefix.$dge;
+}
+return $uniqidd;	
+}
 
 
 

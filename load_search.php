@@ -12,7 +12,7 @@ if(isset($_REQUEST['ustatus']))
 $stat="member where 1=1  $statu order by member_id desc";
 
 //$startpoint = ($page * $limit) - $limit;
-$query = "SELECT * FROM ".$stat." LIMIT 0 , 3"; 
+echo $query = "SELECT * FROM ".$stat." LIMIT 0 , 3"; 
 //if($page==1){ $count=1;}else{$count=$page*10-10+1;}
 $rest = mysqli_query($con,"SELECT * FROM ".$stat);
 $row_count=mysqli_num_rows($rest);

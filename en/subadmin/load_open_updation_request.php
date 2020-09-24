@@ -20,17 +20,12 @@
 $stat='';
 $statu='';
 
-if($_REQUEST['state']!='')
-{$statu.= 'and state LIKE "'.$_REQUEST['state'].'"';}
-
-if($_REQUEST['city']!='')
-{$statu.= 'and City LIKE "'.$_REQUEST['city'].'"';}
 
 if($_REQUEST['submitdate']!='')
-{$statu.= 'and request_date LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdate'])).'%"';}
+{$statu.= 'and record_inserted_dttm LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdate'])).'%"';}
 
 if($_REQUEST['refrenceidone']!='')
-{$statu.= 'and request_id LIKE "'.trim($_REQUEST['refrenceidone']).'"';}
+{$statu.= 'and new_request LIKE "'.trim($_REQUEST['refrenceidone']).'"';}
 
 
 if(isset($_REQUEST['ustatus']))
@@ -39,7 +34,7 @@ $stat="member_request where 1=1 and (status_of_request='Y' or status_of_request=
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
-$query = "SELECT * FROM ".$stat." LIMIT ".$startpoint." , ".$limit; 
+echo $query = "SELECT * FROM ".$stat." LIMIT ".$startpoint." , ".$limit; 
 if($page==1){ $count=1;}else{$count=$page*10-10+1;}
 $rest = mysqli_query($con,"SELECT * FROM ".$stat);
 $row_count=mysqli_num_rows($rest);
@@ -55,7 +50,7 @@ $currentdate=$row['record_inserted_dttm'];
 <td><?php echo $row['new_request'] ; ?></td>
 <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
 <td><?php if($row['status_of_request']=='Y'){echo "<label class='btn btn-success btn-sm'>New</label>";} if($row['status_of_request']=='R'){echo "<label class='btn btn-warning btn-sm'>Rejected</label>";} ?></td>
-<td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>update_request_mobile.php?id=<?php echo base64_encode($row['id']);?>">Show Details</a> <?php if($row['request_status']=='R'){ ?><a href="#"data-toggle="modal" data-target="#viewreason" onclick="return viewreason('<?php echo $row['reason_of_rejection'];  ?>')" class="btn btn-primary btn-sm" alt="View the reason" title="View the reason"><i class="fa fa-eye"></i></a> <?php } ?></td>
+<td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>update_request_mobile.php?id=<?php echo base64_encode($row['id']);?>">Show Details</a> <?php if($row['status_of_request']=='R'){ ?><a href="#"data-toggle="modal" data-target="#viewreason" onclick="return viewreason('<?php echo $row['reason_of_rejection'];  ?>')" class="btn btn-primary btn-sm" alt="View the reason" title="View the reason"><i class="fa fa-eye"></i></a> <?php } ?></td>
 </tr>
 <?php $count++; }
 if($row_count<=0){

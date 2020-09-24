@@ -15,7 +15,7 @@
 
 <div class="input-group my-auto">
 <!-- <input type="text" class="form-control" placeholder="Search" aria-label="Username"> -->
-<input type="text" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" >
+<input type="search" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" >
 
 
 <div class="input-group-append">
