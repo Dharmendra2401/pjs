@@ -55,6 +55,13 @@ body{
 /*----------------------GLOBAL CSS ENDS---------------------------------------*/
 
 /*-----------------------HEADER----------------------------------------------*/
+.logo-link{
+    width: 100%;
+    display: block;
+    text-align: center;
+    z-index: -10;
+}
+
 .mobile-menu-icon {
     display: none;
 }
@@ -80,6 +87,7 @@ body{
     font-size: 17px;
     padding: 3px;
 }
+
 .fa-language{
     font-size: 30px;
     vertical-align: middle;
@@ -266,9 +274,6 @@ body{
     box-shadow: 0px 2px 5px 0px rgba(110,96,110,1);
 }
 
-.navbar-menu .close-icon{
-    display: none;
-}
 /*-------------NAVBAR MENU NEDS----------------------*/
 
 
@@ -828,28 +833,21 @@ body{
     display: inline;
     position: absolute;
     top: 10px;
-    right: 10px;
+    left: 10px;
     font-size: 20px;
     color: #ffffff;
+    z-index: 3;
   }
 
   .navbar-menu{
     display: none;
-    width: 60%;
+    width: 100%;
     position: absolute;
     top: 0px;
-    z-index: 1;
+    z-index: 2;
     height: 100%;
   }
 
-  .navbar-menu .close-icon{
-    font-size: 29px;
-    position: absolute;
-    right: 7px;
-    top: -7px;
-    color: #ffffff;
-    display: initial;
-  } 
   
   .navbar-menu .navbar-nav{
     padding-top: 20px;

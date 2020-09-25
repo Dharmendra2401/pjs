@@ -5,7 +5,7 @@
 
 <div class="col-md-3 sm-image-wrapper">
 <i class="fas fa-bars mobile-menu-icon"></i>
-<a href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png"></a>
+<a class="logo-link" href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png"></a>
 </div>
 <div class="col-md-6 d-flex justify-content-center sm-pb10">
 
@@ -108,7 +108,6 @@ LOGIN/SIGUP
 </div>
 
 <div class="col-md-12 navbar-menu">
-<span class="close-icon">&times;</span>
 <nav class="navbar navbar-expand-sm">
 <ul class="navbar-nav">
 <li class="nav-item">
