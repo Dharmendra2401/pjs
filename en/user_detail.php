@@ -16,7 +16,6 @@ $login_user='';
 
 
 $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' AND sp.reference_member_Id='$idd' ,'saved','notsaved') as sp_status,mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.height,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on  mem.member_id=sp.reference_member_Id  where mem.member_id= '$idd'"));
-
 ?>
 <!DOCTYPE html>
 <html>
@@ -40,7 +39,7 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' 
 					</div>
 					<div class="col-md-6 align-self-end text-right sm-mt10">
 						<?php if (isset($_SESSION['user_mid'])) { if ( $row['sp_status']=='saved') {?>
-							<a type="button" class="btn btn-info mr-3 login-signup">Saved</a>
+							<a type="button" class="btn btn-info mr-3 login-signup" style="background-color:#72bf55">Saved</a>
 						<?php } else {?>
 							<a type="button" class="btn btn-info mr-3 login-signup save_user_profile" id="<?php echo $row['member_id'] ;?>" data-current="<?php echo $_SESSION['user_mid'];?>">Save Profile  </a>
 						<?php }?>
@@ -197,7 +196,13 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' 
 					      	  	  <h5><?php echo $row['height'];  ?></h5>
 					      	  </div>
 					      	  <div class="col-12 text-center">
-							      <button type="button" class="btn btn-info btn-more">More Details</button>
+					      	  	<?php if (isset($_SESSION['user_mid']) || isset($_SESSION['user_mid']) || isset($_SESSION['user_mid'])) {?>
+					      	  		 <button type="button" class="btn btn-info btn-more">More Details</button>
+					      	  <?php 	} else { ?>
+					      	  	<button type="button" class="btn btn-info" data-toggle="modal" data-target="#login"
+>More Details</button>
+					      	  <?php } ?>
+							     
 							  </div>
 				          </div>
 				          <div class="more-info">
@@ -267,7 +272,8 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' 
 			console.log(status1);
 			if (status1=='success') {
 			// window.location.reload();
-			$('.save_user_profile').text('saved')
+			$('.save_user_profile').text('Saved');
+			$('.save_user_profile').css('background-color','#72bf55');
 			}
 			else{
 				$('.save_user_profile').text('something is not good please try again')

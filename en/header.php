@@ -24,11 +24,16 @@
 </div>
 <div class="col-md-3 align-self-center text-right">
 <i class="fas fa-language sm-icon-language"></i>
+<?php 
+
+if ($_SESSION['sub_admin_email']!='' || $_SESSION['user_mid']!='' || $_SESSION['admin_id']!=''){
+
+?>
 <i class="far fa-bell sm-icon-alert"></i>
 
 
 <?php 
-
+}
 if ($_SESSION['sub_admin_email']!=''){
 
 ?>
@@ -57,7 +62,7 @@ if ($_SESSION['sub_admin_email']!=''){
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="#">View & Update Profile</a>
-<a class="dropdown-item" href="#">Saved Profile</a>
+<a class="dropdown-item" href="saved_profile.php">Saved Profile</a>
 <a class="dropdown-item" data-toggle="modal" data-target="#modal45">Feedback</a>
 <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
@@ -121,7 +126,7 @@ LOGIN/SIGUP
 <li class="nav-item">
 <a class="nav-link" href="zones.php">Zones</a>
 </li>
-<?php if($_SESSION['user_mid']==''){ ?>
+<?php if($_SESSION['user_mid']!=''){ ?>
 <li class="nav-item">
 <!-- <a class="nav-link" href="#">My Family</a> -->
     <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
