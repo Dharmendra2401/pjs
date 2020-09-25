@@ -16,7 +16,7 @@
 
 
 <div class="input-group-append d-none d-md-block">
-<button onclick="return searchpage();" type="submit"> <span class="input-group-text"><i class="fa fa-search"></i></span></button>
+<button onclick="return searchpage();" type="submit" class="srch-btn"> <span class="input-group-text"><i class="fa fa-search"></i></span></button>
 </div>
 
 <div id="searchdata" class="searchdata"></div>

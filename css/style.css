@@ -67,6 +67,19 @@ body{
    background-color: #ffffff;
 }
 
+.sm-input:focus{
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 4%);
+}
+
+.srch-btn{
+    border: 0;
+    padding: 0;
+}
+
+.srch-btn .fa-search{
+    font-size: 17px;
+    padding: 3px;
+}
 .fa-language{
     font-size: 30px;
     vertical-align: middle;
@@ -79,6 +92,10 @@ body{
     vertical-align: middle;
     padding-right: 15px;
     color: #b5b5b5;
+}
+
+.sm-image{
+    padding: 10px;
 }
 
 .input-group-text{
@@ -788,6 +805,7 @@ body{
     width: 35px;
     object-fit: cover;
     margin: 10px 0 10px 0px;
+    padding: 0;
   }
 
   .sm-icon-alert{
