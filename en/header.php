@@ -1,21 +1,21 @@
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
-<div class="row bg-white">
+<div class="row bg-color">
 
 <div class="col-md-3 sm-image-wrapper">
 <i class="fas fa-bars mobile-menu-icon"></i>
-<a href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png" style="padding: 10px;"></a>
+<a href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png"></a>
 </div>
-<div class="col-md-6 d-flex justify-content-center">
+<div class="col-md-6 d-flex justify-content-center sm-pb10">
 
 
 <div class="input-group my-auto">
 <!-- <input type="text" class="form-control" placeholder="Search" aria-label="Username"> -->
-<input type="text" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" >
+<input type="text" class="form-control sm-input" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" >
 
 
-<div class="input-group-append">
+<div class="input-group-append d-none d-md-block">
 <button onclick="return searchpage();" type="submit"> <span class="input-group-text"><i class="fa fa-search"></i></span></button>
 </div>
 
@@ -94,10 +94,10 @@ if ($_SESSION['sub_admin_email']!=''){
 
 ?>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
+<button type="button" class="btn btn-primary login-btn" data-toggle="modal" data-target="#login">
 LOGIN/SIGUP
 </button>
-
+<i class="fas fa-sign-in-alt login-icon" data-toggle="modal" data-target="#login"></i>
 <?php } ?>
 
 </div>
