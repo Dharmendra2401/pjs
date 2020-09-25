@@ -136,13 +136,9 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<div class="alert alert-success">
-				<strong>Success!</strong> Indicates a successful or positive action.
-			</div>
 			<div class="modal-body">
 				<form>
 					<div class="form-group">
-						<label for="recipient-name" class="col-form-label">Recipient:</label>
 						<input type="hidden" class="form-control" id="referenc-id">
 						<input type="hidden" class="form-control" id="Member_Id">
 					</div>
@@ -164,8 +160,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary send_request">Send message</button>
+				<button type="button" class="btn btn-primary send_request">Save</button>
 			</div>
 		</div>
 	</div>
