@@ -1,13 +1,13 @@
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
-<div class="row bg-white">
+<div class="row bg-color">
 
 <div class="col-md-3 sm-image-wrapper">
 <i class="fas fa-bars mobile-menu-icon"></i>
-<a href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png" style="padding: 10px;"></a>
+<a class="logo-link" href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png"></a>
 </div>
-<div class="col-md-6 d-flex justify-content-center">
+<div class="col-md-6 d-flex justify-content-center sm-pb10">
 
 
 <div class="input-group my-auto">
@@ -17,18 +17,28 @@
 
 <div class="input-group-append">
 <button onclick="return searchpage();" type="submit" class="searchbtn" disabled> <span class="input-group-text search-icon"><i class="fa fa-search"></i></span></button>
+<input type="text" class="form-control sm-input" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" >
+
+
+<div class="input-group-append d-none d-md-block">
+<button onclick="return searchpage();" type="submit" class="srch-btn"> <span class="input-group-text"><i class="fa fa-search"></i></span></button>
 </div>
 
 <div id="searchdata" class="searchdata"></div>
 </div>
 </div>
 <div class="col-md-3 align-self-center text-right">
-<!-- <i class="fas fa-language sm-icon-language"></i> -->
+<i class="fas fa-language sm-icon-language"></i>
+<?php 
+
+if ($_SESSION['sub_admin_email']!='' || $_SESSION['user_mid']!='' || $_SESSION['admin_id']!=''){
+
+?>
 <i class="far fa-bell sm-icon-alert"></i>
 
 
 <?php 
-
+}
 if ($_SESSION['sub_admin_email']!=''){
 
 ?>
@@ -57,7 +67,7 @@ if ($_SESSION['sub_admin_email']!=''){
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="#">View & Update Profile</a>
-<a class="dropdown-item" href="#">Saved Profile</a>
+<a class="dropdown-item" href="saved_profile.php">Saved Profile</a>
 <a class="dropdown-item" data-toggle="modal" data-target="#modal45">Feedback</a>
 <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
@@ -94,16 +104,15 @@ if ($_SESSION['sub_admin_email']!=''){
 
 ?>
 
-<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#login">
+<button type="button" class="btn btn-primary login-btn" data-toggle="modal" data-target="#login">
 LOGIN/SIGUP
 </button>
-
+<i class="fas fa-sign-in-alt login-icon" data-toggle="modal" data-target="#login"></i>
 <?php } ?>
 
 </div>
 
 <div class="col-md-12 navbar-menu">
-<span class="close-icon">&times;</span>
 <nav class="navbar navbar-expand-sm">
 <ul class="navbar-nav">
 <li class="nav-item">
@@ -121,7 +130,7 @@ LOGIN/SIGUP
 <li class="nav-item">
 <a class="nav-link" href="zones.php">Zones</a>
 </li>
-<?php if($_SESSION['user_mid']==''){ ?>
+<?php if($_SESSION['user_mid']!=''){ ?>
 <li class="nav-item">
 <!-- <a class="nav-link" href="#">My Family</a> -->
     <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">

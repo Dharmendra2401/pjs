@@ -32,13 +32,11 @@ function showResult(str) {
 if ($(window).width() < 601) {
 
   // for mobile menu-------------------------------
-    $(".mobile-menu-icon").click(function() {
-      $('.navbar-menu').toggle("slide");
-    });
+      $(".mobile-menu-icon").click(function(){
+    $(".navbar-menu").slideToggle("slow");
+  });
+    
 
-    $(".close-icon").click(function() {
-      $(".navbar-menu").hide(500);
-    });
 
  // for admin filter in mobile----------------------------   
    $(".filter-header i").click(function() {

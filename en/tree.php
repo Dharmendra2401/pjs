@@ -17,47 +17,50 @@ include "../config/config.php";
 				</div>
 		 <div class="row mt-3">
 				 <div class="col-md-4">
-					<h5 class="text-center">Click here to Update Dead Person</h5>
-					<div>
-						<form action="" enctype="multipart/form-data" id="dead_person_form">
-							<div class="form-group">
-								<label>Name</label>
-								<input type="text" class="form-control" placeholder="Enter name" id="d_name" name="d_name">
-							</div>
-							<div class="form-group">
-								<label>Popular Name</label>
-								<input type="text" class="form-control" placeholder="Enter name" id="d_popname" name="d_popname">
-							</div>
-							<div class="form-group">
-									<label>relation type</label>
-								<select class="form-control" id="relationship_type" name="relationship_type">
-									<option value="Grandfather">Grandfather</option>              
-									<option value="Father">Father</option>
-									<option value="Brother">Brother</option>
-									<option value="Son">Son</option>
-									<option value="Grandmother">Grandmother</option>
-									<option value="Mother">Mother</option>                
-									<option value="Daughter">Daughter</option>                
-									<option value="Sister">Sister</option>
-								</select>
-							</div>
-							<div class="form-group">
-								<label>Date of Death</label>
-								<input type="date" class="form-control" placeholder="Enter date" id="dod">
-							</div>
-							<div class="form-group">
-								<label>Upload Image</label>
+					<div class="card mb-2">
+						<div class="card-body pb-2">
+							<h4 class="card-title">Click here to Update Dead Person</h4>
+							<form action="" enctype="multipart/form-data" id="dead_person_form">
+								<div class="form-group">
+									<label>Name</label>
+									<input type="text" class="form-control form-control-sm" placeholder="Enter name" id="d_name" name="d_name">
+								</div>
+								<div class="form-group">
+									<label>Popular Name</label>
+									<input type="text" class="form-control form-control-sm" placeholder="Enter name" id="d_popname" name="d_popname">
+								</div>
+								<div class="form-group">
+										<label>relation type</label>
+									<select class="form-control form-control-sm" id="relationship_type" name="relationship_type">
+										<option value="Grandfather">Grandfather</option>              
+										<option value="Father">Father</option>
+										<option value="Brother">Brother</option>
+										<option value="Son">Son</option>
+										<option value="Grandmother">Grandmother</option>
+										<option value="Mother">Mother</option>                
+										<option value="Daughter">Daughter</option>                
+										<option value="Sister">Sister</option>
+									</select>
+								</div>
+								<div class="form-group">
+									<label>Date of Death</label>
+									<input type="date" class="form-control form-control-sm" placeholder="Enter date" id="dod">
+								</div>
+								<div class="form-group">
+									<label>Upload Image</label>
 
-							 <input type="file" class="form-control" id="file" name="file">
-							</div>
-							<button type="button" class="btn btn-primary mb-2 float-right dead_person">Submit</button>
-						</form>
+								 <input type="file" class="form-control form-control-sm" id="file" name="file">
+								</div>
+								<button type="button" class="btn btn-primary btn-sm mb-2 float-right dead_person">Submit</button>
+							</form>
+						</div>
+						
 					</div>
 					<form method="post" action="">
 						<div class="input-group my-auto">
-							<input type="text" class="form-control" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
+							<input type="text" class="form-control sm-input form-control-sm" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
 							<div class="input-group-append">
-							<input class="input-group-append" type="submit" name="submit1" value="submit">
+							<input class="btn btn-primary btn-sm" type="submit" name="submit1" value="submit">
 							</div>
 						</div>
 
@@ -123,6 +126,13 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 				 <div id="add" class="col-md-4 ">
 						 <?php  include_once './PJS-demo/tree.php';?>
 				 </div>
+				 <div class="col-md-4 text-right">
+				 	<span>
+				 		<i class="fas fa-flag text-danger"></i>
+				 		<strong>: Indicates Dead person</strong>
+				 	</span>
+				 	   
+				 </div>
 		 </div>
 
 	 </div> 
@@ -136,13 +146,9 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 					<span aria-hidden="true">&times;</span>
 				</button>
 			</div>
-			<div class="alert alert-success">
-				<strong>Success!</strong> Indicates a successful or positive action.
-			</div>
 			<div class="modal-body">
 				<form>
 					<div class="form-group">
-						<label for="recipient-name" class="col-form-label">Recipient:</label>
 						<input type="hidden" class="form-control" id="referenc-id">
 						<input type="hidden" class="form-control" id="Member_Id">
 					</div>
@@ -164,8 +170,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 				</form>
 			</div>
 			<div class="modal-footer">
-				<button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-				<button type="button" class="btn btn-primary send_request">Send message</button>
+				<button type="button" class="btn btn-primary send_request">Save</button>
 			</div>
 		</div>
 	</div>
@@ -200,9 +205,10 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 <input type="hidden" name="" id="home_path" value="<?php echo RE_HOME_PATH;?>">
 <!---->
 </body>
+<?php include "../script.php"; ?>
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-<?php include "../script.php"; ?>
+
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 </html>

@@ -55,8 +55,37 @@ body{
 /*----------------------GLOBAL CSS ENDS---------------------------------------*/
 
 /*-----------------------HEADER----------------------------------------------*/
+.logo-link{
+    width: 100%;
+    display: block;
+    text-align: center;
+    z-index: -10;
+}
+
 .mobile-menu-icon {
     display: none;
+}
+
+.login-icon{
+    display: none;
+}
+
+.bg-color{
+   background-color: #ffffff;
+}
+
+.sm-input:focus{
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 4%);
+}
+
+.srch-btn{
+    border: 0;
+    padding: 0;
+}
+
+.srch-btn .fa-search{
+    font-size: 17px;
+    padding: 3px;
 }
 
 .fa-language{
@@ -71,6 +100,10 @@ body{
     vertical-align: middle;
     padding-right: 15px;
     color: #b5b5b5;
+}
+
+.sm-image{
+    padding: 10px;
 }
 
 .input-group-text{
@@ -241,9 +274,6 @@ body{
     box-shadow: 0px 2px 5px 0px rgba(110,96,110,1);
 }
 
-.navbar-menu .close-icon{
-    display: none;
-}
 /*-------------NAVBAR MENU NEDS----------------------*/
 
 
@@ -746,26 +776,59 @@ body{
 .sm-mt10{
   margin-top: 10px;
 }
+
+.sm-pb10{
+  padding-bottom: 10px;
+}
 /*-------------------------GLOBAL ENDS-------------------*/
 
 /*--------------------HEADER---------------------------*/
-  .sm-image{
-    height: 70px;
-    width: 70px;
-    object-fit: cover;
+  .bg-color{
+     background-color: #3eb8e9;
   }
+
+  .login-icon{
+     display: block;
+     display: block;
+    position: absolute;
+    right: 45px;
+    top: -88px;
+    font-size: 20px;
+    color: #ffffff;
+  }
+
+  .login-btn{
+     display: none;
+
+  }
+
+  .sm-input{
+     height: calc(1.2em + .75rem + 2px);
+     border-radius: 2px;
+  }
+
+  .sm-image{
+    height: 35px;
+    width: 35px;
+    object-fit: cover;
+    margin: 10px 0 10px 0px;
+    padding: 0;
+  }
+
   .sm-icon-alert{
     position: absolute;
-    top: -98px;
-    right: -10px;
+    top: -88px;
+    right: 65px;
     font-size: 20px;
+    color: #ffffff
   }
 
   .sm-icon-language{
-    position: absolute;
+    display: none;
+    /*position: absolute;
     top: -99px;
     right: 18px;
-    font-size: 20px;
+    font-size: 20px;*/
   }
 
   .mobile-menu-icon {
@@ -774,24 +837,19 @@ body{
     top: 10px;
     left: 10px;
     font-size: 20px;
-  }   
+    color: #ffffff;
+    z-index: 3;
+  }
+
   .navbar-menu{
     display: none;
-    width: 60%;
+    width: 100%;
     position: absolute;
     top: 0px;
-    z-index: 1;
+    z-index: 2;
     height: 100%;
   }
 
-  .navbar-menu .close-icon{
-    font-size: 29px;
-    position: absolute;
-    right: 7px;
-    top: -7px;
-    color: #ffffff;
-    display: initial;
-  } 
   
   .navbar-menu .navbar-nav{
     padding-top: 20px;
@@ -803,7 +861,7 @@ body{
 }
 
   .sm-image-wrapper{
-     text-align: center;
+     
   }
 
    .open-login{

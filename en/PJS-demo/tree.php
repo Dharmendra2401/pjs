@@ -14,7 +14,7 @@ $result=friend_request_status12();
 		while( $row1 = mysqli_fetch_assoc($result)){
  ?>
 
-			<div class="card my-2">
+			<div class="card mb-2">
 				<div class="card-body">
 					<div class="row">
 							<div class="col-md-2">
