@@ -8,16 +8,12 @@
 <a class="logo-link" href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png"></a>
 </div>
 <div class="col-md-6 d-flex justify-content-center sm-pb10">
-
-
 <div class="input-group my-auto">
 <!-- <input type="text" class="form-control" placeholder="Search" aria-label="Username"> -->
 <input type="text" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" ><button class="cancel-btn" onclick="return searchbarclick();"><i class="fa fa-times"></i></button>
 
 
-<div class="input-group-append">
-<button onclick="return searchpage();" type="submit" class="searchbtn" disabled> <span class="input-group-text search-icon"><i class="fa fa-search"></i></span></button>
-<input type="text" class="form-control sm-input" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" >
+
 
 
 <div class="input-group-append d-none d-md-block">
@@ -212,7 +208,6 @@ if ($_SESSION['admin_email']!=''){
 
 </ul>
 </nav>
-
 
 </div>
 
