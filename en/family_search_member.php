@@ -1,18 +1,16 @@
 <?php  
 
-require_once("../config/config.php"); 
-//echo $_POST['search_value'];
-$stat='';
+//require_once("../config/config.php"); 
+echo $_POST['search_value'];exit();
 $statu='';
+$search_value=$_REQUEST['search_value'];
 
-	$statu.= 'and (member_id LIKE "%'.$_REQUEST['search_value'].'%" or first_name LIKE "%'.$_REQUEST['search_value'].'%") ';
-
-
-
-$stat="member where 1=1  $statu order by member_id desc";
 
 //$startpoint = ($page * $limit) - $limit;
-$query = "SELECT * FROM ".$stat." LIMIT 0 , 3"; 
+$query = "SELECT * FROM `user` WHERE (`first_name` LIKE '%$search_value%' or `MEMBER_ID` LIKE '%$search_value%') AND MEMBER_ID NOT IN (SELECT MEM.MEMBER_ID FROM `dwr_vts_t.dbo.relationship` RS INNER JOIN `user` MEM ON RS.Reference_Member_Id = MEM.MEMBER_ID WHERE RS.Member_Id = '1001' UNION
+SELECT MEM.MEMBER_ID FROM `dwr_vts_t.dbo.relationship` RS INNER JOIN `user` MEM ON RS.Member_Id = MEM.MEMBER_ID WHERE RS.Reference_Member_Id = '1001') AND MEMBER_ID !='1001' AND Life_status ='L' ORDER BY MEMBER_ID"; 
+
+echo $query;exit;
 //if($page==1){ $count=1;}else{$count=$page*10-10+1;}
 $rest = mysqli_query($con,"SELECT * FROM ".$stat);
 $row_count=mysqli_num_rows($rest);
@@ -27,13 +25,13 @@ while($row=mysqli_fetch_assoc($rs)){
 			<li class="list-inline-item">
 		        <?php 
 		        
-		        $getimg=mysqli_fetch_array(mysqli_query($con,"select display_pic,id from key_member_id where id='".$row['member_id']."'"))
+		        $getimg=mysqli_fetch_array(mysqli_query($con,"select display_pic,id from key_member_id where id='".$row['MEMBER_ID']."'"))
 		        ?>
 				<img class="user-list-img" src="<?php echo RE_HOME_PATH.''. $getimg['display_pic']; ?>">
 			</li>
 			<li class="list-inline-item searchoption">
 				<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']; ?></p>
-		        <p><?php echo $row['member_id']; ?></p>
+		        <p><?php echo $row['MEMBER_ID']; ?></p>
 			</li>
 			<li class="list-inline-item float-right">
 				<i class="fas fa-user-plus add-member-icon" data-toggle="modal" data-target="#add-relation"></i>
@@ -56,20 +54,9 @@ if ($row_count>3){
 if($row_count<=0){
 ?>
 
-<div class="text-center"><td valign="top" colspan="12" class="dataTables_empty" align="center">No records found</div></tr>
+<div class="text-center"><td valign="top" colspan="12" class="dataTables_empty" align="center">No records found</td></div>
 
 <?php }?>
 
 
-</div>
-<div>
 
-<?php
-
-//$txtpage= paginationjquery($con,$stat,$limit,$page,"?","");					   
-
-//echo "<table width='100%'><tr><td  style='padding:3px;'><div class='dataTables_paginate paging_bootstrap'>".$txtpage."</div></td></tr></table>";
-
-?>
-</div>
-</div>  

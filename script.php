@@ -81,7 +81,7 @@
 </div>
 
 
-<div class="modal fade" id="login" tabindex="-1" role="dialog">
+<!-- <div class="modal fade" id="login" tabindex="-1" role="dialog">
 <div class="modal-dialog modal-dialog-centered login-container">
 <div class="modal-content">
 <div class="modal-header">
@@ -117,9 +117,47 @@
 </div>
 </div>
 </div>
+</div> -->
+
+
+
+<div class="modal fade" id="login" tabindex="-1" role="dialog">
+<div class="modal-dialog modal-dialog-centered login-container">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">Login</h3>
+<button type="button" id="close-login" class="close" data-dismiss="modal">&times;</button>
+</div> 
+<div class="modal-body container">
+<form  method="post" class="form-top">
+<div class="form-group row">
+<label class="col-md-6 col-form-label" for="email"> <span class="text-danger">*</span> Member ID </label>
+<input type="text" class="form-control col-md-6" placeholder="MID" name="mid" id="mid" onchange="return checkMid();"  required>
 </div>
 
+<div class="form-group row">
+<label class="col-md-6 col-form-label" for="password"> <span class="text-danger">*</span> Password </label>
+<input type="password" class="form-control col-md-6" placeholder="Enter password" name="password" id="password"  required>
+</div>
 
+<div class="col-md-12">
+<span id="miderror"></span>
+<div class="text-center my-4">
+<button type="button" id="loginbtn" class="btn btn-success" onclick="return Userlogin();" name="login">LOGIN</button>
+
+
+
+</div>
+</div>
+</form>
+<div class="text-center my-4">
+<p class="m-1">Need Help in Logging in? <a type="button" class="signup-link" onclick="return signUp();" >Click Here</a></p>
+<p>New to PJS? <a class="signup-link" href="<?php echo RE_EN_PATH;?>signup.php">SignUp Now</a></p>
+</div>
+</div>
+</div>
+</div>
+</div> 
 
 
 <div class="modal fade help" id="help">
@@ -307,7 +345,7 @@ $('#forgot-login-form').show();
 }
 
 function UpdateNumber(){
-  
+
 var newnumber=$('#newmobile').val();
 var oldnumber=$('#oldmobile').val();
 var memberid=$('#memberid').val();
@@ -419,8 +457,8 @@ bootbox.alert("Your details has been sent to your registered email id");
 }
 
 if(emailshoot=='false'){
-  $('#forgot-login-form')[0]. reset();
-  $('#help').modal('hide');
+$('#forgot-login-form')[0]. reset();
+$('#help').modal('hide');
 //$('#forgot-login-form').modal('hide');
 $('#errorcrediential').html('');
 $('#loadergif').fadeOut();
@@ -443,35 +481,35 @@ var opjaddress=$('#opjaddress').val();
 var userid="<?php echo $idd ;?>";
 var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
 if(opjfirstname==''){
-  $('#opjerror').html('<div class="alert alert-danger">Please enter the firstname</div>');
-  $('#opjfirstname').focus();
-  return false;
+$('#opjerror').html('<div class="alert alert-danger">Please enter the firstname</div>');
+$('#opjfirstname').focus();
+return false;
 }
 else if(opjlastname==''){
-  $('#opjerror').html('<div class="alert alert-danger">Please enter the lastname</div>');
-  $('#opjlastname').focus();
-  return false;
+$('#opjerror').html('<div class="alert alert-danger">Please enter the lastname</div>');
+$('#opjlastname').focus();
+return false;
 }
 else if(opjmobile==''){
-  $('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
-  $('#opjmobile').focus();
-  return false;
+$('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
+$('#opjmobile').focus();
+return false;
 }
 else if(opjemail==''){
-  $('#opjerror').html('<div class="alert alert-danger">Please enter the email </div>');
-  $('#opjemail').focus();
-  return false;
+$('#opjerror').html('<div class="alert alert-danger">Please enter the email </div>');
+$('#opjemail').focus();
+return false;
 }
 else if (!testEmail.test(opjemail))
-	{   
-  $('#opjerror').html('<div class="alert alert-danger">Please enter the valid email </div>');
-  $('#opjemail').focus();
-	return false;
-	}
+{   
+$('#opjerror').html('<div class="alert alert-danger">Please enter the valid email </div>');
+$('#opjemail').focus();
+return false;
+}
 else if(opjaddress==''){
-  $('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
-  $('#opjaddress').focus();
-  return false;
+$('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
+$('#opjaddress').focus();
+return false;
 }
 else{ 
 $('#loadergif').fadeIn();
@@ -501,12 +539,11 @@ var mid=$('#mid').val();
 $.ajax({
 type:'POST',
 url:'<?php echo RE_HOME_USER ;?>checkmid.php',
-data:{'mid':mid},
+data:{'mid':mid,},
 success:function(midsuccess){
-alert(midsuccess);
 if(midsuccess=='false'){
 $('#miderror').html('<div class="text-danger">Invalid MID you entered</div> ');
-//$('#mid').val('');
+$('#mid').val('');
 $('#getotp').hide();
 return false;
 }else{
@@ -519,67 +556,74 @@ return false;
 });
 }
 
-function getOtp(){
-var mid=$('#mid').val();
-$('#loadergif').fadeIn();
-$.ajax({
-type:'POST',
-url:'<?php echo RE_HOME_USER ;?>otprequest.php',
-data:{'mid':mid},
-success:function(otpnumber){
-alert(otpnumber);
-if(otpnumber!=' '){
-timer(120);
-$('#mobilenumber').html(otpnumber);
-$('#logincontents').show();
-$('#getotp').hide();
-$('#loginbtn').show();
-$('#resend').show();
-$('#mid'). attr('disabled','disabled');
-$('#loadergif').fadeOut();
-return false; 
-}
-}
-}
-)
-}
+// function getOtp(){
+// var mid=$('#mid').val();
+// $('#loadergif').fadeIn();
+// $.ajax({
+// type:'POST',
+// url:'<?php echo RE_HOME_USER ;?>otprequest.php',
+// data:{'mid':mid},
+// success:function(otpnumber){
+// alert(otpnumber);
+// if(otpnumber!=' '){
+// timer(120);
+// $('#mobilenumber').html(otpnumber);
+// $('#logincontents').show();
+// $('#getotp').hide();
+// $('#loginbtn').show();
+// $('#resend').show();
+// $('#mid'). attr('disabled','disabled');
+// $('#loadergif').fadeOut();
+// return false; 
+// }
+// }
+// }
+// )
+// }
 
 
 function Userlogin(){
- 
+
 var mid=$('#mid').val(); 
-var otp=$('#otp').val();
+var password=$('#password').val();
 if(mid==''){
-  swal({
-  title: "Error",
-  text: "Please fill the MID",
-  icon: "error",
+swal({
+title: "Error",
+text: "Please fill the MID",
+icon: "error",
 });
 return false;
 }
-else if(otp==''){
-  swal({
-  title: "Error",
-  text: "Please fill the OTP",
-  icon: "error",
+else if(password==''){
+swal({
+title: "Error",
+text: "Please fill the OTP",
+icon: "error",
 });
 
 }else{
 $.ajax({
 method:'POST',
 url:'<?php echo RE_HOME_USER ;?>loginuser.php',
-data:{'mid':mid,'otp':otp},
+data:{'mid':mid,'password':password},
 success:function(userlog){
 alert(userlog);
 if(userlog=='false'){
-  swal({
-  title: "Error",
-  text: "Error! Please enter the valid otp! ",
-  icon: "error",
+swal({
+title: "Error",
+text: "Error! Please fill out the fields! ",
+icon: "error",
+});
+}
+if(userlog=='Error'){
+swal({
+title: "Error",
+text: "Error! Please enter the valid member id and password! ",
+icon: "error",
 });
 }
 if(userlog=='true'){
-  window.location.replace("<?php echo RE_EN_PATH; ?>");
+window.location.replace("<?php echo RE_EN_PATH; ?>");
 }
 }
 
@@ -594,58 +638,58 @@ if(userlog=='true'){
 let timerOn = true;
 
 function timer(remaining) {
-  var m = Math.floor(remaining / 60);
-  var s = remaining % 60;
-  
-  m = m < 10 ? '0' + m : m;
-  s = s < 10 ? '0' + s : s;
-  document.getElementById('timer').innerHTML = m + ':' + s;
-  remaining -= 1;
-  if(remaining >= 0 && timerOn) {
-    setTimeout(function() {
-        timer(remaining);
-    }, 1000);
-    return;
-  }
+var m = Math.floor(remaining / 60);
+var s = remaining % 60;
 
-  if(!timerOn) {
-    // Do validate stuff here
-    return;
-  }
-  
-  // Do timeout stuff here
-  $('#timer').html('');
-  $('#getotp').show();
-  
-  $('#resend').hide();
+m = m < 10 ? '0' + m : m;
+s = s < 10 ? '0' + s : s;
+document.getElementById('timer').innerHTML = m + ':' + s;
+remaining -= 1;
+if(remaining >= 0 && timerOn) {
+setTimeout(function() {
+timer(remaining);
+}, 1000);
+return;
+}
+
+if(!timerOn) {
+// Do validate stuff here
+return;
+}
+
+// Do timeout stuff here
+$('#timer').html('');
+$('#getotp').show();
+
+$('#resend').hide();
 }
 
 
 
-  $(function(){
-	$(".shortable").addSortWidget();
+$(function(){
+$(".shortable").addSortWidget();
 });
 $(document).ready(function(){
-			$("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
-      $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
-      $("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
-      $("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
-	
+$("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
+$("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
+$("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
+$("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
+
 });
 
 
 
 
 function isNumeric (evt) {
-   var theEvent = evt || window.event;
-   var key = theEvent.keyCode || theEvent.which;
-   key = String.fromCharCode (key);
-   var regex = /[0-9]|\./;
-   if ( !regex.test(key) ) {
-   theEvent.returnValue = false;
-   if(theEvent.preventDefault) theEvent.preventDefault();
-   }
-   }
+var theEvent = evt || window.event;
+var key = theEvent.keyCode || theEvent.which;
+key = String.fromCharCode (key);
+var regex = /[0-9]|\./;
+if ( !regex.test(key) ) {
+theEvent.returnValue = false;
+if(theEvent.preventDefault) theEvent.preventDefault();
+}
+}
 
 
 function getCity(){
@@ -709,32 +753,102 @@ $('#loadergif').fadeOut();
 
 }
 
+function searchbarclick(){
+$('.searchdata').hide();
+$('#search').val('');
+$('.cancel-btn').hide();
+}
 
 function searchBar(x,y)
 {
-  	
-  var search=$("#search").val();
- 
-  y=10;
-  //$('#loadergif').fadeIn();
-  $.ajax({
-  type: 'POST',
-  url: "<?php echo RE_EN_PATH; ?>load_search.php",
-  data: {"page":x,"pagesize":y,"search":search},
-  success: function(search){
-   $('.searchdata').show();
-	//$('#loadergif').fadeOut();
-  $("#searchdata").html(search);			    } 
+
+var search=$("#search").val();
+if(search!=''){
+y=10;
+//$('#loadergif').fadeIn();
+$.ajax({
+type: 'POST',
+url: "<?php echo RE_EN_PATH; ?>load_search.php",
+data: {"page":x,"pagesize":y,"search":search},
+success: function(search){
+$('.searchdata').show();
+$('.cancel-btn').show();
+$('.searchbtn').removeAttr("disabled");
+//$('#loadergif').fadeOut();
+$("#searchdata").html(search);			    } 
 });
 
- 
- 
+
+}else{
+$('.searchdata').hide();
+$('.cancel-btn').hide();
+$('.searchbtn').prop("disabled",true);
+}
 
 }
 
 function searchpage() {
 var search=$("#search").val();
-window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+search);
+if(search!=''){
+window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+search);}
 } 
 
+
+$("#feedback_submit").on("click", function () {
+//$_SESSION['user_mid']
+var feedback_type=$(".feedback_type:visible option:selected").val();
+var feedback_desc=$(".feedback_desc").val();
+var current_user=$(".curr_mid").val();
+//
+$.post("/pjs_user/en/PJS-demo/feedback_submit.php",
+{
+current_user:current_user,
+feedback_type: feedback_type,
+feedback_desc:feedback_desc
+},
+function(data,status){
+var status1=status;
+console.log(status1);
+if (status1=='success') {
+// window.location.reload();
+$('#modal45').modal('hide')
+$('#feedback_alert').modal('show')
+}
+else{
+alert("Data: not updated");
+}
+});
+//
+})
+
+$('.inputtexttwo').bind('keyup',function(){ 
+var node = $(this);
+node.val(node.val().replace(/[^a-zA-Z _]/g,'') ); }
+);
+
+$(".inputtext").keyup(function(e) {
+// Our regex
+// a-z => allow all lowercase alphabets
+// A-Z => allow all uppercase alphabets
+// 0-9 => allow all numbers
+// @ => allow @ symbol
+var regex = /^[a-zA-Z _ ]+$/;
+// This is will test the value against the regex
+// Will return True if regex satisfied
+if (regex.test(this.value) !== true)
+//alert if not true
+//alert("Invalid Input");
+
+// You can replace the invalid characters by:
+this.value = this.value.replace(/[^a-zA-Z _ ]+/, '');
+});
+
+
+
+$(document).mouseup(function (e) { 
+if ($(e.target).closest(".searchdata").length 
+=== 0) { 
+$('.searchdata').hide(); 
+} 
+});
 </script>

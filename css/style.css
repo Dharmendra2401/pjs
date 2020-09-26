@@ -3,6 +3,9 @@ body{
     color: #2c2c2c;
     background: #e8e8e8;
 }
+.hindi-text{
+  line-height: 40px;
+}
 .btn-primary{
     background-color: #446eb6;
     border-color: #446eb6;
@@ -104,6 +107,81 @@ body{
 }
 
 /*-----------------------HEADER ENDS----------------------------------------------*/
+
+
+/*-----------------------ABOUT US---------------------------------------------------*/
+.about-us-banner{
+    width: 100%;
+    height: 500px;
+    object-fit: cover;
+}
+
+.about-us-bg{
+    background: #eeeeee;
+    box-shadow: 0px 3px 8px 2px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 0px 3px 8px 2px rgb(0 0 0 / 32%);
+    -moz-box-shadow: 0px 3px 8px 2px rgba(0,0,0,0.69);
+    margin-bottom: 30px;
+}
+/*-----------------------ABOUT US ENDS----------------------------------------------*/
+
+
+/*-----------------------EVENT -------------------------------------------------*/
+.event-name{
+    position: absolute;
+    top: 156px;
+    background: #70c5a4;
+    width: 300px;
+    padding: 10px 0 10px 10px;
+    opacity: .9;
+    font-weight: 500;
+}
+/*-----------------------EVENT ENDS----------------------------------------------*/
+
+
+/*-----------------------SCHEMES---------------------------------------------------*/
+.schemes-bg{
+    background: #eeeeee;
+    box-shadow: 0px 3px 8px 2px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 0px 3px 8px 2px rgb(0 0 0 / 32%);
+    -moz-box-shadow: 0px 3px 8px 2px rgba(0,0,0,0.69);
+    margin-bottom: 30px;
+}
+
+.more{
+    cursor: pointer;
+    color: #007bff;
+}
+/*-----------------------SCHEMES ENDS----------------------------------------------*/
+
+
+/*-----------------------ZONES---------------------------------------------------*/
+.zones-bg{
+    background: #eeeeee;
+    box-shadow: 0px 3px 8px 2px rgba(0,0,0,0.69);
+    -webkit-box-shadow: 0px 3px 8px 2px rgb(0 0 0 / 32%);
+    -moz-box-shadow: 0px 3px 8px 2px rgba(0,0,0,0.69);
+    margin-bottom: 30px;
+}
+
+.zones-bg .custom-card{
+    -webkit-box-shadow: 1px 2px 5px 2px rgba(210 210 210);
+    -moz-box-shadow: 1px 2px 5px 2px rgba(210 210 210);
+    box-shadow: 1px 2px 5px 2px rgb(210 210 210);
+}
+
+.zones-bg .custom-card:hover {
+    transition: .5s ease;
+    -webkit-box-shadow: 0px 5px 5px 3px rgba(210 210 210);
+    -moz-box-shadow: 0px 5px 5px 3px rgba(210 210 210);
+    box-shadow: 0px 5px 5px 3px rgba(210 210 210);
+}
+
+.zones-bg .profile-img{
+    height: 140px;
+    object-fit: cover;
+}
+/*-----------------------ZONES ENDS----------------------------------------------*/
 
 
 /*-------------CAROUSEL WITH THYUMBNAIL----------------------*/
@@ -238,8 +316,10 @@ body{
     width: 200px;
     height: 200px;
     opacity: 0;
-}
+    cursor: pointer;
 
+}
+.search-output{text-decoration: none!important;}
 .pic-wrapper .add-icon{
     position: absolute;
     bottom: -12px;
@@ -416,6 +496,14 @@ body{
     font-size: 25px;
 }
 /*------------------------SAVED PROFILE ENDS------------------------------------*/
+
+
+/*------------------------FAMILY TREE------------------------------------*/
+.add-member-icon{
+    font-size: 25px;
+    padding-top: 10px;
+}
+/*------------------------FAMILY TREE ENDS------------------------------------*/
 
 /*------------------------MODEL------------------------------------*/
 .points, .forgot-credential{
@@ -938,4 +1026,19 @@ input::-webkit-inner-spin-button {
     padding: 6px;
     color: white;
     border-radius: 0px 4px 3px 0px;}
+    .form-top{padding: 1% 19%}
+.cancel-btn{    background: transparent;
+    border: none;
+    position: absolute;
+    right: 60px;
+    color: #446eb6;
+    top: 6px;
+display:none;z-index:9;}
+.searchbtn{background: #446eb6;
+    padding: 0px;    border: none;
+}
+.search-icon{background-color: #446eb6;
+    color: #ffffff;
+    border: none;}
+   
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

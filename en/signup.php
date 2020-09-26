@@ -25,35 +25,30 @@ include "../config/config.php";
 </div> -->
 
 <ul class="list-unstyled form-steps">
-<li class="step">Personal Details</li>
-<li class="step">Residential Details</li>
-<li class="step">Educational & Occupational Details</li>
-<li class="step">Upload Photo</li>
+<li class="step alert btn-primary" id="step">Personal Details</li>
+<li class="step step1" id="step1">Residential Details</li>
+<li class="step step2" id="step2">Educational & Occupational Details</li>
+<li class="step step3" id="step3">Upload Photo</li>
 </ul>
 </div>
 <div class="col-md-10 shadow pt-4 mb-3">	
 <div class="col-md-12"><?php echo show_message();?></div>
 <div class="formerror"></div>
 <form class="container" id="regForm" method="post" action="formsubmit.php" enctype="multipart/form-data">
-<div class="row tab">
+<div class="row tabone">
 <div class="col-md-9 ">
 <h3 class="mb-3">Please Enter Personal Details <span class="text-danger">(* Required Fields)</span></h3>
 <div class="form-group row">
 <label class="col-md-3 col-form-label "><span class="text-danger">*</span> First Name</label>
 <div class="col-md-9">
-<input type="text" class="form-control" name="firstname"  placeholder="Enter first name" id="firstname" onchange="return chechSrc();">
+<input type="text" class="form-control inputtexttwo" maxlength='50'  name="firstname"  placeholder="Enter first name" id="firstname" onchange="return chechSrc();">
 </div>
 </div>
-<div class="form-group row">
-<label class="col-md-3 col-form-label">Middle Name</label>
-<div class="col-md-9">
-<input type="text" class="form-control" placeholder="Enter middle name" name="middlename"  id="middlename">
-</div>
-</div>
+
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Last Name</label>	
 <div class="col-md-9">
-<input type="text" class="form-control" placeholder="Enter last name" name="lastname" id="lastname" onchange="return chechSrc();">
+<input type="text" class="form-control inputtexttwo" maxlength='50' placeholder="Enter last name" name="lastname" id="lastname" onchange="return chechSrc();">
 </div>
 </div>
 <div class="form-group row">
@@ -66,14 +61,14 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Father's Name</label>	
 <div class="col-md-9">
-<input type="text" class="form-control" placeholder="Enter father name" name="fathername" id="fathername" onchange="return chechSrc();">
+<input type="text" class="form-control inputtext" placeholder="Enter father name" name="fathername" id="fathername" onchange="return chechSrc();">
 </div>
 </div>
 
 <div class="form-group row">
 <label class="col-md-3 col-form-label"> Popular Name</label>	
 <div class="col-md-9">
-<input type="text" name="popularnamess" class="form-control" placeholder="Enter popular name" id="popular">
+<input type="text" name="popularnamess" class="form-control inputtexttwo" placeholder="Enter popular name" id="popular">
 </div>
 </div>
 <div class="form-group row">
@@ -91,40 +86,48 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3 col-form-label"> Birth Place</label>	
 <div class="col-md-9">
-<input type="text" class="form-control" name="birthplace" placeholder="Enter birth place" id="birthplace" >
+<input type="text" class="form-control inputtext" name="birthplace" maxlength='50' placeholder="Enter birth place" id="birthplace" >
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-3"><span class="text-danger">*</span> Gender</label>	
 <div class="col-md-9">
-<input type="radio" name="gender" value="1" checked> <label class="mr-5">Male</label>
-<input type="radio" name="gender" value="2"> <label>Female</label>
+<input type="radio" name="gender" value="M" checked> <label class="mr-5">Male</label>
+<input type="radio" name="gender" value="F"> <label>Female</label>
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-3"><span class="text-danger">*</span> Status</label>	
 <div class="col-md-9">
-<input type="radio" value="single" name="status" checked> <label class="mr-4">Single</label>
-<input type="radio" value="married" name="status"> <label>Married</label>
+<input type="radio" value="single" name="status" checked id="single" onchange="return getstatus();"> <label class="mr-4">Single</label>
+<input type="radio" value="married" name="status" id="married" onchange="return getstatus();"> <label>Married</label>
 </div>
 </div>
+
+<div class="form-group row" id="gethusbanddiv" style="display:none;">
+<label class="col-md-3 col-form-label"> <span class="text-danger">*</span> Husband's Name</label>
+<div class="col-md-9">
+<input type="text" class="form-control inputtext" maxlength='50'  placeholder="Enter husband's name" name="husbandname"  id="husbandname">
+</div>
+</div>
+
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Mobile No.</label>	
 <div class="col-md-9">
-<input type="tel" class="form-control" placeholder="Enter mobile no."   name="mobileno" id="mobileno"  onKeyPress="return isNumeric(event)">
+<input type="tel" class="form-control" placeholder="Enter mobile no."   name="mobileno" id="mobileno"  onKeyPress="return isNumeric(event)" maxlength='15'>
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Email Id</label>	
 <div class="col-md-9">
-<input type="email" class="form-control" placeholder="Enter email id" id="email" name="email"><span id="emailerror"></span>
+<input type="email" class="form-control" placeholder="Enter email id" id="email" name="email"  maxlength='150'><span id="emailerror"></span>
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Blood Group</label>	
 <div class="col-md-9">
 <!-- <input type="text" class="form-control" placeholder="Enter blood group" name="bloodgroup" id="bloodgroup"> -->
-<select class="form-control" name="bloodgroup">
+<select class="form-control" id="bloodgroup" name="bloodgroup">
 <option value="">Select your blood group</option>
 <option value="1">A+</option>
 <option value="2">B+</option>
@@ -141,17 +144,25 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3 col-form-label"> Height</label>	
 <div class="col-md-3">
-<input type="text" step="any" class="form-control" placeholder="Enter feet" maxlength="2" name="feet" id="feet" onKeyPress="return isNumeric(event)"><span class="label-two">Feet</span>
+<input type="tel" step="any" class="form-control" placeholder="Enter feet" maxlength="2" name="feet" id="feet" onKeyPress="return isNumeric(event)"><span class="label-two">Feet</span>
 </div>
 <div class="col-md-3">
-<input type="text" step="any" class="form-control" placeholder="Enter inches" maxlength="2" name="inches" id="inches" onKeyPress="return isNumeric(event)"><span class="label-two">Inches</span>
+<input type="tel" step="any" class="form-control" placeholder="Enter inches" maxlength="2" name="inches" id="inches" onKeyPress="return isNumeric(event)"><span class="label-two">Inches</span>
 </div>
 </div>
+
+<div style="overflow:auto;">
+<div style="float:right;">
+<!-- <button class="btn" type="button" id="prevBtn" >Previous</button> -->
+<button class="btn btn-primary" type="button"  onclick="return firstform();">Save & Next</button>
+</div>
+</div>
+
 </div>
 </div>
 
 
-<div class="row tab" >
+<div class="row tabtwo" style="display:none;">
 <div class="col-md-9 ">
 <h3 class="mb-3">Please Enter Residential Details <span class="text-danger">(* Required Fields)</span></h3>
 <div class="form-group row">
@@ -203,29 +214,38 @@ while($show=mysqli_fetch_array($state)){
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Address</label>
 <div class="col-md-9">
-<textarea class="form-control" rows="4" id="address" name="address" placeholder="Enter address"></textarea>
+<textarea class="form-control inputtext" rows="4" id="address"  maxlength='250' name="address" placeholder="Enter address"></textarea>
+</div>
+</div>
+<div style="overflow:auto;">
+<div style="float:right;">
+<button class="btn" type="button" id="prevBtn" onclick="return preone();" >Previous</button>
+<button class="btn btn-primary" type="button"  onclick="return formtwo();">Save & Next</button>
+</div>
+</div>
 </div>
 </div>
 
-</div>
-</div>
 
-<div class="row tab" >
+
+
+
+<div class="row tabthree" style="display:none;">
 <div class="col-md-9">
 <h3 class="mb-3">Please Enter Your Educational & Occupational Details <span class="text-danger">(* Required Fields)</span></h3>
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Highest Education</label>	
 <div class="col-md-9">
-<input type="text" class="form-control" placeholder="Enter highest qualification" name="highest" id="highest">
+<input type="text" class="form-control inputtext" placeholder="Enter highest qualification" name="highest" id="highest"  maxlength='50'>
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-3 col-form-label "><span class="text-danger">*</span> Occupation</label>
 <div class="col-md-9">
-<select class="custom-select" name="occupation" id="occupation">
+<select class="custom-select" name="occupation" id="occupation" onchange="return getincome();">
 <option value="" selected>Select occupation</option>
 <option value="1">Job</option>
-<option value="2">Bussiness</option>
+<option value="2">Business </option>
 <option value="3">Housewife</option>
 <option value="4">Student</option>
 <option value="5">Nothing</option>
@@ -236,18 +256,19 @@ while($show=mysqli_fetch_array($state)){
 </div>
 </div>
 
-<div class="form-group row">
+<div class="form-group row" id="occdetails">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Please Add Details</label>
 <div class="col-md-9">
-<textarea class="form-control" rows="4" name="details" id="details" placeholder="Enter detail"></textarea>
+<textarea class="form-control inputtext" rows="4" name="details" id="details" placeholder="Enter detail"  maxlength='50'></textarea>
 </div>
 </div>
-<div class="form-group row">
+
+<div class="form-group row" id="income-div" style="display:none;">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Income</label>
 <div class="col-md-9">
 <select class="custom-select" name="income" id="income">
-<option value="" selected>Select Income Range</option>
-<option value="1">Less than 1 lakh</option>
+<option value="" >Select income</option>
+<option value="1" >Less than 1 lakh</option>
 <option value="2">1 lakh to 2 lakh</option>
 <option value="3">2 lakh to 3 lakh</option>
 <option value="4">3 lakh to 4 lakh</option>
@@ -256,17 +277,26 @@ while($show=mysqli_fetch_array($state)){
 </select>
 </div>
 </div>
+<div style="overflow:auto;">
+<div style="float:right;">
+<button class="btn" type="button" id="prevBtn" onclick="return pretwo();" >Previous</button>
+<button class="btn btn-primary" type="button"  onclick="return formthree();">Save & Next</button>
+</div>
+</div>
 </div>
 </div>
 
-<div class="row tab" id="image-tab">
+
+
+
+<div class="row tabfour"  style="display:none;">
 <div class="col-md-9 " >
 <h3 class="mb-3">Please Upload Your Own <span class="text-danger">(* Required Fields)</span></h3>
 <div class="form-group row">
-<label class="col-md-12 col-form-label">Profile photo size must be 1mb or less </label>	
+<label class="col-md-12 col-form-label">Please select image size of maximum 1mb in size. </label>	
 <div class="col-md-9">
 <div class="pic-wrapper">
-<input type="file" class="form-control profile-pic"  id="file" name="profile" accept="image/png, image/jpeg" >
+<input type="file" class="form-control profile-pic"  id="file" name="profile" onchange="return GetFileSize();" accept="image/png, image/jpeg" title="Select image">
 <i class="fas fa-plus-circle add-icon"></i>
 <p id="fp"></p>
 <img id="blah" src="<?php echo RE_HOME_PATH ;?>uploads/dummy.png" alt="your image" style="  position: absolute;
@@ -278,18 +308,19 @@ height: 200px;
 </div>
 </div>
 </div>
+<div style="overflow:auto;">
+<div style="float:right;">
+<button class="btn" type="button" id="prevBtn" onclick="return prethree();" >Previous</button>
+<button class="btn btn-primary" type="submit"  onclick="return formfour();">Submit</button>
+</div>
+</div>
 </div>
 </div>
 
 <div class="row">
 <div class="col-md-12">
-<div class="formerror"></div>
-<div style="overflow:auto;">
-<div style="float:right;">
-<button class="btn" type="button" id="prevBtn" onclick="nextPrev(-1)">Previous</button>
-<button class="btn btn-primary" type="button" id="nextBtn" onclick="nextPrev(1)">Save & Next</button>
-</div>
-</div>
+
+
 </div>
 </div>
 </form>
@@ -302,95 +333,49 @@ height: 200px;
 
 <script>
 
-
-function chechSrc(){
-var firstname=$('#firstname').val();
-var lastname=$('#lastname').val();
-var fathername=$('#fathername').val();
-var dob=$('#dob').val();
-
-
-$.ajax({
-method:'POST',
-url:'checksrc.php',
-data:{'firstname':firstname,'lastname':lastname,'fathername':fathername,'dob':dob},
-success:function(verify){
-if(verify>0){swal({
-title: "Sorry!",
-text: "User already exist!",
-icon: "error",
-button: "ok",
-});
-$("#firstname").val('');
-$("#lastname").val('');
-$("#dob").val('');
-$("#fathername").val('');
+function preone(){
+$('.tabone').show();
+$('.tabtwo').hide();
+$("#step1").removeClass("btn-primary");
+$("#step").addClass("btn-primary");
+}
+function pretwo(){
+$('.tabthree').hide();
+$('.tabtwo').show();
+$("#step2").removeClass("btn-primary");
+$("#step1").addClass("btn-primary");
+}
+function prethree(){
+$('.tabthree').show();
+$('.tabfour').hide();
+$("#step3").removeClass("btn-primary");
+$("#step2").addClass("btn-primary");
 }
 
+function getincome(){
+var occupation=$('#occupation').val();
+if((occupation==3) || (occupation==4) || (occupation==5) ){
+$('#income-div').hide();
+$('#occdetails').hide();
+}else{
+$('#income-div').show();
+$('#occdetails').show();
+
+}
 }
 
-})
+function firstform(){
+
+var dateed=new Date();
+var getdate=dateed.getDate();
+var getmonth=("0" + (dateed.getMonth() + 1)).slice(-2);
+var getyear=dateed.getFullYear();
+var totaldate=getyear+'-'+getmonth+'-'+getdate;
 
 
-}
-
-
-
-
-
-
-
-
-var currentTab = 0; // Current tab is set to be the first tab (0)
-showTab(currentTab); // Display the current tab
-function showTab(n) {
-// This function will display the specified tab of the form...
-var x = document.getElementsByClassName("tab");
-var harsh=x[n].style.display = "block";
-//... and fix the Previous/Next buttons:
-if (n == 0) {
-document.getElementById("prevBtn").style.display = "none";
-} else {
-document.getElementById("prevBtn").style.display = "inline";
-}
-if (n == (x.length - 1)) {
-document.getElementById("nextBtn").innerHTML = "Submit";
-} else {
-document.getElementById("nextBtn").innerHTML = "Next";
-}
-//... and run a function that will display the correct step indicator:
-fixStepIndicator(n)
-}
-
-function nextPrev(n) {
-// This function will figure out which tab to display
-var x = document.getElementsByClassName("tab");
-// Exit the function if any field in the current tab is invalid:
-if (n == 1 && !validateForm()) return false;
-// Hide the current tab:
-x[currentTab].style.display = "none";
-// Increase or decrease the current tab by 1:
-currentTab = currentTab + n;
-// if you have reached the end of the form...
-if (currentTab >= x.length) {
-// ... the form gets submitted:
-$('#image-tab').show();
-document.getElementById("regForm").submit();
-return false;
-}
-// Otherwise, display the correct tab:
-showTab(currentTab);
-}
-
-function validateForm() {
-var x, y, i, 
-valid = true;
-x = document.getElementsByClassName("tab");
-y = x[currentTab].getElementsByTagName("input");
-// A loop that checks every input field in the current tab:
-if(currentTab==0){
+  var letters = /^[A-Za-z ]+$/;
   var firstname=$('#firstname').val();
-  var middlename=$('#middlename').val();
+  var husbandname=$('#husbandname').val();
   var fathername=$('#fathername').val();
   var lastname=$('#lastname').val();
   var popularname=$('#popularname').val();
@@ -400,41 +385,86 @@ if(currentTab==0){
   var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
   var bloodgroup=$('#bloodgroup').val();
   var age=$('#age').val();
+  var status=$("input[name='status']:checked"). val();
+  var mobilevalidate = /^\d{10}$/;
+  var husbandname=$('#husbandname').val();
 
 	if(firstname==''){
 	$('#firstname').focus();
 	$("#firstname").addClass("invalid");
 	return false;
 	}
-
+	else if(!letters.test(firstname))
+      {
+	$('#firstname').focus();
+	$("#firstname").addClass("invalid");
+    return false;
+      }
 	else if(lastname==''){
 	$('#lastname').focus();
 	$("#lastname").addClass("invalid");
 	return false;
 	}
-	else if(age==''){
+	else if(!letters.test(lastname))
+      {
+	$('#lastname').focus();
+	$("#lastname").addClass("invalid");
+    return false;
+      }
+	else if((age=='')){
 	$('#age').focus();
 	$("#age").addClass("invalid");
 	return false;
 	}
+	else if(age<=00){
+	$('#age').focus();
+	$("#age").addClass("invalid");
+	return false;
+	}
+
 	else if(fathername==''){
 	$('#fathername').focus();
 	$("#fathername").addClass("invalid");
 	return false;
 	}
-
-	else if(dob==''){
+	else if(!letters.test(fathername))
+      {
+	$('#fathername').focus();
+	$("#fathername").addClass("invalid");
+    return false;
+      }
+	else if((dob=='')){
 	$('#dob').focus();
 	$("#dob").addClass("invalid");
 	return false;
+	}
+
+	else if((dob>=totaldate)){
+	$('#dob').focus();
+	$("#dob").addClass("invalid");
+	return false;
+	}
+
+	
+	else if(status=='married'){
+	if(husbandname==''){
+	$('#husbandname').focus();
+	$("#husbandname").addClass("invalid");
+	return false;
+		}
 	}
 	else if(mobileno==''){
 	$('#mobileno').focus();
 	$("#mobileno").addClass("invalid");
 	return false;
 	}
-
-	else if(mobileno.length<10){
+	else if(mobileno<=99999999){
+	$('#mobileno').focus();
+	$("#mobileno").addClass("invalid");
+	return false;
+	}
+	
+	else if(mobileno.length>15){
 	$('#mobileno').focus();
 	$("#mobileno").addClass("invalid");
 	return false;
@@ -444,11 +474,10 @@ if(currentTab==0){
 	$("#email").addClass("invalid");
 	return false;
 	}
-
-
 	else if (!testEmail.test(email))
-	{   $('#email').focus();
-		//$('#emailerror').html("<span class='text-danger'>Please enter valid email<span>");
+	{   
+	$('#email').focus();
+	//$('#emailerror').html("<span class='text-danger'>Please enter valid email<span>");
 	$("#email").addClass("invalid");
 	return false;
 	}
@@ -460,13 +489,14 @@ if(currentTab==0){
 	}
 
 	else{
-	return true;
-
+	$('.tabtwo').show();
+	$('.tabone').hide();
+    $("#step").removeClass("btn-primary");
+    $("#step1").addClass("btn-primary");
 	}
-
 }
-if(currentTab==1){
 
+function formtwo(){
 var country=$('#country').val();
 var state=$('#state').val();
 var city=$('#city').val();
@@ -504,9 +534,18 @@ $('#area').focus();
 $("#area").addClass("invalid");
 return false;
 }
+else{
+$('.tabtwo').hide();
+$('.tabthree').show();
+$("#step1").removeClass("btn-primary");
+$("#step2").addClass("btn-primary");
+}
+
 
 }
-if(currentTab==2){
+
+
+function formthree(){
 var highest=$('#highest').val();
 var occupation=$('#occupation').val();
 var details=$('#details').val();
@@ -521,7 +560,8 @@ $('#occupation').focus();
 $("#occupation").addClass("invalid");
 return false;
 }
-else if(details==''){
+else if((occupation!=3) && (occupation!=4) && (occupation!=5)){
+if(details==''){
 $('#details').focus();
 $("#details").addClass("invalid");
 return false;
@@ -530,31 +570,74 @@ else if(income==''){
 $('#income').focus();
 $("#income").addClass("invalid");
 return false;
+}else{
+$('.tabthree').hide();
+$('.tabfour').show();
+$("#step2").removeClass("btn-primary");
+$("#step3").addClass("btn-primary");
 }
-else{
-return	true;
+return true;
 }
 
+else{
+$('.tabthree').hide();
+$('.tabfour').show();
+$("#step2").removeClass("btn-primary");
+$("#step3").addClass("btn-primary");
 }
-if(currentTab==3){
+
+
+}
+
+function formfour(){
+
 var file=$('#file').val();
 if(file==''){
 $('#fileerror').html('<div class="text-danger">Please select image</div>');
 return false;
+}else{
+return true;
+}
+}
+
+function getstatus(){
+var status=$("input[name='status']:checked"). val();
+if(status=='married'){
+$('#gethusbanddiv').show();
+}else{
+$('#gethusbanddiv').hide();	
+}
+}
+
+function chechSrc(){
+var firstname=$('#firstname').val();
+var lastname=$('#lastname').val();
+var fathername=$('#fathername').val();
+var dob=$('#dob').val();
+
+
+$.ajax({
+method:'POST',
+url:'checksrc.php',
+data:{'firstname':firstname,'lastname':lastname,'fathername':fathername,'dob':dob},
+success:function(verify){
+if(verify>0){swal({
+title: "Sorry!",
+text: "User already exist!",
+icon: "error",
+button: "ok",
+});
+$("#firstname").val('');
+$("#lastname").val('');
+$("#dob").val('');
+$("#fathername").val('');
+}
 
 }
-$('#image-tab').show();
 
-}
-
+})
 
 
-// If the valid status is true, mark the step as finished and valid:
-if (valid) {
-document.getElementsByClassName("step")[currentTab].className += " finish";
-
-}
-return valid; // return the valid status}
 }
 
 
@@ -574,8 +657,8 @@ var fsize = fi.files.item(i).size;
 var sizemain=Math.round((fsize / 1024)) ;
 if(sizemain>1024){
 $('#file').val('');
-$('#fileerror').html('<div class="text-danger">Please select image size 1mb or less then</div>');
-$('#blah').attr('src', '<?php echo RE_HOME_PATH ;?>/upload/demo.jpg');
+$('#fileerror').html('<div class="text-danger">Please select image size of maximum 1mb in size.</div>');
+$('#blah').attr('src', '<?php echo RE_HOME_PATH ;?>uploads/dummy.png');
 }else{
 $('#fileerror').html('');
 }
@@ -607,6 +690,13 @@ x[i].className = x[i].className.replace(" active", "");
 x[n].className += " active";
 }
 
-
+$('[name="date"]')
+    .datepicker({
+        format: 'mm/dd/yyyy'
+    })
+    .on('changeDate', function(e) {
+        // Revalidate the date field
+        fv.revalidateField('date');
+    });
 </script>
 </html>

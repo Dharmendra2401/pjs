@@ -9,12 +9,13 @@ $status=mysqli_real_escape_string($con,trim($_REQUEST['status']));
 
 if($status==1){
 $member_id = uniquemid($con);
+$password=generatepassword($pass);
 $sorcevalue=strtoupper(substr($getdate['first_name'],0,3)).'_'.strtoupper(substr($getdate['last_name'],0,3)).'_'.strtoupper(substr($getdate['fathers_name'],0,3)).'_'.date('dmY',strtotime($getdate['date_of_birth'] ));
 
+ $insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm,id,password)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$member_id."','".$password."')");
 
-$insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm,id)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$member_id."')");
 
-$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,middle_name,area,feet,inches) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['middle_name']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."'  ) ");
+$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,husbandname,area,feet,inches) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['husbandname']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."'  ) ");
 
 $insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_inserted_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['sub_admin_id']."','".$submitdate."' )");
 
@@ -24,13 +25,13 @@ $inserteducation_occp=mysqli_query($con,"insert into education_ocp(member_id,hig
 
 
 $update=mysqli_query($con,"update staging_approval set active_status='N' where request_id='".$getid."' ");
-$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age,area,feet,inches)
-SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,middle_name,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
+$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husbandname,age,area,feet,inches)
+SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husbandname,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
 mysqli_query($con,$insert);
 
 $subject="User Successfully Approved From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getdate['first_name']." ".$getdate['middle_name']." ".$getdate['last_name'].", you are successfully approved by the admin and your login MEMBER ID (MID) is : <strong>".$member_id."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.=" Dear ".$getdate['first_name']." ".$getdate['last_name'].",<br> you are successfully approved by the admin and your login crediential is : <br>  MEMBER ID (MID) : <strong>".$member_id."</strong> <br> Password : <strong>".$password."</strong><p> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$getdate['email'];
 sendmails($to,$message,$subject);
@@ -170,6 +171,7 @@ else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']=
 <div class="col-md-3">Occupation <strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['occupation']==1){ echo "Job";} else if($getdate['occupation']==2){ echo "Bussiness";} else if($getdate['occupation']==3){ echo "Housewife";} else if($getdate['occupation']==4){ echo "Student";} else if($getdate['occupation']==5){ echo "Nothing";} else{ echo "NA"; }  ?></div>
 
+<?php  if(($getdate['occupation']!=3) && ($getdate['occupation']!=4) && ($getdate['occupation']!=5)){ ?>
 <div class="col-md-3">Income<strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['income']==1){ echo "Less than 1 lakh";}
 else if($getdate['income']==2){ echo "1 lakh to 2 lakh";}
@@ -177,11 +179,9 @@ else if($getdate['income']==3){ echo "2 lakh to 3 lakh";}
 else if($getdate['income']==4){ echo "3 lakh to 4 lakh";}
 else if($getdate['income']==5){ echo "more than 4 lakh";}
 else{ echo "NA";}
+?></div>
+<?php } ?>
 
-
-
-?>
-</div>
 </div>
 </div>
 </div>

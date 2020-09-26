@@ -1,6 +1,3 @@
-
-<?php print_r($_SESSION);?>
-
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
@@ -15,18 +12,18 @@
 
 <div class="input-group my-auto">
 <!-- <input type="text" class="form-control" placeholder="Search" aria-label="Username"> -->
-<input type="search" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" >
+<input type="text" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" ><button class="cancel-btn" onclick="return searchbarclick();"><i class="fa fa-times"></i></button>
 
 
 <div class="input-group-append">
-<button onclick="return searchpage();" type="submit"> <span class="input-group-text"><i class="fa fa-search"></i></span></button>
+<button onclick="return searchpage();" type="submit" class="searchbtn" disabled> <span class="input-group-text search-icon"><i class="fa fa-search"></i></span></button>
 </div>
 
 <div id="searchdata" class="searchdata"></div>
 </div>
 </div>
 <div class="col-md-3 align-self-center text-right">
-<i class="fas fa-language sm-icon-language"></i>
+<!-- <i class="fas fa-language sm-icon-language"></i> -->
 <i class="far fa-bell sm-icon-alert"></i>
 
 
@@ -61,7 +58,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="#">View & Update Profile</a>
 <a class="dropdown-item" href="#">Saved Profile</a>
-<a class="dropdown-item" href="#">Feedback</a>
+<a class="dropdown-item" data-toggle="modal" data-target="#modal45">Feedback</a>
 <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
 <a class="dropdown-item" href="<?php echo  RE_HOME_USER;?>logout_user.php">Logout</a>
@@ -110,32 +107,31 @@ LOGIN/SIGUP
 <nav class="navbar navbar-expand-sm">
 <ul class="navbar-nav">
 <li class="nav-item">
-<a class="nav-link" href="#">About Us</a>
+<a class="nav-link" href="about_us.php">About Us</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Events</a>
+<a class="nav-link" href="events.php">Events</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Gallery</a>
+<a class="nav-link" href="gallery.php">Gallery</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Schemes</a>
+<a class="nav-link" href="schemes.php">Schemes</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="#">Zones</a>
+<a class="nav-link" href="zones.php">Zones</a>
 </li>
 <?php if($_SESSION['user_mid']==''){ ?>
 <li class="nav-item">
 <!-- <a class="nav-link" href="#">My Family</a> -->
-  <div class="dropdown nav-link">
-    <button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown">
+    <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
       My Family
-    </button>
-    <div class="dropdown-menu">
+    </a>
+    <div class="dropdown-menu custom-dropdwn">
       <a class="dropdown-item" href="tree.php">Family Tree</a>
       <a class="dropdown-item" href="#">Death Update</a>
     </div>
-  </div>
+  
 </li>
 <?php
 }
@@ -201,6 +197,8 @@ if ($_SESSION['admin_email']!=''){
 </li>
 <?php } ?>
 
+
+<input type="hidden" name="" class="curr_mid" value="<?php echo $_SESSION['user_mid'];?>">
 
 
 </ul>

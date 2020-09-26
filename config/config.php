@@ -2,13 +2,10 @@
 error_reporting(0);
 
 session_start();
-$host="localhost";
-$port=5066;
-$socket="";
 $user="root";
-$password="harsh@123";
-$dbname="dwr_vts_t";
-$con=new mysqli($host, $user, $password, $dbname, $port, $socket);
+$password="";
+$dbname="porwadja_dwr_vts_t";
+$con=new mysqli($host, $user, $password, $dbname);
 if(mysqli_connect_errno()){ echo "Failed to connect to db".mysqli_connect_errno();}
 define('RE_HOME_PATH', "http://localhost/pjs_user/"); 
 define('RE_EN_PATH', "http://localhost/pjs_user/en/");
