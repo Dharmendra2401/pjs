@@ -42,31 +42,31 @@
 <div class="form-group row">
 <label class="col-md-4 col-form-label "><span class="text-danger">*</span> First Name</label>
 <div class="col-md-8">
-<input type="text" class="form-control"  placeholder="Enter First Name" name="opjfirstname" id="opjfirstname">
+<input type="text" class="form-control inputtext" maxlength="50" placeholder="Enter First Name" name="opjfirstname" id="opjfirstname">
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-4 col-form-label "><span class="text-danger">*</span> Last Name</label>
 <div class="col-md-8">
-<input type="text" class="form-control"  placeholder="Enter Last Name" name="opjlastname" id="opjlastname">
+<input type="text" class="form-control inputtext" maxlength="50"  placeholder="Enter Last Name" name="opjlastname" id="opjlastname">
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Mobile No.</label>	
 <div class="col-md-8">
-<input type="number" class="form-control" placeholder="Enter Mobile no." name="opjmobile" id="opjmobile">
+<input type="tel" class="form-control" placeholder="Enter Mobile no." maxlength="15" name="opjmobile" id="opjmobile" onKeyPress="return isNumeric(event)">
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Email Id</label>	
 <div class="col-md-8">
-<input type="email" class="form-control" placeholder="Enter Email Id" name="opjemail" id="opjemail">
+<input type="email" class="form-control" placeholder="Enter Email Id" maxlength="50" name="opjemail" id="opjemail">
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Address</label>
 <div class="col-md-8">
-<textarea class="form-control" rows="4" name="opjaddress" placeholder="Enter your address" id="opjaddress"></textarea>
+<textarea class="form-control inputtexttwo" rows="4" name="opjaddress" maxlength="100" placeholder="Enter your address" id="opjaddress"></textarea>
 </div>
 </div>
 <div class="col-md-12"><div id="opjerror"></div></div>
@@ -132,7 +132,7 @@
 <form  method="post" class="form-top">
 <div class="form-group row">
 <label class="col-md-6 col-form-label" for="email"> <span class="text-danger">*</span> Member ID </label>
-<input type="text" class="form-control col-md-6" placeholder="MID" name="mid" id="mid" onchange="return checkMid();"  required>
+<input type="text" class="form-control col-md-6 text-uppercase" placeholder="MID" name="mid" id="mid" onchange="return checkMid();"  required>
 </div>
 
 <div class="form-group row">
@@ -182,7 +182,7 @@
 </div>
 <div class="col-md-7">
 <div class="form-group">
-<input class="form-control form-control-sm" type="number" min="10" name="newmobile" id="newmobile" placeholder="Enter new mobile no">
+<input class="form-control form-control-sm" type="tel" maxlength="15" onKeyPress="return isNumeric(event)"  name="newmobile" id="newmobile" placeholder="Enter new mobile no">
 </div>
 </div>
 
@@ -191,7 +191,7 @@
 </div>
 <div class="col-md-7">
 <div class="form-group"> 
-<input class="form-control form-control-sm" type="number" name="oldmobile" id="oldmobile" placeholder="Enter old mobile no">
+<input class="form-control form-control-sm" type="tel" name="oldmobile" id="oldmobile" maxlength="15" onKeyPress="return isNumeric(event)" placeholder="Enter old mobile no">
 </div>
 </div>
 
@@ -200,7 +200,7 @@
 </div>
 <div class="col-md-7">
 <div class="form-group"> 
-<input class="form-control form-control-sm" type="number" name="memberid" id="memberid" placeholder="Enter member id (MID)">
+<input class="form-control form-control-sm text-uppercase"  type="text" maxlength="15" name="memberid" id="memberid" placeholder="member id (MID)">
 </div>
 </div>
 
@@ -238,25 +238,17 @@
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" id="emailfirst_name" name="emailfirst_name" placeholder="Enter first name">
+<input class="form-control form-control-sm inputtext" maxlength="50" type="text" id="emailfirst_name" name="emailfirst_name" placeholder="Enter first name">
 </div>
 </div>
 
-<div class="col-md-6">
-<label><span class="text-danger">*</span> Middle Name</label> 
-</div>
-<div class="col-md-6">
-<div class="form-group">
-<input class="form-control form-control-sm" type="text" name="emailmiddle_name" id="emailmiddle_name" placeholder="Enter middle name">
-</div>
-</div>
 
 <div class="col-md-6">
 <label><span class="text-danger">*</span> Last Name</label> 
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" name="emaillast_name" id="emaillast_name" placeholder="Enter last name">
+<input class="form-control form-control-sm inputtext" maxlength="50" type="text" name="emaillast_name" id="emaillast_name" placeholder="Enter last name">
 </div>
 </div>
 
@@ -265,7 +257,7 @@
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="text" name="emailfathers_name" id="emailfathers_name" placeholder="Enter fathers name">
+<input class="form-control form-control-sm inputtexttwo"  maxlength="100" type="text" name="emailfathers_name" id="emailfathers_name" placeholder="Enter fathers name">
 </div>
 </div>
 
@@ -319,9 +311,15 @@
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sorttable.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/lightbox.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/bootbox.min.js"></script>
+<script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sample.js"></script>
 
-
+<script src="https://cdn.ckeditor.com/4.15.0/standard-all/ckeditor.js"></script>
 <script>
+    
+    CKEDITOR.replace('editor', {
+        extraPlugins: 'colorbutton,colordialog'
+    });
+
 
 
 function openadminpop(){
@@ -356,7 +354,12 @@ $('#newmobile').focus();
 $('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter new mobile number</div> ');
 return false;
 }
-if(newnumber.length<10){
+else if(newnumber==000000000){
+$('#newmobile').focus();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter valid new mobile number</div> ');
+return false;
+}
+else if(newnumber.length<10){
 $('#newmobile').focus();
 $('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter valid new mobile number</div> ');
 return false;
@@ -364,6 +367,16 @@ return false;
 else if(oldnumber==''){
 $('#oldmobile').focus();
 $('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter old mobile number</div> ');
+return false;
+}
+else if(oldnumber==000000000){
+$('#oldmobile').focus();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter valid old mobile number</div> ');
+return false;
+}
+else if(newnumber.oldnumber<10){
+$('#newmobile').focus();
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter valid old mobile number</div> ');
 return false;
 }
 else if(memberid==''){
@@ -391,14 +404,14 @@ bootbox.alert('Your details has been sent to Admin for verification, You will re
 }
 if(data1234=='Error'){
 $('#update-number')[0]. reset();
-$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please check your old mobile number and member id(MID)</div>');
+$('#errorfirst').html('<div class="alert alert-danger alert-sm">Please check your old mobile number and MEMBER ID(MID)</div>');
 $('#loadergif').fadeOut();
 }
 if(data1234=='false'){
 $('#update-number')[0]. reset();
-$('#update-number').hide();
-$('#help').modal('hide');
-bootbox.alert('Error! Please try again');
+//$('#update-number').hide();
+//$('#help').modal('hide');
+bootbox.alert('Error! Please fill out the fields and try again');
 $('#loadergif').fadeOut();
 }
 }
@@ -417,11 +430,7 @@ $('#emailfirst_name').focus();
 $('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter first name</div>');
 return false;
 }
-if(middlename==''){
-$('#emailmiddle_name').focus(); 
-$('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter middle name</div>');
-return false;
-}
+
 else if(lastname==''){
 $('#emaillast_name').focus(); 
 $('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter last name</div>');
@@ -444,9 +453,8 @@ $('#loadergif').fadeIn();
 $.ajax({
 method:'POST',
 url:'<?php echo RE_HOME_PATH ;?>emailsend.php',
-data:{'firstname':firstname,'lastname':lastname,'fathersname':fathersname,'dob':dob,'middlename':middlename},
+data:{'firstname':firstname,'lastname':lastname,'fathersname':fathersname,'dob':dob},
 success:function(emailshoot){
-
 if(emailshoot=='true'){
 $('#forgot-login-form')[0]. reset();
 $('#forgot-login-form').modal('hide');
@@ -462,7 +470,7 @@ $('#help').modal('hide');
 //$('#forgot-login-form').modal('hide');
 $('#errorcrediential').html('');
 $('#loadergif').fadeOut();
-bootbox.alert("Error! Please try again.");
+bootbox.alert("Error! Please check your details and try again.");
 }
 
 }
@@ -597,7 +605,7 @@ return false;
 else if(password==''){
 swal({
 title: "Error",
-text: "Please fill the OTP",
+text: "Please enter the password",
 icon: "error",
 });
 
@@ -826,6 +834,9 @@ var node = $(this);
 node.val(node.val().replace(/[^a-zA-Z _]/g,'') ); }
 );
 
+
+
+
 $(".inputtext").keyup(function(e) {
 // Our regex
 // a-z => allow all lowercase alphabets
@@ -851,4 +862,6 @@ if ($(e.target).closest(".searchdata").length
 $('.searchdata').hide(); 
 } 
 });
+
+
 </script>

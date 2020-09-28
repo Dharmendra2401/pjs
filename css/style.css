@@ -1096,5 +1096,11 @@ display:none;z-index:9;}
 .search-icon{background-color: #446eb6;
     color: #ffffff;
     border: none;}
-   
+.search-anchor{    text-align: center;
+    cursor: pointer;
+    background: #8080801f;}
+.invalid{    background-color: #ffdddd!important;
+}
+.invalid:focus{    background-color: #ffdddd!important;
+}
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

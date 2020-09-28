@@ -14,15 +14,6 @@ include "../config/config.php";
 <?php include "header.php";  ?>
 
 <div class="col-md-2 bg-color pt-3">
-<!-- <div class="nav flex-column nav-pills" id="v-pills-tab" role="tablist" aria-orientation="vertical">
-<a class="nav-link active" id="v-pills-home-tab" data-toggle="pill" href="#v-pills-home" role="tab" aria-controls="v-pills-home" aria-selected="true">Personal Details</a>
-
-<a class="nav-link" id="v-pills-profile-tab" data-toggle="pill" href="#v-pills-profile" role="tab" aria-controls="v-pills-profile" aria-selected="false">Residential Details</a>
-
-<a class="nav-link" id="v-pills-messages-tab" data-toggle="pill" href="#v-pills-messages" role="tab" aria-controls="v-pills-messages" aria-selected="false">Educational & Occupational Details</a>
-
-<a class="nav-link" id="v-pills-settings-tab" data-toggle="pill" href="#v-pills-settings" role="tab" aria-controls="v-pills-settings" aria-selected="false">Upload Photo</a>
-</div> -->
 
 <ul class="list-unstyled form-steps">
 <li class="step alert btn-primary" id="step">Personal Details</li>
@@ -99,17 +90,17 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3"><span class="text-danger">*</span> Status</label>	
 <div class="col-md-9">
-<input type="radio" value="single" name="status" checked id="single" onchange="return getstatus();"> <label class="mr-4">Single</label>
-<input type="radio" value="married" name="status" id="married" onchange="return getstatus();"> <label>Married</label>
+<input type="radio" value="single" name="status" checked id="single" > <label class="mr-4">Single</label>
+<input type="radio" value="married" name="status" id="married"> <label>Married</label>
 </div>
 </div>
 
-<div class="form-group row" id="gethusbanddiv" style="display:none;">
+<!-- <div class="form-group row" id="gethusbanddiv" style="display:none;">
 <label class="col-md-3 col-form-label"> <span class="text-danger">*</span> Husband's Name</label>
 <div class="col-md-9">
 <input type="text" class="form-control inputtext" maxlength='50'  placeholder="Enter husband's name" name="husbandname"  id="husbandname">
 </div>
-</div>
+</div> -->
 
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Mobile No.</label>	
@@ -214,7 +205,7 @@ while($show=mysqli_fetch_array($state)){
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Address</label>
 <div class="col-md-9">
-<textarea class="form-control inputtext" rows="4" id="address"  maxlength='250' name="address" placeholder="Enter address"></textarea>
+<textarea class="form-control " rows="4" id="address"  maxlength='250' name="address" placeholder="Enter address"></textarea>
 </div>
 </div>
 <div style="overflow:auto;">
@@ -236,7 +227,7 @@ while($show=mysqli_fetch_array($state)){
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span>Highest Education</label>	
 <div class="col-md-9">
-<input type="text" class="form-control inputtext" placeholder="Enter highest qualification" name="highest" id="highest"  maxlength='50'>
+<input type="text" class="form-control" placeholder="Enter highest qualification" name="highest" id="highest"  maxlength='50'>
 </div>
 </div>
 <div class="form-group row">
@@ -256,10 +247,10 @@ while($show=mysqli_fetch_array($state)){
 </div>
 </div>
 
-<div class="form-group row" id="occdetails">
+<div class="form-group row" id="occdetails" style="display:none;">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Please Add Details</label>
 <div class="col-md-9">
-<textarea class="form-control inputtext" rows="4" name="details" id="details" placeholder="Enter detail"  maxlength='50'></textarea>
+<textarea class="form-control " rows="4" name="details" id="details" placeholder="Enter detail"  maxlength='50'></textarea>
 </div>
 </div>
 
@@ -375,7 +366,7 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
 
   var letters = /^[A-Za-z ]+$/;
   var firstname=$('#firstname').val();
-  var husbandname=$('#husbandname').val();
+  //var husbandname=$('#husbandname').val();
   var fathername=$('#fathername').val();
   var lastname=$('#lastname').val();
   var popularname=$('#popularname').val();
@@ -387,9 +378,11 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
   var age=$('#age').val();
   var status=$("input[name='status']:checked"). val();
   var mobilevalidate = /^\d{10}$/;
-  var husbandname=$('#husbandname').val();
+  
+  
+  
 
-	if(firstname==''){
+	if(firstname.trim()==''){
 	$('#firstname').focus();
 	$("#firstname").addClass("invalid");
 	return false;
@@ -400,7 +393,7 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
 	$("#firstname").addClass("invalid");
     return false;
       }
-	else if(lastname==''){
+	else if(lastname.trim()==''){
 	$('#lastname').focus();
 	$("#lastname").addClass("invalid");
 	return false;
@@ -422,7 +415,7 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
 	return false;
 	}
 
-	else if(fathername==''){
+	else if(fathername.trim()==''){
 	$('#fathername').focus();
 	$("#fathername").addClass("invalid");
 	return false;
@@ -445,14 +438,6 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
 	return false;
 	}
 
-	
-	else if(status=='married'){
-	if(husbandname==''){
-	$('#husbandname').focus();
-	$("#husbandname").addClass("invalid");
-	return false;
-		}
-	}
 	else if(mobileno==''){
 	$('#mobileno').focus();
 	$("#mobileno").addClass("invalid");
@@ -469,7 +454,7 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
 	$("#mobileno").addClass("invalid");
 	return false;
 	}
-	else if(email==''){
+	else if(email.trim()==''){
 	$('#email').focus();
 	$("#email").addClass("invalid");
 	return false;
@@ -486,6 +471,7 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
 	$('#bloodgroup').focus();
 	$("#bloodgroup").addClass("invalid");
 	return false;
+	 
 	}
 
 	else{
@@ -501,7 +487,7 @@ var country=$('#country').val();
 var state=$('#state').val();
 var city=$('#city').val();
 var address=$('#address').val();
-var pincode=$('#pincode').val();
+var pincode=$('#pincodes').val();
 var area=$('#area').val();
 
 if(country==''){
@@ -519,19 +505,20 @@ $('#city').focus();
 $("#city").addClass("invalid");
 return false;
 }
-else if(address==''){
-$('#address').focus();
-$("#address").addClass("invalid");
-return false;
-}
+
 else if(pincode==''){
-$('#pincode').focus();
-$("#pincode").addClass("invalid");
+$('#pincodes').focus();
+$("#pincodes").addClass("invalid");
 return false;
 }
 else if(area==''){
 $('#area').focus();
 $("#area").addClass("invalid");
+return false;
+}
+else if(address.trim()==''){
+$('#address').focus();
+$("#address").addClass("invalid");
 return false;
 }
 else{
@@ -550,18 +537,18 @@ var highest=$('#highest').val();
 var occupation=$('#occupation').val();
 var details=$('#details').val();
 var income=$('#income').val();
-if(highest==''){
+if(highest.trim()==''){
 $('#highest').focus();
 $("#highest").addClass("invalid");
 return false;
 }
-else if(occupation==''){
+else if(occupation.trim()==''){
 $('#occupation').focus();
 $("#occupation").addClass("invalid");
 return false;
 }
 else if((occupation!=3) && (occupation!=4) && (occupation!=5)){
-if(details==''){
+if(details.trim()==''){
 $('#details').focus();
 $("#details").addClass("invalid");
 return false;
@@ -600,14 +587,14 @@ return true;
 }
 }
 
-function getstatus(){
-var status=$("input[name='status']:checked"). val();
-if(status=='married'){
-$('#gethusbanddiv').show();
-}else{
-$('#gethusbanddiv').hide();	
-}
-}
+// function getstatus(){
+// var status=$("input[name='status']:checked"). val();
+// if(status=='married'){
+// $('#gethusbanddiv').show();
+// }else{
+// $('#gethusbanddiv').hide();	
+// }
+// }
 
 function chechSrc(){
 var firstname=$('#firstname').val();

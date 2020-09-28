@@ -27,7 +27,7 @@ $to=$email;
 sendmails($to,$message,$subject);
 redirect(RE_HOME_SUPERADMIN."sub_admin.php","Record successfully created~@~".MSG_SUCCESS);
 }
-redirect(RE_HOME_SUPERADMIN."sub_admin.php","Error! Please fill out the mandatory fields and try again~@~".MSG_ERROR);
+redirect(RE_HOME_SUPERADMIN."sub_admin.php","Error!Please try again~@~".MSG_ERROR);
 
 }
 
@@ -45,7 +45,7 @@ redirect(RE_HOME_SUPERADMIN."sub_admin.php","Error! Please fill out the mandator
 </div>
 <div class="container shadow">
 
-<h3 class="ticket-header">Sub Admin List </h3>
+<h3 class="ticket-header">Events List </h3>
 <div class="row"> 
 <div class="col-md-4 form-group"><input type="search" id="stxt" onKeyUp="return BtnClickPage(1,10);" placeholder="Enter Refrence Id" class="form-control form-control-sm"> </div>
 
@@ -62,13 +62,13 @@ redirect(RE_HOME_SUPERADMIN."sub_admin.php","Error! Please fill out the mandator
 <?php echo show_message();?>
 
 <div id="gridviewdata">
-<?php include 'load_sub_admin.php'; ?>
+<?php include 'load_events.php'; ?>
 </div>
 <div class="modal fade" id="add" >
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header border-bottom-0">
-<h5 class="modal-title" id="exampleModalLabel">Add Sub Admin</h5>
+<h5 class="modal-title" id="exampleModalLabel">Add Event</h5>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
@@ -77,26 +77,22 @@ redirect(RE_HOME_SUPERADMIN."sub_admin.php","Error! Please fill out the mandator
 <div class="modal-body">
 <div class="row">
 <div class="form-group col-md-6">
-<label>First Name <span class="text-danger">*</span></label>
-<input type="text" class="form-control inputtexttwo" name="firstname" id="firstname" placeholder="Enter your first name" maxlength='50'required>
+<label>Title <span class="text-danger">*</span></label>
+<input type="text" class="form-control inputtexttwo" name="title" placeholder="Enter your title" maxlength='50' required>
 </div>
 
 <div class="form-group col-md-6">
-<label>Last Name <span class="text-danger">*</span></label>
-<input type="text" class="form-control inputtexttwo" name="lastname" id="lastname" placeholder="Enter your last name" maxlength='30' required>
+<label>Image <span class="text-danger">*</span></label>
+<input type="file" class="form-control inputtexttwo" name="image"  required>
 </div>
 
 </div>
 <div class="form-group">
-<label>Mobile no <span class="text-danger">*</span></label>
-<input type="tel" class="form-control" maxlength="15" name="mobile" id="mobileno" placeholder="Enter your mobile no" onKeyPress="return isNumeric(event)" required maxlength='15'>
+<label>Content <span class="text-danger">*</span></label>
+<input type="tel" class="form-control" name="content" placeholder="Enter your content" required>
 </div>
 
-<div class="form-group">
-<label>Email <span class="text-danger">*</span></label>
-<input type="email" class="form-control" name="email" id="email" maxlength='50' onchange="return checkEmail();" placeholder="Enter your email" required>
-<span id="emailerror"></span>
-</div>
+
 
 <div class="row">
 
@@ -141,10 +137,10 @@ while($show=mysqli_fetch_array($state)){
 
 
 </div>
-<div class="errorform"></div>
+
 <div class="modal-footer border-top-0">
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
-<button type="submit" onclick="return addadmin();" name="submit" class="btn btn-success">Submit</button>
+<button type="submit" name="submit" class="btn btn-success">Submit</button>
 </div>
 </form>
 </div>
@@ -277,91 +273,6 @@ while($showareas=mysqli_fetch_array($selectarea)){
 <?php include "../../script.php" ?>
 
 <script>
-function addadmin(){
-var firstname=$('#firstname').val();
-var lastname=$('#lastname').val();
-var email=$('#email').val();
-var mobile=$('#mobileno').val();
-var country=$('#country').val();
-var state=$('#state').val();
-var city=$('#city').val();
-var pincodes=$('#pincodes').val();
-var area=$('#area').val();
-var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-if(firstname.trim()==''){
-$('#firstname').focus();
-$("#firstname").addClass("invalid");
-return false;
-}
-else if(lastname.trim()==''){
-$('#lastname').focus();
-$("#lastname").addClass("invalid");
-return false;   
-}
-else if(mobile.trim()==''){
-$('#mobileno').focus();
-$("#mobileno").addClass("invalid");
-return false;   
-}
-else if(mobile==0000000000){
-$('#mobileno').focus();
-$("#mobileno").addClass("invalid");
-return false;   
-}
-else if(mobile.length>15){
-$('#mobileno').focus();
-$("#mobileno").addClass("invalid");
-return false;
-}
-else if(mobile.length>15){
-$('#mobileno').focus();
-$("#mobileno").addClass("invalid");
-return false;
-}
-else if(email.trim()==''){
-$('#email').focus();
-$("#email").addClass("invalid");
-return false; 
-} 
-else if (!testEmail.test(email))
-{   
-$('#email').focus();
-//$('#emailerror').html("<span class='text-danger'>Please enter valid email<span>");
-$("#email").addClass("invalid");
-return false;
-}
-else if(country.trim()==''){
-$('#emcountryail').focus();
-$("#country").addClass("invalid");
-return false; 
-} 
-else if(state.trim()==''){
-$('#state').focus();
-$("#state").addClass("invalid");
-return false;   
-}
-else if(city.trim()==''){
-$('#city').focus();
-$("#city").addClass("invalid");
-return false;   
-}
-else if(pincodes.trim()==''){
-$('#pincodes').focus();
-$("#pincodes").addClass("invalid");
-return false;   
-}
-else if(area.trim()==''){
-$('#area').focus();
-$("#area").addClass("invalid");
-return false;   
-}
-
-
-else{
-    return true;
-}
-
-}
 function BtnClickPage(x,y)
 {
 var searchtxt=$("#stxt").val();	

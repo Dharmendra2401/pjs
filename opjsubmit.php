@@ -1,12 +1,12 @@
 <?php
 include "config/config.php";
 include "en/mail/index.php" ;
-$opjfirstname=$_REQUEST['opjfirstname'];
-$opjlastname=$_REQUEST['opjlastname'];
-$opjmobile=$_REQUEST['opjmobile'];
-$opjemail=$_REQUEST['opjemail'];
-$opjaddress=$_REQUEST['opjaddress'];
-$userid=$_REQUEST['userid'];
+$opjfirstname=mysqli_real_escape_string($con,trim($_REQUEST['opjfirstname']));
+$opjlastname=mysqli_real_escape_string($con,trim($_REQUEST['opjlastname']));
+$opjmobile=mysqli_real_escape_string($con,trim($_REQUEST['opjmobile']));
+$opjemail=mysqli_real_escape_string($con,trim($_REQUEST['opjemail']));
+$opjaddress=mysqli_real_escape_string($con,trim($_REQUEST['opjaddress']));
+$userid=mysqli_real_escape_string($con,trim($_REQUEST['userid']));
 $request_id=uniqueopj($con);
 $submitdate=date('Y-m-d H:i:s');
 if(($opjfirstname!='') && ($opjlastname!='') && ($opjmobile!='') && ($opjemail!='') && ($opjaddress!='') && ($userid!='')){

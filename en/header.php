@@ -112,10 +112,10 @@ LOGIN/SIGUP
 <nav class="navbar navbar-expand-sm">
 <ul class="navbar-nav">
 <li class="nav-item">
-<a class="nav-link" href="about_us.php">About Us</a>
+<a class="nav-link" href="<?php echo RE_EN_PATH; ?>about_us.php">About Us</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="events.php">Events</a>
+<a class="nav-link" href="<?php echo RE_EN_PATH; ?>events.php">Events</a>
 </li>
 <li class="nav-item">
 <a class="nav-link" href="gallery.php">Gallery</a>
@@ -190,8 +190,8 @@ if ($_SESSION['admin_email']!=''){
 <li class="nav-item">
 <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Masters</a>
 <div class="dropdown-menu custom-dropdwn">	
-<a class="dropdown-item" href="#">About Us</a>
-<a class="dropdown-item" href="#">Events</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>about_us.php">About Us</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>events.php">Events</a>
 <a class="dropdown-item" href="#">Gallery</a>
 <a class="dropdown-item" href="#">Schemes</a>
 <a class="dropdown-item" href="#">Zone</a>

@@ -1,8 +1,8 @@
 <?php  
 include '../../config/config.php';
 
-$password=$_REQUEST['password'];
-$mid=$_REQUEST["mid"];
+$password=mysqli_real_escape_string($con,trim(base64_encode($_REQUEST['password'])));
+$mid=mysqli_real_escape_string($con,trim($_REQUEST["mid"]));
 
 if(($password!='') && ($mid!='') ){
 $row=mysqli_query($con,'select mem.member_id,mem.first_name,mem.middle_name,mem.last_name,keyy.password,keyy.id from member as mem INNER JOIN  Key_member_id as keyy on mem.member_id=keyy.id where mem.member_id="'.$mid.'" and keyy.password="'.$password.'" ');

@@ -9,7 +9,7 @@ $status=mysqli_real_escape_string($con,trim($_REQUEST['status']));
 
 if($status==1){
 $member_id = uniquemid($con);
-$password=generatepassword($pass);
+$password=base64_encode(generatepassword($pass));
 $sorcevalue=strtoupper(substr($getdate['first_name'],0,3)).'_'.strtoupper(substr($getdate['last_name'],0,3)).'_'.strtoupper(substr($getdate['fathers_name'],0,3)).'_'.date('dmY',strtotime($getdate['date_of_birth'] ));
 
  $insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm,id,password)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$member_id."','".$password."')");
@@ -29,9 +29,9 @@ $insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, g
 SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husbandname,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
 mysqli_query($con,$insert);
 
-$subject="User Successfully Approved From ".WEBSITE_NAME." ";
+$subject="User Crediential From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getdate['first_name']." ".$getdate['last_name'].",<br> you are successfully approved by the admin and your login crediential is : <br>  MEMBER ID (MID) : <strong>".$member_id."</strong> <br> Password : <strong>".$password."</strong><p> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
+$mes.=" Dear ".$getdate['first_name']." ".$getdate['last_name'].",<br> you are successfully approved by the admin and your login crediential is : <br>  MEMBER ID (MID) : <strong>".$member_id."</strong> <br> Password : <strong>".base64_decode($password)."</strong><p> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$getdate['email'];
 sendmails($to,$message,$subject);
@@ -49,7 +49,7 @@ $trimreason=rtrim($getreason,',');
 $update=mysqli_query($con,"update staging_approval set reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
 $subject="User Approval Rejected From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getdate['first_name']." ".$getdate['middle_name']." ".$getdate['last_name'].", your user application is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.=" Dear ".$getdate['first_name']."  ".$getdate['last_name'].", your user application is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$getdate['email'];
 sendmails($to,$message,$subject);
@@ -94,8 +94,7 @@ redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR)
 <div class="col-md-3">First Name <strong>:</strong></div>
 <div class="col-md-9"><?php echo $getdate['first_name']; ?></div>
 
-<div class="col-md-3">Middle Name<strong>:</strong></div>
-<div class="col-md-9"><?php if($getdate['middle_name']!='') {echo $getdate['middle_name'];}else{ echo 'NA';} ?></div>
+
 
 <div class="col-md-3">Last Name <strong>:</strong></div>
 <div class="col-md-9"><?php echo $getdate['last_name']; ?></div>
@@ -109,6 +108,10 @@ redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR)
 <div class="col-md-3">Status <strong>:</strong></div>
 <div class="col-md-9"><?php echo $getdate['martial_status'] ;?></div>
 
+<?php if($getdate['martial_status']=='married'){  ?>
+<div class="col-md-3">Status <strong>:</strong></div>
+<div class="col-md-9"><?php echo $getdate['husbandname'] ;?></div>
+<?php  } ?>
 <div class="col-md-3">Blood Group<strong>:</strong></div>
 <div class="col-md-9"> 
 <?php if($getdate['blood_group']==1){echo 'A+';} else if($getdate['blood_group']==2){echo 'B+';}
@@ -229,7 +232,7 @@ else{ echo "NA";}
 <div class="col-md-4 mr-5">
 <input type="checkbox" id="other" name="reason[]" value="Other" onclick="selectOther();">
 <label>Other</label>
-<textarea id="reasonTxt"  name="reason[]" class="form-control" rows="3" placeholder="Describe yourself here..." name="reasontext"></textarea>
+<textarea id="reasonTxt"  name="reason[]" class="form-control inputtexttwo" maxlength="50" rows="3" placeholder="Describe yourself here..." name="reasontext"></textarea>
 </div>
 </div>
 </div>

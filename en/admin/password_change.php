@@ -1,4 +1,5 @@
 <?php include "../../config/config.php" ;
+include "../mail/index.php" ;
 admin_session_check();
 if(isset($_REQUEST['passwordchange'])){
 
@@ -8,11 +9,21 @@ $cpassword=mysqli_real_escape_string($con,trim($_REQUEST['cpassword']));
 if(($oldpass!='') && ($newpass!='')&& ($cpassword!='') ){
 if(($newpass==$cpassword)){
 $update=mysqli_query($con,'update admin_login set password="'.$newpass.'" where id=1');
-redirect(RE_HOME_ADMIN."password_change.php","Password updated successfully~@~".MSG_SUCCESS);
+$getemail=mysqli_fetch_array(mysqli_query($con,'select first_name,last_name,email from admin_login where id=1'));
+
+
+$subject="Password Change from ".WEBSITE_NAME." ";
+$mes='';
+$mes.=" Dear ".$getemail['first_name']." ".$getemail['last_name'].", you are successfully change your password and your new password is :<strong>".$newpass."</strong>";
+$message=$mes;
+$to=$getemail['email'];
+
+sendmails($to,$message,$subject);
+redirect(RE_HOME_SUPERADMIN."password_change.php","Password updated successfully~@~".MSG_SUCCESS);
 }
-redirect(RE_HOME_ADMIN."password_change.php","Error! Confirm password is incorrect~@~".MSG_ERROR);
+redirect(RE_HOME_SUPERADMIN."password_change.php","Error! Confirm password is incorrect~@~".MSG_ERROR);
 }
-redirect(RE_HOME_ADMIN."password_change.php","Error! Please try again~@~".MSG_ERROR);
+redirect(RE_HOME_SUPERADMIN."password_change.php","Error! Please try again~@~".MSG_ERROR);
 
 }
 
@@ -36,7 +47,7 @@ redirect(RE_HOME_ADMIN."password_change.php","Error! Please try again~@~".MSG_ER
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> Old Password </label>	
 <div class="col-md-8">
-<input type="text" class="form-control" name="oldpassword" placeholder="Enter old password" onchange="return oldpass();" id="oldpassword" required>
+<input type="password" class="form-control" name="oldpassword" maxlength="10" placeholder="Enter old password" onchange="return oldpass();" id="oldpassword"  required>
 <span id="errorold"></span>
 </div>
 </div>
@@ -44,14 +55,14 @@ redirect(RE_HOME_ADMIN."password_change.php","Error! Please try again~@~".MSG_ER
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> New Password </label>	
 <div class="col-md-8">
-<input type="text" class="form-control" name="newpassword" minlength="4" maxlength="10" placeholder="Enter new password" id="newpassword" required>
+<input type="password" class="form-control" name="newpassword" minlength="4" maxlength="10" placeholder="Enter new password" id="newpassword" required>
 </div>
 </div>
 
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> Confirm New Password </label>	
 <div class="col-md-8">
-<input type="text" class="form-control" name="cpassword" maxlength="10" placeholder="Confirm new password" id="cpassword" required>
+<input type="password" class="form-control" name="cpassword" maxlength="10" placeholder="Confirm new password" id="cpassword" required>
 </div>
 </div>
 

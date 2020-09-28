@@ -1,6 +1,6 @@
 <?php 
 require_once("../../config/config.php");
-$mid=$_REQUEST['mid'];
+$mid=mysqli_real_escape_string($con,trim($_REQUEST['mid']));
 
 
 $getmid=mysqli_query($con,'select id,password from key_member_id where id="'.$mid.'" ');

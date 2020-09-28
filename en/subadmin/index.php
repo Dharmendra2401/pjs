@@ -6,7 +6,8 @@ if(isset($_REQUEST['login'])){
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
 $password=mysqli_real_escape_string($con,trim($_REQUEST['password']));
 if(($email!='')&&($password!=''))
-$login=mysqli_query($con,"select first_name,last_name,id,email,password,active_status from sub_admin_login where email='".$email."' and password='".$password."' ");
+
+$login=mysqli_query($con,"select first_name,last_name,id,email,password,active_status from sub_admin_login where email='".$email."' and password='".base64_encode($password)."' ");
 $cont=mysqli_num_rows($login);
 if($cont>0){
 $fetch=mysqli_fetch_array($login);

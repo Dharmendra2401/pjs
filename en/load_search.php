@@ -4,7 +4,7 @@ $stat='';
 $statu='';
 
 if($_REQUEST['search']!='')
-{$statu.= 'and (member_id LIKE "%'.$_REQUEST['search'].'%" or middle_name LIKE "%'.$_REQUEST['search'].'%" or first_name LIKE "%'.$_REQUEST['search'].'%") ';}
+{$statu.= 'and (member_id LIKE "%'.$_REQUEST['search'].'%" or first_name LIKE "%'.$_REQUEST['search'].'%") ';}
 
 
 if(isset($_REQUEST['ustatus']))
@@ -48,7 +48,7 @@ while($row=mysqli_fetch_assoc($rs)){
 if ($row_count>3){
 
 ?>
-<a onclick="return searchpage();">see more result</a>
+<div class="search-anchor"><a onclick="return searchpage();">see more result</a></div>
 
 <?php
 
