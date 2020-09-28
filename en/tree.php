@@ -344,6 +344,8 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 
 });
 </script>
+
+
 <style type="text/css">
 	#dead_person_form .error{
 		color: red;
