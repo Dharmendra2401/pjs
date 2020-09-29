@@ -43,9 +43,6 @@ if($table=='schemes'){
 if($table=='zones'){
     mysqli_query($con,'update zones set status="'.$status.'" where id="'.$id.'" ');
 }
-if($table=='slider'){
-    mysqli_query($con,'update slider set status="'.$status.'" where id="'.$id.'" ');
-}
 	
 echo 'ok';
 

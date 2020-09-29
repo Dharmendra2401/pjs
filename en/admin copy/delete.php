@@ -31,28 +31,22 @@ mysqli_query($con,"DELETE FROM ".$table." WHERE request_id='".$id."'");
 }
 
 if($table=='zones'){	
-$getimage=mysqli_fetch_array(mysqli_query($con,'select short_image,long_image from zones where id="'.$id.'"')); 
-unlink('../../'.$getimage['short_image']);
-unlink('../../'.$getimage['long_image']);
+    $getimage=mysqli_fetch_array(mysqli_query($con,'select short_image,long_image from zones where id="'.$id.'"')); 
+    unlink('../../'.$getimage['short_image']);
+    unlink('../../'.$getimage['long_image']);
+    
+    mysqli_query($con,"DELETE FROM ".$table." WHERE request_id='".$id."'");
+    }
+    
 
-mysqli_query($con,"DELETE FROM ".$table." WHERE request_id='".$id."'");
-}
-
-
-if($table=='zones'){	
-$getimage=mysqli_fetch_array(mysqli_query($con,'select short_image,long_image from zones where id="'.$id.'"')); 
-unlink('../../'.$getimage['short_image']);
-unlink('../../'.$getimage['long_image']);
-
-mysqli_query($con,"DELETE FROM ".$table." WHERE request_id='".$id."'");
-}
-
-if($table=='slider'){	
-$getimage=mysqli_fetch_array(mysqli_query($con,'select image from slider where id="'.$id.'"')); 
-unlink('../../'.$getimage['image']);
-mysqli_query($con,"DELETE FROM ".$table." WHERE request_id='".$id."'");
-}
-
+    if($table=='zones'){	
+    $getimage=mysqli_fetch_array(mysqli_query($con,'select short_image,long_image from zones where id="'.$id.'"')); 
+    unlink('../../'.$getimage['short_image']);
+    unlink('../../'.$getimage['long_image']);
+    
+    mysqli_query($con,"DELETE FROM ".$table." WHERE request_id='".$id."'");
+    }
+    
 
 
 mysqli_query($con,"DELETE FROM ".$table." WHERE id='".$id."'");

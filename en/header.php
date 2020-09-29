@@ -10,7 +10,7 @@
 <div class="col-md-6 d-flex justify-content-center sm-pb10">
 <div class="input-group my-auto">
 <!-- <input type="text" class="form-control" placeholder="Search" aria-label="Username"> -->
-<input type="text" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" ><button class="cancel-btn" onclick="return searchbarclick();"><i class="fa fa-times"></i></button>
+<input type="text" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" ><button class="cancel-btn searchbtn" onclick="return searchbarclick();"><i class="fa fa-times"></i></button>
 
 
 
@@ -111,6 +111,7 @@ LOGIN/SIGUP
 <div class="col-md-12 navbar-menu">
 <nav class="navbar navbar-expand-sm">
 <ul class="navbar-nav">
+
 <li class="nav-item">
 <a class="nav-link" href="<?php echo RE_EN_PATH; ?>about_us.php">About Us</a>
 </li>
@@ -118,13 +119,13 @@ LOGIN/SIGUP
 <a class="nav-link" href="<?php echo RE_EN_PATH; ?>events.php">Events</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="gallery.php">Gallery</a>
+<a class="nav-link" href="<?php echo RE_EN_PATH; ?>gallery.php">Gallery</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="schemes.php">Schemes</a>
+<a class="nav-link" href="<?php echo RE_EN_PATH; ?>schemes.php">Schemes</a>
 </li>
 <li class="nav-item">
-<a class="nav-link" href="zones.php">Zones</a>
+<a class="nav-link" href="<?php echo RE_EN_PATH; ?>zones.php">Zones</a>
 </li>
 <?php if($_SESSION['user_mid']!=''){ ?>
 <li class="nav-item">
@@ -190,11 +191,13 @@ if ($_SESSION['admin_email']!=''){
 <li class="nav-item">
 <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Masters</a>
 <div class="dropdown-menu custom-dropdwn">	
+<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>slider.php">Slider</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>about_us.php">About Us</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>events.php">Events</a>
-<a class="dropdown-item" href="#">Gallery</a>
-<a class="dropdown-item" href="#">Schemes</a>
-<a class="dropdown-item" href="#">Zone</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>gallery.php">Gallery</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>schemes.php">Schemes</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>zone.php">Zone</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>addcity.php">Add City</a>
 </div>
 </li>
 <li class="nav-item">

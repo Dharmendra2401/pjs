@@ -7,14 +7,14 @@ if(isset($_REQUEST['submit'])){
  $content=mysqli_real_escape_string($con,trim($_REQUEST['content']));
  $submitdate=date('Y-m-d H:i:s');
 
-if(($title!='') && ($content!='')   ){
+if(($title!='') && ($content!='') && ($_FILES["image"]["name"]!='')  ){
 
 if($_FILES["image"]["name"]!=''){
 $sizex=255;
 $sizey=197;
 $ext=explode(".",$_FILES["image"]["name"]);
-$url="../../uploads/events/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
-$url12="uploads/events/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
+$url="../../uploads/schemes/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
+$url12="uploads/schemes/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
 move_uploaded_file($_FILES["image"]["tmp_name"],$url);
 $x=$sizex;
 $y=$sizey;
@@ -23,11 +23,11 @@ imagemulitple($url,$x,$y);
 //unlink($url);
 //unlink('../../uploads/events/'.$getaboutus['image']);			
 }
-mysqli_query($con,'insert into events (title,short_image,long_image,record_inserted_dttm,status,content) values("'.$title.'","'.$image.'","'.$url12.'","'.$submitdate.'","Y","'.$content.'")');
+mysqli_query($con,'insert into schemes (title,short_image,long_image,record_inserted_dttm,status,content) values("'.$title.'","'.$image.'","'.$url12.'","'.$submitdate.'","Y","'.$content.'")');
 
-redirect(RE_HOME_SUPERADMIN."events.php","Record successfully created~@~".MSG_SUCCESS);
+redirect(RE_HOME_SUPERADMIN."schemes.php","Record successfully created~@~".MSG_SUCCESS);
 }
-redirect(RE_HOME_SUPERADMIN."events.php","Error!Please try again~@~".MSG_ERROR);
+redirect(RE_HOME_SUPERADMIN."schemes.php","Error! Please try again~@~".MSG_ERROR);
 
 }
 
@@ -45,7 +45,7 @@ redirect(RE_HOME_SUPERADMIN."events.php","Error!Please try again~@~".MSG_ERROR);
 </div>
 <div class="container shadow">
 
-<h3 class="ticket-header">Events List </h3>
+<h3 class="ticket-header">Schemes List </h3>
 <div class="row"> 
 <div class="col-md-4 form-group"><input type="search" id="stxt" onKeyUp="return BtnClickPage(1,10);" placeholder="Enter Title" class="form-control form-control-sm"> </div>
 
@@ -55,20 +55,20 @@ redirect(RE_HOME_SUPERADMIN."events.php","Error!Please try again~@~".MSG_ERROR);
 </div>
 
 <div class="col-md-4 form-group">
-<button class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#add"><i class="fa fa-user-plus"></i> Add Event</button>
+<button class="btn btn-primary btn-sm float-right" data-toggle="modal" data-target="#add"><i class="fa fa-user-plus"></i> Add Schemes</button>
 </div>
 </div>
 
 <?php echo show_message();?>
 
 <div id="gridviewdata">
-<?php include 'load_events.php'; ?>
+<?php include 'load_schemes.php'; ?>
 </div>
 <div class="modal fade" id="add" >
 <div class="modal-dialog" role="document">
 <div class="modal-content">
 <div class="modal-header border-bottom-0">
-<h5 class="modal-title" id="exampleModalLabel">Add Event</h5>
+<h5 class="modal-title" id="exampleModalLabel">Add Schemes</h5>
 <button type="button" class="close" data-dismiss="modal" aria-label="Close">
 <span aria-hidden="true">&times;</span>
 </button>
@@ -93,7 +93,6 @@ redirect(RE_HOME_SUPERADMIN."events.php","Error!Please try again~@~".MSG_ERROR);
 <textarea type="text" class="form-control" name="content"  placeholder="Enter content" id="editor" ></textarea>
 <div id="contenterror"></div>
 </div>
-
 </div>
 
 <div class="modal-footer border-top-0">
@@ -166,7 +165,7 @@ var page=$("#page").val();
 y=10;
 $.ajax({
 type: 'POST',
-url: "load_events.php",
+url: "load_schemes.php",
 data: {"page":x,"pagesize":y,"searchtxt":searchtxt,"ustatus":ustatus},
 success: function(data12){
 $("#gridviewdata").html(data12);			
@@ -178,6 +177,7 @@ function update(desc){
 $('#desc').html(atob(desc));
 
 }
+
 
 
 

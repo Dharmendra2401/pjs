@@ -34,7 +34,7 @@ if($_REQUEST['searchtxt']!='')
 if($_REQUEST['ustatus']!='')
 {$statu.= 'and status LIKE "%'.trim($_REQUEST['ustatus']).'%"';}
 
-$stat="events where 1=1 $statu order by id desc";
+$stat="slider where 1=1 $statu order by id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
@@ -52,12 +52,12 @@ $currentdate=$row['record_inserted_dttm'];
 <td><?php echo $count ;  ?></td>
 
 <td><?php echo $row['title']; ?></td>
-<td><img src="<?php echo RE_HOME_PATH.'/'.$row['short_image']; ?>" width="100px"> </td>
+<td><img src="<?php echo RE_HOME_PATH.'/'.$row['image']; ?>" width="100px"> </td>
 <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
-<td class="text-center"><?php if($row['status']=='N') {?><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;" onClick="return varify('<?php echo $row['id'];?>','Y','events');" title='Active'  alt="Active"><i class="fas fa-times"></i></a> <br>Deactive <?php } else {?>  <a class="btn btn-success btn-sm rounded-circle " style="cursor:pointer;" onClick="return unvarify('<?php echo $row['id'];?>','N','events');" title='Active'  alt="Active"> <i class="fas fa-check"></i></a><br>Active <?php } ?></td>
+<td class="text-center"><?php if($row['status']=='N') {?><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;" onClick="return varify('<?php echo $row['id'];?>','Y','slider');" title='Active'  alt="Active"><i class="fas fa-times"></i></a> <br>Deactive <?php } else {?>  <a class="btn btn-success btn-sm rounded-circle " style="cursor:pointer;" onClick="return unvarify('<?php echo $row['id'];?>','N','slider');" title='Active'  alt="Active"> <i class="fas fa-check"></i></a><br>Active <?php } ?></td>
 <td>
-<a class="btn btn-success btn-sm rounded-circle" style="cursor:pointer;"title='View'  alt="View" data-toggle="modal" title='View content' data-target="#view" onclick="return update('<?php echo base64_encode($row['content']); ?>')"><i class="fas fa-eye"></i></a>
-<a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;"title='Delete'  alt="Delete" onClick="return btnclickdelete('<?php echo $row['id'];?>','events');"><i class="fas fa-trash"></i></a>
+
+<a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;"title='Delete'  alt="Delete" onClick="return btnclickdelete('<?php echo $row['id'];?>','slider');"><i class="fas fa-trash"></i></a>
 
 </td>
 </tr>

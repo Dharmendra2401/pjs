@@ -379,7 +379,7 @@ $('#newmobile').focus();
 $('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter valid old mobile number</div> ');
 return false;
 }
-else if(memberid==''){
+else if(memberid.trim()==''){
 $('#memberid').focus();
 $('#errorfirst').html('<div class="alert alert-danger alert-sm">Please enter member id</div> ');
 return false;
@@ -421,23 +421,23 @@ $('#loadergif').fadeOut();
 
 function emailshoot(){
 var firstname=$('#emailfirst_name').val();
-var middlename=$('#emailmiddle_name').val();
+//var middlename=$('#emailmiddle_name').val();
 var lastname=$('#emaillast_name').val();
 var fathersname=$('#emailfathers_name').val();
 var dob=$('#emaildob').val();
-if(firstname==''){
+if(firstname.trim()==''){
 $('#emailfirst_name').focus(); 
 $('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter first name</div>');
 return false;
 }
 
-else if(lastname==''){
+else if(lastname.trim()==''){
 $('#emaillast_name').focus(); 
 $('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter last name</div>');
 return false;
 
 }
-else if(fathersname==''){
+else if(fathersname.trim()==''){
 $('#fathersname').focus(); 
 $('#errorcrediential').html('<div class="alert alert-danger alert-sm">Please enter fathers name</div>');
 return false;
@@ -488,22 +488,22 @@ var opjemail=$('#opjemail').val();
 var opjaddress=$('#opjaddress').val();
 var userid="<?php echo $idd ;?>";
 var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-if(opjfirstname==''){
+if(opjfirstname.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the firstname</div>');
 $('#opjfirstname').focus();
 return false;
 }
-else if(opjlastname==''){
+else if(opjlastname.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the lastname</div>');
 $('#opjlastname').focus();
 return false;
 }
-else if(opjmobile==''){
+else if(opjmobile.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
 $('#opjmobile').focus();
 return false;
 }
-else if(opjemail==''){
+else if(opjemail.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the email </div>');
 $('#opjemail').focus();
 return false;
@@ -514,7 +514,7 @@ $('#opjerror').html('<div class="alert alert-danger">Please enter the valid emai
 $('#opjemail').focus();
 return false;
 }
-else if(opjaddress==''){
+else if(opjaddress.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
 $('#opjaddress').focus();
 return false;
@@ -594,7 +594,7 @@ function Userlogin(){
 
 var mid=$('#mid').val(); 
 var password=$('#password').val();
-if(mid==''){
+if(mid.trim()==''){
 swal({
 title: "Error",
 text: "Please fill the MID",
@@ -602,7 +602,7 @@ icon: "error",
 });
 return false;
 }
-else if(password==''){
+else if(password.trim()==''){
 swal({
 title: "Error",
 text: "Please enter the password",
@@ -771,7 +771,7 @@ function searchBar(x,y)
 {
 
 var search=$("#search").val();
-if(search!=''){
+if(search.trim()!=''){
 y=10;
 //$('#loadergif').fadeIn();
 $.ajax({
@@ -797,7 +797,7 @@ $('.searchbtn').prop("disabled",true);
 
 function searchpage() {
 var search=$("#search").val();
-if(search!=''){
+if(search.trim()!=''){
 window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+search);}
 } 
 

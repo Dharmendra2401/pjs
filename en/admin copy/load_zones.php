@@ -7,7 +7,7 @@
 <tr class="table-headings">
 <!--<th width="2%">S.No</th>-->
 <th>S.No</th>
-<th>Title</th>
+<th>Full Name</th>
 <th>Image</th>
 <th>Submited Date</th>
 <th>Active Status</th>
@@ -23,18 +23,16 @@ $stat='';
 $statu='';
 
 
-if($_REQUEST['title']!='')
-{$statu.= 'and title LIKE "'.$_REQUEST['title'].'"';}
 
 if($_REQUEST['submitdatetwo']!='')
 {$statu.= 'and record_inserted_dttm LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdatetwo'])).'%"';}
 
 if($_REQUEST['searchtxt']!='')
-{$statu.= 'and title LIKE "%'.trim($_REQUEST['searchtxt']).'%"';}
+{$statu.= 'and fullname LIKE "%'.trim($_REQUEST['searchtxt']).'%" OR email LIKE "%'.trim($_REQUEST['searchtxt']).'%" ';}
 if($_REQUEST['ustatus']!='')
 {$statu.= 'and status LIKE "%'.trim($_REQUEST['ustatus']).'%"';}
 
-$stat="events where 1=1 $statu order by id desc";
+$stat="zones where 1=1 $statu order by id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
@@ -51,13 +49,13 @@ $currentdate=$row['record_inserted_dttm'];
 <tr>
 <td><?php echo $count ;  ?></td>
 
-<td><?php echo $row['title']; ?></td>
+<td><?php echo $row['fullname']; ?></td>
 <td><img src="<?php echo RE_HOME_PATH.'/'.$row['short_image']; ?>" width="100px"> </td>
 <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
-<td class="text-center"><?php if($row['status']=='N') {?><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;" onClick="return varify('<?php echo $row['id'];?>','Y','events');" title='Active'  alt="Active"><i class="fas fa-times"></i></a> <br>Deactive <?php } else {?>  <a class="btn btn-success btn-sm rounded-circle " style="cursor:pointer;" onClick="return unvarify('<?php echo $row['id'];?>','N','events');" title='Active'  alt="Active"> <i class="fas fa-check"></i></a><br>Active <?php } ?></td>
+<td class="text-center"><?php if($row['status']=='N') {?><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;" onClick="return varify('<?php echo $row['id'];?>','Y','zones');" title='Active'  alt="Active"><i class="fas fa-times"></i></a> <br>Deactive <?php } else {?>  <a class="btn btn-success btn-sm rounded-circle " style="cursor:pointer;" onClick="return unvarify('<?php echo $row['id'];?>','N','zones');" title='Active'  alt="Active"> <i class="fas fa-check"></i></a><br>Active <?php } ?></td>
 <td>
-<a class="btn btn-success btn-sm rounded-circle" style="cursor:pointer;"title='View'  alt="View" data-toggle="modal" title='View content' data-target="#view" onclick="return update('<?php echo base64_encode($row['content']); ?>')"><i class="fas fa-eye"></i></a>
-<a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;"title='Delete'  alt="Delete" onClick="return btnclickdelete('<?php echo $row['id'];?>','events');"><i class="fas fa-trash"></i></a>
+<a class="btn btn-success btn-sm rounded-circle" style="cursor:pointer;"title='View'  alt="View" data-toggle="modal" title='View content' data-target="#view" onclick="return update('<?php echo $row['fullname']; ?>','<?php echo $row['mobileno']; ?>','<?php echo $row['email']; ?>','<?php echo base64_encode($row['address']); ?>','<?php echo $row['short_image']; ?>')"><i class="fas fa-eye"></i></a>
+<a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;"title='Delete'  alt="Delete" onClick="return btnclickdelete('<?php echo $row['id'];?>','zones');"><i class="fas fa-trash"></i></a>
 
 </td>
 </tr>

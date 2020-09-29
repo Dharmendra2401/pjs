@@ -4,7 +4,7 @@ error_reporting(0);
 session_start();
 $user="root";
 $password="";
-$dbname="porwadja_dwr_vts_t";
+$dbname="dwr_vts_t";
 $con=new mysqli($host, $user, $password, $dbname);
 if(mysqli_connect_errno()){ echo "Failed to connect to db".mysqli_connect_errno();}
 define('RE_HOME_PATH', "http://localhost/pjs_user/"); 

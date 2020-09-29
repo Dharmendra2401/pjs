@@ -34,7 +34,7 @@ if($_REQUEST['searchtxt']!='')
 if($_REQUEST['ustatus']!='')
 {$statu.= 'and status LIKE "%'.trim($_REQUEST['ustatus']).'%"';}
 
-$stat="events where 1=1 $statu order by id desc";
+$stat="gallery where 1=1 $statu order by id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;

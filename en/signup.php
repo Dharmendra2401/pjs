@@ -239,7 +239,7 @@ while($show=mysqli_fetch_array($state)){
 <option value="2">Business </option>
 <option value="3">Housewife</option>
 <option value="4">Student</option>
-<option value="5">Nothing</option>
+<!-- <option value="5">Nothing</option> -->
 
 
 
@@ -284,10 +284,10 @@ while($show=mysqli_fetch_array($state)){
 <div class="col-md-9 " >
 <h3 class="mb-3">Please Upload Your Own <span class="text-danger">(* Required Fields)</span></h3>
 <div class="form-group row">
-<label class="col-md-12 col-form-label">Please select image size of maximum 1mb in size. </label>	
+<label class="col-md-12 col-form-label">Please select profile image size of maximum 1mb in size. </label>	
 <div class="col-md-9">
 <div class="pic-wrapper">
-<input type="file" class="form-control profile-pic"  id="file" name="profile" onchange="return GetFileSize();" accept="image/png, image/jpeg" title="Select image">
+<input type="file" class="form-control profile-pic"  id="file" name="profile" onchange="return GetFileSize();" accept="image/png, image/jpeg" title="Select profile image">
 <i class="fas fa-plus-circle add-icon"></i>
 <p id="fp"></p>
 <img id="blah" src="<?php echo RE_HOME_PATH ;?>uploads/dummy.png" alt="your image" style="  position: absolute;
@@ -295,9 +295,16 @@ top: 0px;
 width: 200px;
 z-index: -1;
 height: 200px;
-"/><span id="fileerror"><sapn>
+"/>
 </div>
+
+<div class="form-group row">
+<input type="checkbox" value="privacy" name="privacy" id="privacy"><label> Accept all <a href="../uploads/privacy/PJS_Privacy_Policy.pdf" target="_blank">privacy policy</a> </label>
 </div>
+
+<div class="form-group row" id="fileerror"><div>
+</div>
+
 </div>
 <div style="overflow:auto;">
 <div style="float:right;">
@@ -323,7 +330,28 @@ height: 200px;
 <?php  include "../script.php" ;?>
 
 <script>
+$("#feet").on("change paste keyup", function() {
+   if($(this).val()==0){
+   $('#feet').val('');
+   $("#feet").addClass("invalid");
+   } 
+});
 
+		$("#feet").click( 
+          function(event) { 
+            if(feet==00){
+	$('#feet').focus();
+	$("#feet").addClass("invalid");
+	return false;
+	 
+	}
+	if(inches==00){
+	$('#inches').focus();
+	$("#inches").addClass("invalid");
+	return false;
+	 
+	}  
+        }); 
 function preone(){
 $('.tabone').show();
 $('.tabtwo').hide();
@@ -378,6 +406,8 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
   var age=$('#age').val();
   var status=$("input[name='status']:checked"). val();
   var mobilevalidate = /^\d{10}$/;
+  var feet = $('#feet').val();
+  var inches = $('#inches').val();
   
   
   
@@ -473,6 +503,7 @@ var totaldate=getyear+'-'+getmonth+'-'+getdate;
 	return false;
 	 
 	}
+
 
 	else{
 	$('.tabtwo').show();
@@ -577,13 +608,15 @@ $("#step3").addClass("btn-primary");
 }
 
 function formfour(){
-
+var privacy=$("input[name='privacy']:checked").val();
 var file=$('#file').val();
 if(file==''){
-$('#fileerror').html('<div class="text-danger">Please select image</div>');
+ $('#fileerror').html('<div class="text-danger">Please select image</div>');
+ return false;
+ }
+if(privacy!= 'privacy'){
+$('#fileerror').html('<div class="text-danger">Please accept our privacy policy.</div>');
 return false;
-}else{
-return true;
 }
 }
 
