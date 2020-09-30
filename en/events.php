@@ -16,7 +16,7 @@ include "../config/config.php";
 				</h4>
 
 				<?php 
-				$getevent=mysqli_query($con,'select * from events where status="Y" ');
+				$getevent=mysqli_query($con,'select * from events where status="Y" order by id desc');
 				$countevent=mysqli_num_rows($getevent);$count=0;
 				while($showevent=mysqli_fetch_array($getevent)){
 				
@@ -30,12 +30,11 @@ include "../config/config.php";
 					
 						<?php   
 						echo '<span>'.substr($showevent['content'],0,700).'<span>';
-						echo '<span id="demo'.$count.'" class="collapse">
+						if (substr($showevent['content'],700)!=''){ echo '<div id="demo'.$count.'" class="collapse">
 						'.substr(trim($showevent['content']),700).'
-						</span>';
-						
+						</div><a data-toggle="collapse" href="#" data-target="#demo'.$count.'">Show more</a>';}
 							 ?>
-						<button data-toggle="collapse" data-target="#demo<?php echo $count;?>">Collapsible</button>
+						
 					</div>
 					</div>
 				<?php $count++;} ?>

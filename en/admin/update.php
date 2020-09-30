@@ -46,6 +46,9 @@ if($table=='zones'){
 if($table=='slider'){
     mysqli_query($con,'update slider set status="'.$status.'" where id="'.$id.'" ');
 }
+if($table=='gallery'){
+    mysqli_query($con,'update gallery set status="'.$status.'" where id="'.$id.'" ');
+}
 	
 echo 'ok';
 

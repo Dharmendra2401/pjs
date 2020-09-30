@@ -1,19 +1,21 @@
 
 <?php  
 include "../../config/config.php" ;
-commonsession();
+include "../mail/index.php" ;
 if(isset($_REQUEST['login'])){
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
-$password=mysqli_real_escape_string($con,trim($_REQUEST['password']));
+$password=base64_encode(mysqli_real_escape_string($con,trim($_REQUEST['password'])));
+
 if(($email!='')&&($password!=''))
 $login=mysqli_query($con,"select first_name,last_name,id,email,password from admin_login where email='".$email."' and password='".$password."' ");
 $cont=mysqli_num_rows($login);
+
 if($cont>0){
 $fetch=mysqli_fetch_array($login);
 $_SESSION['admin_email']=$fetch['email'];
 $_SESSION['admin_fullname']=$fetch['first_name'].' '.$fetch['last_name'];
 $_SESSION['admin_id']=$fetch['id'];
-redirect(RE_HOME_SUPERADMIN."index.php");
+redirect(RE_HOME_PATH."index.php");
 }else{
 redirect(RE_HOME_SUPERADMIN."index.php","Invalid email and password.~@~".MSG_ERROR);
 }
@@ -25,17 +27,18 @@ redirect(RE_HOME_SUPERADMIN."index.php","Invalid email and password.~@~".MSG_ERR
 if(isset($_POST['forgotpass'])){
 
 $emails=mysqli_real_escape_string($con,trim($_REQUEST['getemail']));
-$getemail=mysqli_query($con,'select email from admin_login where email="'.$emails.'" ');
+$getemail=mysqli_query($con,'select email,password from admin_login where email="'.$emails.'" ');
 $contt=mysqli_num_rows($getemail);
 
 if($contt>0){
 $getpass=mysqli_fetch_array($getemail);
 $subject="Request For Admin Password '".WEBSITE_NAME."' ";
 $mes='';
-$mes.=" Dear Admin, your login password is :<strong>".$getpass['password']."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
+$mes.=" Dear Admin, your login password is :<strong>".base64_decode($getpass['password'])."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$getdate['email'];
-sendemail($to,$form,$subject,$message);
+//$to='shuklaharsh989@gmail.com';
+sendmails($to,$message,$subject);
 redirect(RE_HOME_SUPERADMIN."index.php","Email successfully send~@~".MSG_SUCCESS);
 
 }else{

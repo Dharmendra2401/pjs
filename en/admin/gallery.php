@@ -10,8 +10,8 @@ if(isset($_REQUEST['submit'])){
 if(($title!='') && ($_FILES["image"]["name"]!='')  ){
 
 if($_FILES["image"]["name"]!=''){
-$sizex=251;
-$sizey=167;
+$sizex=245;
+$sizey=163;
 $ext=explode(".",$_FILES["image"]["name"]);
 $url="../../uploads/gallery/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
 $url12="uploads/gallery/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);

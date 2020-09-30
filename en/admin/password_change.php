@@ -8,7 +8,7 @@ $newpass=mysqli_real_escape_string($con,trim($_REQUEST['newpassword']));
 $cpassword=mysqli_real_escape_string($con,trim($_REQUEST['cpassword']));
 if(($oldpass!='') && ($newpass!='')&& ($cpassword!='') ){
 if(($newpass==$cpassword)){
-$update=mysqli_query($con,'update admin_login set password="'.$newpass.'" where id=1');
+$update=mysqli_query($con,'update admin_login set password="'.base64_encode($newpass).'" where id=1');
 $getemail=mysqli_fetch_array(mysqli_query($con,'select first_name,last_name,email from admin_login where id=1'));
 
 
@@ -47,7 +47,7 @@ redirect(RE_HOME_SUPERADMIN."password_change.php","Error! Please try again~@~".M
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> Old Password </label>	
 <div class="col-md-8">
-<input type="password" class="form-control" name="oldpassword" maxlength="10" placeholder="Enter old password" onchange="return oldpass();" id="oldpassword"  required>
+<input type="password" class="form-control" name="oldpassword" maxlength="10" placeholder="Enter old password" onchange="return oldpass();" id="oldpassword" >
 <span id="errorold"></span>
 </div>
 </div>
@@ -55,21 +55,21 @@ redirect(RE_HOME_SUPERADMIN."password_change.php","Error! Please try again~@~".M
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> New Password </label>	
 <div class="col-md-8">
-<input type="password" class="form-control" name="newpassword" minlength="4" maxlength="10" placeholder="Enter new password" id="newpassword" required>
+<input type="password" class="form-control" name="newpassword" minlength="4" maxlength="10" placeholder="Enter new password" id="newpassword" >
 </div>
 </div>
 
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> Confirm New Password </label>	
 <div class="col-md-8">
-<input type="password" class="form-control" name="cpassword" maxlength="10" placeholder="Confirm new password" id="cpassword" required>
+<input type="password" class="form-control" name="cpassword" minlength="4" maxlength="10" placeholder="Confirm new password" id="cpassword" required>
 </div>
 </div>
 
 <div class="form-group row">
 
 <div class="col-md-12 text-center">
-<input type="submit" class="btn btn-success"  name="passwordchange" value="Submit" required>
+<button type="submit" onclick="return passChange();" class="btn btn-success"  name="passwordchange" > Submit</button>
 
 </div><br><br>
 
@@ -100,7 +100,44 @@ $("#errorold").html("");
 }
 
 
+function passChange(){
+var oldpassword=$('#oldpassword').val();
+var newpassword=$('#newpassword').val();
+var cpassword=$('#cpassword').val();
+if(oldpassword.trim()==''){
+$('#oldpassword').focus();
+$("#oldpassword").addClass("invalid");
+return false;
+}
+else if(oldpassword.trim().length<4){
+$('#oldpassword').focus();
+$("#oldpassword").addClass("invalid");
+return false;
+}
+else if(newpassword.trim()==''){
+$('#newpassword').focus();
+$("#newpassword").addClass("invalid");
+return false;
+}
+else if(newpassword.trim().length<4){
+$('#newpassword').focus();
+$("#newpassword").addClass("invalid");
+return false;
+}
+else if(cpassword.trim()==''){
+$('#cpassword').focus();
+$("#cpassword").addClass("invalid");
+return false;
+}
+else if(cpassword.trim().length<4){
+$('#cpassword').focus();
+$("#cpassword").addClass("invalid");
+return false;
+}else{
+    return true;
+}
 
+}
 
 </script>
 
