@@ -21,7 +21,7 @@ $document = new Dompdf();
 //$document->loadHtml($page);
 $userid=$_GET['id'];
 
-$row="SELECT if(sp.member_Id='' AND sp.reference_member_Id='' ,'saved','notsaved') as sp_status,mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on mem.member_id=sp.reference_member_Id  where mem.member_id= '$userid'";
+$row="SELECT if(sp.member_Id='' AND sp.reference_member_Id='' ,'saved','notsaved') as sp_status,mem.feet,mem.inches,mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on mem.member_id=sp.reference_member_Id  where mem.member_id= '$userid'";
 
 $result=mysqli_query($con,$row);
 //$result1=mysqli_fetch_assoc($result);
@@ -53,7 +53,7 @@ tr:nth-child(even) {
 while($row = mysqli_fetch_array($result))
 {
 	$gender='';
-if($row['gender']==1){
+if($row['gender']=='M'){
 		$gender='Male';
 	}else{ 
 	$gender='Female';
@@ -108,7 +108,19 @@ else if($row['blood_group']==3){
 } else {
 	$blood_group='NA';
 }  
+$feet='';
+ if($row['feet']!=''){ 
+ 	$feet=$row['feet'];
+ }else{
+ 	$feet="NA";
+ }  
 
+$inches='';		  
+if($row['inches']!=''){
+ $inches=$row['inches'];
+}else{
+	$inches="NA";
+}  
  $output .= '
  <tr>
  <td colspan="4" style="width:100%;text-align:center;">
@@ -152,7 +164,7 @@ else if($row['blood_group']==3){
 				Date of Birth <span style="float:right;font-weight:bold;">:</span>
 		</td>
 		<td colspan="2">
-				'.$row['date_of_birth'].'
+				'.date('d/m/Y',strtotime($row['date_of_birth'])).'
 		</td>
 	</tr>
 	<tr>
@@ -221,10 +233,10 @@ else if($row['blood_group']==3){
 	</tr>
 	<tr>
 		<td colspan="2">
-				Height <span style="float:right;font-weight:bold;">:</span>
+				Height <span style="float:right;font-weight:bold;">: </span>
 		</td>
 		<td colspan="2">
-				
+				Feet : '.$feet.' Inches : '.$inches.'
 		</td>
 	</tr>
 	<tr>
