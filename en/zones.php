@@ -59,52 +59,37 @@ include "../config/config.php";
                  </ul>
               </div>
             </div>
+
+            <?php 
+            $zone=mysqli_query($con,'select * from zones where status="Y" order by id desc'); 
+            $count=mysqli_num_rows($zone);
+            while($getzones=mysqli_fetch_array($zone)){
+            ?>
             <div class="row my-4">
               <div class="col-md-3 px-4">
-                <img width="100%" class="img-fluid" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
+                <img width="100%" class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getzones['short_image'] ?>" alt="Event">
               </div>
               <div class="col-md-9">
                   <div class="row">
-                      <div class="col-md-2 font-weight-bold">
+                      <div class="col-md-3 font-weight-bold">
                           <p>Name :</p>
                           <p>Address :</p>
                           <p>Phone Number :</p>
                           <p>Email :</p>
                       </div>
-                      <div class="col-md-10">
-                          <p>munish</p>
-                          <p>indore</p>
-                          <p>1234567890</p>
-                          <p>munish@gmail.com</p>
+                      <div class="col-md-9">
+                          <p><?php echo $getzones['fullname'] ;?></p>
+                          <p><?php echo $getzones['address'] ; ?></p>
+                          <p><?php echo $getzones['mobileno'] ; ?></p>
+                          <p><?php echo $getzones['email'] ; ?></p>
                       </div>
                   </div>
               </div>
             </div>
             <hr>
-            <div class="row my-4">
-              <div class="col-md-3 px-4">
-                <img width="100%" class="img-fluid" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
-              </div>
-              <div class="col-md-9">
-                  <div class="row">
-                      <div class="col-md-2 font-weight-bold">
-                          <p>Name :</p>
-                          <p>Address :</p>
-                          <p>Phone Number :</p>
-                          <p>Email :</p>
-                      </div>
-                      <div class="col-md-10">
-                          <p>saurav</p>
-                          <p>indore</p>
-                          <p>1256567890</p>
-                          <p>saurav@gmail.com</p>
-                      </div>
-                  </div>
-              </div>
+         
+            <?php  } ?>
             </div>
-            <hr>
-          </div>
-		
 	</div>
 </body>
 <?php include "../script.php" ?>

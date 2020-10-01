@@ -299,7 +299,7 @@ height: 200px;
 </div>
 
 <div class="form-group row">
-<input type="checkbox" value="privacy" name="privacy" id="privacy"><label> Accept all <a href="../uploads/privacy/PJS_Privacy_Policy.pdf" target="_blank">privacy policy</a> </label>
+<input type="checkbox" value="privacy" name="privacy" id="privacy"><label>Accept Our <a href="../uploads/privacy/PJS_Privacy_Policy.pdf" target="_blank">privacy policy</a> </label>
 </div>
 
 <div class="form-group row" id="fileerror"><div>

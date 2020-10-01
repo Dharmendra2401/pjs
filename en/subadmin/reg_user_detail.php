@@ -103,15 +103,12 @@ redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR)
 <div class="col-md-9"><?php if($getdate['popular_name']!='') {echo $getdate['popular_name'];}else{ echo 'NA';} ?></div>
 
 <div class="col-md-3">Gender<strong>:</strong></div>
-<div class="col-md-9"><?php if($getdate['gender']==1)  { echo 'MALE';} else{ echo "FEMALE";} ?></div>
+<div class="col-md-9"><?php if($getdate['gender']=='M')  { echo 'MALE';} else{ echo "FEMALE";} ?></div>
 
 <div class="col-md-3">Status <strong>:</strong></div>
 <div class="col-md-9"><?php echo $getdate['martial_status'] ;?></div>
 
-<?php if($getdate['martial_status']=='married'){  ?>
-<div class="col-md-3">Status <strong>:</strong></div>
-<div class="col-md-9"><?php echo $getdate['husbandname'] ;?></div>
-<?php  } ?>
+
 <div class="col-md-3">Blood Group<strong>:</strong></div>
 <div class="col-md-9"> 
 <?php if($getdate['blood_group']==1){echo 'A+';} else if($getdate['blood_group']==2){echo 'B+';}

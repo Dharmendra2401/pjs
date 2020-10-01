@@ -28,7 +28,7 @@ while($getgallery=mysqli_fetch_array($gallery)){
             <img class="img-fluid img-thumbnail" src="<?php echo RE_HOME_PATH.'/'.$getgallery['short_image']; ?>" alt="">
           </a>
     </div>
-<?php } ?>
+<?php } if ($count==0) { echo "<div class='col-md-12 text-center'>No Records Found</div><br><br>";}?>
   </div>
 
 </div>

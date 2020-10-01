@@ -148,7 +148,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <li class="nav-item">
 <a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
 <div class="dropdown-menu custom-dropdwn">	
-<a class="dropdown-item" href="reg_request.php">Registered Users Count</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_users.php">Registered Users Count</a>
 <a class="dropdown-item" href="contact_request">Death Count</a>
 <a class="dropdown-item" href="#">OPJ Requests Report</a>
 <a class="dropdown-item" href="#">Update Request Count</a>

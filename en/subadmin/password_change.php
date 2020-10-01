@@ -7,7 +7,7 @@ $newpass=mysqli_real_escape_string($con,trim($_REQUEST['newpassword']));
 $cpassword=mysqli_real_escape_string($con,trim($_REQUEST['cpassword']));
 if(($oldpass!='') && ($newpass!='')&& ($cpassword!='') ){
 if(($newpass==$cpassword)){
-$update=mysqli_query($con,'update sub_admin_login set password="'.$newpass.'" where id="'.$_SESSION['sub_admin_id'].'"');
+$update=mysqli_query($con,'update sub_admin_login set password="'.base64_encode($newpass).'" where id="'.$_SESSION['sub_admin_id'].'"');
 redirect(RE_HOME_ADMIN."password_change.php","Password updated successfully~@~".MSG_SUCCESS);
 }
 redirect(RE_HOME_ADMIN."password_change.php","Error! Confirm password is incorrect~@~".MSG_ERROR);

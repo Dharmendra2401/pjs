@@ -34,7 +34,7 @@ $stat="member_request where 1=1 and (status_of_request='Y' or status_of_request=
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
-echo $query = "SELECT * FROM ".$stat." LIMIT ".$startpoint." , ".$limit; 
+$query = "SELECT * FROM ".$stat." LIMIT ".$startpoint." , ".$limit; 
 if($page==1){ $count=1;}else{$count=$page*10-10+1;}
 $rest = mysqli_query($con,"SELECT * FROM ".$stat);
 $row_count=mysqli_num_rows($rest);

@@ -14,39 +14,31 @@ include "../config/config.php";
           <div class="col-md-10 offset-md-1 schemes-bg accordion" id="accordionExample">
             <h4 class="my-5">इस सेक्शन में पोरवाड़ सामाजिक मंच किस तरह की और क्या स्कीम्स लेन वाला है इस बारे में बताये संक्षिप्त में </h4>
             <div class="row my-4">
+
+<?php $schemes=mysqli_query($con,'select * from  schemes where status="Y" order by id desc ') ; $count=mysqli_num_rows($schemes);
+$countt=0;
+while($getschemes=mysqli_fetch_array($schemes)){
+
+?>
+
               <div class="col-md-3 px-4">
-                <img width="100%" class="img-fluid" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
+                <img width="100%" class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getschemes['short_image'];  ?>" alt="Event">
               </div>
               <div class="col-md-9">
-                  <h3>JIO Mobile Accidental Damage Protection Plan</h3>
-                  <p>Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
+                  <h3><?php echo $getschemes['title'];  ?></h3>
+                  <?php echo substr($getschemes['content'],0,700) ; if(substr($getschemes['content'],700)!=''){?>
+                  <p id="collapse<?php echo $countt; ?>" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">.
                   </p>
-                  <p>Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
-                  </p>
-                  <p id="collapseOne" class="collapse" aria-labelledby="headingOne" data-parent="#accordionExample">Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
-                  </p>
-                  <span class="more" data-toggle="collapse" data-target="#collapseOne">Show More</span>
+                  <span class="more" data-toggle="collapse" data-target="#collapse<?php echo $countt; ?>">Show More</span>
+                  <?php } ?>
               </div>
-            </div>
-            <hr>
-            <div class="row my-4">
-              <div class="col-md-3 px-4">
-                <img width="100%" class="img-fluid" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
-              </div>
-              <div class="col-md-9">
-                  <h3>JIO Mobile Accidental Damage Protection Plan</h3>
-                  <p id="collapseTwo" class="collapse" aria-labelledby="headingTwo" data-parent="#accordionExample">Protection plan for Accidental, Liquid and Screen Damage on New Mobile Phones and Tablets for period
-                     ofOne year from date of purchase mentioned on Invoice.
-                  </p>
-                  <span class="collapsed more" data-toggle="collapse" data-target="#collapseTwo">Show More</span>
-              </div>
-            </div>
-            <hr>
-          </div>  
-    
+            
+           <div class="col-md-12"> <hr></div>
+          
+           
+         
+<?php $countt ++;} ?>
+  </div>
   </div>
 </body>
 <?php include "../script.php" ?>

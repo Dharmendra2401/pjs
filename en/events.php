@@ -37,7 +37,9 @@ include "../config/config.php";
 						
 					</div>
 					</div>
-				<?php $count++;} ?>
+				<?php $count++;} if($countevent==0){
+					echo "<div class='col-md-12 text-center'>No Records Found</div><br>";
+				} ?>
 				</div>
 				
 			</div>
