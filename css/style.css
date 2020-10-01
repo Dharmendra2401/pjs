@@ -142,6 +142,58 @@ body{
 /*-----------------------HEADER ENDS----------------------------------------------*/
 
 
+/*-----------------------EDIT----------------------------------------------*/
+.privacy{
+    font-weight: 600;
+    position: absolute;
+    right: 105px;
+}
+
+.edit-form{
+    display: none;
+  } 
+
+.edit{
+  cursor: pointer;
+}
+.edit-link{
+  cursor: pointer;
+  font-size: 18px;
+}
+
+.edit-input{
+  transition: none;
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    margin-bottom: 10px;
+}
+
+.privacy-setting{
+    position: absolute;
+    left: 280px;
+    top: 15px;
+    border: 0;
+}
+
+.privacy-setting .dropdown-menu{
+    top: -12px !important;
+    left: -90px !important ;
+}
+
+.privacy-setting  ul.dropdown-menu li.dropdown-item{
+    cursor: pointer;
+}
+/*-----------------------EDIT ENDS-----------------------------------------*/
+
+
 /*-----------------------ABOUT US---------------------------------------------------*/
 .about-us-banner{
     width: 100%;
@@ -157,6 +209,7 @@ body{
     margin-bottom: 30px;
 }
 /*-----------------------ABOUT US ENDS----------------------------------------------*/
+
 
 
 /*-----------------------EVENT -------------------------------------------------*/
