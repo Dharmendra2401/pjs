@@ -1,5 +1,6 @@
 <?php 
 include "../config/config.php";
+include 'PJS-demo/selectfunction.php';
 
 $idd=base64_decode($_REQUEST['token']);
 
@@ -15,7 +16,29 @@ $login_user='';
 }
 
 
-$row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' AND sp.reference_member_Id='$idd' ,'saved','notsaved') as sp_status,mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.feet,mem.inches,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on  mem.member_id=sp.reference_member_Id  where mem.member_id= '$idd'"));
+$row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' AND sp.reference_member_Id='$idd' ,'saved','notsaved') as sp_status,mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on mem.member_id=sp.reference_member_Id  where mem.member_id= '$idd'"));
+
+$member_request_status=member_request_status($idd,$login_user);
+$request_status_user='';
+$staus_show='';
+if (mysqli_num_rows($member_request_status)>0) {
+		$row2=mysqli_fetch_assoc($member_request_status);	
+//print_r($row);
+$request_status_user='from';
+$staus_show=$row2['member_request_status'];
+}
+else{
+	$member_request_status2=member_request_status2($idd,$login_user);
+	if (mysqli_num_rows($member_request_status2)>0) {
+		$row2=mysqli_fetch_assoc($member_request_status2);	
+		$request_status_user='to';
+		$staus_show=$row2['member_request_status'];
+}
+else{
+$request_status_user='AddFriend';
+$staus_show='no status';
+}
+}
 ?>
 <!DOCTYPE html>
 <html>
@@ -26,8 +49,9 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' 
 	<div class="container-fluid">
 		<?php include "header.php" ?>
 		</div>
-	    
-	    <div class="user-container">
+		<input type="hidden" id="current-users" value="<?php $current_user=$_SESSION['user_mid'];echo $current_user;?>">
+		<input type="hidden" name="" id="home_path" value="<?php echo RE_HOME_PATH;?>">
+	    <div class="user-container" id="example">
 	    	<div class="container">
 		    	<div class="row">
 					<div class="col-md-2 text-right">
@@ -47,9 +71,23 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' 
 
 						<?php   } else { ?> 
 							<a type="button" class="btn btn-info mr-3 login-signup" data-toggle="modal" data-target="#modal21">Save Profile</a>
-						<?php }  ?>
-						
-					    <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="<?php if (isset($_SESSION['user_mid'])){echo '#relation';}else{echo '#modal21';} ?>">Add Member</a>
+					<?php } if(isset($_SESSION['user_mid'])){ 
+							if ($request_status_user=='from' AND $staus_show=='N') {?>
+								<a type="button" class="btn btn-warning add-relation">Request Sent</a>
+						<?php } elseif($request_status_user=='to' AND $staus_show=='N') { ?>
+						<a type="button" class="btn btn-warning approve" id="<?php echo $row['member_id'];?>">Accept</a>
+					<?php } elseif ($request_status_user=='to' AND $staus_show=='Y') {?>
+						<a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Member</a>
+					<?php }
+					elseif ($request_status_user=='from' AND $staus_show=='Y') {?>
+						<a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Member</a>
+					<?php }
+					else{ ?>
+						<a type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['member_id']; ?>" data-gender="<?php echo $row['gender'];?>" data-name="<?php echo $fullname=$row['first_name'].' '. $row['middle_name'].' '.$row['last_name'];?>">Add Member</a>
+					<?php }
+					}  else {?>
+						<a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Add Member</a>
+					<?php }?>
 					</div>
 				</div>
 		    </div>
@@ -92,13 +130,21 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' 
 						    </li>
 						    <li class="nav-item">
 						      <a class="nav-link" data-toggle="tab" href="#familyTree"><div class="triangle-down"></div>Family Tree</a>
+						     <!--  <a href="whatsapp://send?https://www.xspdf.com/resolution/50085649.html" data-action="share/whatsapp/share" onClick="javascript:window.open(this.href, '', 'menubar=no,toolbar=no,resizable=yes,scrollbars=yes,height=300,width=600');return false;" target="_blank" title="Share on whatsapp">share</a> -->
 						    </li>
 						  </ul>
 					</div>
 					<div class="col-md-6 align-self-center text-right">
 						<div class="icon-mobile">
 							<i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#contactoption"></i>
-							<i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#modal21"></i>
+							<?php if (isset($_SESSION['user_mid'])) { ?>
+								<!-- <i type="button" class="fas fa-download mx-2 login-signup user_profile_download" data-userid="<?php echo $row['member_id'];?>"></i> -->
+								<a href="<?php echo RE_HOME_PATH; ?>en/PJS-demo/user_detail_pdf.php?id=<?php echo$row['member_id'];?>"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
+								
+							<?php }
+							else{?>
+								<i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#modal21"></i>
+							<?php } ?>
 							<i type="button" class="fas fa-share mx-2 login-signup" data-toggle="modal" data-target="#modal21"></i>
 						</div>
 					</div>
@@ -272,7 +318,8 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' 
 		var user_mid = $(this).data('current') // Extract info from data-* attributes
 		var reference_user_mid=$(this).attr('id');
 		//
-		$.post("/pjs_user/en/PJS-demo/save_user_profile.php",
+		var home_path=$("#home_path").val();
+		$.post(home_path+"en/PJS-demo/save_user_profile.php",
 		{
 			current_user:user_mid,
 			reference_user_mid: reference_user_mid
@@ -291,5 +338,117 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' 
 		});
 		//
 
+	}) 
+		$(".user_profile_download").on("click", function (event) {
+			var button1=$(".user_profile_download")
+		 var userid=button1.data('userid');
+		 var home_path=$("#home_path").val();
+		 		$.post(home_path+"en/PJS-demo/user_detail_pdf.php",
+			{
+				userid: userid
+			},
+		function(data,status){
+			var status1=status;
+			console.log(status1);
+			if (status1=='success') {
+				//console.log(success)				
+			}
+			else{
+				alert("Some thing wrong please try again");
+			}
+		});
 	})
+		$('#exampleModal').on('show.bs.modal', function (event) {
+	var button = $(event.relatedTarget) // Button that triggered the modal
+	var recipient = button.data('whatever') // Extract info from data-* attributes
+	 var gender = button.data('gender')
+	 var name = button.data('name')
+	 
+	 var member_id= $("#current-users").val();
+	// relationship_type_user
+	console.log("gender");
+	 var modal = $(this)
+	 if (gender=='M') {
+		modal.find('.male').css('display','block');
+		modal.find('.female').css('display','none');
+	 }
+	 else{
+		modal.find('.female').css('display','block');
+		modal.find('.male').css('display','none');
+
+	 }
+	 //console.log(gender);
+	// If necessary, you could initiate an AJAX request here (and then do the updating in a callback).
+	// Update the modal's content. We'll use jQuery here, but you could use a data binding library or other methods instead.
+	
+	modal.find('.modal-title').text('Send Request To : ' + name)
+	modal.find('.modal-body #referenc-id').val(recipient)
+	modal.find('.modal-body #Member_Id').val(member_id)
+})
+	
+	$(".send_request").on("click", function () {
+		var member_id=$("#Member_Id").val()
+		var reference=$("#referenc-id").val()
+		var relationship_type1=$("#live_relation_type select:visible option:selected").val()
+  		var home_path=$("#home_path").val();
+		$.post(home_path+"en/PJS-demo/send_request.php",
+			{
+				member_id: member_id,
+				reference_id:reference,
+				relationship_type:relationship_type1
+			},
+		function(data,status){
+			var status1=status;
+			console.log(status1);
+			if (status1=='success') {
+				// window.location.reload();
+				$('#exampleModal').modal('hide')
+				$('#success_tic').modal('show')
+				
+			}
+			else{
+				alert("Data: not updated");
+			}
+		});
+
+	})
+	$(".close-icn").on("click", function () {
+			location.reload(true);
+	})
+	$(".approve").on("click", function () {
+  var to_userid=$(this).attr('id');
+  var home_path=$("#home_path").val();
+
+
+ $.post(home_path+"en/PJS-demo/approveuser.php",
+    {
+      to_userid: to_userid
+        },
+    function(data,status){
+      var status1=status;
+      console.log(status1);
+      if (status1=='success') {
+     // window.location.reload();
+     location.reload(true);
+
+  }
+  else{
+       alert("Data: not updated");
+
+  }
+    });
+
+});
+
+	
 </script>
+<style type="text/css">
+	.fa-download{
+		color: #2c2c2c;
+	}
+	.fa-download:hover{
+		color: #2c2c2c;
+	}
+</style>
+   
+ 
