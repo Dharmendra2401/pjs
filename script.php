@@ -540,7 +540,7 @@ bootbox.alert("Your request has been send to admin for further verification");
 }
 
 }
-
+ 
 
 function checkMid(){
 var mid=$('#mid').val();
@@ -810,20 +810,20 @@ var current_user=$(".curr_mid").val();
 //
 $.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/feedback_submit.php",
 {
-current_user:current_user,
-feedback_type: feedback_type,
-feedback_desc:feedback_desc
+	current_user:current_user,
+	feedback_type: feedback_type,
+	feedback_desc:feedback_desc
 },
 function(data,status){
-var status1=status;
-console.log(status1);
-if (status1=='success') {
-// window.location.reload();
-$('#modal45').modal('hide')
-$('#feedback_alert').modal('show')
-}
-else{
-alert("Data: not updated");
+		var status1=status;
+		console.log(status1);
+		if (status1=='success') {
+		// window.location.reload();
+		$('#modal45').modal('hide')
+		$('#feedback_alert').modal('show')
+	}
+	else{
+	alert("Data: not updated");
 }
 });
 //
@@ -864,10 +864,58 @@ $(".death_update").on("click", function () {
 var mid=$(".mid").val();
 var dod=$(".dod").val();
 var current_user=$(".curr_mid").val();
-
-console.log(mid,dod,current_user);
+$.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/death_checker.php",
+{
+	current_user:current_user,
+	dod: dod,
+	mid:mid
+},
+function(data,status){
+		var status1=status;
+		//console.log(data);
+		if (status1=='success') {
+		var da=$.trim(data);
+		if (da=="Thanks for the update") {
+		console.log(da+"12");
+		$('.err.msg').hide();
+		$('.succ.msg').show();
+		$('.succ.msg').text(da);
+		$('.succ.msg').css("padding","10px");
+		}
+		else{
+			console.log($('.succ.msg').length);
+			$('.succ.msg').hide();
+			$('.err.msg').show();
+		$('.err.msg').text(da);
+		$('.err.msg').css("padding","10px");
+		}
+	}
+	else{
+		alert("Data: not updated");
+	}
+});
 
 })
-
+$('#death_update').on('hide.bs.modal', function (e) {
+ var mid=$(".mid").val('');
+var dod=$(".dod").val('');
+$('.succ.msg').hide();
+$('.err.msg').hide();
+})
+$(function(){
+    var dtToday = new Date();
+    
+    var month = dtToday.getMonth() + 1;
+    var day = dtToday.getDate();
+    var year = dtToday.getFullYear();
+    if(month < 10)
+        month = '0' + month.toString();
+    if(day < 10)
+        day = '0' + day.toString();
+    
+    var maxDate = year + '-' + month + '-' + day;
+    //alert(maxDate);
+    $('.dod').attr('max', maxDate);
+});
 
 </script>
