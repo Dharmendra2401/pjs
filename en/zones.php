@@ -7,9 +7,7 @@ include "../config/config.php";
 <body>
 	<div class="container-fluid">
 		<?php include "header.php";  ?>
-			<div class="col-12 px-0">
-				<img class="about-us-banner" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
-			</div>
+		
 
       <!-- <div class="col-md-10 offset-md-1 py-5 zones-bg">
         <div class="row">
@@ -44,7 +42,7 @@ include "../config/config.php";
   			
       </div> -->
 
-      <div class="col-md-10 offset-md-1 schemes-bg">
+      <div class="col-md-10 offset-md-1 content-container">
             <div class="col-12 my-4">
                 <div class="col-12">
                  <p>

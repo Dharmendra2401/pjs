@@ -507,12 +507,12 @@ $(document).ready(function(){
 
 
 
-$('.nav-tabs' ).on("click", function() {
-	if ($(this).children(".active")) {
-		   $(".tab-content").find(".active").show();
-           $(".tab-content").find(".tab-pane:not(.active)").css("display", "none");
-			}
-});
+// $('.nav-tabs' ).on("click", function() {
+// 	if ($(this).children(".active")) {
+// 		   $(".tab-content").find(".active").show();
+//            $(".tab-content").find(".tab-pane:not(.active)").css("display", "none");
+// 			}
+// });
    
 $(".edit-link").on("click", function() {
 
