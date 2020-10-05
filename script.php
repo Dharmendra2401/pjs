@@ -808,7 +808,7 @@ var feedback_type=$(".feedback_type:visible option:selected").val();
 var feedback_desc=$(".feedback_desc").val();
 var current_user=$(".curr_mid").val();
 //
-$.post("/pjs_user/en/PJS-demo/feedback_submit.php",
+$.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/feedback_submit.php",
 {
 current_user:current_user,
 feedback_type: feedback_type,
@@ -833,9 +833,6 @@ $('.inputtexttwo').bind('keyup',function(){
 var node = $(this);
 node.val(node.val().replace(/[^a-zA-Z _]/g,'') ); }
 );
-
-
-
 
 $(".inputtext").keyup(function(e) {
 // Our regex
@@ -862,6 +859,15 @@ if ($(e.target).closest(".searchdata").length
 $('.searchdata').hide(); 
 } 
 });
+
+$(".death_update").on("click", function () {
+var mid=$(".mid").val();
+var dod=$(".dod").val();
+var current_user=$(".curr_mid").val();
+
+console.log(mid,dod,current_user);
+
+})
 
 
 </script>

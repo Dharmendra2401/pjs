@@ -177,7 +177,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 </div>
 <!---->
 
-
+ 
 <!-- Modal -->
 
 <div id="success_tic" class="modal fade" role="dialog">
@@ -205,10 +205,10 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 <input type="hidden" name="" id="home_path" value="<?php echo RE_HOME_PATH;?>">
 <!---->
 </body>
-<?php include "../script.php"; ?>
+
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-
+<?php include "../script.php"; ?>
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 </html>
@@ -221,6 +221,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 	 
 	 var member_id= $("#current-users").val();
 	// relationship_type_user
+	console.log("gender");
 	 var modal = $(this)
 	 if (gender=='M') {
 		modal.find('.male').css('display','block');
@@ -244,8 +245,8 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 		var member_id=$("#Member_Id").val()
 		var reference=$("#referenc-id").val()
 		var relationship_type1=$("#live_relation_type select:visible option:selected").val()
- 
-		$.post("/pjs_user/en/PJS-demo/send_request.php",
+ 		var home_path=$("#home_path").val();
+		$.post(home_path+"en/PJS-demo/send_request.php",
 			{
 				member_id: member_id,
 				reference_id:reference,
@@ -253,7 +254,6 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 			},
 		function(data,status){
 			var status1=status;
-			console.log(status1);
 			if (status1=='success') {
 				// window.location.reload();
 				$('#exampleModal').modal('hide')
@@ -298,9 +298,9 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 				fd.append('dod',dod); 
 				fd.append('relationship_type',relationship_type); 
 				fd.append('member_id',member_id);
-
+ 				var home_path=$("#home_path").val();
 				$.ajax({
-					url: '/pjs_user/en/PJS-demo/dead_persion_send_request.php',
+					url: home_path+'en/PJS-demo/dead_persion_send_request.php',
 					type: 'post',
 					data: fd,
 					contentType: false,

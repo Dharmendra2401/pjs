@@ -67,7 +67,7 @@ include 'PJS-demo/selectfunction.php';
 <script type="text/javascript">
 		$(".save_profile_delete").on("click", function () {
 		var reference=$(this).attr('id');
-		$.post("/pjs_user/en/PJS-demo/save_profile_delete.php",
+		$.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/save_profile_delete.php",
 			{
 				reference_id:reference
 			},

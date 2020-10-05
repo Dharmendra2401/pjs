@@ -135,7 +135,7 @@ LOGIN/SIGUP
     </a>
     <div class="dropdown-menu custom-dropdwn">
       <a class="dropdown-item" href="tree.php">Family Tree</a>
-      <a class="dropdown-item" href="#">Death Update</a>
+      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#death_update">Death Update</a>
     </div>
   
 </li>
