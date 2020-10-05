@@ -1,7 +1,10 @@
 
 <?php
 include "config/config.php";
+<<<<<<< Updated upstream
 
+=======
+>>>>>>> Stashed changes
 redirect(RE_EN_PATH."index.php")
 ?>
 
