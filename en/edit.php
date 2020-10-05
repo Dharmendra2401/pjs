@@ -448,6 +448,7 @@ include "../config/config.php";
 </div>	
 </div>
 </div>
+<?php include "../footer.php" ?>
 </body>
 <?php  include "../script.php" ;?>
 <script>

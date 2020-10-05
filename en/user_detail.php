@@ -307,7 +307,7 @@ $staus_show='no status';
 			
 		
 	  </div>       
-    
+  <?php include "../footer.php" ?>  
 </body>
 <?php include "../script.php"; ?>
 

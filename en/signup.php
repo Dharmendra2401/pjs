@@ -326,6 +326,7 @@ height: 200px;
 </div>	
 </div>
 </div>
+<?php include "../footer.php" ?>
 </body>
 <?php  include "../script.php" ;?>
 

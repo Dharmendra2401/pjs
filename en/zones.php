@@ -89,6 +89,7 @@ include "../config/config.php";
             <?php  } ?>
             </div>
 	</div>
+  <?php include "../footer.php" ?>
 </body>
 <?php include "../script.php" ?>
 </html>

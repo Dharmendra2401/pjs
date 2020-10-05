@@ -43,6 +43,7 @@ include "../config/config.php";
 			</div>
 				
 	</div>
+	<?php include "../footer.php" ?>
 </body>
 <?php include "../script.php" ?>
 <script type="text/javascript">
