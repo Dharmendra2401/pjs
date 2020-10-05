@@ -3,7 +3,7 @@ include 'config/config.php';
 include "en/mail/index.php" ;
 $newnumber=mysqli_real_escape_string($con,trim($_REQUEST['newnumber']));
 $oldnumber=mysqli_real_escape_string($con,trim($_REQUEST['oldnumber']));
-$memberid=mysqli_real_escape_string($con,trim($_REQUEST['memberid']));
+$memberid=mysqli_real_escape_string($con,trim(strtoupper($_REQUEST['memberid'])));
 $description=mysqli_real_escape_string($con,trim($_REQUEST['description']));
 $submitdate=date('Y-m-d H:i:s');
 $getmemberid=mysqli_query($con,'select email,member_id,mobile from communication where member_id="'.$memberid.'" and  mobile="'.$oldnumber.'" ');

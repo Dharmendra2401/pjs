@@ -1,6 +1,5 @@
 <?php
 error_reporting(0);
-
 session_start();
 $user="root";
 $password="";
@@ -15,7 +14,6 @@ define('RE_HOME_SUPERADMIN', "http://localhost/pjs_user/en/admin/");
 define('WEBSITE_NAME','PJS');
 define('TITLE','PJS');
 define('TITLE_SITE','');
-
 define('FROM_EMAIL','pjsadmin@gmail.com');
 
 

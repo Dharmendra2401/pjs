@@ -1103,4 +1103,8 @@ display:none;z-index:9;}
 }
 .invalid:focus{    background-color: #ffdddd!important;
 }
+.multiselect-container>li>a>label{padding: 5px 7px!important;}
+.maxmin{    border: 1px solid rgb(0 0 0 / 33%);
+    background: rgb(128 128 128 / 16%);
+    padding: 0px 3px;}
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

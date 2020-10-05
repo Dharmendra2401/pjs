@@ -1,7 +1,6 @@
-
 <?php  
 include "../../config/config.php" ;
-commonsession();
+//commonsession();
 if(isset($_REQUEST['login'])){
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
 $password=mysqli_real_escape_string($con,trim($_REQUEST['password']));

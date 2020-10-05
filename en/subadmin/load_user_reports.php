@@ -32,9 +32,58 @@ if($_REQUEST['submitdate']!='')
 if($_REQUEST['refrenceidone']!='')
 {$statu.= 'and new_request LIKE "'.trim($_REQUEST['refrenceidone']).'"';}
 
+// "mini":mini,"max":max,"state":state,"age":age,"bloodgroupone":bloodgroupone,"occupationone":occupationone,"incomeone":incomeone
 
-if(isset($_REQUEST['ustatus']))
-{$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
+if(($_REQUEST['mini']!='') && ($_REQUEST['max']!=''))
+{$statu.= 'and mem.age between "'.$_REQUEST['mini'].'" and "'.$_REQUEST['max'].'" '  ;}
+
+if($_REQUEST['state']!='')
+{
+$getstate=Implode(',',$_REQUEST['state']);
+$string = trim($getstate,","); 
+$statu.= 'and addrss.state in ("'.trim($string ).'") ';
+}
+if($_REQUEST['occupation']!='')
+{
+$getocc=Implode(',',$_REQUEST['occupation']);
+$showocc = trim($getocc,","); 
+$statu.= 'and addrss.state in ("'.trim($showocc ).'") ';
+}
+
+if($_REQUEST['gender']!='')
+{$statu.= 'and mem.gender = "'.$_REQUEST['gender'].'"';}
+
+if($_REQUEST['status']!='')
+{$statu.= 'and mem.marital_status = "'.$_REQUEST['status'].'" ';}
+
+if($_REQUEST['ustatus']!='')
+{$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'" ';}
+
+if($_REQUEST['age']!='')
+{
+$getage=Implode(',',$_REQUEST['age']);
+$showage = trim($getage,","); 
+$statu.= 'and mem.age in ('.trim($showage ).') ';
+}
+
+if($_REQUEST['bloodgroupone']!='')
+{
+$getblood=Implode(',',$_REQUEST['bloodgroupone']);
+$showblood = trim($getblood,","); 
+$statu.= 'and mem.blood_group in ('.trim($showblood ).') ';
+}
+
+if($_REQUEST['occupationone']!='')
+{
+$occupationone=Implode(',',$_REQUEST['occupationone']);
+$getocc = trim($occupationone,","); 
+$statu.= 'and edu.occupation in ('.trim($getocc ).') ';
+}
+
+if($_REQUEST['incomeone']!='')
+{$statu.= 'and edu.income = "'.$_REQUEST['incomeone'].'" ';}
+
+
 
 $joins="mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.feet,mem.inches,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic ";
 
@@ -61,10 +110,21 @@ $currentdate=$row['record_inserted_dttm'];
 <td><?php echo $row['mobile'];?></td>
 <td><?php echo $row['city'];?></td>
 <td><?php if($row['gender']=='M'){echo 'Male';}else{ echo "Female"; }?></td>
-<td><?php echo $row['marital_status'] ?></td>
-<td><?php echo $row['age'] ?></td>
-<td><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
-                        else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></td>
+<td><?php echo $row['marital_status']; ?></td>
+<td><?php echo $row['age'] ;?></td>
+<td>
+<?php
+if($row['blood_group']==1){echo 'A+';}
+else if($row['blood_group']==2){echo 'B+';}
+else if($row['blood_group']==3){echo 'AB+';}
+else if($row['blood_group']==4){echo 'O+';}
+else if($row['blood_group']==5){echo 'A-';}
+else if($row['blood_group']==6){echo 'B-';} 
+else if($row['blood_group']==7){echo 'AB-';}
+else if($row['blood_group']==8){echo 'O-';} 
+else if($row['blood_group']==9){echo 'Other';} 
+else {echo 'NA';}  ; ?>
+</td>
 <td><?php if($row['occupation']==1){ echo 'Job';} else if($row['occupation']==2){ echo "Business";}  else if($row['occupation']==3){ echo "Housewife";}  else if($row['occupation']==4){ echo "Student";} else{echo "NA";} ; 
 
 ?></td>

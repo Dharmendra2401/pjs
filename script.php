@@ -313,7 +313,7 @@
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/bootbox.min.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sample.js"></script>
 <script type="text/javascript" src="https://cdn.ckeditor.com/4.15.0/standard-all/ckeditor.js"></script>
-<script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/bootstrap-multiselect.js"></script>
+<script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/BsMultiSelect.js"></script>
 <script>
     
     CKEDITOR.replace('editor', {
