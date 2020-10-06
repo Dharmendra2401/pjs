@@ -42,13 +42,19 @@
 	$rs = mysqli_query($con,$query);
 	while($row=mysqli_fetch_assoc($rs)){
 	$currentdate=$row['record_inserted_dttm'];
+	$member_id1=$row['member_id'];
+	$query12="SELECT * FROM `member` WHERE `member_id`='$member_id1' ";
+	$fire=mysqli_query($con,$query12);
+	$row1=mysqli_fetch_assoc($fire);
+
+
 	?>
 		<tr>
 			<td><?php echo $count;  ?></td>
-			<td><?php echo $row['request_id'] ; ?></td>
-			<td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
-			<td><td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td></td>
-			<td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a></td>
+			<td><?php echo $row['member_id'] ; ?></td>
+			<td><?php echo $row1['first_name'].' '.$row1['middle_name'].' '.$row1['last_name'] ?></td>
+			<td><?php  echo $row['type_of_request'] ;	?></td>
+			<td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>death_user_detail.php?id=<?php echo base64_encode($row['member_id']);?>">Show Details</a></td>
 		</tr>
 		<?php $count++; }
 		if($row_count<=0){

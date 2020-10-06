@@ -44,7 +44,7 @@ include 'PJS-demo/selectfunction.php';
 										<a href="#">
 											<ul class="list-unstyled list-inline">
 												<li class="list-inline-item">
-													<p>no record found</p>
+													<p>You don't have any saved profiles</p>
 												</li>
 										    </ul>
 									    </a>

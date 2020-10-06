@@ -63,9 +63,9 @@ include "../../styles.php"
 <div class="col-md-12">
 <div class="row info mb-4">
 <div class="col-md-3">Member<strong>:</strong></div>
-<div class="col-md-9"><?php echo $getvalutwo['first_name'].' '.$getvalutwo['middle_name'].' '.$getvalutwo['last_name'];  ?> <a target='blank' href="<?php echo RE_HOME_ADMIN;?>reg_user_detail2.php?id=<?php echo base64_encode($getvalutwo['member_id']);?>">View Details</a></div>
+<div class="col-md-9"><?php echo $getvalutwo['first_name'].' '.$getvalutwo['middle_name'].' '.$getvalutwo['last_name'];  ?> <a target='blank' href="<?php echo RE_HOME_ADMIN;?>death_user_detail.php?id=<?php echo base64_encode($getvalutwo['member_id']);?>">View Details</a></div>
 <div class="col-md-3">Requested By <strong>:</strong></div>
-<div class="col-md-9"><?php echo $getvaluone['first_name'].' '.$getvaluone['middle_name'].' '.$getvaluone['last_name'];?> <a target='blank' href="<?php echo RE_HOME_ADMIN;?>reg_user_detail2.php?id=<?php echo base64_encode($getvalutwo['member_id']);?>">View Details</a> </div>
+<div class="col-md-9"><?php echo $getvaluone['first_name'].' '.$getvaluone['middle_name'].' '.$getvaluone['last_name'];?> <a target='blank' href="<?php echo RE_HOME_ADMIN;?>death_user_detail.php?id=<?php echo base64_encode($getvalutwo['reference_member_Id']);?>">View Details</a> </div>
 
 <div class="col-md-3">Email Id<strong>:</strong></div>
 <div class="col-md-9"><?php echo $getvalutwo['email']; ?></div>

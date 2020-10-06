@@ -1,73 +1,17 @@
-<?php  include "../../config/config.php" ;
+<?php  
+include "../../config/config.php" ;
 include "../mail/index.php" ;
 sub_admin_session_check();
 
 $getid=base64_decode($_REQUEST['id']);
 
-$getdate=mysqli_fetch_array(mysqli_query($con,'select * from staging_approval where request_id="'.$getid.'" '));
-if(isset($_REQUEST['submit'])){
-$submitdate=date('Y-m-d H:i:s');
-$status=mysqli_real_escape_string($con,trim($_REQUEST['status']));
 
-if($status==1){
-$member_id = uniquemid($con);
-$password=base64_encode(generatepassword($pass));
-$sorcevalue=strtoupper(substr($getdate['first_name'],0,3)).'_'.strtoupper(substr($getdate['last_name'],0,3)).'_'.strtoupper(substr($getdate['fathers_name'],0,3)).'_'.date('dmY',strtotime($getdate['date_of_birth'] ));
+mysqli_query($con,$getid);
 
-  $insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm,id,password)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$member_id."','".$password."')");
+$row="SELECT if(sp.member_Id='' AND sp.reference_member_Id='' ,'saved','notsaved') as sp_status,mem.feet,mem.inches,mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on mem.member_id=sp.reference_member_Id  where mem.member_id= '$getid'";
 
-
-$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,husbandname,area,feet,inches,life_status) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['husbandname']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."','L'  ) ");
-
-$insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_inserted_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['sub_admin_id']."','".$submitdate."' )");
-
-
-$insertcommunication=mysqli_query($con,"INSERT into communication (member_id,mobile,email,upd_user,record_inserted_dttm)values('".$member_id."','".$getdate['mobile']."' ,'".$getdate['email']."','".$_SESSION['sub_admin_id']."', '".$submitdate."') ");
-$inserteducation_occp=mysqli_query($con,"insert into education_ocp(member_id,highest_edu,occupation,ocp_details,income,upd_user,record_inserted_dttm) values('".$member_id."','".$getdate['highest_edu']."','".$getdate['occupation']."','".$getdate['ocp_details']."','".$getdate['income']."','".$_SESSION['sub_admin_id']."','".$submitdate."')");
-
-
-$update=mysqli_query($con,"update staging_approval set active_status='N' where request_id='".$getid."' ");
-$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husbandname,age,area,feet,inches)
-SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husbandname,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
-mysqli_query($con,$insert);
-
-$subject="User Crediential From ".WEBSITE_NAME." ";
-$mes='';
-$mes.=" Dear ".$getdate['first_name']." ".$getdate['last_name'].",<br> you are successfully approved by the admin and your login crediential is : <br>  MEMBER ID (MID) : <strong>".$member_id."</strong> <br> Password : <strong>".base64_decode($password)."</strong><p> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
-$message=$mes;
-$to=$getdate['email'];
-sendmails($to,$message,$subject);
-
-redirect(RE_HOME_ADMIN."reg_request.php","User successfully approved~@~".MSG_SUCCESS);
-
-}
-else if($status==2){
-
-$reason=$_REQUEST['reason'];
-mysqli_query($con,"update staging_approval set active_status='R' where request_id='".$getid."' ");
-//$reasontext=mysqli_real_escape_string($con,trim($_REQUEST['reasontext']));
-$getreason=Implode(',',$reason);
-$trimreason=rtrim($getreason,',');
-$update=mysqli_query($con,"update staging_approval set reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
-$subject="User Approval Rejected From ".WEBSITE_NAME." ";
-$mes='';
-$mes.=" Dear ".$getdate['first_name']."  ".$getdate['last_name'].", your user application is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
-$message=$mes;
-$to=$getdate['email'];
-sendmails($to,$message,$subject);
-redirect(RE_HOME_ADMIN."reg_request.php","User successfully rejected~@~".MSG_SUCCESS);
-
-}
-else{
-redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR);
-
-}
-
-
-
-}
-
-
+$row1=mysqli_query($con,$row);
+$getdate = mysqli_fetch_array($row1);
 ?>
 <!DOCTYPE>
 <html>
@@ -108,7 +52,7 @@ redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR)
 <div class="col-md-9"><?php if($getdate['gender']=='M')  { echo 'MALE';} else{ echo "FEMALE";} ?></div>
 
 <div class="col-md-3">Status <strong>:</strong></div>
-<div class="col-md-9"><?php echo $getdate['martial_status'] ;?></div>
+<div class="col-md-9"><?php echo $getdate['marital_status'] ;?></div>
 
 
 <div class="col-md-3">Blood Group<strong>:</strong></div>
@@ -187,7 +131,7 @@ else{ echo "NA";}
 </div>
 </div>
 </div>
-<form method="post">
+<!-- <form method="post">
 <div class="admin-check-wrapper">
 <div class="row">
 <div class="col-md-6 text-center">
@@ -206,8 +150,8 @@ else{ echo "NA";}
 <?php if($getdate['active_status']!="N"){  ?>
 <button class="btn btn-success" name="submit">Submit</button>
 <?php } ?>
-<!-- <button class="btn btn-warning">Pending</button> -->
-<a href="<?php echo RE_HOME_ADMIN;?>reg_request.php" class="btn btn-danger">Back</a>
+ <button class="btn btn-warning">Pending</button> -->
+<!-- <a href="<?php echo RE_HOME_ADMIN;?>reg_request.php" class="btn btn-danger">Back</a>
 </div>
 <div id="select-block"  class="col-md-12">
 <label>Select reason for rejection</label>
@@ -235,8 +179,8 @@ else{ echo "NA";}
 </div>
 </div>
 </div>
-</div>
-</form>
+</div> 
+</form> -->
 
 </div>
 
