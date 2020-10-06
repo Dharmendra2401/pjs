@@ -19,9 +19,9 @@ redirect(RE_EN_PATH."index.php");
 redirect(RE_HOME_ADMIN."index.php","Sorry! Your current profile is Inactive.~@~".MSG_ERROR);
 
 }
-}else{
-redirect(RE_HOME_ADMIN."index.php","Invalid email and password.~@~".MSG_ERROR);
 }
+redirect(RE_HOME_ADMIN."index.php","Invalid email and password.~@~".MSG_ERROR);
+
 
 
 }

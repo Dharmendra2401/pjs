@@ -4,7 +4,7 @@ require_once("../library/upload.php");
 include 'mail/index.php';
 $firstname=mysqli_real_escape_string($con,trim( $_REQUEST['firstname']));
 $fathername=mysqli_real_escape_string($con,trim( $_REQUEST['fathername']));
-$husbandname=mysqli_real_escape_string($con,trim( $_REQUEST['husbandname']));
+//$husbandname=mysqli_real_escape_string($con,trim( $_REQUEST['husbandname']));
 $lastname=mysqli_real_escape_string($con,trim( $_REQUEST['lastname']));
 $popularname=mysqli_real_escape_string($con,trim( $_REQUEST['popularnamess']));
 $dob=mysqli_real_escape_string($con,trim( $_REQUEST['dob']));
@@ -66,7 +66,8 @@ $thumb_path= $url;
 $max_dim = 800;
 createResized($url, $thumb_path, $max_dim);			
 }
-$insert=mysqli_query($con,"insert into staging_approval (request_id,first_name,last_name,date_of_birth,gender,martial_status,blood_group,popular_name,country,state,city,pincode,full_address,highest_edu,occupation,ocp_details,income,display_pic,place_of_birth,mobile,email,time_of_birth,husbandname,record_inserted_dttm,fathers_name,age,area,feet,inches)values('".$request_id."','".$firstname."','".$lastname."','".date($dob,strtotime('Y-m-d'))."','".$gender."','".$status."','".$bloodgroup."','".$popularname."','".$country."','".$state."','".$city."','".$pincode."','".$address."','".$highest."','".$occupation."','".$details."','".$income."','".$url12."','".$birthplace."','".$mobileno."','".$email."','".$birthtime."','".$husbandname."','".$submitdate."','".$fathername."','".$age."','".$area."','".$feet."','".$inches."')");
+
+$insert=mysqli_query($con,"insert into staging_approval (request_id,first_name,last_name,date_of_birth,gender,martial_status,blood_group,popular_name,country,state,city,pincode,full_address,highest_edu,occupation,ocp_details,income,display_pic,place_of_birth,mobile,email,time_of_birth,record_inserted_dttm,fathers_name,age,area,feet,inches)values('".$request_id."','".$firstname."','".$lastname."','".date($dob,strtotime('Y-m-d'))."','".$gender."','".$status."','".$bloodgroup."','".$popularname."','".$country."','".$state."','".$city."','".$pincode."','".$address."','".$highest."','".$occupation."','".$details."','".$income."','".$url12."','".$birthplace."','".$mobileno."','".$email."','".$birthtime."','".$submitdate."','".$fathername."','".$age."','".$area."','".$feet."','".$inches."')");
 
 
 redirect(RE_EN_PATH."signup.php","You're successfuly registered with PJS. Check your email for reference id for further communication. On admin approval you will receive your Member Id to login to PJS portal. To redirect home page  <a href='".RE_EN_PATH."'>click here</a>~@~".MSG_SUCCESS);

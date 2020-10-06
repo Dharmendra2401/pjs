@@ -258,7 +258,7 @@ $('#uaddress').val(atob(uaddress));
 
 function btnclickdelete(id,table,page)
 {
-bootbox.confirm("Are you sure you want to delete this user", function(result) {
+bootbox.confirm("Are you sure you want to delete this zone", function(result) {
 if(result){ 
 $('#loadergif').fadeIn();
 $.ajax({
@@ -283,7 +283,7 @@ $('#loadergif').fadeOut();
 }
 
 function varify(x,y,z,page){
-bootbox.confirm("Are you sure you want to make this user active?", function(result) {
+bootbox.confirm("Are you sure you want to make this zone active?", function(result) {
 if(result) {
 $('#loadergif').fadeIn();
 $.ajax({
@@ -300,7 +300,7 @@ $('#loadergif').fadeOut();
 }	
 
 function unvarify(x,y,z,page){
-bootbox.confirm("Are you sure you want to make this user inactive?", function(result) {
+bootbox.confirm("Are you sure you want to make this zone inactive?", function(result) {
 if(result)
 {  
 $('#loadergif').fadeIn();

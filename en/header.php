@@ -150,7 +150,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <div class="dropdown-menu custom-dropdwn">	
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_users.php">Registered Users Count</a>
 <a class="dropdown-item" href="contact_request">Death Count</a>
-<a class="dropdown-item" href="#">OPJ Requests Report</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>opj_request_reports.php">OPJ Requests Report</a>
 <a class="dropdown-item" href="#">Update Request Count</a>
 </div>
 </li>
@@ -197,7 +197,7 @@ if ($_SESSION['admin_email']!=''){
 <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>gallery.php">Gallery</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>schemes.php">Schemes</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>zone.php">Zone</a>
-<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>addcity.php">Add City</a>
+<!-- <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>addcity.php">Add City</a> -->
 </div>
 </li>
 <li class="nav-item">

@@ -34,7 +34,7 @@ if($_REQUEST['refrenceidone']!='')
 
 // "mini":mini,"max":max,"state":state,"age":age,"bloodgroupone":bloodgroupone,"occupationone":occupationone,"incomeone":incomeone
 
-if(($_REQUEST['mini']!='') && ($_REQUEST['max']!=''))
+if((($_REQUEST['mini']!='') && ($_REQUEST['mini']!=0)) && (($_REQUEST['max']!='')&& ($_REQUEST['max']!=0)))
 {$statu.= 'and mem.age between "'.$_REQUEST['mini'].'" and "'.$_REQUEST['max'].'" '  ;}
 
 if($_REQUEST['state']!='')
@@ -50,10 +50,10 @@ $showocc = trim($getocc,",");
 $statu.= 'and addrss.state in ("'.trim($showocc ).'") ';
 }
 
-if($_REQUEST['gender']!='')
+if(($_REQUEST['gender']!='')&& ($_REQUEST['gender']!='undefined'))
 {$statu.= 'and mem.gender = "'.$_REQUEST['gender'].'"';}
 
-if($_REQUEST['status']!='')
+if(($_REQUEST['status']!='')&& ($_REQUEST['status']!='undefined'))
 {$statu.= 'and mem.marital_status = "'.$_REQUEST['status'].'" ';}
 
 if($_REQUEST['ustatus']!='')

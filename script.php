@@ -394,7 +394,7 @@ method:'POST',
 url:'<?php echo RE_HOME_PATH ;?>newnumber.php',
 data:{'newnumber':newnumber,'oldnumber':oldnumber,'memberid':memberid,'description':description},
 success:function(data1234){
-if(data1234=='true'){
+if(data1234.trim()=='true'){
 $('#update-number')[0]. reset();
 $('#help').modal('hide');
 $('#update-number').hide();
@@ -402,12 +402,12 @@ $('#errorfirst').html('');
 $('#loadergif').fadeOut();
 bootbox.alert('Your details has been sent to Admin for verification, You will receive a callback soon on your new phone number');
 }
-if(data1234=='Error'){
+if(data1234.trim()=='Error'){
 $('#update-number')[0]. reset();
 $('#errorfirst').html('<div class="alert alert-danger alert-sm">Please check your old mobile number and MEMBER ID(MID)</div>');
 $('#loadergif').fadeOut();
 }
-if(data1234=='false'){
+if(data1234.trim()=='false'){
 $('#update-number')[0]. reset();
 //$('#update-number').hide();
 //$('#help').modal('hide');
@@ -455,7 +455,7 @@ method:'POST',
 url:'<?php echo RE_HOME_PATH ;?>emailsend.php',
 data:{'firstname':firstname,'lastname':lastname,'fathersname':fathersname,'dob':dob},
 success:function(emailshoot){
-if(emailshoot=='true'){
+if(emailshoot.trim()=='true'){
 $('#forgot-login-form')[0]. reset();
 $('#forgot-login-form').modal('hide');
 $('#help').modal('hide');
@@ -464,7 +464,7 @@ $('#loadergif').fadeOut();
 bootbox.alert("Your details has been sent to your registered email id");
 }
 
-if(emailshoot=='false'){
+if(emailshoot.trim()=='false'){
 $('#forgot-login-form')[0]. reset();
 $('#help').modal('hide');
 //$('#forgot-login-form').modal('hide');
@@ -526,12 +526,19 @@ method:'POST',
 url:'<?php echo RE_HOME_PATH ;?>opjsubmit.php',
 data:{'opjfirstname':opjfirstname,'opjlastname':opjlastname,'opjmobile':opjmobile,'opjemail':opjemail,'opjaddress':opjaddress,'userid':userid},
 success:function(opjrequest){
-if(opjrequest=='true'){
+if(opjrequest.trim()=='true'){
 $('#opform')[0]. reset();
 $('#opjcontact').modal('hide');
 $('#opjerror').html('');
 $('#loadergif').fadeOut();
 bootbox.alert("Your request has been send to admin for further verification");
+}
+if(opjrequest.trim()=='false'){
+$('#opform')[0]. reset();
+$('#opjcontact').modal('hide');
+$('#opjerror').html('');
+$('#loadergif').fadeOut();
+bootbox.alert("Error! Please try again");
 }
 }
 
@@ -549,7 +556,7 @@ type:'POST',
 url:'<?php echo RE_HOME_USER ;?>checkmid.php',
 data:{'mid':mid,},
 success:function(midsuccess){
-if(midsuccess=='false'){
+if(midsuccess.trim()=='false'){
 $('#miderror').html('<div class="text-danger">Invalid MID you entered</div> ');
 $('#mid').val('');
 $('#getotp').hide();
@@ -615,22 +622,21 @@ method:'POST',
 url:'<?php echo RE_HOME_USER ;?>loginuser.php',
 data:{'mid':mid,'password':password},
 success:function(userlog){
-alert(userlog);
-if(userlog=='false'){
+if(userlog.trim()=='false'){
 swal({
 title: "Error",
 text: "Error! Please fill out the fields! ",
 icon: "error",
 });
 }
-if(userlog=='Error'){
+if(userlog.trim()=='Error'){
 swal({
 title: "Error",
 text: "Error! Please enter the valid member id and password! ",
 icon: "error",
 });
 }
-if(userlog=='true'){
+if(userlog.trim()=='true'){
 window.location.replace("<?php echo RE_EN_PATH; ?>");
 }
 }
@@ -869,5 +875,15 @@ console.log(mid,dod,current_user);
 
 })
 
+
+
+$("#dob").on("click", function () {
+
+
+})
+
+function calculateAge() { // birthday is a date
+    
+}
 
 </script>

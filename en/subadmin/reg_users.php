@@ -30,14 +30,14 @@ sub_admin_session_check();
 <div>AGE</div>
 <div>
 
-<input id="range1" type="range" value="0"  min="0" max="100" oninput="amount1.value=range1.value" />
+<input id="range1" type="range" value="0"  min="0" onchange="return BtnClickPage(1,10);" max="100" oninput="amount1.value=range1.value" />
 <span>Min</span>:
 <span id="amount1" class="maxmin">0</span>
 
 
 </div><br>
 <div>
-<input id="rangeInput" type="range" value="0"   max="100"  />
+<input id="rangeInput" type="range" value="0" onchange="return BtnClickPage(1,10);"   max="100"  />
 <span>Max</span>:
 <span id="amount"  class="maxmin"  >0</span>
 </div>
@@ -51,7 +51,7 @@ sub_admin_session_check();
 </a>
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="state">
-<select class="select form-control" id="multiselectwithsearch" multiple="multiple">
+<select class="select form-control" id="multiselectwithsearch" multiple="multiple" onchange="return BtnClickPage(1,10);">
 
 <?php
 $state=mysqli_query($con,'select DISTINCT(state) from states_city_country where state!="CHANDIGARG" and state!=""');
@@ -72,9 +72,9 @@ while($show=mysqli_fetch_array($state)){
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="gender">
 <div class="card card-body">
-<input  type="radio" name="gender" id="male"  value="M">
+<input  type="radio" name="gender" id="male"  value="M" onchange="return BtnClickPage(1,10);">
 <label for="male">Male</label><br>
-<input type="radio" name="gender" id="female"  value="F">
+<input type="radio" name="gender" id="female"  value="F" onchange="return BtnClickPage(1,10);">
 <label for="female">Female</label><br>
 </div>
 </div>
@@ -86,21 +86,21 @@ while($show=mysqli_fetch_array($state)){
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="status">
 <div class="card card-body">
-<input type="radio" id="single" name="status"  value="single">
+<input type="radio" id="single" name="status"  value="single" onchange="return BtnClickPage(1,10);">
 <label for="single">Single</label><br>
-<input type="radio" id="married" name="status" value="married">
+<input type="radio" id="married" name="status" value="married" onchange="return BtnClickPage(1,10);">
 <label for="married">Married</label><br>
 </div>
 </div>
 </li>
-<li class="collapse-wrapper">
+<li class="collapse-wrapper" id="cage">
 <a class="btn btn-default w-100" data-toggle="collapse" href="#age" role="button" aria-expanded="false" aria-controls="age">
 <span class="float-left">AGE</span>
 </a>
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="age" multiple="multiple">
 <div class="card card-body">
-<select class="select form-control" id="ageone" multiple="multiple" >
+<select class="select form-control" id="ageone" multiple="multiple"  onchange="return BtnClickPage(1,10);" >
 <?php 
 $j=100;
 for($i=1;$j>=$i;$i++){
@@ -118,7 +118,7 @@ for($i=1;$j>=$i;$i++){
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="blood-group">
 <div class="card card-body">
-<select class="select form-control" id="bloodgroupone" multiple="multiple" >
+<select class="select form-control" id="bloodgroupone" multiple="multiple" onchange="return BtnClickPage(1,10);">
 
 <option value="1">A+</option>
 <option value="2">B+</option>
@@ -140,7 +140,7 @@ for($i=1;$j>=$i;$i++){
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="occupation">
 <div class="card card-body">
-<select class="select form-control" id="occupationone" multiple="multiple" name="occupation">
+<select class="select form-control" id="occupationone" multiple="multiple" name="occupation" onchange="return BtnClickPage(1,10);">
 <option value="1">Job</option>
 <option value="2">Business </option>
 <option value="3">Housewife</option>
@@ -160,7 +160,7 @@ for($i=1;$j>=$i;$i++){
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="income">
 <div class="card card-body">
-<select class="custom-select" class="form-control" id="incomeone"  name="income" >
+<select class="custom-select" class="form-control" id="incomeone"  name="income" onchange="return BtnClickPage(1,10);" >
 <option value="">Select income</option>
 <option value="1">Less than 1 lakh</option>
 <option value="2">1 lakh to 2 lakh</option>
@@ -173,7 +173,7 @@ for($i=1;$j>=$i;$i++){
 </div>
 </li>
 <li class="collapse-wrapper text-right">
-<button type="button" class="btn btn-primary" onclick="return BtnClickPage(1,10);">APPLY</button>
+<!-- <button type="button" class="btn btn-primary" onclick="return BtnClickPage(1,10);">APPLY</button> -->
 <button type="button" class="btn btn-success" onclick="return clearAll();">CLEAR ALL</button>
 
 </li>
@@ -183,7 +183,7 @@ for($i=1;$j>=$i;$i++){
 <div class="col-md-10 bg-white shadow">
 <h3 class="text-center pt-3">Registered Users</h3>
 <div class="text-right">
-<button type="button" onclick="return userExport()" class="btn btn-outline-primary my-4" >Export</button>
+<button type="button" onclick="return userExport()" class="btn btn-outline-primary my-4">Export</button>
 </div>
 
 <div id="gridviewone">
@@ -201,12 +201,18 @@ $( document ).ready(function() {
 
 function BtnClickPage(x,y)
 {
-var mini=$("#amount1").val();
+var mini=$("#range1").val();
 var max=$("#rangeInput").val();	
 var state=$("#multiselectwithsearch").val();
 var gender=$("input[name='gender']:checked").val();
 var status=$("input[name='status']:checked").val();
 var age=$("#ageone").val();
+if(age!=''){
+   var mini='';
+   var max='';
+   $('#range1').attr('disabled',true);
+   $('#rangeInput').attr('disabled',true);
+}
 var bloodgroupone=$("#bloodgroupone").val();
 var occupationone=$("#occupationone").val();
 var incomeone=$("#incomeone").val();
@@ -219,7 +225,9 @@ url: "load_user_reports.php",
 data: {"page":x,"pagesize":y,"mini":mini,"max":max,"state":state,"age":age,"bloodgroupone":bloodgroupone,"occupationone":occupationone,"incomeone":incomeone,"gender":gender,"status":status},
 success: function(data12){
 $('#loadergif').fadeOut();
-$("#gridviewone").html(data12);			    } 
+$("#gridviewone").html(data12);
+
+} 
 });	
 
 }
@@ -232,14 +240,14 @@ function userExport(){
 var mini=$("#amount1").val();
 var max=$("#rangeInput").val();
  var state=$("#multiselectwithsearch").val();
- var gender=$("input[name='gender']:checked").val();
+ var gender=$("input[name='gender']:selected").val();
  var status=$("input[name='status']:checked").val();
  var age=$("#ageone").val();
  var bloodgroupone=$("#bloodgroupone").val();
  var occupationone=$("#occupationone").val();
  var incomeone=$("#incomeone").val();
- window.location.replace("<?php echo RE_HOME_ADMIN; ?>reports/users_excel.php/?mini="+mini+"&max="+ max);
- 
+ window.location.replace("<?php echo RE_HOME_ADMIN; ?>reports/users_excel.php/?mini="+mini+"&max="+ max+"&state="+ state+"&gender="+ gender+"&status="+ status+"&age="+ age+"&bloodgroupone="+ bloodgroupone+"&occupationone="+ occupationone+"&incomeone="+ incomeone);
+
 }
 
 function clearAll(){
@@ -250,6 +258,9 @@ $('#amount1').val('');
 $('#amount1').html('0');
 $('#amount').html('0');
 $('#rangeInput').val('0');
+$('#cage').css('display','block');
+$('#range1').attr('disabled',false);
+$('#rangeInput').attr('disabled',false);
 var mini='';
 var max='';
 BtnClickPage(1,10)
@@ -266,7 +277,7 @@ $(document).on('input', '#rangeInput', function() {
 
 $(document).on('input', '#range1', function() {
    $('#amount1').html( $(this).val() );
-   
+   $('#cage').css('display','none');
    var renn=$("#rangeInput").val();
    $('#rangeInput').attr('min',$(this).val());
    if(renn<$(this).val()){
@@ -277,6 +288,12 @@ $('#amount').html( $(this).val() );
 
    }
    
+});
+
+
+$(document).on('select', '#ageone', function() {
+  
+    $('#amount').html( $(this).val() );
 });
 
 </script>

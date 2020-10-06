@@ -171,7 +171,7 @@ $('#desc').html(atob(desc));
 
 function btnclickdelete(id,table,page)
 {
-bootbox.confirm("Are you sure you want to delete this user", function(result) {
+bootbox.confirm("Are you sure you want to delete this gallery", function(result) {
 if(result){ 
 $('#loadergif').fadeIn();
 $.ajax({
@@ -196,7 +196,7 @@ $('#loadergif').fadeOut();
 }
 
 function varify(x,y,z,page){
-bootbox.confirm("Are you sure you want to make this user active?", function(result) {
+bootbox.confirm("Are you sure you want to make this gallery active?", function(result) {
 if(result) {
 $('#loadergif').fadeIn();
 $.ajax({
@@ -213,7 +213,7 @@ $('#loadergif').fadeOut();
 }	
 
 function unvarify(x,y,z,page){
-bootbox.confirm("Are you sure you want to make this user inactive?", function(result) {
+bootbox.confirm("Are you sure you want to make this gallery inactive?", function(result) {
 if(result)
 {  
 $('#loadergif').fadeIn();

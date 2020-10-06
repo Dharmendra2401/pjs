@@ -109,10 +109,10 @@ return $uniqid;
 function uniqueid($con)
 {
 $prefix='RID';
-$rst11=mysqli_query($con,"select id,request_id from staging_approval order by id desc limit 1" ) or die(mysql_error());
+$rst11=mysqli_query($con,"select request_id from staging_approval order by request_id desc limit 1" ) or die(mysql_error());
 $getresultss=mysqli_num_rows($rst11);
 if(mysqli_num_rows($rst11) == 0){
-$uniqid =$prefix."0001";
+$uniqid ="RID0001";
 }
 else{
 while($row_val = mysqli_fetch_array($rst11) ){
@@ -122,11 +122,12 @@ $dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
 }$uniqid =$prefix.$dge;
 }
 return $uniqid;	
+
 }
 function uniqueopj($con)
 {
 $prefix='OPJ';
-$rst11=mysqli_query($con,"select id,request_id from non_member_request order by id desc limit 1" ) or die(mysql_error());
+$rst11=mysqli_query($con,"select request_id from non_member_request order by request_id desc limit 1" ) or die(mysql_error());
 $getresultss=mysqli_num_rows($rst11);
 if(mysqli_num_rows($rst11) == 0){
 $uniqid =$prefix."0001";
@@ -139,7 +140,25 @@ $dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
 }$uniqid =$prefix.$dge;
 }
 return $uniqid;	
-}	
+}
+
+function uniquemid($con)
+{
+$prefix='MID';
+$rst11=mysqli_query($con,"select id from key_member_id order by id desc limit 1" ) or die(mysql_error());
+$getresultss=mysqli_num_rows($rst11);
+if(mysqli_num_rows($rst11) == 0){
+$uniqid =$prefix."0001";
+}
+else{
+while($row_val = mysqli_fetch_array($rst11) ){
+$usr12 = $row_val['id'];
+$str = ltrim($usr12, 'MID');
+$dge=str_pad(intval($str) + 1, strlen($str), '0', STR_PAD_LEFT);
+}$uniqid =$prefix.$dge;
+}
+return $uniqid;	
+}
 ?>
 
 

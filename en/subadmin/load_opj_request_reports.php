@@ -1,15 +1,19 @@
 <?php  require_once("../../config/config.php"); ?>
 <div class="table-responsive">
-<table id="dynamic-table" class="table table-striped table-bordered short2" style="width:100%" >
+<table id="dynamic-table" class="table table-striped table-bordered shortable" style="width:100%" >
 <thead>
 <tr class="table-headings">
 <!--<th width="2%">S.No</th>-->
-<th>S.no.</th>
+
 <th>Refrence Id</th>
 <th>Requested User Name</th>
-<th>Requested Date</th>
-<th>Status</th>
-<th>View Details</th>
+<th>Mobile No</th>
+<th>Email</th>
+<th>Address</th>
+
+<th>Requested For</th>
+<th>Response</th>
+<th>Reason</th>
 </tr>
 </thead>
 
@@ -21,21 +25,27 @@ $stat='';
 $statu='';
 
 if($_REQUEST['state']!='')
-{$statu.= 'and state LIKE "'.$_REQUEST['state'].'"';}
+{
+$state=Implode('","',$_REQUEST['state']);    
+$statu.= 'and address in ("'.$state.'")';}
 
-if($_REQUEST['city']!='')
-{$statu.= 'and City LIKE "'.$_REQUEST['city'].'"';}
+if($_REQUEST['refrenceid']!='')
+{
+$refrenceid=Implode('","',$_REQUEST['refrenceid']); 
+$statu.= 'and request_id in ("'.trim($refrenceid).'")';}
 
-if($_REQUEST['submitdate']!='')
-{$statu.= 'and request_date LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdate'])).'%"';}
 
-if($_REQUEST['refrenceidone']!='')
-{$statu.= 'and request_id LIKE "'.trim($_REQUEST['refrenceidone']).'"';}
 
+if($_REQUEST['memberid']!='')
+{
+$getocc=Implode('","',$_REQUEST['memberid']);
+$showocc = trim($getocc,","); 
+$statu.= 'and user_id in ("'.trim($showocc ).'") ';
+}
 
 if(isset($_REQUEST['ustatus']))
 {$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
-$stat="non_member_request where 1=1 and (request_status='Y' or request_status='R') $statu order by request_id desc";
+$stat="non_member_request where 1=1  $statu order by request_id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
@@ -50,12 +60,16 @@ $currentdate=$row['request_date'];
 ?>
 
 <tr>
-<td><?php echo $count;  ?></td>
+
 <td><?php echo $row['request_id'] ; ?></td>
 <td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
-<td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
-<td><?php if($row['request_status']=='Y'){echo "<label class='btn btn-success btn-sm'>New</label>";} if($row['request_status']=='R'){echo "<label class='btn btn-warning btn-sm'>Rejected</label>";} ?></td>
-<td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>contact_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a> <?php if($row['request_status']=='R'){ ?><a href="#"data-toggle="modal" data-target="#viewreason" onclick="return viewreason('<?php echo $row['reason_of_rejection'];  ?>')" class="btn btn-primary btn-sm" alt="View the reason" title="View the reason"><i class="fa fa-eye"></i></a> <?php } ?></td>
+<td><?php echo $row['mobile'] ; ?></td>
+<td><?php echo $row['email'] ; ?></td>
+<td><?php echo $row['address'] ; ?></td>
+<td><?php $getname=mysqli_fetch_array(mysqli_query($con,'select member_id,first_name,last_name from member where member_id="'.$row['user_id'].'"')); echo $getname['first_name'].' '.$getname['last_name'].' ('.$row['user_id'].')'  ; ?></td>
+<td><?php if($row['request_status']=='Y'){echo "<label class='btn btn-success btn-sm'>New</label>";} else if($row['request_status']=='R'){echo "<label class='btn btn-warning btn-sm'>Rejected</label>";} else{ echo "<label class='btn btn-success btn-sm'>Closed</label>"; }?></td>
+
+<td><?php  if($row['request_status']=='R'){echo $row['reason_of_rejection'];}else{echo "NA";}  ?></td>
 </tr>
 <?php $count++; }
 if($row_count<=0){

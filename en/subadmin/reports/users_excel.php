@@ -12,7 +12,7 @@ if($_REQUEST['refrenceidone']!='')
 
 // "mini":mini,"max":max,"state":state,"age":age,"bloodgroupone":bloodgroupone,"occupationone":occupationone,"incomeone":incomeone
 
-if(($_REQUEST['mini']!='')&&($_REQUEST['max']!=''))
+if(($_REQUEST['mini']!='') && ($_REQUEST['max']!=''))
 {$statu.= 'and mem.age between "'.$_REQUEST['mini'].'" and "'.$_REQUEST['max'].'" '  ;}
 
 if($_REQUEST['state']!='')
@@ -23,15 +23,15 @@ $statu.= 'and addrss.state in ("'.trim($string ).'") ';
 }
 if($_REQUEST['occupation']!='')
 {
-$getocc=Implode(',',$_REQUEST['occupation']);
-$showocc = trim($getocc,","); 
-$statu.= 'and addrss.state in ("'.trim($showocc ).'") ';
+// $getocc=Implode(',',$_REQUEST['occupation']);
+// $showocc = trim($getocc,","); 
+$statu.= 'and addrss.state in ("'.$_REQUEST['occupation'].'") ';
 }
 
-if($_REQUEST['gender']!='')
+if(($_REQUEST['gender']!='')&& ($_REQUEST['gender']!='undefined'))
 {$statu.= 'and mem.gender = "'.$_REQUEST['gender'].'"';}
 
-if($_REQUEST['status']!='')
+if(($_REQUEST['status']!='')&& ($_REQUEST['status']!='undefined'))
 {$statu.= 'and mem.marital_status = "'.$_REQUEST['status'].'" ';}
 
 if($_REQUEST['ustatus']!='')
@@ -39,36 +39,35 @@ if($_REQUEST['ustatus']!='')
 
 if($_REQUEST['age']!='')
 {
-$getage=Implode(',',$_REQUEST['age']);
-$showage = trim($getage,","); 
-$statu.= 'and mem.age in ('.trim($showage ).') ';
+// echo $getage=Implode(',',$_REQUEST['age']);
+// echo $showage = trim($getage,","); 
+$statu.= 'and mem.age in ('.$_REQUEST['age'].') ';
 }
 
 if($_REQUEST['bloodgroupone']!='')
 {
-$getblood=Implode(',',$_REQUEST['bloodgroupone']);
-$showblood = trim($getblood,","); 
-$statu.= 'and mem.blood_group in ('.trim($showblood ).') ';
+//$getblood=Implode(',',$_REQUEST['bloodgroupone']);
+//$showblood = trim($getblood,","); 
+$statu.= 'and mem.blood_group in ('.$_REQUEST['bloodgroupone'].') ';
 }
 
 if($_REQUEST['occupationone']!='')
 {
-$occupationone=Implode(',',$_REQUEST['occupationone']);
-$getocc = trim($occupationone,","); 
-$statu.= 'and edu.occupation in ('.trim($getocc ).') ';
+// $occupationone=Implode(',',$_REQUEST['occupationone']);
+// $getocc = trim($occupationone,","); 
+$statu.= 'and edu.occupation in ('.$_REQUEST['occupationone'].') ';
 }
 
 if($_REQUEST['incomeone']!='')
 {$statu.= 'and edu.income = "'.$_REQUEST['incomeone'].'" ';}
-
-
 
 $joins="mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.feet,mem.inches,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic ";
 
 
 
 $stat="member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id where 1=1  $statu order by keyy.id desc ";
- $sql = "SELECT ".$joins." FROM ".$stat." "; 
+$sql = "SELECT ".$joins." FROM ".$stat." "; 
+
 
 $setRec = mysqli_query($con, $sql);  
 $count=mysqli_num_rows($setRec);
@@ -135,5 +134,7 @@ if(mysqli_num_rows($setRec) > 0)
 }$output .= '</table>';
 header('Content-Type: application/xls');
 header('Content-Disposition: attachment; filename=Registered-users.xls');
+header("Pragma: no-cache"); 
+header("Expires: 0");
 echo $output;
  ?> 

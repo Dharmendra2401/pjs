@@ -65,7 +65,7 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Date of Birth	</label>	
 <div class="col-md-9">
-<input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob" onchange="return chechSrc();">
+<input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob" onchange="return chechSrc();" >
 </div>
 </div>
 <div class="form-group row">
@@ -337,6 +337,20 @@ $("#feet").on("change paste keyup", function() {
    } 
 });
 
+$(document).on('input', '#dob', function() {
+var date = new Date($('#dob').val());
+var day = date.getDate();
+var year = date.getFullYear();
+var dateed=new Date();
+var getdate=('0' + dateed.getDate()).slice(-2) ;
+var getmonth=('0' + (dateed.getMonth()+1)).slice(-2);
+var getyear=dateed.getFullYear();
+var getdob=getyear-year;
+
+//var year=dob.getYear();
+//alert(getdob);
+
+});
 		$("#feet").click( 
           function(event) { 
             if(feet==00){
@@ -386,28 +400,26 @@ $('#occdetails').show();
 function firstform(){
 
 var dateed=new Date();
-var getdate=dateed.getDate();
-var getmonth=("0" + (dateed.getMonth() + 1)).slice(-2);
+var getdate=('0' + dateed.getDate()).slice(-2) ;
+var getmonth=('0' + (dateed.getMonth()+1)).slice(-2);
 var getyear=dateed.getFullYear();
 var totaldate=getyear+'-'+getmonth+'-'+getdate;
-
-
-  var letters = /^[A-Za-z ]+$/;
-  var firstname=$('#firstname').val();
-  //var husbandname=$('#husbandname').val();
-  var fathername=$('#fathername').val();
-  var lastname=$('#lastname').val();
-  var popularname=$('#popularname').val();
-  var dob=$('#dob').val();
-  var mobileno=$('#mobileno').val();
-  var email=$('#email').val();
-  var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
-  var bloodgroup=$('#bloodgroup').val();
-  var age=$('#age').val();
-  var status=$("input[name='status']:checked"). val();
-  var mobilevalidate = /^\d{10}$/;
-  var feet = $('#feet').val();
-  var inches = $('#inches').val();
+var letters = /^[A-Za-z ]+$/;
+var firstname=$('#firstname').val();
+//var husbandname=$('#husbandname').val();
+var fathername=$('#fathername').val();
+var lastname=$('#lastname').val();
+var popularname=$('#popularname').val();
+var dob=$('#dob').val();
+var mobileno=$('#mobileno').val();
+var email=$('#email').val();
+var testEmail = /^[A-Z0-9._%+-]+@([A-Z0-9-]+\.)+[A-Z]{2,4}$/i;
+var bloodgroup=$('#bloodgroup').val();
+var age=$('#age').val();
+var status=$("input[name='status']:checked"). val();
+var mobilevalidate = /^\d{10}$/;
+var feet = $('#feet').val();
+var inches = $('#inches').val();
   
   
   
