@@ -62,7 +62,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <?php echo $_SESSION['ufullname']; ?>
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
-<a class="dropdown-item" href="#">View & Update Profile</a>
+<a class="dropdown-item" href="<?php echo  RE_HOME_PATH;?>en/view_and_update_profile.php">View & Update Profile</a>
 <a class="dropdown-item" href="saved_profile.php">Saved Profile</a>
 <a class="dropdown-item" data-toggle="modal" data-target="#modal45">Feedback</a>
 <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
