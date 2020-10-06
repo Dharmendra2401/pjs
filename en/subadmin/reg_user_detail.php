@@ -268,6 +268,7 @@ text.style.display = "none";
 }
 }
 </script>
+<?php include "../../footer.php" ?>
 </body>
 <?php include "../../script.php" ?>
 </html>

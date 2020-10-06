@@ -109,7 +109,6 @@ redirect(RE_HOME_SUPERADMIN."index.php","Error! Please enter valid email!~@~".MS
 </div>
 </div>
 </div>
-
 </body>
 <?php 
 include "../../script.php"

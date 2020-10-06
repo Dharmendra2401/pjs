@@ -124,7 +124,7 @@ redirect(RE_HOME_SUPERADMIN."schemes.php","Error! Please try again~@~".MSG_ERROR
 </div>
 </div>
 
-
+<?php include "../../footer.php" ?>
 </body>
 <?php include "../../script.php" ?>
 

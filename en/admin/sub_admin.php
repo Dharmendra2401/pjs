@@ -272,7 +272,7 @@ while($showareas=mysqli_fetch_array($selectarea)){
 </div>
 </div>
 </div>
-
+<?php include "../../footer.php" ?>
 </body>
 <?php include "../../script.php" ?>
 

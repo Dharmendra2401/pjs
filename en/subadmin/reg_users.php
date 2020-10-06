@@ -280,5 +280,6 @@ $('#amount').html( $(this).val() );
 });
 
 </script>
+<?php include "../../footer.php" ?>
 </body>
 </html>

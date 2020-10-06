@@ -73,6 +73,7 @@ redirect(RE_HOME_SUPERADMIN."about_us.php","Error! Please fill out the fields an
 
 
 </form>
+<?php include "../../footer.php" ?>
 </body>
 <?php include "../../script.php" ?>
 </html>

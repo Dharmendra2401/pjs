@@ -124,5 +124,6 @@ $('.rejection').hide();
 });
 });
 </script>
+<?php include "../../footer.php" ?>
 </body>
 </html>

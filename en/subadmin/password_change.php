@@ -64,7 +64,7 @@ redirect(RE_HOME_ADMIN."password_change.php","Error! Please try again~@~".MSG_ER
 
 
 </form>
-
+<?php include "../../footer.php" ?>
 </body>
 <script>
 
