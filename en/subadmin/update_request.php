@@ -279,6 +279,6 @@
 		    $('#openEntries, #pendingEntries, #closedEntries').DataTable();
 		} );
     </script>
-    
+ <?php include "../../footer.php" ?>   
 </body>
 </html>

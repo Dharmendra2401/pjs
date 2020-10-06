@@ -297,5 +297,6 @@ $(document).on('select', '#ageone', function() {
 });
 
 </script>
+<?php include "../../footer.php" ?>
 </body>
 </html>

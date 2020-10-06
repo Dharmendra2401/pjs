@@ -29,7 +29,7 @@ include "../config/config.php";
 							while($getslider=mysqli_fetch_array($slider)){
 							
 							?>
-			                    <div class="carousel-item <?php if($i==0){echo 'active';}; ?>"> <img class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getslider['image']; ?>" alt="Events"> </div>
+			                    <div class="carousel-item <?php if($i==0){echo 'active';}; ?>"> <img class="img-fluid" src="<?php echo RE_HOME_PATH.$getslider['image']; ?>" alt="Events"> </div>
 			                <?php $i++;} ?>
 			                </div> 
 			                <!-- Left right -->
@@ -52,7 +52,7 @@ include "../config/config.php";
             </div>
     		    
     </div>
-  
+  <?php include "../footer.php" ?>
 </body>
 
 <?php include "../script.php" ?>

@@ -65,7 +65,7 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Date of Birth	</label>	
 <div class="col-md-9">
-<input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob" onchange="return chechSrc();" >
+<input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob" onchange="return chechSrc();" max="<?php echo date('Y-m-d');?>" min="1600-01-01" >
 </div>
 </div>
 <div class="form-group row">
@@ -326,6 +326,7 @@ height: 200px;
 </div>	
 </div>
 </div>
+<?php include "../footer.php" ?>
 </body>
 <?php  include "../script.php" ;?>
 

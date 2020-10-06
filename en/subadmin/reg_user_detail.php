@@ -1,7 +1,9 @@
 <?php  include "../../config/config.php" ;
 include "../mail/index.php" ;
 sub_admin_session_check();
+
 $getid=base64_decode($_REQUEST['id']);
+
 $getdate=mysqli_fetch_array(mysqli_query($con,'select * from staging_approval where request_id="'.$getid.'" '));
 if(isset($_REQUEST['submit'])){
 $submitdate=date('Y-m-d H:i:s');
@@ -266,6 +268,7 @@ text.style.display = "none";
 }
 }
 </script>
+<?php include "../../footer.php" ?>
 </body>
 <?php include "../../script.php" ?>
 </html>

@@ -269,6 +269,6 @@ BtnClickPagetwo(1,10);
 
 
 </script>
-
+<?php include "../../footer.php" ?>
 </body>
 </html>

@@ -35,6 +35,7 @@ while($getgallery=mysqli_fetch_array($gallery)){
 			</div>
 		
 	</div>
+	<?php include "../footer.php" ?>
 </body>
 <?php include "../script.php" ?>
 </html>

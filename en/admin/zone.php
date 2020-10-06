@@ -167,7 +167,7 @@ redirect(RE_HOME_SUPERADMIN."zone.php","Error! Please fill out the fields and tr
 
 
 
-
+<?php include "../../footer.php" ?>
 </body>
 <?php include "../../script.php" ?>
 

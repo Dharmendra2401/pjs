@@ -128,18 +128,19 @@ require_once("../config/config.php");
 				<div class="row">
 					<div class="col-md-10 offset-md-1">
 						<form>
+							<p class="err msg" style="background: red;color:#fff;font-weight:400;"></p>
+									<p class="succ msg" style="background: green;color:#fff;font-weight:400;"></p>
 							<div class="row">
 								<div class="col-md-5">
 									<p>Member Id</p>
 								</div>
 								<div class="col-md-7">
-									<input type="text" name="" placeholder="MID" class="mid">
+									<input type="text" name="" placeholder="MID" class="mid text-uppercase">
 								</div>
 								<div class="col-md-5">
 									<p>Date of Death</p>
 								</div>
 								<div class="col-md-7">
-									<input type="text" class="datepicker">
 									<input type="date" name="" style="width: 100%;" class="dod">
 								</div>
 								<div class="col-md-12">

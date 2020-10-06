@@ -24,7 +24,7 @@
 </div>
 </div>
 <div class="col-md-3 align-self-center text-right">
-<i class="fas fa-language sm-icon-language"></i>
+<!-- <i class="fas fa-language sm-icon-language"></i> -->
 <?php 
 
 if ($_SESSION['sub_admin_email']!='' || $_SESSION['user_mid']!='' || $_SESSION['admin_id']!=''){
@@ -62,7 +62,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <?php echo $_SESSION['ufullname']; ?>
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
-<a class="dropdown-item" href="#">View & Update Profile</a>
+<a class="dropdown-item" href="<?php echo  RE_HOME_PATH;?>en/view_and_update_profile.php">View & Update Profile</a>
 <a class="dropdown-item" href="saved_profile.php">Saved Profile</a>
 <a class="dropdown-item" data-toggle="modal" data-target="#modal45">Feedback</a>
 <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
@@ -160,6 +160,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_request.php">New User Registration Requests</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>opj_request.php">OPJ Contact Requests</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>user_updation_request.php">User Updation Requests</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>death_request.php">Death Requests</a>
 </div>
 </li>
 <?php } ?>

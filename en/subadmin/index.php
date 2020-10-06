@@ -111,7 +111,6 @@ redirect(RE_HOME_ADMIN."index.php","Error! Please enter valid email!~@~".MSG_ERR
 </div>
 </div>
 </div>
-
 </body>
 <?php 
 include "../../script.php"

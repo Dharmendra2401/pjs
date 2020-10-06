@@ -17,9 +17,19 @@ include "../config/config.php";
 				</div>
 		 <div class="row mt-3">
 				 <div class="col-md-4">
+				 	<form method="post" action="">
+						<div class="input-group my-auto">
+							<input type="text" class="form-control sm-input mb-3" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
+							<div class="input-group-append">
+							<input class="btn btn-primary mb-3" type="submit" name="submit1" value="submit">
+							</div>
+						</div>
+					</form>
 					<div class="card mb-2">
-						<div class="card-body pb-2">
-							<h4 class="card-title">Click here to Update Dead Person</h4>
+						<div class="card-body pb-2 death-update">
+							<h4 class="card-title">Click here to Update Dead Person
+								<i class="fas fa-plus float-right"></i>
+							</h4>
 							<form action="" enctype="multipart/form-data" id="dead_person_form">
 								<div class="form-group">
 									<label>Name</label>
@@ -56,16 +66,8 @@ include "../config/config.php";
 						</div>
 						
 					</div>
-					<form method="post" action="">
-						<div class="input-group my-auto">
-							<input type="text" class="form-control sm-input form-control-sm" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
-							<div class="input-group-append">
-							<input class="btn btn-primary btn-sm" type="submit" name="submit1" value="submit">
-							</div>
-						</div>
-
-					</form>
-					<div id="searchdata" class="searchdata"></div>
+					
+					<div id="searchdata" class="searchdata d-none"></div>
 								<!-- <button class="btn btn-primary float-right my-3 save">Save</button> -->
 
 								<?php  if(isset($_POST['submit1'])){
@@ -89,7 +91,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 									while($row=mysqli_fetch_assoc($rs)){      
 									?>
 									<div class="row mt-3">
-										<div class="col-12">
+										<div class="col-12 user-list">
 											<ul class="list-unstyled list-inline">
 												<li class="list-inline-item">
 													<?php 
@@ -204,6 +206,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 </div>
 <input type="hidden" name="" id="home_path" value="<?php echo RE_HOME_PATH;?>">
 <!---->
+<?php include "../footer.php" ?>
 </body>
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
@@ -345,6 +348,13 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 });
 </script>
 
+<script type="text/javascript">
+	$("#dead_person_form").hide();
+	$(".death-update h4 i").on("click", function(){
+		$("#dead_person_form").toggle();
+		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
+	});
+</script>
 
 <style type="text/css">
 	#dead_person_form .error{

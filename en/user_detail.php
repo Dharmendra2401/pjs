@@ -139,7 +139,7 @@ $staus_show='no status';
 							<i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#contactoption"></i>
 							<?php if (isset($_SESSION['user_mid'])) { ?>
 								<!-- <i type="button" class="fas fa-download mx-2 login-signup user_profile_download" data-userid="<?php echo $row['member_id'];?>"></i> -->
-								<a href="<?php echo RE_HOME_PATH; ?>en/PJS-demo/user_detail_pdf.php?id=<?php echo$row['member_id'];?>"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
+								<a href="<?php echo RE_HOME_PATH; ?>en/local-pdf/index.php?id=<?php echo$row['member_id'];?>"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
 								
 							<?php }
 							else{?>
@@ -307,7 +307,7 @@ $staus_show='no status';
 			
 		
 	  </div>       
-    
+  <?php include "../footer.php" ?>  
 </body>
 <?php include "../script.php"; ?>
 
@@ -343,7 +343,7 @@ $staus_show='no status';
 			var button1=$(".user_profile_download")
 		 var userid=button1.data('userid');
 		 var home_path=$("#home_path").val();
-		 		$.post(home_path+"en/PJS-demo/user_detail_pdf.php",
+		 		$.post(home_path+"en/local-pdf/index.php",
 			{
 				userid: userid
 			},

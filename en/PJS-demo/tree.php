@@ -17,9 +17,9 @@ $result=friend_request_status12();
 			<div class="card mb-2">
 				<div class="card-body">
 					<div class="row">
-							<div class="col-md-2">
+							<div class="col-md-10">
 								<?php //echo $row1['dead_p_pic'];?>
-									<img width="50" src="<?php 
+									<img class="d-block" width="50" src="<?php 
 									 if($row1['display_pic'])
 									{
 										echo $row1['display_pic'];
@@ -30,9 +30,8 @@ $result=friend_request_status12();
 										{
 											echo 'http//';
 											} ?>">
-							</div>
-							<div class="col-md-10">
-									 <span>Name: </span>
+
+							   <strong>Name: </strong>
 										<span><?php if(isset($row1['name'])){echo $row1['name']; } else{echo $row1['dp_name']; }?></span><br>
 										<span><?php 
 												if ($row1['relation_type']=='Father') {
@@ -165,39 +164,45 @@ $result=friend_request_status12();
 													}
 													}
 												}
+
 										//echo $row1['Relation_Type'];?></span>
-										<!-- <span class="badge badge-primary float-right"><?php// echo $row1['ACTIVE_STATUS'];?></span> -->
-									 <?php 
-											if ($row1['request_side_user']=='from-current-user' && $row1['member_request_status']=='N') {
-											 ?>
-												<span class="badge badge-primary float-right">Request Sent</span>
-												<?php
-											}
-											elseif ($row1['request_side_user']=='to-user' && $row1['member_request_status']=='N') {
-											 ?>
-												<span class="badge badge-primary float-right approve" id="<?php echo $row1['reference_member_Id'];?>">Accept It</span>
-											 <?php
-											}
-											else{
-												?>
-													<span class="badge badge-primary float-right">member</span>
-												<?php
-											}
-											if(isset($row1['Life_status'])){?>
-											 <?php  if($row1['Life_status']=='L'){
-												echo "<br><span class='badge badge-primary float-right ml-1'>Alive</span>";
+										<!-- <span class="badge badge-primary float-right"><?php// echo $row1['ACTIVE_STATUS'];?></span> -->				
+							</div>
+							<div class="col-md-2">
+																	<?php	if(isset($row1['Life_status'])){
+											   if($row1['Life_status']=='L'){
+												echo "<br><span class='badge badge-primary float-right ml-1'></span>";
 											}
 												else{
-													echo "<br><span class='badge badge-danger float-right ml-1'>Dead</span>";
-												} ?>
-											<?php }
+													echo "<br>
+													<i class='fas fa-flag death-flag'></i>";
+												} 
+											 }
 											else{ ?><br>
-											 <span class="badge badge-danger float-right"><?php echo "Dead";
-												?></span>
+											 
+											 	<i class='fas fa-flag death-flag'></i>
+												
 											<?php 
 											echo "<br><span class='badge badge-danger float-right ml-1'>".$row1['d_dod']."</span>";
 										}
 										 ?> 
+									 <?php 
+											if ($row1['request_side_user']=='from-current-user' && $row1['member_request_status']=='N') {
+											 ?>
+												<span class="badge badge-primary float-right p-1">Request Sent</span>
+												<?php
+											}
+											elseif ($row1['request_side_user']=='to-user' && $row1['member_request_status']=='N') {
+											 ?>
+												<span class="badge badge-primary float-right approve p-1" id="<?php echo $row1['reference_member_Id'];?>">Accept It</span>
+											 <?php
+											}
+											else{
+												?>
+													<span class="badge badge-primary float-right p-1">member</span>
+												<?php
+											}?>
+	
 							</div>
 					</div>
 				</div> 
@@ -207,9 +212,6 @@ $result=friend_request_status12();
 <?php }
 } ?>
 <script type="text/javascript">
-
-
-
 
 </script>
 

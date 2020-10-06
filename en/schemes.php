@@ -37,6 +37,7 @@ while($getschemes=mysqli_fetch_array($schemes)){
 <?php $countt ++;} ?>
   </div>
   </div>
+  <?php include "../footer.php" ?>
 </body>
 <?php include "../script.php" ?>
 </html>
