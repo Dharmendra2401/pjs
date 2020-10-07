@@ -139,7 +139,7 @@ $staus_show='no status';
 							<i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#contactoption"></i>
 							<?php if (isset($_SESSION['user_mid'])) { ?>
 								<!-- <i type="button" class="fas fa-download mx-2 login-signup user_profile_download" data-userid="<?php echo $row['member_id'];?>"></i> -->
-								<a href="<?php echo RE_EN_PATH; ?>user_detail?id=<?php echo base$row['member_id'];?>"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
+								<a href="<?php echo RE_EN_PATH; ?>user_detail?id=<?php echo $row['member_id'];?>"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
 								
 							<?php }
 							else{?>
