@@ -26,7 +26,7 @@ sub_admin_session_check();
 <ul class="list-unstyled sidebar">
 
 
-<li class="collapse-wrapper">
+<!-- <li class="collapse-wrapper">
 <a class="btn btn-default w-100" data-toggle="collapse" href="#state" role="button" aria-expanded="false" aria-controls="state">
 <span class="float-left">STATE</span>
 </a>
@@ -45,7 +45,7 @@ while($show=mysqli_fetch_array($state)){
 ?>
 </select>
 </div>
-</li>
+</li> -->
 
 
 <li class="collapse-wrapper" id="cage">
@@ -107,6 +107,7 @@ while($getrefrenceid=mysqli_fetch_array($refrenceid)){
 </div>	
 </div>
 <?php  include '../../script.php'; ?>
+
 <script>
 $( document ).ready(function() {
    $('#ageone').val('');

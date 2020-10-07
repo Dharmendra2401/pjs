@@ -1198,4 +1198,24 @@ display:none;z-index:9;}
 .maxmin{    border: 1px solid rgb(0 0 0 / 33%);
     background: rgb(128 128 128 / 16%);
     padding: 0px 3px;}
+.pagination{float: right;
+    padding: 6px 0px;
+    border: 1px solid rgb(0 0 0 / 16%);}
+.pagination li.active a{    background: rgb(62 184 233);
+    color: white;
+    padding: 6px;}
+    .pagination li a{ 
+        padding: 6px;
+        color: grey;
+        background: rgb(128 128 128 / 15%);
+        border: 1px solid rgb(0 0 0 / 15%);}
+
+
+
+
+        .pagination li.active a:hover{ 
+           
+            color: white!important;
+           }
+
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

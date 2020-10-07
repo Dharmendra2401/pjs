@@ -1,5 +1,6 @@
 <?php  
 include "../../config/config.php" ;
+include "../mail/index.php" ;
 //commonsession();
 if(isset($_REQUEST['login'])){
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
@@ -35,12 +36,13 @@ $contt=mysqli_num_rows($getemail);
 
 if($contt>0){
 $getpass=mysqli_fetch_array($getemail);
-$subject="Request For Admin Password '".WEBSITE_NAME."' ";
+$subject="Request For Sub Admin Password ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getpass['first_name']." ".$getpass['last_name'].", your login password is :<strong>".$getpass['password']."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
+$mes.=" Dear ".$getpass['first_name']." ".$getpass['last_name'].", your login password is :<strong>".base64_decode($getpass['password'])."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
 $message=$mes;
-$to=$getdate['email'];
-sendemail($to,$form,$subject,$message);
+$to=$emails;
+
+sendmails($to,$message,$subject);
 redirect(RE_HOME_ADMIN."index.php","Email successfully send~@~".MSG_SUCCESS);
 
 }else{
@@ -114,5 +116,6 @@ redirect(RE_HOME_ADMIN."index.php","Error! Please enter valid email!~@~".MSG_ERR
 </body>
 <?php 
 include "../../script.php"
+
 ?>
 </html>

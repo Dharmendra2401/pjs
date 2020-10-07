@@ -10,7 +10,8 @@ $statu.= 'and address in ("'.$state.'")';}
 
 if($_REQUEST['refrenceid']!='')
 {
-$refrenceid=Implode('","',$_REQUEST['refrenceid']); 
+$reff=explode(',',$_REQUEST['memberid']);
+$refrenceid=Implode('","',$reff); 
 $statu.= 'and request_id in ("'.trim($refrenceid).'")';}
 
 

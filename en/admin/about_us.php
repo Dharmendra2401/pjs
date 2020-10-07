@@ -76,4 +76,11 @@ redirect(RE_HOME_SUPERADMIN."about_us.php","Error! Please fill out the fields an
 <?php include "../../footer.php" ?>
 </body>
 <?php include "../../script.php" ?>
+<script>
+    CKEDITOR.replace('editor', {
+        extraPlugins: 'colorbutton,colordialog'
+    });
+
+
+</script>
 </html>

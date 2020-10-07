@@ -36,7 +36,7 @@ if($_REQUEST['refrenceidtwo']!='')
 
 if(isset($_REQUEST['ustatus']))
 {$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
-$stat="member_request where 1=1 and active_status='Requested' $statu order by member_id desc";
+$stat="member_request where 1=1 and active_status='Requested' and type_of_request='Mobile' $statu order by member_id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;

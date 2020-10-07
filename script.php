@@ -66,7 +66,7 @@
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Address</label>
 <div class="col-md-8">
-<textarea class="form-control inputtexttwo" rows="4" name="opjaddress" maxlength="100" placeholder="Enter your address" id="opjaddress"></textarea>
+<textarea class="form-control" rows="4" name="opjaddress" maxlength="100" placeholder="Enter your address" id="opjaddress"></textarea>
 </div>
 </div>
 <div class="col-md-12"><div id="opjerror"></div></div>
@@ -266,7 +266,7 @@
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="date" name="emaildob" id="emaildob" placeholder="Enter date of birth">
+<input class="form-control form-control-sm" type="date" name="emaildob" id="emaildob" placeholder="Enter date of birth" max="<?php echo date('Y-m-d') ; ?>">
 </div>
 </div>
 <div class="col-md-12">
@@ -311,14 +311,10 @@
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sorttable.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/lightbox.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/bootbox.min.js"></script>
-<script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sample.js"></script>
 <script type="text/javascript" src="https://cdn.ckeditor.com/4.15.0/standard-all/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/BsMultiSelect.js"></script>
 <script>
     
-    CKEDITOR.replace('editor', {
-        extraPlugins: 'colorbutton,colordialog'
-    });
 
 
 
@@ -925,13 +921,17 @@ $(function(){
 });
 
 
-$("#dob").on("click", function () {
-
-
-})
-
-function calculateAge() { // birthday is a date
-    
-}
+$(document).ready(function() {
+    $(".modal").on("hidden.bs.modal", function() {
+    //$('.modal-content')[0].reset();
+	$(this)
+    .find("input,textarea,select")
+       .val('')
+       .end()
+    .find("input[type=checkbox], input[type=radio]")
+       .prop("checked", "")
+       .end();
+    });
+  });
 
 </script>

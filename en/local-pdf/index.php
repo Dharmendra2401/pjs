@@ -5,7 +5,7 @@ require('fpdf.php');
 	
 /*A4 width : 219mm*/
 
-$pdf = new FPDF('P','mm','A4');
+$pdf = new tFPDF('P','mm','A4');
 
 $pdf->AddPage();
 /*output the result*/

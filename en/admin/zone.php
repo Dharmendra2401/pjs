@@ -97,7 +97,7 @@ redirect(RE_HOME_SUPERADMIN."zone.php","Error! Please fill out the fields and tr
 
 <div class="form-group col-md-12">
 <label>Address <span class="text-danger">*</span></label>
-<textarea type="text" class="form-control inputtexttwo" name="address" id="address" placeholder="Enter your address" maxlength='100' ></textarea>
+<textarea type="text" class="form-control" name="address" id="address" placeholder="Enter your address" maxlength='100' ></textarea>
 </div>
 
 <div class="form-group  col-md-12">

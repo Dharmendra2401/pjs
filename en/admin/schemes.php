@@ -127,9 +127,14 @@ redirect(RE_HOME_SUPERADMIN."schemes.php","Error! Please try again~@~".MSG_ERROR
 <?php include "../../footer.php" ?>
 </body>
 <?php include "../../script.php" ?>
-
 <script>
+    CKEDITOR.replace('editor', {
+        extraPlugins: 'colorbutton,colordialog'
+    });
 
+
+</script>
+<script>
 function addevent(){
 var title=$('#title').val();
 var file=$('#file').val();

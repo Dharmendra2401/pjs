@@ -174,7 +174,7 @@ else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']=
 <div class="col-md-9"><?php if($getdate['occupation']==1){ echo "Job";} else if($getdate['occupation']==2){ echo "Business";} else if($getdate['occupation']==3){ echo "Housewife";} else if($getdate['occupation']==4){ echo "Student";} else if($getdate['occupation']==5){ echo "Nothing";} else{ echo "NA"; }  ?></div>
 
 <?php  if(($getdate['occupation']!=3) && ($getdate['occupation']!=4) && ($getdate['occupation']!=5)){ ?>
-<div class="col-md-3">Income<strong>:</strong></div>
+<div class="col-md-3"> Annual Income<strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['income']==1){ echo "Less than 1 lakh";}
 else if($getdate['income']==2){ echo "1 lakh to 2 lakh";}
 else if($getdate['income']==3){ echo "2 lakh to 3 lakh";}

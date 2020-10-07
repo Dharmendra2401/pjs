@@ -198,67 +198,23 @@ while($show=mysqli_fetch_array($state)){
 </div>
 <div class="form-group col-md-6">
 <label>State <span class="text-danger">*</span></label>
-<select class="custom-select" id="ustate" onchange="return getCity();"  disabled>
-<option value="" selected>Select State</option>
-<?php
-$state=mysqli_query($con,'select DISTINCT(state) from states_city_country where state!="CHANDIGARG" and state!=""');
-while($show=mysqli_fetch_array($state)){ 
-
-?>
-<option value="<?php echo $show['state'];  ?>"><?php echo $show['state'];  ?></option>
-<?php 
-} 
-?>
-</select>
+<input type="text" class="custom-select" id="ustate" onchange="return getCity();"  disabled>
 </div>
 
 
 <div class="form-group col-md-6">
 <label>Name of city/town/village <span class="text-danger">*</span></label>
-<select class="custom-select ucity" id="ucitytwo" disabled>
-<option value="" selected>Select City</option>
-
-<?php  
-
-
-
-$selectcity=mysqli_query($con,"select city from states_city_country GROUP BY city ");
-
-while($showcity=mysqli_fetch_array($selectcity)){
-?>
-<option value="<?php echo $showcity['city']; ?>"><?php echo $showcity['city']; ?> </option>
-<?php } ?>
-</select>
+<input type="text" class="custom-select ucity" id="ucitytwo" disabled>
 </div>
 
 <div class="form-group col-md-6">
 <label>Pin Code <span class="text-danger">*</span></label>
-
-<select class="custom-select" id="upincode"  disabled>
-<option value="" selected>Select pincode</option>
-
-<?php  
-
-$selectcity=mysqli_query($con,"select DISTINCT(pincode) city,postoffice,pincode from states_city_country GROUP BY pincode order by pincode asc");
-while($showcity=mysqli_fetch_array($selectcity)){
-?>
-<option value="<?php echo $showcity['pincode']; ?>"><?php echo $showcity['pincode'];?> </option>
-<?php } ?>
-</select>
+<input type="text" class="custom-select" id="upincode"  disabled>
 </div>
 </div>
 <div class="form-group">
 <label>Area <span class="text-danger">*</span></label>
-<select class="custom-select" id="uarea" disabled>
-<option value="" selected>Select Area</option>
-
-<?php  
-$selectarea=mysqli_query($con,"select postoffice from states_city_country GROUP BY postoffice" );
-while($showareas=mysqli_fetch_array($selectarea)){
-?>
-<option value="<?php echo $showareas['postoffice']; ?>"><?php echo $showareas['postoffice']; ?> </option>
-<?php } ?>
-</select>
+<input type="text" class="custom-select" id="uarea" disabled>
 </div>
 
 
