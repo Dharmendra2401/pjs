@@ -66,13 +66,13 @@ require_once("../config/config.php");
 			<div class="feeback">
 				<div class="modal-body">
 					<div class="col-md-10 offset-md-1">
-						<form>
+						<form id="feedback_submit_form">
 							<div class="row">
 								<div class="col-md-5">
 									<p>Feedback Type</p>
 								</div>
 								<div class="col-md-7">
-									<select class="feedback_type">
+									<select class="feedback_type" name="feedback_type1" id="feedback_type1">
 										<option value="">Select feedback type</option>
 										<option value="General">General</option>
 										<option value="Related to Website">Related to Website</option>
@@ -83,7 +83,7 @@ require_once("../config/config.php");
 									<p>Feedback</p>
 								</div>
 								<div class="col-md-7">
-									<textarea cols="30" placeholder="write your feedback here" class="feedback_desc"></textarea>
+									<textarea cols="30" placeholder="write your feedback here" class="feedback_desc" id="feedback_desc1" name="feedback_desc1"></textarea>
 									<button class="btn btn-primary float-right" type="button" id="feedback_submit">Submit</button>
 								</div>
 							</div>
@@ -94,6 +94,11 @@ require_once("../config/config.php");
 		</div>		
 	</div>
 </div>
+<style type="text/css">
+	label.error{
+		color: red;
+	}
+</style>
 
 <div class="modal fade loginPopup" id="feedback_alert">
 	<div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">

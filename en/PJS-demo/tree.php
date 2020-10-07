@@ -22,10 +22,10 @@ $result=friend_request_status12();
 									<img class="d-block" width="50" src="<?php 
 									 if($row1['display_pic'])
 									{
-										echo $row1['display_pic'];
+										echo RE_HOME_PATH.$row1['display_pic'];
 									}
 										elseif($row1['dead_p_pic']){
-											echo $row1['dead_p_pic'];
+											echo RE_HOME_PATH.$row1['dead_p_pic'];
 										} else 
 										{
 											echo 'http//';
