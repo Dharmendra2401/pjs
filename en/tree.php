@@ -54,7 +54,7 @@ include "../config/config.php";
 								</div>
 								<div class="form-group">
 									<label>Date of Death</label>
-									<input type="date" class="form-control form-control-sm" placeholder="Enter date" id="dod">
+									<input type="date" class="form-control form-control-sm dod" placeholder="Enter date" id="dod">
 								</div>
 								<div class="form-group">
 									<label>Upload Image</label>
@@ -72,13 +72,18 @@ include "../config/config.php";
 
 								<?php  if(isset($_POST['submit1'])){
 							 $current_user=$_SESSION['user_mid'];
-
+							 $search_value=$_REQUEST['search_value'];
+										if ($search_value=='') {
+											?>
+									<div class="text-center"><td valign="top" colspan="12" class="dataTables_empty" align="center">No records found</td></div>
+											<?php 
+										}
+										else{
 								//  include_once 'family_search_member.php';  
 									//
-										$search_value=$_REQUEST['search_value'];
+										
 									$query ="SELECT * FROM `member` WHERE (`first_name` LIKE '%$search_value%' or `member_id` LIKE '%$search_value%') AND member_id NOT IN (SELECT MEM.member_id FROM `relationship` RS INNER JOIN `member` MEM ON RS.reference_member_Id = MEM.member_id WHERE RS.member_id = '$current_user' UNION
 SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member_id = MEM.member_id WHERE RS.reference_member_Id = '$current_user') AND member_id !='$current_user' AND Life_status ='L' ORDER BY member_id"; 
-
 
 									//if($page==1){ $count=1;}else{$count=$page*10-10+1;}
 									//$rest = mysqli_query($con,"SELECT * FROM ".$stat);
@@ -121,7 +126,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 									<div class="text-center"><td valign="top" colspan="12" class="dataTables_empty" align="center">No records found</td></div>
 
 									<?php }
-																 
+											}					 
 									}
 								?>
 				 </div>
@@ -259,9 +264,9 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 			var status1=status;
 			if (status1=='success') {
 				// window.location.reload();
-				$('#exampleModal').modal('hide')
-				$('#success_tic').modal('show')
-				
+				// $('#exampleModal').modal('hide')
+				// $('#success_tic').modal('show')
+				location.reload(true);
 			}
 			else{
 				alert("Data: not updated");
@@ -359,5 +364,8 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 <style type="text/css">
 	#dead_person_form .error{
 		color: red;
+	}
+	.add-member-icon,.approve{
+		cursor: pointer;
 	}
 </style>

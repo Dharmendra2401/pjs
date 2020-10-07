@@ -314,6 +314,7 @@
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sample.js"></script>
 <script type="text/javascript" src="https://cdn.ckeditor.com/4.15.0/standard-all/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/BsMultiSelect.js"></script>
+ <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script>
     
     CKEDITOR.replace('editor', {
@@ -806,34 +807,87 @@ var search=$("#search").val();
 if(search.trim()!=''){
 window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+search);}
 } 
+// 
 
 
-$("#feedback_submit").on("click", function () {
-//$_SESSION['user_mid']
-var feedback_type=$(".feedback_type:visible option:selected").val();
-var feedback_desc=$(".feedback_desc").val();
-var current_user=$(".curr_mid").val();
-//
-$.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/feedback_submit.php",
-{
-	current_user:current_user,
-	feedback_type: feedback_type,
-	feedback_desc:feedback_desc
-},
-function(data,status){
-		var status1=status;
-		console.log(status1);
-		if (status1=='success') {
-		// window.location.reload();
-		$('#modal45').modal('hide')
-		$('#feedback_alert').modal('show')
-	}
-	else{
-	alert("Data: not updated");
-}
+	$(document).ready(function() {
+			$("#feedback_submit_form").validate({
+					rules: {
+							feedback_desc1: "required",
+							feedback_type1:"required" 
+					},
+					messages: {
+							feedback_desc1: "Please fill discription",
+							feedback_type1: "Please select type"
+					}
+			})
+			$("#feedback_submit").on("click", function () {
+
+			if (!$("#feedback_submit_form").valid()) { // Not Valid
+				return false;
+			} 
+			else {
+				var fd = new FormData();
+				var feedback_type=$(".feedback_type:visible option:selected").val();
+				var feedback_desc=$(".feedback_desc").val();
+				var current_user=$(".curr_mid").val();
+ 				var home_path=$("#home_path").val();
+				$.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/feedback_submit.php",
+				{
+					current_user:current_user,
+					feedback_type: feedback_type,
+					feedback_desc:feedback_desc
+				},
+				function(data,status){
+						var status1=status;
+						console.log(status1);
+						if (status1=='success') {
+						// window.location.reload();
+						$('#modal45').modal('hide')
+						$('#feedback_alert').modal('show')
+					}
+					else{
+					alert("Data: not updated");
+				}
+				});
+			}
+				
+		})
+
 });
-//
+$('#modal45').on('hide.bs.modal', function (e) {
+ var mid=$(".feedback_type").val('');
+var dod=$(".feedback_desc").val('');
+$('.succ.msg').hide();
+$('.err.msg').hide();
 })
+
+// $("#feedback_submit").on("click", function () {
+// //$_SESSION['user_mid']
+// var feedback_type=$(".feedback_type:visible option:selected").val();
+// var feedback_desc=$(".feedback_desc").val();
+// var current_user=$(".curr_mid").val();
+// //
+// $.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/feedback_submit.php",
+// {
+// 	current_user:current_user,
+// 	feedback_type: feedback_type,
+// 	feedback_desc:feedback_desc
+// },
+// function(data,status){
+// 		var status1=status;
+// 		console.log(status1);
+// 		if (status1=='success') {
+// 		// window.location.reload();
+// 		$('#modal45').modal('hide')
+// 		$('#feedback_alert').modal('show')
+// 	}
+// 	else{
+// 	alert("Data: not updated");
+// }
+// });
+
+// })
 
 $('.inputtexttwo').bind('keyup',function(){ 
 var node = $(this);
@@ -902,6 +956,8 @@ function(data,status){
 });
 
 })
+
+
 $('#death_update').on('hide.bs.modal', function (e) {
  var mid=$(".mid").val('');
 var dod=$(".dod").val('');
