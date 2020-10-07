@@ -9,27 +9,18 @@ include "../config/config.php";
  <?php include "../styles.php" ?>
 </head>
 
-<body>
+<body class="bg-white">
 	 <div class="container-fluid">
-			 
 				<?php include "header.php";  ?>
 				<input type="hidden" id="current-users" value="<?php $current_user=$_SESSION['user_mid'];echo $current_user;?>">
 				</div>
 		 <div class="row mt-3">
 				 <div class="col-md-4">
-				 	<form method="post" action="">
-						<div class="input-group my-auto">
-							<input type="text" class="form-control sm-input mb-3" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
-							<div class="input-group-append">
-							<input class="btn btn-primary mb-3" type="submit" name="submit1" value="submit">
-							</div>
-						</div>
-					</form>
-					<div class="card mb-2">
+				 	<div class="card mb-2">
 						<div class="card-body pb-2 death-update">
-							<h4 class="card-title">Click here to Update Dead Person
+							<h5 class="card-title">Click here to Update Dead Person
 								<i class="fas fa-plus float-right"></i>
-							</h4>
+							</h5>
 							<form action="" enctype="multipart/form-data" id="dead_person_form">
 								<div class="form-group">
 									<label>Name</label>
@@ -54,7 +45,7 @@ include "../config/config.php";
 								</div>
 								<div class="form-group">
 									<label>Date of Death</label>
-									<input type="date" class="form-control form-control-sm dod" placeholder="Enter date" id="dod">
+									<input type="text" onfocus="(this.type='date')" class="form-control form-control-sm dod" placeholder="Enter Date" id="dod">
 								</div>
 								<div class="form-group">
 									<label>Upload Image</label>
@@ -63,13 +54,22 @@ include "../config/config.php";
 								</div>
 								<button type="button" class="btn btn-primary btn-sm mb-2 float-right dead_person">Submit</button>
 							</form>
-						</div>
-						
+						</div>	
 					</div>
+				 	<form method="post" action="">
+						<div class="input-group my-auto">
+							<input type="text" class="form-control sm-input mb-3" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
+							<div class="input-group-append">
+							<input class="btn btn-primary mb-3" type="submit" name="submit1" value="submit">
+							</div>
+						</div>
+					</form>
+					
 					
 					<div id="searchdata" class="searchdata d-none"></div>
 								<!-- <button class="btn btn-primary float-right my-3 save">Save</button> -->
-
+									<div class="row tree-srch-list">
+                                
 								<?php  if(isset($_POST['submit1'])){
 							 $current_user=$_SESSION['user_mid'];
 							 $search_value=$_REQUEST['search_value'];
@@ -95,27 +95,25 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 									if($row_count>0){
 									while($row=mysqli_fetch_assoc($rs)){      
 									?>
-									<div class="row mt-3">
-										<div class="col-12 user-list">
-											<ul class="list-unstyled list-inline">
-												<li class="list-inline-item">
-													<?php 
+										<div class="col-md-12">
+												<ul class="list-unstyled list-inline list-card">
+													<li class="list-inline-item">
+														<?php 
 
-													//  $getimg=mysqli_fetch_array(mysqli_query($con,"select display_pic,id from key_member_id where id='".$row['MEMBER_ID']."'"))
-													?>
-													<img class="user-list-img" src="<?php echo  $row['display_pic']; ?>">
-												</li>
-												<li class="list-inline-item searchoption">
-													<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']; ?></p>
-													<p><?php echo $row['member_id']; ?></p>
-												</li>
-												<li class="list-inline-item float-right">
-													<i class="fas fa-user-plus add-member-icon" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['member_id']; ?>" data-gender="<?php echo $row['gender'];?>" data-name="<?php echo $fullname=$row['first_name'].' '. $row['middle_name'].' '.$row['last_name'];?>"></i>
-													<input type="hidden" referenc-id="<?php echo $row['member_id'];?>" gender="<?php echo $row['gender'];?>">
-												</li>
-											</ul> 
+														//  $getimg=mysqli_fetch_array(mysqli_query($con,"select display_pic,id from key_member_id where id='".$row['MEMBER_ID']."'"))
+														?>
+														<img class="tree-user-img" src="<?php echo  $row['display_pic']; ?>">
+													</li>
+													<li class="list-inline-item searchoption">
+														<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']; ?></p>
+														<p><?php echo $row['member_id']; ?></p>
+													</li>
+													<li class="list-inline-item float-right">
+														<i class="fas fa-user-plus add-member-icon" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['member_id']; ?>" data-gender="<?php echo $row['gender'];?>" data-name="<?php echo $fullname=$row['first_name'].' '. $row['middle_name'].' '.$row['last_name'];?>"></i>
+														<input type="hidden" referenc-id="<?php echo $row['member_id'];?>" gender="<?php echo $row['gender'];?>">
+													</li>
+												</ul> 
 										</div>
-									</div>
 
 									<?php	 }
 
@@ -129,8 +127,10 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 											}					 
 									}
 								?>
+				        </div>
+
 				 </div>
-				 <div id="add" class="col-md-4 ">
+				 <div id="add" class="col-md-4 list-height">
 						 <?php  include_once './PJS-demo/tree.php';?>
 				 </div>
 				 <div class="col-md-4 text-right">
@@ -355,7 +355,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 
 <script type="text/javascript">
 	$("#dead_person_form").hide();
-	$(".death-update h4 i").on("click", function(){
+	$(".death-update h5 i").on("click", function(){
 		$("#dead_person_form").toggle();
 		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
 	});
@@ -365,7 +365,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 	#dead_person_form .error{
 		color: red;
 	}
-	.add-member-icon,.approve{
+	.approve{
 		cursor: pointer;
 	}
 </style>

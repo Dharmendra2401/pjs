@@ -55,7 +55,7 @@ $staus_show='no status';
 	    	<div class="container">
 		    	<div class="row">
 					<div class="col-md-2 text-right">
-					<a data-lightbox="example-1" href="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>">	<img class="user-img img-fluid" src="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>"></a>
+					<a data-lightbox="example-1" href="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>">	<img class="user-img img-fluid" src="<?php echo RE_HOME_PATH.'uploads/'.$row['display_pic'] ;?>"></a>
 					</div>
 					<div class="col-md-4 pl-0 align-self-end sm-tr">
 					    <h2 class="text-white mb-1"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></h2>
@@ -136,7 +136,7 @@ $staus_show='no status';
 					</div>
 					<div class="col-md-6 align-self-center text-right">
 						<div class="icon-mobile">
-							<i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#contactoption"></i>
+							<!-- <i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#contactoption"></i> -->
 							<?php if (isset($_SESSION['user_mid'])) { ?>
 								<!-- <i type="button" class="fas fa-download mx-2 login-signup user_profile_download" data-userid="<?php echo $row['member_id'];?>"></i> -->
 								<a href="<?php echo RE_EN_PATH; ?>user_detail?id=<?php echo $row['member_id'];?>"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>

@@ -34,6 +34,7 @@ if ($(window).width() < 601) {
   // for mobile menu-------------------------------
       $(".mobile-menu-icon").click(function(){
     $(".navbar-menu").slideToggle("slow");
+    $(".fa-bars, .fa-times").toggleClass("fa-bars fa-times");
   });
     
 
