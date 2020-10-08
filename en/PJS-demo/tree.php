@@ -171,7 +171,7 @@ $result=friend_request_status12();
 							<div class="col-md-2">
 																	<?php	if(isset($row1['Life_status'])){
 											   if($row1['Life_status']=='L'){
-												echo "<br><span class='badge badge-primary float-right ml-1'></span>";
+												echo "<br><span class='badge badge-primary float-right mb-1'></span>";
 											}
 												else{
 													echo "<br>
@@ -183,13 +183,13 @@ $result=friend_request_status12();
 											 	<i class='fas fa-flag death-flag'></i>
 												
 											<?php 
-											echo "<br><span class='badge badge-danger float-right ml-1'>".$row1['d_dod']."</span>";
+											echo "<br><span class='badge badge-danger float-right mb-1'>".$row1['d_dod']."</span>";
 										}
 										 ?> 
 									 <?php 
 											if ($row1['request_side_user']=='from-current-user' && $row1['member_request_status']=='N') {
 											 ?>
-												<span class="badge badge-primary float-right p-1">Request Sent</span>
+												<span class="badge badge-primary float-right p-1 mb-1">Request Sent</span>
 												<?php
 											}
 											elseif ($row1['request_side_user']=='to-user' && $row1['member_request_status']=='N') {
@@ -199,7 +199,7 @@ $result=friend_request_status12();
 											}
 											else{
 												?>
-													<span class="badge badge-primary float-right p-1">member</span>
+													<span class="badge badge-primary float-right p-1 mb-1">member</span>
 												<?php
 											}?>
 	

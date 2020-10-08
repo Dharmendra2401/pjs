@@ -7,9 +7,9 @@ include "../config/config.php";
 <body>
 	<div class="container-fluid">
 		<?php include "header.php";  ?>
-			<div class="col-12 px-0">
+			<!-- <div class="col-12 px-0">
 				<img class="about-us-banner" src="https://i.imgur.com/Rpxx6wU.jpg" alt="Event">
-			</div>
+			</div> -->
 			<div class="col-12">
 				<div class="container">
 

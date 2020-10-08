@@ -305,7 +305,7 @@ footer {
     object-fit: cover;
 }
 
-.carousel-container .carousel-control-prev .fas{
+/*.carousel-container .carousel-control-prev .fas{
     font-size: 30px;
     font-size: 30px;
     background: #446eb6;
@@ -313,9 +313,9 @@ footer {
     border-radius: 50%;
     height: 40px;
     width: 40px;
-}
+}*/
 
-.carousel-container .carousel-control-next .fas{
+/*.carousel-container .carousel-control-next .fas{
     font-size: 30px;
     font-size: 30px;
     background: #446eb6;
@@ -323,7 +323,7 @@ footer {
     border-radius: 50%;
     height: 40px;
     width: 40px;
-}
+}*/
 
 #custCarousel .carousel-indicators {
     position: static;
@@ -446,10 +446,21 @@ footer {
 .pic-wrapper .add-icon{
     position: absolute;
     bottom: -12px;
-    left: 165px;
-    font-size: 45px;
+    left: 160px;
+    font-size: 50px;
     z-index: 2;
 }
+
+.policy{
+    margin-top: 13px;
+}
+
+.policy input{
+    margin-top: 6px;
+    margin-right: 10px;
+    margin-left: 13px;
+}
+
 
 /*-------------------------------SIGNUP SECTION ENDS----------------------*/
 
@@ -683,7 +694,20 @@ footer {
 /*------------------------MODEL------------------------------------*/
 .points, .forgot-credential{
     cursor: pointer;
+    padding-left: 5px;
+    color: #ffffff;
+    border-radius: 3px;
+    background-color: #5fa78b !important;
 }
+
+.points:hover{
+    font-weight: 600;
+}
+
+.forgot-credential:hover{
+    font-weight: 600;
+}
+
 .member-id, .email-id, .update-number, .forgot-login{
     display:none;
 }
