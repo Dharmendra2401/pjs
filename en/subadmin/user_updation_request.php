@@ -15,7 +15,7 @@ include "../../styles.php"
 	<?php include "../header.php"  ?>
 </div>
 <div class="container shadow">
-	<h3 class="ticket-header">User Updation Requests</h3>
+	<h3 class="ticket-header">Mobile Updation Requests</h3>
 	<?php echo show_message();?>
 	<div class="tab-bar">
 		<div class="row">

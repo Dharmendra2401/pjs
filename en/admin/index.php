@@ -2,6 +2,9 @@
 <?php  
 include "../../config/config.php" ;
 include "../mail/index.php" ;
+if(($_SESSION['sub_admin_id']!='')|| ($_SESSION['admin_id']!='')|| ($_SESSION['user_mid']!='')){
+    redirect(RE_HOME_PATH."index.php","");
+}
 if(isset($_REQUEST['login'])){
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
 $password=base64_encode(mysqli_real_escape_string($con,trim($_REQUEST['password'])));
@@ -15,7 +18,7 @@ $fetch=mysqli_fetch_array($login);
 $_SESSION['admin_email']=$fetch['email'];
 $_SESSION['admin_fullname']=$fetch['first_name'].' '.$fetch['last_name'];
 $_SESSION['admin_id']=$fetch['id'];
-redirect(RE_HOME_PATH."index.php");
+redirect(RE_HOME_PATH."index.php","");
 }else{
 redirect(RE_HOME_SUPERADMIN."index.php","Invalid email and password.~@~".MSG_ERROR);
 }

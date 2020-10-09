@@ -1,4 +1,4 @@
-<?php  require_once("../../config/config.php"); ?>
+<?php  require_once("../../config/config.php");  ?>
 <div class="table-responsive">
 <table id="dynamic-table" class="table table-striped table-bordered short2" style="width:100%" >
 <thead>

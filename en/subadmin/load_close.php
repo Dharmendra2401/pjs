@@ -75,7 +75,7 @@ if($row_count<=0){
 
 <?php
 
-$txtpage= paginationjquery($con,$stat,$limit,$page,"?","");					   
+$txtpage= paginationjquerytwo($con,$stat,$limit,$page,"?","");					   
 
 echo "<table width='100%'><tr><td  style='padding:3px;'><div class='dataTables_paginate paging_bootstrap'>".$txtpage."</div></td></tr></table>";
 

@@ -1,6 +1,9 @@
 <?php  
 include "../../config/config.php" ;
 include "../mail/index.php" ;
+if(($_SESSION['sub_admin_id']!='')|| ($_SESSION['admin_id']!='')|| ($_SESSION['user_mid']!='')){
+    redirect(RE_HOME_PATH."index.php","");
+}
 //commonsession();
 if(isset($_REQUEST['login'])){
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
@@ -38,7 +41,7 @@ if($contt>0){
 $getpass=mysqli_fetch_array($getemail);
 $subject="Request For Sub Admin Password ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getpass['first_name']." ".$getpass['last_name'].", your login password is :<strong>".base64_decode($getpass['password'])."</strong> ,if any query email us <a href='mailto:admin@gmail.com'>admin@gmail.com</a>";
+$mes.=" Dear ".$getpass['first_name']." ".$getpass['last_name'].", your login password is :<strong>".base64_decode($getpass['password'])."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$emails;
 

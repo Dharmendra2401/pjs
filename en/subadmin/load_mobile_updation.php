@@ -5,7 +5,7 @@
 <tr class="table-headings">
 <!--<th width="2%">S.No</th>-->
 
-<th >Requester Name </th>
+<th >Requester Name/Id </th>
 <th>Mobile No</th>
 <th>Email</th>
 <th>Address</th>
@@ -28,8 +28,8 @@ $statu.= 'and address in ("'.$state.'")';}
 
 if($_REQUEST['refrenceid']!='')
 {
-$refrenceid=Implode('","',$_REQUEST['refrenceid']); 
-$statu.= 'and death.reference_member_Id in ("'.trim($refrenceid).'")';}
+    $statu.='and comm.email="'.$_REQUEST['refrenceid'].'" ';
+}
 
 
 
@@ -62,7 +62,7 @@ $currentdate=$row['request_date'];
 
 <tr>
 
-<td><?php echo $row['first_name'].' '.$row['last_name'] ?></td>
+<td><?php echo $row['first_name'].' '.$row['last_name']. ' (' .$row['member_id'].')'; ?></td>
 <td><?php echo $row['mobile'] ; ?></td>
 <td><?php echo $row['email'] ; ?></td>
 <td><?php echo $row['full_address'] ; ?></td>

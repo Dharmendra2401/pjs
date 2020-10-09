@@ -86,11 +86,11 @@ method:'post',
 url:'adminpasscheck.php',
 data:{'old':old},
 success:function(passchange){
-if(passchange=='false'){
+if(passchange.trim()=='false'){
 $('#oldpassword').val('');
 $("#errorold").html("<div class='text-danger'>Please enter the valid password </div> ");
 }
-if(passchange=='true'){
+if(passchange.trim()=='true'){
 $("#errorold").html("");
 }
 }

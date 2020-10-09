@@ -21,7 +21,7 @@ $mail->setFrom('support@porwadjain.com', 'PJS');
 //$mail->From = 'support@porwadjain.com';
 //$mail->FromName = 'PJS';
 $mail->addAddress($to);     // Add a recipient
-$mail->addReplyTo('info@example.com', 'Information');
+$mail->addReplyTo('support@porwadjain.com', 'PJS');
 //$mail->addCC('cc@example.com');
 //$mail->addBCC('bcc@example.com');
 $mail->isHTML(true);                                  // Set email format to HTML

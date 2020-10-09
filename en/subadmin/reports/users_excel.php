@@ -87,7 +87,7 @@ if(mysqli_num_rows($setRec) > 0)
                          <th style="width:150px;">Age</th>
                          <th style="width:150px;">Blood Group</th>
                          <th style="width:150px;">Occupation</th>
-                         <th style="width:150px;">Income</th> 
+                         <th style="width:150px;">Annual Income</th> 
                     </tr>
   ';$i=1;
  

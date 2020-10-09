@@ -14,7 +14,7 @@
 <th>Age</th>
 <th>Blood</th>
 <th>Occupation</th>
-<th>Income</th>
+<th>Annual Income</th>
 </tr>
 </thead>
 

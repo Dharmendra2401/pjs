@@ -1,5 +1,6 @@
 <?php 
 include "../config/config.php";
+$year= date('Y'); $setyear=$year-1;
 ?>
 
 <!DOCTYPE html>
@@ -45,7 +46,7 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Age </label>	
 <div class="col-md-9">
-<input type="tel" maxlength="3" class="form-control" placeholder="Enter age"  name="age" id="age"  onKeyPress="return isNumeric(event)">
+<input type="tel" maxlength="3" class="form-control" placeholder="Enter age"  name="age" id="age"  onKeyPress="return isNumeric(event)" disabled title="Select date of birth to change the age">
 </div>
 </div>
 
@@ -65,7 +66,7 @@ include "../config/config.php";
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Date of Birth	</label>	
 <div class="col-md-9">
-<input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob" onchange="return chechSrc();" max="<?php echo date('Y-m-d');?>" min="1600-01-01" >
+<input type="date" class="form-control" placeholder="Enter date of birth" name="dob"  id="dob" onchange="return chechSrc();" max="<?php echo date(''.$setyear.'-m-d');?>" min="1600-01-01" >
 </div>
 </div>
 <div class="form-group row">
@@ -349,7 +350,7 @@ var getyear=dateed.getFullYear();
 var getdob=getyear-year;
 
 //var year=dob.getYear();
-//alert(getdob);
+$('#age').val(getdob);
 
 });
 		$("#feet").click( 
@@ -403,7 +404,7 @@ function firstform(){
 var dateed=new Date();
 var getdate=('0' + dateed.getDate()).slice(-2) ;
 var getmonth=('0' + (dateed.getMonth()+1)).slice(-2);
-var getyear=dateed.getFullYear();
+var getyear=dateed.getFullYear()-1;
 var totaldate=getyear+'-'+getmonth+'-'+getdate;
 var letters = /^[A-Za-z ]+$/;
 var firstname=$('#firstname').val();
@@ -475,7 +476,7 @@ var inches = $('#inches').val();
 	return false;
 	}
 
-	else if((dob>=totaldate)){
+	else if((dob>totaldate)){
 	$('#dob').focus();
 	$("#dob").addClass("invalid");
 	return false;
@@ -723,13 +724,6 @@ x[i].className = x[i].className.replace(" active", "");
 x[n].className += " active";
 }
 
-$('[name="date"]')
-    .datepicker({
-        format: 'mm/dd/yyyy'
-    })
-    .on('changeDate', function(e) {
-        // Revalidate the date field
-        fv.revalidateField('date');
-    });
+
 </script>
 </html>

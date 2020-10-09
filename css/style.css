@@ -1235,7 +1235,7 @@ input::-webkit-inner-spin-button {
     color: #446eb6;
     top: 6px;
 display:none;z-index:9;}
-.searchbtn{background: #446eb6;
+.searchbtn{
     padding: 0px;    border: none;
 }
 .search-icon{background-color: #446eb6;

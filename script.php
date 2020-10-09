@@ -490,13 +490,20 @@ $('#opjerror').html('<div class="alert alert-danger">Please enter the firstname<
 $('#opjfirstname').focus();
 return false;
 }
+
 else if(opjlastname.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the lastname</div>');
 $('#opjlastname').focus();
 return false;
 }
+
 else if(opjmobile.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
+$('#opjmobile').focus();
+return false;
+}
+else if(opjmobile.trim().length<8){
+$('#opjerror').html('<div class="alert alert-danger">Please enter valid mobile no</div>');
 $('#opjmobile').focus();
 return false;
 }
@@ -512,7 +519,7 @@ $('#opjemail').focus();
 return false;
 }
 else if(opjaddress.trim()==''){
-$('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
+$('#opjerror').html('<div class="alert alert-danger">Please enter the address</div>');
 $('#opjaddress').focus();
 return false;
 }

@@ -6,9 +6,8 @@ $statu='';
 
 if($_REQUEST['refrenceid']!='')
 {
-$reff=explode(',',$_REQUEST['refrenceid']);
-$refrenceid=Implode('","',$reff); 
-$statu.= 'and death.reference_member_Id in ("'.trim($refrenceid).'")';}
+    $statu.='and comm.email="'.$_REQUEST['refrenceid'].'" ';
+}
 
 
 

@@ -65,6 +65,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <a class="dropdown-item" href="<?php echo  RE_HOME_PATH;?>en/view_and_update_profile.php">View & Update Profile</a>
 <a class="dropdown-item" href="saved_profile.php">Saved Profile</a>
 <a class="dropdown-item feed_btn" data-toggle="modal" data-target="#modal45">Feedback</a>
+<a class="dropdown-item" href="<?php echo  RE_HOME_USER;?>password_change.php">Password Change</a>
 <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
 <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
 <a class="dropdown-item" href="<?php echo  RE_HOME_USER;?>logout_user.php">Logout</a>

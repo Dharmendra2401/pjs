@@ -50,7 +50,7 @@ while($show=mysqli_fetch_array($state)){
 
 <li class="collapse-wrapper" id="cage">
 <a class="btn btn-default w-100" data-toggle="collapse" href="#memberid" role="button" aria-expanded="false" aria-controls="memberid">
-<span class="float-left">Requester Name</span>
+<span class="float-left">Requester Id</span>
 </a>
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="memberid" multiple="multiple">
@@ -68,19 +68,13 @@ while($showmemid=mysqli_fetch_array($memberid)){
 </li>
 <li class="collapse-wrapper">
 <a class="btn btn-default w-100" data-toggle="collapse" href="#blood-group" role="button" aria-expanded="false" aria-controls="blood-group">
-<span class="float-left">Rquested For</span>
+<span class="float-left">Email</span>
 </a>
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="blood-group">
 <div class="card card-body">
-<select class="select form-control" id="refrenceid" multiple="multiple" onchange="return BtnClickPage(1,10);">
-<?php 
-$refrenceidd=mysqli_query($con,'select member_id,first_name,last_name from member where active_status="Y" ');
-while($showmemidd=mysqli_fetch_array($refrenceidd)){
-?>
-<option value="<?php echo $showmemidd['member_id']; ?>"><?php echo  $showmemidd['member_id']; ?></option>
-<?php } ?>
-</select>
+<input type="email" class="form-control"  id="refrenceid" onchange="return BtnClickPage(1,10);">  
+
 </div>
 </div>
 </li>
