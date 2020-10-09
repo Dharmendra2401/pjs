@@ -59,14 +59,14 @@ redirect(RE_HOME_SUPERADMIN."about_us.php","Error! Please fill out the fields an
 </div>-->
 
 <div class="form-group row">
-<label class="col-md-2 col-form-label"><span class="text-danger">*</span> Content</label>	
-<div class="col-md-8">
+<label class="col-md-2 col-form-label"><span class="text-danger">*</span> Update Content</label>	
+<div class="col-md-10">
 <textarea type="text" class="form-control" name="content"  placeholder="Enter content" id="editor" required><?php echo $getaboutus['content'] ;?></textarea>
 </div>
 </div>
 
 <div class="form-group row">
-<div class="col-md-12 text-center">
+<div class="col-md-12 text-right">
 <input type="submit" class="btn btn-success"  name="submit" value="Submit" required>
 
 </div><br><br>

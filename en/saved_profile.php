@@ -16,7 +16,7 @@ include 'PJS-demo/selectfunction.php';
 			</div>
 
 			<div class="row">
-				<div class="col-12">
+				<div class="col-4">
 					<ul class="list-unstyled user-list">
 						<?php $saved_user_profile=get_all_saved_profile(); 
 							if(mysqli_num_rows($saved_user_profile)>0) {

@@ -40,9 +40,10 @@ redirect(RE_HOME_SUPERADMIN."password_change.php","Error! Please try again~@~".M
 <?php  include "../header.php" ?>
 </div>
 <div class="container shadow">
-<h3 class="ticket-header">Admin Password Change</h3>
+<h3 class="ticket-header text-center">Admin Password Change</h3>
 <br>
-<form method="post" class="col-md-6" >
+<div class="row">
+<form method="post" class="col-md-6 offset-md-3" >
 <?php echo show_message();?>
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> Old Password </label>	
@@ -68,13 +69,14 @@ redirect(RE_HOME_SUPERADMIN."password_change.php","Error! Please try again~@~".M
 
 <div class="form-group row">
 
-<div class="col-md-12 text-center">
+<div class="col-md-12 text-right">
 <button type="submit" onclick="return passChange();" class="btn btn-success"  name="passwordchange" > Submit</button>
 
 </div><br><br>
 
 
 </form>
+</div>
 
 </body>
 <script>

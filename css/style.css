@@ -1015,7 +1015,9 @@ footer {
 /*--------------------HEADER---------------------------*/
   .bg-color{
      background-color: #3eb8e9;
+     height: 110px;
   }
+
 
   .login-icon{
     display: block;
@@ -1136,7 +1138,9 @@ footer {
 }
 
 
-
+.content-container{
+     background-color: #ffffff;
+}
 
 /*--------------------HEADER ENDS---------------------------*/
 
@@ -1255,6 +1259,13 @@ footer {
    line-height: 18px !important;
 }
 /*--------------------PROFILE ENDS---------------------------*/
+
+/*--------------------FAMILY TREE---------------------------*/
+.tree-srch-list{
+   height: 180px;
+}
+
+/*--------------------FAMILY TREE ENDS---------------------------*/
 
 /************************ ADMIN *********************************/
 
