@@ -1,7 +1,7 @@
 <?php 
 include "../config/config.php";
 include 'PJS-demo/selectfunction.php';
-print_r($_SESSION);
+
 
 $idd=base64_decode($_REQUEST['token']);
 
