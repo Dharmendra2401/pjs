@@ -31,7 +31,7 @@
 
 	if(isset($_REQUEST['ustatus']))
 	{$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
-	$stat="member_request where 1=1 and status_of_request ='N' and type_of_request='death' $statu order by member_id desc";
+	$stat="member_request where 1=1 and status_of_request ='N' or status_of_request ='R' and type_of_request='death' $statu order by member_id desc";
 	$page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 	$limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 	$startpoint = ($page * $limit) - $limit;
@@ -52,7 +52,7 @@
 		<tr>
 			<td><?php echo $count;  ?></td>
 			<td><?php echo $row['member_id'] ; ?></td>
-			<td><?php echo $row1['first_name'].' '.$row1['middle_name'].' '.$row1['last_name'] ?></td>
+			<td><?php echo $row1['first_name'].' '.$row1['last_name'] ?></td>
 			<td><?php  echo $row['type_of_request'] ;	?></td>
 			<td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>death_user_detail.php?id=<?php echo base64_encode($row['member_id']);?>">Show Details</a></td>
 		</tr>

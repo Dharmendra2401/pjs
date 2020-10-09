@@ -4,11 +4,12 @@ include "../../config/config.php";
 sub_admin_session_check();
 include "../mail/index.php" ;
 $token=base64_decode($_REQUEST['id']);
+
 $resul21='select mr.reference_member_Id,mr.member_id,mr.new_request,mr.status_of_request,mr.type_of_request,mr.id,mr.record_inserted_dttm,com.member_id,com.mobile,com.email,mem.date_of_birth,mem.member_id,mem.first_name,mem.last_name,mem.middle_name from member_request as mr INNER JOIN communication as com on mr.member_id=com.member_id INNER JOIN member as mem on mem.member_id=mr.member_id where mr.id="'.$token.'" ';
 $getvalutwor=mysqli_query($con,$resul21)or die(mysqli_error($con));
 $getvalutwo =mysqli_fetch_array($getvalutwor);   
 $reference_member_id1= $getvalutwo['reference_member_Id'];
-$getvaluone=mysqli_fetch_array(mysqli_query($con,'select member_id,first_name,last_name,middle_name from member where member_id="'.$reference_member_id1.'" '));
+$getvaluone=mysqli_fetch_array(mysqli_query($con,'select member.member_id,member.first_name,member.last_name,member.middle_name,ep.email from member inner join communication ep on member.member_id=ep.member_id where member.member_id="'.$reference_member_id1.'"'));
 $submitdate=date('Y-m-d H:i:s');
 
 if(isset($_REQUEST['submit'])){
@@ -18,26 +19,26 @@ if($status==1){
 mysqli_query($con,'update member set date_of_death="'.$getvalutwo['new_request'].'",Life_status="D" where member_id="'.$getvalutwo['member_id'].'" ');
 mysqli_query($con,'update member_request set status_of_request="N" where id="'.$token.' AND  	type_of_request=death" ');
 
-$subject="User Mobile No. Updation Successfully Approved From ".WEBSITE_NAME." ";
+$subject="User Deat Request Is approved By Admin ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getvalutwo['first_name']." ".$getvalutwo['middle_name']." ".$getvalutwo['last_name'].", your mobile number updation successfully approved by the admin and your new mobile no is: <strong>".$getvalutwo['mobile']."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.=" Dear ".$getvaluone['first_name']." ".$getvaluone['last_name'].", your death request updation successfully approved by the admin :if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
-$to=$getvalutwo['email'];
+$to=$getvaluone['email'];
 sendmails($to,$message,$subject);
-redirect(RE_HOME_ADMIN."user_updation_request.php","User Death Requested successfully approved~@~".MSG_SUCCESS);
+redirect(RE_HOME_ADMIN."death_request.php","User Death Requested successfully approved~@~".MSG_SUCCESS);
 } 
 if($status==0){
 mysqli_query($con,'update member_request set status_of_request="R" ,reason_of_rejection="'.$reason.'" where id="'.$token.'" ');
 
-$subject="User Mobile No. Updation Rejected From ".WEBSITE_NAME." ";
+$subject="User Deat Request Is Rejected From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getvalutwo['first_name']." ".$getvalutwo['middle_name']." ".$getvalutwo['last_name'].", your mobile number updation rejected by the admin and reason is : <strong>".$reason."</strong> ,if any query email us <a href='".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.=" Dear ".$getvaluone['first_name']." ".$getvaluone['last_name'].", your death request rejected by the admin and reason is : <strong>".$reason."</strong> ,if any query email us <a href='".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
-$to=$getvalutwo['email'];
+$to=$getvaluone['email'];
 sendmails($to,$message,$subject);
-redirect(RE_HOME_ADMIN."user_updation_request.php","User Death Request successfully rejected~@~".MSG_SUCCESS);
+redirect(RE_HOME_ADMIN."death_request.php","User Death Request successfully rejected~@~".MSG_SUCCESS);
 }
-    redirect(RE_HOME_ADMIN."user_updation_request.php","Error! Please try again~@~".MSG_ERROR);
+    redirect(RE_HOME_ADMIN."death_request.php","Error! Please try again~@~".MSG_ERROR);
 
 
 }
@@ -65,6 +66,7 @@ include "../../styles.php"
 <div class="col-md-3">Member<strong>:</strong></div>
 <div class="col-md-9"><?php echo $getvalutwo['first_name'].' '.$getvalutwo['middle_name'].' '.$getvalutwo['last_name'];  ?> <a target='blank' href="<?php echo RE_HOME_ADMIN;?>death_user_detail.php?id=<?php echo base64_encode($getvalutwo['member_id']);?>">View Details</a></div>
 <div class="col-md-3">Requested By <strong>:</strong></div>
+
 <div class="col-md-9"><?php echo $getvaluone['first_name'].' '.$getvaluone['middle_name'].' '.$getvaluone['last_name'];?> <a target='blank' href="<?php echo RE_HOME_ADMIN;?>death_user_detail.php?id=<?php echo base64_encode($getvalutwo['reference_member_Id']);?>">View Details</a> </div>
 
 <div class="col-md-3">Email Id<strong>:</strong></div>
@@ -99,7 +101,7 @@ include "../../styles.php"
 <?php if($getvalutwo['status_of_request']!='N'){  ?>
 <button class="btn btn-success" name="submit">Submit</button>
 <?php } ?>
-<a class="btn btn-danger" href="<?php echo RE_HOME_ADMIN; ?>user_updation_request.php">Back</a>
+<a class="btn btn-danger" href="<?php echo RE_HOME_ADMIN; ?>death_request.php">Back</a>
 </div>
 </div>
 </div>
