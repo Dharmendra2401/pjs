@@ -48,6 +48,9 @@ include "../config/config.php";
 			                  </ol> -->
 			            </div>
 			        </div>
+			        <div class="col-md-12 home-card">
+			        	<h3>Offers for Registered Members Coming Soon</h3>
+			        </div>
 			    </div>
             </div>
     		    

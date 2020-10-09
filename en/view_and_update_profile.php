@@ -186,7 +186,7 @@ $row=mysqli_fetch_array($fire);
 								    	    <span class="dropdwn-txt"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
                         else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A-';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></span>
 								    <form class="edit-form" data-columnname='blood_group' data-tablename='member' id="blood_group_frm">
-										<select class="select-text" name="blood_group_name">
+										<select class="select-text form-control" name="blood_group_name">
 											<option value="">Select Blood Group</option>
 											<option value="1">A+</option>
 											<option value="2">B+</option>
@@ -209,8 +209,8 @@ $row=mysqli_fetch_array($fire);
 									<span class="inch"><?php echo $row['inches'];?></span>
 									<span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Global';?> </span> 
 									<form class="edit-form" data-columnname='feet' data-tablename='member' id="height_frm">
-										<input type="tel" class="edit-input-feet" name="height_feet" maxlength="2" onkeypress="return isNumeric(event)">
-										<input type="tel" class="edit-input-inch" name="height_inch" maxlength="2" onkeypress="return isNumeric(event)">
+										<input type="tel" class="edit-input-feet form-control mb-2" name="height_feet" maxlength="2" onkeypress="return isNumeric(event)">
+										<input type="tel" class="edit-input-inch form-control" name="height_inch" maxlength="2" onkeypress="return isNumeric(event)">
 <!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
@@ -424,90 +424,91 @@ $row=mysqli_fetch_array($fire);
 
 
 				</div>
-				<div id="education"  class="tab-pane">
-						<h3>Education</h3>
-						<hr>
-						<div class="row info mb-4">
-							<div class="col-md-3">Education <strong>:</strong></div>
-							<div class="col-md-9">
-							    <span class="data"><?php echo $row['highest_edu']; ?></span> 
-								<form class="edit-form" data-columnname='highest_edu' data-tablename='education_ocp' id="highest_edu_frm">
-									<input type="text" class="edit-input" name="highest_edu_name" >
-									<button class="btn btn-primary save-change" id="highest_edu_btn">Save Changes</button>
-									<button class="cancel btn btn-secondary	">Cancel</button>
-								</form>
-								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-						    </div>
-						</div>
-						<h3>Work</h3>
-						<hr>
-						<div class="row info mb-4">
-							<div class="col-md-3">Occupation <strong>:</strong></div>
-							<div class="col-md-9">
-							    <span class="dropdwn-txt"> <?php if($row['occupation']==1){ echo "
-											Job";} else if($row['occupation']==2) { echo "Bussiness";}
-											else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?></span> 
-								<form class="edit-form" data-columnname='occupation' data-tablename='education_ocp' id="income_frm">
-<!-- 									<select class="select-text">
-										<option value="">Select Occupation</option>
-										<option value="1">Job</option>
-										<option value="2">Business</option>
-										<option value="3">Housewife</option>
-										<option value="4">Student</option>
-									</select>
- -->									<select class="custom-select" name="occupation" id="occupation" onchange="return getincome();">
-										<option value="">Select occupation</option>
-										<option value="1" <?php if($row['occupation']==1){ echo "
-											selected";}?>>Job</option>
-										<option value="2" <?php if($row['occupation']==2){ echo "
-											selected";}?>>Business </option>
-										<option value="3" <?php if($row['occupation']==3){ echo "
-											selected";}?>>Housewife</option>
-										<option value="4" <?php if($row['occupation']==4){ echo "
-											selected";}?>>Student</option>
-									<!-- <option value="5">Nothing</option> -->
-									</select>
-									<div class="form-group row" id="occdetails">
-										<label class="col-md-12 col-form-label"><span class="text-danger">*</span> Please Add Details</label>
-										<div class="col-md-12">
-										<textarea class="form-control " rows="4" name="details" id="details" placeholder="Enter detail" maxlength="50"><?php echo  $row['ocp_details']; ?></textarea>
-										</div>
-									</div>
-									<div class="form-group row" id="income-div" >
-									<label class="col-md-12 col-form-label"><span class="text-danger">*</span> Income</label>
-										<div class="col-md-12">
-											<select class="custom-select" name="income" id="income">
-											<option value="">Select income</option>
-											<option value="1" <?php if($row['income']==1){echo "selected";}?>>Less than 1 lakh</option>
-											<option value="2" <?php if($row['income']==2){echo "selected";}?>>1 lakh to 2 lakh</option>
-											<option value="3" <?php if($row['income']==3){echo "selected";}?>>2 lakh to 3 lakh</option>
-											<option value="4" <?php if($row['income']==4){echo "selected";}?>>3 lakh to 4 lakh</option>
-											<option value="5" <?php if($row['income']==5){echo "selected";}?>>more than 4 lakh</option>
-
-											</select>
-										</div>
-									</div>
-									<button class="btn btn-primary save-change" id="income_btn">Save Changes</button>
-									<button class="cancel btn btn-secondary	">Cancel</button>
-								</form>
-								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-						    </div>
-
-							<div class="col-md-3">Income<strong>:</strong></div>
-							<div class="col-md-9" >
-							    <span class="dropdwn-txt" id="income-drp"><?php if($row['income']==1){ echo "Less than 1 lakh";}
-										else if($row['income']==2){ echo "1 lakh to 2 lakh";}
-										else if($row['income']==3){ echo "2 lakh to 3 lakh";}
-										else if($row['income']==4){ echo "3 lakh to 4 lakh";}
-										else if($row['income']==5){ echo "more than 4 lakh";}
-										else{ echo "NA";}
-									?></span> 
-							    <!-- <span class="privacy">Global</span> -->
-								<!-- <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span> -->
-						    </div>
-						</div>
-				</div>
 			</div>
+
+			<div id="education"  class="tab-pane">
+					<h3>Education</h3>
+					<hr>
+					<div class="row info mb-4">
+						<div class="col-md-3">Education <strong>:</strong></div>
+						<div class="col-md-9">
+						    <span class="data"><?php echo $row['highest_edu']; ?></span> 
+							<form class="edit-form" data-columnname='highest_edu' data-tablename='education_ocp' id="highest_edu_frm">
+								<input type="text" class="edit-input" name="highest_edu_name" >
+								<button class="btn btn-primary save-change" id="highest_edu_btn">Save Changes</button>
+								<button class="cancel btn btn-secondary	">Cancel</button>
+							</form>
+							<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+					    </div>
+					</div>
+					<h3>Work</h3>
+					<hr>
+					<div class="row info mb-4">
+						<div class="col-md-3">Occupation <strong>:</strong></div>
+						<div class="col-md-9">
+						    <span class="dropdwn-txt"> <?php if($row['occupation']==1){ echo "
+										Job";} else if($row['occupation']==2) { echo "Bussiness";}
+										else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?></span> 
+							<form class="edit-form" data-columnname='occupation' data-tablename='education_ocp'         id="income_frm">
+                                <!-- <select class="select-text">
+									<option value="">Select Occupation</option>
+									<option value="1">Job</option>
+									<option value="2">Business</option>
+									<option value="3">Housewife</option>
+									<option value="4">Student</option>
+								</select> -->
+								<select class="custom-select" name="occupation" id="occupation" onchange="return getincome();">
+									<option value="">Select occupation</option>
+									<option value="1" <?php if($row['occupation']==1){ echo "
+										selected";}?>>Job</option>
+									<option value="2" <?php if($row['occupation']==2){ echo "
+										selected";}?>>Business </option>
+									<option value="3" <?php if($row['occupation']==3){ echo "
+										selected";}?>>Housewife</option>
+									<option value="4" <?php if($row['occupation']==4){ echo "
+										selected";}?>>Student</option>
+								<!-- <option value="5">Nothing</option> -->
+								</select>
+								<div class="form-group row" id="occdetails">
+									<label class="col-md-12 col-form-label"><span class="text-danger">*</span> Please Add Details</label>
+									<div class="col-md-12">
+									<textarea class="form-control " rows="4" name="details" id="details" placeholder="Enter detail" maxlength="50"><?php echo  $row['ocp_details']; ?></textarea>
+									</div>
+								</div>
+								<div class="form-group row" id="income-div" >
+								    <label class="col-md-12 col-form-label"><span class="text-danger">*</span> Income</label>
+									<div class="col-md-12">
+										<select class="custom-select" name="income" id="income">
+										<option value="">Select income</option>
+										<option value="1" <?php if($row['income']==1){echo "selected";}?>>Less than 1 lakh</option>
+										<option value="2" <?php if($row['income']==2){echo "selected";}?>>1 lakh to 2 lakh</option>
+										<option value="3" <?php if($row['income']==3){echo "selected";}?>>2 lakh to 3 lakh</option>
+										<option value="4" <?php if($row['income']==4){echo "selected";}?>>3 lakh to 4 lakh</option>
+										<option value="5" <?php if($row['income']==5){echo "selected";}?>>more than 4 lakh</option>
+
+										</select>
+									</div>
+								</div>
+								<button class="btn btn-primary save-change" id="income_btn">Save Changes</button>
+								<button class="cancel btn btn-secondary	">Cancel</button>
+							</form>
+							<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+					    </div>
+
+						<div class="col-md-3">Income<strong>:</strong></div>
+						<div class="col-md-9" >
+						    <span class="dropdwn-txt" id="income-drp"><?php if($row['income']==1){ echo "Less than 1 lakh";}
+									else if($row['income']==2){ echo "1 lakh to 2 lakh";}
+									else if($row['income']==3){ echo "2 lakh to 3 lakh";}
+									else if($row['income']==4){ echo "3 lakh to 4 lakh";}
+									else if($row['income']==5){ echo "more than 4 lakh";}
+									else{ echo "NA";}
+								?></span> 
+						    <!-- <span class="privacy">Global</span> -->
+							<!-- <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span> -->
+					    </div>
+					</div>
+				</div>
 
 </div>	
 </div>
@@ -540,6 +541,7 @@ $(document).ready(function(){
 	$(".act span").text(x);
 	$(".prev span").text(y);
   });
+
 
 
  $(".edit").on("click", function(){ 
@@ -1310,8 +1312,8 @@ $(document).ready(function(){
 	   $(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 	   $(this).parent(".edit-form").siblings(".data").show();
 	   $(this).parent(".edit-form").siblings(".privacy").show();
+	   $(this).parent(".edit-form").siblings(".dropdwn-txt, .feet, .inch").show();
   });
-
 
 
 $('.nav-tabs' ).on("click", function() {

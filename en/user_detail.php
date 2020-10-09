@@ -55,7 +55,7 @@ $staus_show='no status';
 	    	<div class="container">
 		    	<div class="row">
 					<div class="col-md-2 text-right">
-					<a data-lightbox="example-1" href="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>">	<img class="user-img img-fluid" src="<?php echo RE_HOME_PATH.'uploads/'.$row['display_pic'] ;?>"></a>
+					<a data-lightbox="example-1" href="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>">	<img class="user-img img-fluid" src="<?php echo RE_HOME_PATH.$row['display_pic'] ;?>"></a>
 					</div>
 					<div class="col-md-4 pl-0 align-self-end sm-tr">
 					    <h2 class="text-white mb-1"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></h2>

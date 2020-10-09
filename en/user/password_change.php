@@ -38,9 +38,10 @@ redirect(RE_HOME_USER."password_change.php","Error! Please try again~@~".MSG_ERR
 <?php  include "../header.php" ?>
 </div>
 <div class="container shadow">
-<h3 class="ticket-header">User Password Change</h3>
+<h3 class="ticket-header text-center">User Password Change</h3>
 <br>
-<form method="post" class="col-md-6" >
+<div class="row">
+<form method="post" class="col-md-6 offset-md-3" >
 <?php echo show_message();?>
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span> Old Password </label>	
@@ -73,6 +74,7 @@ redirect(RE_HOME_USER."password_change.php","Error! Please try again~@~".MSG_ERR
 
 
 </form>
+</div>
 <?php include "../../footer.php" ?>
 </body>
 <script>

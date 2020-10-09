@@ -3,6 +3,15 @@ body{
     color: #2c2c2c;
     /*background: #e8e8e8;*/
 }
+
+.d-sm{
+  display: none;
+}
+
+.d-md{
+  display: inline-block;  
+}
+
 .hindi-text{
   line-height: 40px;
 }
@@ -10,6 +19,23 @@ body{
     background-color: #446eb6;
     border-color: #446eb6;
 }
+
+.btn-primary:hover {
+    background-color: #568ae4;
+    border-color: #568ae4;
+}
+
+.btn-primary:focus{
+    background-color: #446eb6;
+    border-color: #446eb6;
+    box-shadow: 0 0 0 0.2rem rgb(38 143 255 / 0%) !important;
+}
+
+.btn:focus{
+    outline: unset;
+    box-shadow: 0 0 0 0.2rem rgb(38 143 255 / 0%) !important;
+}
+
 .btn-warning{
     background-color: #fda619;
     border-color: #fda619;
@@ -53,13 +79,21 @@ body{
     color: #ffffff;
 }
 
+.form-control:focus{
+    box-shadow: 0 0 0 0.2rem rgb(0 123 255 / 4%);
+}
+
+.modal-header button.close:focus{
+    outline: transparent !important;
+}
+
 /*----------------------GLOBAL CSS ENDS---------------------------------------*/
 
 /*-----------------------HEADER----------------------------------------------*/
 .logo-link{
-    width: 100%;
+    /*width: 100%;
     display: block;
-    text-align: center;
+    text-align: center;*/
     z-index: -10;
 }
 
@@ -82,6 +116,7 @@ body{
 .srch-btn{
     border: 0;
     padding: 0;
+    outline: unset;
 }
 
 .srch-btn .fa-search{
@@ -140,6 +175,10 @@ body{
     color: #ffffff;
 }
 
+.home-card{
+    display: none;
+}
+
 /*-----------------------HEADER ENDS----------------------------------------------*/
 
 
@@ -194,6 +233,19 @@ footer {
     left: 280px;
     top: 21px;
     border: 0;
+    /* display: block; */
+    /* width: 100%; */
+    height: calc(1.5em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
 }
 
 .privacy-setting .dropdown-menu{
@@ -249,6 +301,7 @@ footer {
       -webkit-box-shadow: 0px 9px 17px -4px rgba(0,0,0,0.64);
     -moz-box-shadow: 0px 9px 17px -4px rgba(0,0,0,0.64);
     box-shadow: 0px 9px 17px -4px rgba(0,0,0,0.64);
+    margin-bottom: 50px;
 }
 /*-----------------------EVENT ENDS----------------------------------------------*/
 
@@ -949,6 +1002,14 @@ footer {
 .sm-pb10{
   padding-bottom: 10px;
 }
+
+.d-sm{
+    display: inline-block;
+}
+
+.d-md{
+  display: none;  
+}
 /*-------------------------GLOBAL ENDS-------------------*/
 
 /*--------------------HEADER---------------------------*/
@@ -957,11 +1018,10 @@ footer {
   }
 
   .login-icon{
-     display: block;
-     display: block;
+    display: block;
     position: absolute;
-    right: 45px;
-    top: -88px;
+    right: 16px;
+    top: -92px;
     font-size: 20px;
     color: #ffffff;
   }
@@ -970,6 +1030,52 @@ footer {
      display: none;
 
   }
+
+  .loggedin{
+    position: absolute;
+    top: -103px;
+    right: 24px;
+  }
+
+  .loggedin button{
+    border-radius: 50%;
+    height: 40px;
+    width: 40px;
+  }
+
+     .open-login{
+    margin-top: 20px;
+    margin-bottom: 20px;
+    width: 100%;
+  }
+
+  .loggedin .custom-dropdwn{
+    position: absolute !important;
+    transform: translate3d(-100px, 32px, 0px) !important;
+    top: 0px !important;
+     left: 0px !important; 
+    
+    right: -80px !important;
+    background-color: #3eb8e9;
+  }
+
+  .loggedin .custom-dropdwn .dropdown-item{
+    white-space: unset;
+    color: #fff;
+    font-weight: 600;
+  }
+
+  .loggedin button:active, .show>.btn-outline-primary.dropdown-toggle{
+    background-color: #3eb8e9 !important;
+    border-color: #3eb8e9 !important;
+  }
+
+  .loggedin button.btn-outline-primary {
+    background-color: #3eb8e9 !important;
+    border-color: #3eb8e9 !important;
+    color: #ffffff;
+  }
+  
 
   .sm-input{
      height: calc(1.2em + .75rem + 2px);
@@ -986,7 +1092,7 @@ footer {
 
   .sm-icon-alert{
     position: absolute;
-    top: -88px;
+    top: -92px;
     right: 65px;
     font-size: 20px;
     color: #ffffff
@@ -1004,7 +1110,7 @@ footer {
     display: inline;
     position: absolute;
     top: 10px;
-    left: 10px;
+    left: 14px;
     font-size: 20px;
     color: #ffffff;
     z-index: 6;
@@ -1031,12 +1137,32 @@ footer {
 
 
 
-   .open-login{
-    margin-top: 20px;
-    margin-bottom: 20px;
-    width: 100%;
-  }
+
 /*--------------------HEADER ENDS---------------------------*/
+
+/*--------------------INDEX--------------------------------*/
+   .carousel-inner .carousel-item img{
+    height: 35vh;
+   }
+
+   .home-card{
+    color: #fff;
+    height: 160px;
+    text-align: center;
+    text-transform: capitalize;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    /* background-color: #70c5a4; */
+    background-image: linear-gradient(to right, #446eb6 , #3eb8e9);
+    margin: 26px 5px;
+    border-radius: 2px;
+   }
+
+   .home-card h3{
+    line-height: 40px;
+   }
+/*--------------------INDEX ENDS---------------------------*/
 
 /*--------------------USER DETAIL---------------------------*/
 
@@ -1137,10 +1263,6 @@ footer {
     margin: 10px 0;
 }
 
-.loggedin .custom-dropdwn{
-    right: 0px;
-    text-align: center;
-}
 
 .loggedin .custom-dropdwn .triangle-up-white{
     width: 0;

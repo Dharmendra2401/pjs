@@ -3,7 +3,7 @@
 </div>
 <div class="row bg-color">
 
-<div class="col-md-3 sm-image-wrapper">
+<div class="col-md-3 sm-image-wrapper text-center">
 <i class="fas fa-bars mobile-menu-icon"></i>
 <a class="logo-link" href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png"></a>
 </div>
@@ -40,7 +40,8 @@ if ($_SESSION['sub_admin_email']!=''){
 ?>
 <div class="dropdown loggedin">
 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-<?php echo $_SESSION['sub_admin_fullname']; ?>
+<span class="d-sm"><i class="fas fa-user-check"></i></span>
+<span class="d-md"><?php echo $_SESSION['sub_admin_fullname']; ?></span>
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="<?php echo  RE_HOME_ADMIN; ?>password_change.php">Change password</a>
@@ -59,7 +60,8 @@ if ($_SESSION['sub_admin_email']!=''){
 ?>
 <div class="dropdown loggedin">
 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-<?php echo $_SESSION['ufullname']; ?>
+    <span class="d-sm"><i class="fas fa-user-check"></i></span>
+    <span class="d-md"><?php echo $_SESSION['ufullname']; ?></span>
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="<?php echo  RE_HOME_PATH;?>en/view_and_update_profile.php">View & Update Profile</a>
@@ -81,7 +83,8 @@ if ($_SESSION['sub_admin_email']!=''){
     ?>
     <div class="dropdown loggedin">
     <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-    <?php echo $_SESSION['admin_fullname']; ?>
+        <span class="d-sm"><i class="fas fa-user-check"></i></span>
+        <span class="d-md"><?php echo $_SESSION['admin_fullname']; ?></span>
     </button>
     <div class="dropdown-menu custom-dropdwn mt-2">
     <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN;?>password_change.php">Password Change</a>
@@ -104,7 +107,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <button type="button" class="btn btn-primary login-btn" data-toggle="modal" data-target="#login">
 LOGIN/SIGUP
 </button>
-<i class="fas fa-sign-in-alt login-icon" data-toggle="modal" data-target="#login"></i>
+<i class="fas fa-user login-icon" data-toggle="modal" data-target="#login"></i>
 <?php } ?>
 
 </div>
