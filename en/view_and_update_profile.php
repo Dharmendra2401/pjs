@@ -37,22 +37,23 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-9"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></div>
 
 								<div class="col-md-3">Popular Name<strong>:</strong></div>
-								<div class="col-md-9">
+								<div class="col-md-9 po_name">
 								<?php echo $row['popular_name']; ?>
 								</div>
 
 								<div class="col-md-3">Gender <strong>:</strong></div>
-								<div class="col-md-9"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></div>
+								<div class="col-md-9 gender_cl"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></div>
 
 								<div class="col-md-3">Status <strong>:</strong></div>
-								<div class="col-md-9"><?php echo $row['marital_status']; ?></div>
+								<div class="col-md-9 mari_sta" ><?php echo $row['marital_status']; ?></div>
 
 								<div class="col-md-3">Blood Group<strong>:</strong></div>
-								<div class="col-md-9"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
+								<div class="col-md-9 bld_grp"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
                         else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
 
 								<div class="col-md-3">Height <strong>:</strong></div>
-								<div class="col-md-9"><?php  if($row['feet']!=''){ echo $row['feet'];}else{echo "NA";}  ?> </div>
+								<div class="col-md-9 height_ov"><?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?> 
+							</div>
 							</div>
 							<h3>Birth Details &nbsp;&nbsp; 
 								<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i> edit</span>
@@ -60,13 +61,13 @@ $row=mysqli_fetch_array($fire);
 							<hr>
 							<div class="row info mb-4">
 								<div class="col-md-3">Date of Birth <strong>:</strong></div>
-								<div class="col-md-9"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></div>
+								<div class="col-md-9 dob_ov"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></div>
 
 								<div class="col-md-3">Birth Time<strong>:</strong></div>
-								<div class="col-md-9"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></div>
+								<div class="col-md-9 time_ov"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></div>
 
 								<div class="col-md-3">Birth Place <strong>:</strong></div>
-								<div class="col-md-9"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></div>
+								<div class="col-md-9 plof_ov"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></div>
 							</div>
 							<h3>Contact Info &nbsp;&nbsp; 
 								<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> edit</span>
@@ -74,10 +75,10 @@ $row=mysqli_fetch_array($fire);
 							<hr>
 							<div class="row info mb-4">
 								<div class="col-md-3">Mobile No. <strong>:</strong></div>
-								<div class="col-md-9"><?php echo $row['mobile']; ?></div>
+								<div class="col-md-9 mob_ov"><?php echo $row['mobile']; ?></div>
 
 								<div class="col-md-3">Email Id<strong>:</strong></div>
-								<div class="col-md-9"><?php echo $row['email']; ?></div>
+								<div class="col-md-9 email_ov"><?php echo $row['email']; ?></div>
 							</div>
 							<h3>Address Info &nbsp;&nbsp; 
 								<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> edit</span>
@@ -86,7 +87,7 @@ $row=mysqli_fetch_array($fire);
 							<div class="row info mb-4">
 								<div class="col-md-3">Address <strong>:</strong></div>
 								<div class="col-md-9">
-									<p class="address"><?php echo $row['full_address'];  ?></p>
+									<p class="address address_ov"><?php echo $row['full_address'];  ?></p>
 								</div>
 							</div>
 							<h3>Education &nbsp;&nbsp; 
@@ -95,7 +96,7 @@ $row=mysqli_fetch_array($fire);
 							<hr>
 							<div class="row info mb-4">
 								<div class="col-md-3">Education <strong>:</strong></div>
-								<div class="col-md-9"><?php echo $row['highest_edu'];  ?></div>
+								<div class="col-md-9 highest_edu_ov"><?php echo $row['highest_edu'];  ?></div>
 							</div>
 							<h3>Work &nbsp;&nbsp; 
 								<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> edit</span>
@@ -103,16 +104,16 @@ $row=mysqli_fetch_array($fire);
 							<hr>
 							<div class="row info mb-4">
 								<div class="col-md-3">Occupation <strong>:</strong></div>
-								<div class="col-md-9"><?php if($row['occupation']==1){ echo "
+								<div class="col-md-9 occupation_ov"><?php if($row['occupation']==1){ echo "
 											Job";} else if($row['occupation']==2) { echo "Bussiness";}
 											else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?></div>
 
 								<div class="col-md-3">Income<strong>:</strong></div>
-									<div class="col-md-9"><?php if($row['income']==1){ echo "Less than 1 lakh";}
-										else if($getdate['row']==2){ echo "1 lakh to 2 lakh";}
-										else if($getdate['row']==3){ echo "2 lakh to 3 lakh";}
-										else if($getdate['row']==4){ echo "3 lakh to 4 lakh";}
-										else if($getdate['row']==5){ echo "more than 4 lakh";}
+									<div class="col-md-9 income_ov"><?php if($row['income']==1){ echo "Less than 1 lakh";}
+										else if($row['income']==2){ echo "1 lakh to 2 lakh";}
+										else if($row['income']==3){ echo "2 lakh to 3 lakh";}
+										else if($row['income']==4){ echo "3 lakh to 4 lakh";}
+										else if($row['income']==5){ echo "more than 4 lakh";}
 										else{ echo "NA";}
 									?>
 									</div>
@@ -204,9 +205,9 @@ $row=mysqli_fetch_array($fire);
 
 								<div class="col-md-3">Height <strong>:</strong></div>
 								<div class="col-md-9">
-									<span class="feet">5</span>' 
-									<span class="inch">9</span>"
-									<span class="privacy">Global</span> 
+									<span class="feet"><?php echo $row['feet'];?></span>
+									<span class="inch"><?php echo $row['inches'];?></span>
+									<span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Global';?> </span> 
 									<form class="edit-form" data-columnname='feet' data-tablename='member' id="height_frm">
 										<input type="tel" class="edit-input-feet" name="height_feet" maxlength="2" onkeypress="return isNumeric(event)">
 										<input type="tel" class="edit-input-inch" name="height_inch" maxlength="2" onkeypress="return isNumeric(event)">
@@ -218,9 +219,9 @@ $row=mysqli_fetch_array($fire);
 										    </ul>
 									    </div> -->
 										<select class="privacy-setting" name="privacy_setting_name">
-											<option value="">Select Privacy</option>
-											<option value="N">Private</option>
-											<option value="Y">Global</option>
+											<!-- <option value="">Select Privacy</option> -->
+											<option value="N" <?php if($row['Height'] == 'N'){ echo 'selected'; }?>>Private</option>
+											<option value="Y" <?php if($row['Height'] == 'Y'){ echo 'selected'; }?>>Global</option>
 										</select>
 										<button class="btn btn-primary save-change" id="height_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
@@ -235,8 +236,8 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-9">
 								    <span class="data"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></span>
 								    <span class="privacy"><?php if($row['Date_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span> 
-									<form class="edit-form" data-columnname='date_of_birth' data-tablename='member'>
-										<input type="date" class="edit-input" name="">
+									<form class="edit-form" data-columnname='date_of_birth' data-tablename='member'  id="date_of_birth_frm">
+										<input type="date" class="edit-input" name="date_of_birth_name">
 <!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
@@ -245,11 +246,11 @@ $row=mysqli_fetch_array($fire);
 										    </ul>
 									    </div> -->
 										<select class="privacy-setting">
-											<option value="">Select Privacy</option>
-											<option value="N">Private</option>
-											<option value="Y">Global</option>
+											<!-- <option value="">Select Privacy</option> -->
+											<option value="N" <?php if($row['Date_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
+											<option value="Y" <?php if($row['Date_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
 										</select>
-										<button class="btn btn-primary save-change">Save Changes</button>
+										<button class="btn btn-primary save-change" id="date_of_birth_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
 									<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
@@ -259,8 +260,8 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-9">
 								     <span class="data"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></span> 
 								     <span class="privacy"><?php if($row['Time_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
-									<form class="edit-form" data-columnname='time_of_birth' data-tablename='member'>
-											<input type="time" class="edit-input" name="">
+									<form class="edit-form" data-columnname='time_of_birth' data-tablename='member' id="time_of_birth_frm">
+										<input type="time" class="edit-input" name="time_of_birth_name">
 <!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
@@ -268,12 +269,12 @@ $row=mysqli_fetch_array($fire);
 										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
 										    </ul>
 									    </div> -->
-											<select class="privacy-setting">
-												<option value=" ">Select Privacy</option>
-												<option value="N">Private</option>
-												<option value="Y">Global</option>
-											</select>
-										<button class="btn btn-primary save-change">Save Changes</button>
+										<select class="privacy-setting">
+										<!-- 	<option value=" ">Select Privacy</option> -->
+											<option value="N" <?php if($row['Time_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
+											<option value="Y" <?php if($row['Time_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
+										</select>
+										<button class="btn btn-primary save-change" id="time_of_birth_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
 									<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
@@ -283,7 +284,7 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-9">
 								     <span class="data"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></span> 
 								     <span class="privacy"><?php if($row['Place_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
-									<form class="edit-form" data-columnname='place_of_birth' data-tablename='member'>
+									<form class="edit-form" data-columnname='place_of_birth' data-tablename='member' id="place_of_birth_frm">
 										<input type="text" class="edit-input" name="">
 <!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
@@ -293,11 +294,11 @@ $row=mysqli_fetch_array($fire);
 										    </ul>
 									    </div> -->
 										<select class="privacy-setting">
-											<option value="">Select Privacy</option>
-											<option value="N">Private</option>
-											<option value="Y">Global</option>
+											<!-- <option value="">Select Privacy</option> -->
+											<option value="N" <?php if($row['Place_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
+											<option value="Y" <?php if($row['Place_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
 										</select>
-										<button class="btn btn-primary save-change">Save Changes</button>
+										<button class="btn btn-primary save-change" id="place_of_birth_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
 									<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span> 
@@ -315,8 +316,8 @@ $row=mysqli_fetch_array($fire);
 							<div class="col-md-9">
 						        <span class="data"><?php echo $row['mobile']; ?></span> 
 						        <span class="privacy"><?php if($row['Mobile']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
-								<form class="edit-form" data-columnname='mobile' data-tablename='communication'>
-									<input type="text" class="edit-input" name="">
+								<form class="edit-form" data-columnname='mobile' data-tablename='communication' id="mobile_frm">
+									<input type="tel" class="edit-input" name="mobile_name" onkeypress="return isNumeric(event)" maxlength="15">
 <!-- 									<div class="btn-group privacy-setting">
 									    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 									    <ul class="dropdown-menu">
@@ -325,11 +326,11 @@ $row=mysqli_fetch_array($fire);
 									    </ul>
 								    </div> -->
 									<select class="privacy-setting">
-										<option value="">Select Privacy</option>
-										<option value="N">Private</option>
-										<option value="Y">Global</option>
+										<!-- <option value="">Select Privacy</option> -->
+										<option value="N" <?php if($row['Mobile'] == 'N'){ echo 'selected'; }?>>Private</option>
+										<option value="Y" <?php if($row['Mobile'] == 'Y'){ echo 'selected'; }?>>Global</option>
 									</select>
-									<button class="btn btn-primary save-change">Save Changes</button>
+									<button class="btn btn-primary save-change" id="mobile_btn">Save Changes</button>
 									<button class="cancel btn btn-secondary	">Cancel</button>
 								</form>
 								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
@@ -339,8 +340,8 @@ $row=mysqli_fetch_array($fire);
 							<div class="col-md-9">
 							    <span class="data"><?php echo $row['email']; ?></span> 
 <!-- 							<span class="privacy">Global</span> -->
-								<form class="edit-form" data-columnname='email' data-tablename='communication'>
-									<input type="text" class="edit-input" name="">
+								<form class="edit-form" data-columnname='email' data-tablename='communication' id="email_frm">
+									<input type="email" class="edit-input" name="email_name" maxlength="150">
 									<!--<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
@@ -348,7 +349,7 @@ $row=mysqli_fetch_array($fire);
 										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
 										    </ul>
 									    </div> -->
-									<button class="btn btn-primary save-change">Save Changes</button>
+									<button class="btn btn-primary save-change" id="email_btn">Save Changes</button>
 									<button class="cancel btn btn-secondary	">Cancel</button>
 								</form> 
 								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
@@ -357,118 +358,71 @@ $row=mysqli_fetch_array($fire);
 						<h3>Address Info</h3>
 						<hr>
 						<div class="row info mb-4">
-							<div class="col-md-3">Address  <strong>:</strong></div>
-							<div class="col-md-9 address" >
-							    <span class="data"><?php echo $row['full_address'];?></span>
-<!-- 							    <span class="privacy">Global</span>  -->
-								<form class="edit-form" data-columnname='full_address' data-tablename='address'>
-									<input type="text" class="edit-input" name="">
-<!-- 									<div class="btn-group privacy-setting">
-										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-										    <ul class="dropdown-menu">
-										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-										    </ul>
-									    </div>
- -->									<button class="btn btn-primary save-change">Save Changes</button>
-									<button class="cancel btn btn-secondary	">Cancel</button>
-								</form>
-								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-						    </div>
+							<div class="col-md-9 ">
+								<form class="" data-columnname='email' data-tablename='communication' id="Add_frm">
+								<!-- <h3 class="mb-3">Please Enter Residential Details <span class="text-danger">(* Required Fields)</span></h3> -->
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label "><span class="text-danger">*	</span> Country</label>
+									<div class="col-md-9">
+										<select class="custom-select" id="country" name="country">
+										<option value="">Select Country</option>
+										<option value="India" <?php if($row['country'] == 'India'){ echo 'selected'; }?>>India</option>
 
-							<div class="col-md-3">Name of city/town/village <strong>:</strong></div>
-							<div class="col-md-9">
-							    <span class="data"><?php echo $row['city'];?></span> 
-							    <!-- <span class="privacy">Global</span> -->
-								<form class="edit-form" data-columnname='city' data-tablename='address'>
-									<select class="select-text">
-										<option value="">Select City/Town/Village</option>
-										<option value="Indore">Indore</option>
-										<option value="Bhopal">Bhopal</option>
-									</select>
-<!-- 									<div class="btn-group privacy-setting">
-										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-										    <ul class="dropdown-menu">
-										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-										    </ul>
-									    </div> -->
-									<button class="btn btn-primary save-change">Save Changes</button>
-									<button class="cancel btn btn-secondary	">Cancel</button>
-								</form>
-								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-						    </div>
-
-							<div class="col-md-3">Pin Code  <strong>:</strong></div>
-							<div class="col-md-9">
-							    <span class="dropdwn-txt"><?php echo $row['pincode'];?></span>
-							   <!--  <span class="privacy">Global</span>  -->
-								<form class="edit-form" data-columnname='pincode' data-tablename='address'>
-									<input type="text" class="edit-input" name="">
-										<select class="select-text">
-											<option value="">Pin Code</option>
-											<option value="">1001</option>
-											<option value="">190002</option>
 										</select>
-<!-- 									<div class="btn-group privacy-setting">
-										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-										    <ul class="dropdown-menu">
-										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-										    </ul>
-									    </div> -->
-									<button class="btn btn-primary save-change">Save Changes</button>
-									<button class="cancel btn btn-secondary	">Cancel</button>
-								</form>
-								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-						    </div>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label"><span class="text-danger">*</span> State</label>
+									<div class="col-md-9">
+										<select class="custom-select" id="state" onchange="return veiw_update_get_city();" name="state" data-current_city="<?php echo $row['city'];?>">
+											<option value="" selected>Select State</option>
+											<?php
+											$state=mysqli_query($con,'select DISTINCT(state) from states_city_country where state!="CHANDIGARG" and state!=""');
+											while($show=mysqli_fetch_array($state)){ 
 
-							<div class="col-md-3">State <strong>:</strong></div>
-							<div class="col-md-9"> 
-							    <span class="dropdwn-txt"><?php echo $row['state'];?></span> 
-							<!--     <span class="privacy">Global</span> -->
-								<form class="edit-form" data-columnname='state' data-tablename='address'>
-										<select class="select-text">
-											<option value="">Select State</option>
-											<option value="Madhya Pradesh">Madhya Pradesh</option>
-											<option value="Karnataka">Karnataka</option>
+											?>
+												<option value="<?php echo $show['state']; ?>" <?php if($row['state'] == $show['state']){ echo 'selected'; } ?>><?php echo $show['state'];  ?></option>
+											<?php 
+											} 
+											?>
 										</select>
-<!-- 									<div class="btn-group privacy-setting">
-										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-										    <ul class="dropdown-menu">
-										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-										    </ul>
-									    </div> -->
-									<button class="btn btn-primary save-change">Save Changes</button>
-									<button class="cancel btn btn-secondary	">Cancel</button>
-								</form>
-								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-						    </div>
+									</div>
+								</div>
+								<div class="form-group row">
+										<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of city/town/village</label>	
+									<div class="col-md-9">
+										<span id="getcity"></span>
+									</div>
+								</div>
 
-							<div class="col-md-3">Country <strong>:</strong></div>
-							<div class="col-md-9">
-							    <span class="dropdwn-txt"><?php echo $row['country'];?></span>
-							   <!--  <span class="privacy">Global</span>  -->
-								<form class="edit-form" data-columnname='country' data-tablename='address'>
-									<select class="select-text">
-										<option value="">Select State</option>
-										<option value="India">India</option>
-									</select>
-<!-- 									<div class="btn-group privacy-setting">
-										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-										    <ul class="dropdown-menu">
-										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-										    </ul>
-									    </div> -->
-									<button class="btn btn-primary save-change">Save Changes</button>
-									<button class="cancel btn btn-secondary	">Cancel</button>
-								</form>
-								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-						    </div>
-						</div>
-					
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Pin Code</label>	
+									<div class="col-md-9">
+										<span id="getpincode"></span>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Area</label>	
+									<div class="col-md-9">
+										<span id="getarea"></span>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Address</label>
+									<div class="col-md-9">
+										<textarea class="form-control " rows="4" id="address"  maxlength='250' name="address" placeholder="Enter address"><?php echo $row['full_address'];?></textarea>
+									</div>
+								</div>
+								<div style="overflow:auto;">
+									<div style="float:right;">
+										<!-- <button class="btn" type="button" id="prevBtn" onclick="return preone();" >Previous</button> -->
+										<button class="btn btn-primary" type="button" id="save_address_btn">Save Changes</button>
+									</div>
+								</div>
+							</form>
+							</div>
+
+
 				</div>
 				<div id="education"  class="tab-pane">
 						<h3>Education</h3>
@@ -477,9 +431,9 @@ $row=mysqli_fetch_array($fire);
 							<div class="col-md-3">Education <strong>:</strong></div>
 							<div class="col-md-9">
 							    <span class="data"><?php echo $row['highest_edu']; ?></span> 
-								<form class="edit-form" data-columnname='highest_edu' data-tablename='education_ocp'>
-									<input type="text" class="edit-input" name="">
-									<button class="btn btn-primary save-change">Save Changes</button>
+								<form class="edit-form" data-columnname='highest_edu' data-tablename='education_ocp' id="highest_edu_frm">
+									<input type="text" class="edit-input" name="highest_edu_name" >
+									<button class="btn btn-primary save-change" id="highest_edu_btn">Save Changes</button>
 									<button class="cancel btn btn-secondary	">Cancel</button>
 								</form>
 								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
@@ -493,15 +447,47 @@ $row=mysqli_fetch_array($fire);
 							    <span class="dropdwn-txt"> <?php if($row['occupation']==1){ echo "
 											Job";} else if($row['occupation']==2) { echo "Bussiness";}
 											else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?></span> 
-								<form class="edit-form" data-columnname='occupation' data-tablename='education_ocp'>
-									<select class="select-text">
+								<form class="edit-form" data-columnname='occupation' data-tablename='education_ocp' id="income_frm">
+<!-- 									<select class="select-text">
 										<option value="">Select Occupation</option>
 										<option value="1">Job</option>
 										<option value="2">Business</option>
 										<option value="3">Housewife</option>
 										<option value="4">Student</option>
 									</select>
-									<button class="btn btn-primary save-change">Save Changes</button>
+ -->									<select class="custom-select" name="occupation" id="occupation" onchange="return getincome();">
+										<option value="">Select occupation</option>
+										<option value="1" <?php if($row['occupation']==1){ echo "
+											selected";}?>>Job</option>
+										<option value="2" <?php if($row['occupation']==2){ echo "
+											selected";}?>>Business </option>
+										<option value="3" <?php if($row['occupation']==3){ echo "
+											selected";}?>>Housewife</option>
+										<option value="4" <?php if($row['occupation']==4){ echo "
+											selected";}?>>Student</option>
+									<!-- <option value="5">Nothing</option> -->
+									</select>
+									<div class="form-group row" id="occdetails">
+										<label class="col-md-12 col-form-label"><span class="text-danger">*</span> Please Add Details</label>
+										<div class="col-md-12">
+										<textarea class="form-control " rows="4" name="details" id="details" placeholder="Enter detail" maxlength="50"><?php echo  $row['ocp_details']; ?></textarea>
+										</div>
+									</div>
+									<div class="form-group row" id="income-div" >
+									<label class="col-md-12 col-form-label"><span class="text-danger">*</span> Income</label>
+										<div class="col-md-12">
+											<select class="custom-select" name="income" id="income">
+											<option value="">Select income</option>
+											<option value="1" <?php if($row['income']==1){echo "selected";}?>>Less than 1 lakh</option>
+											<option value="2" <?php if($row['income']==2){echo "selected";}?>>1 lakh to 2 lakh</option>
+											<option value="3" <?php if($row['income']==3){echo "selected";}?>>2 lakh to 3 lakh</option>
+											<option value="4" <?php if($row['income']==4){echo "selected";}?>>3 lakh to 4 lakh</option>
+											<option value="5" <?php if($row['income']==5){echo "selected";}?>>more than 4 lakh</option>
+
+											</select>
+										</div>
+									</div>
+									<button class="btn btn-primary save-change" id="income_btn">Save Changes</button>
 									<button class="cancel btn btn-secondary	">Cancel</button>
 								</form>
 								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
@@ -509,36 +495,15 @@ $row=mysqli_fetch_array($fire);
 
 							<div class="col-md-3">Income<strong>:</strong></div>
 							<div class="col-md-9" >
-							    <span class="dropdwn-txt"><?php if($row['income']==1){ echo "Less than 1 lakh";}
-										else if($getdate['row']==2){ echo "1 lakh to 2 lakh";}
-										else if($getdate['row']==3){ echo "2 lakh to 3 lakh";}
-										else if($getdate['row']==4){ echo "3 lakh to 4 lakh";}
-										else if($getdate['row']==5){ echo "more than 4 lakh";}
+							    <span class="dropdwn-txt" id="income-drp"><?php if($row['income']==1){ echo "Less than 1 lakh";}
+										else if($row['income']==2){ echo "1 lakh to 2 lakh";}
+										else if($row['income']==3){ echo "2 lakh to 3 lakh";}
+										else if($row['income']==4){ echo "3 lakh to 4 lakh";}
+										else if($row['income']==5){ echo "more than 4 lakh";}
 										else{ echo "NA";}
 									?></span> 
 							    <!-- <span class="privacy">Global</span> -->
-								<form class="edit-form" data-columnname='income' data-tablename='education_ocp'>
-									<select class="select-text">
-										<option value="">Select Income</option>
-										<option value="1">Less than 1 lakh</option>
-										<option value="2">1 lakh to 2 lakh</option>
-										<option value="3">2 lakh to 3 lakh</option>
-										<option value="4">3 lakh to 4 lakh</option>
-										<option value="5">more than 4 lakh</option>
-									</select>
-									<!-- <input type="text" class="edit-input" name=""> -->
-<!-- 									<div class="btn-group privacy-setting">
-										    <a class="btn btn-default dropdown-toggle"     data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-										    <ul class="dropdown-menu">
-										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-										    </ul>
-									    </div>
-
- -->									<button class="btn btn-primary save-change">Save Changes</button>
-									<button class="cancel btn btn-secondary	">Cancel</button>
-								</form>
-								<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+								<!-- <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span> -->
 						    </div>
 						</div>
 				</div>
@@ -552,6 +517,17 @@ $row=mysqli_fetch_array($fire);
 </body>
 <?php  include "../script.php" ;?>
 <script>
+getincome();
+function getincome(){
+var occupation=$('#occupation').val();
+if((occupation==3) || (occupation==4) || (occupation==5) ){
+$('#income-div').hide();
+$('#occdetails').hide();
+}else{
+$('#income-div').show();
+$('#occdetails').show();
+}
+}
 $(document).ready(function(){
 
   $(".nav-tabs a").click(function(){
@@ -618,10 +594,10 @@ $(document).ready(function(){
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 				current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+				$(".po_name").text(inputValue);
 				}
 				else{
 				alert("Data: not updated");
-
 				}
 			});
   });
@@ -671,6 +647,7 @@ $(document).ready(function(){
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 				current_users.parent(".edit-form").siblings(".dropdwn-txt").show().text(inputValue);
+				$(".gender_cl").text(inputValue);
 				}
 				else{
 				alert("Data: not updated");
@@ -720,6 +697,7 @@ $(document).ready(function(){
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 					current_users.parent(".edit-form").siblings(".dropdwn-txt").show().text(inputValue);
+					$(".mari_sta").text(inputValue);
 				}
 				else{
 				alert("Data: not updated");
@@ -792,6 +770,7 @@ $(document).ready(function(){
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 					current_users.parent(".edit-form").siblings(".dropdwn-txt").show().text(inputValue);
+					$(".bld_grp").text(inputValue);
 				}
 				else{
 				alert("Data: not updated");
@@ -812,18 +791,18 @@ $(document).ready(function(){
 	})
 		//
 	$("#height_btn").on("click", function(){ 	
-			event.preventDefault();  
- if (!$("#height_frm").valid()) { // Not Valid
-				return false;
-			} 
+		event.preventDefault();  
+		if (!$("#height_frm").valid()) { // Not Valid
+			return false;
+		} 
 	   else{   
-		//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
-	   // $(this).siblings(".edit-form").hide();
-	   	// var inputValue = $(this).siblings("input").val();
-	   	var selText = $(this).siblings( ".privacy-setting" ).children("option:selected").val();  
-	   var inputValueFeet = $(this).siblings("input.edit-input-feet").val();
-	   var inputValueInch = $(this).siblings("input.edit-input-inch").val();
-	   var parent = $(this).parent(".edit-form");
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+			var selText = $(this).siblings( ".privacy-setting" ).children("option:selected").val();  
+			var inputValueFeet = $(this).siblings("input.edit-input-feet").val();
+			var inputValueInch = $(this).siblings("input.edit-input-inch").val();
+			var parent = $(this).parent(".edit-form");
 			var parent = $(this).parent(".edit-form");
 			$(this).siblings(".edit-form").hide();
 			var parent = $(this).parent(".edit-form");
@@ -852,9 +831,9 @@ $(document).ready(function(){
 				}
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
-					current_users.parent(".edit-form").siblings(".privacy").show().text(Private);
-					current_users.parent(".edit-form").siblings(".feet").show().text(inputValueFeet);
-					current_users.parent(".edit-form").siblings(".inch").show().text(inputValueInch);
+					current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
+					current_users.parent(".edit-form").siblings(".feet").show().text(inputValueFeet+" '");
+					current_users.parent(".edit-form").siblings(".inch").show().text(" '"+inputValueInch);
 				}
 				else{
 				alert("Data: not updated");
@@ -862,6 +841,467 @@ $(document).ready(function(){
 			});
 }
   });
+	// date of birth
+		$("#date_of_birth_frm").validate({
+			rules: {
+					date_of_birth_name: "required"
+
+			},
+			messages: {
+					date_of_birth_name: "please select date of birth"
+			}
+	})
+		//
+	$("#date_of_birth_btn").on("click", function(){ 	
+		event.preventDefault();  
+		if (!$("#date_of_birth_frm").valid()) { // Not Valid
+			return false;
+		} 
+	   else{   
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+			var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
+		 	var inputValue = $(this).siblings("input").val();
+			var parent = $(this).parent(".edit-form");
+			var parent = $(this).parent(".edit-form");
+			$(this).siblings(".edit-form").hide();
+			var parent = $(this).parent(".edit-form");
+			var current_users=$(this);
+			var columnname = $(this).parent(".edit-form").data('columnname');
+			var tablename = $(this).parent(".edit-form").data('tablename');
+			var home_path = $("#home_path").val();
+			$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+			{
+				tablename:tablename,
+				columnname:columnname,
+				inputValue: inputValue,
+				privacy_setting:selText
+			},
+			function(data,status){
+				var status1=status;
+
+				if (status1=='success') {
+				//location.reload(true); 
+				if (selText=='Y') {
+					selText="Global"
+				}
+				else{
+					selText="Private"
+				}
+				current_users.parent(".edit-form").hide();
+				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+				current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
+				current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+				$(".dob_ov").text(inputValue);
+				}
+				else{
+				alert("Data: not updated");
+				}
+			});
+}
+  });
+		$("#time_of_birth_btn").on("click", function(){ 	
+			event.preventDefault();   
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+			var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
+		 	var inputValue = $(this).siblings("input").val();
+			var parent = $(this).parent(".edit-form");
+			var parent = $(this).parent(".edit-form");
+			$(this).siblings(".edit-form").hide();
+			var parent = $(this).parent(".edit-form");
+			current_users=$(this);
+			var columnname = $(this).parent(".edit-form").data('columnname');
+			var tablename = $(this).parent(".edit-form").data('tablename');
+			var home_path = $("#home_path").val();
+			$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+			{
+				tablename:tablename,
+				columnname:columnname,
+				inputValue: inputValue,
+				privacy_setting:selText
+			},
+			function(data,status){
+				var status1=status;
+
+				if (status1=='success') {
+				//location.reload(true); 
+				if (selText=='Y') {
+					selText="Global"
+				}
+				else{
+					selText="Private"
+				}
+				current_users.parent(".edit-form").hide();
+				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+				current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
+				current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+				$(".time_ov").text(inputValue);						
+				}
+				else{
+				alert("Data: not updated");
+				}
+			});
+  });
+//birth place 
+		$("#place_of_birth_btn").on("click", function(){ 	
+			event.preventDefault();   
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+			var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
+		 	var inputValue = $(this).siblings("input").val();
+			var parent = $(this).parent(".edit-form");
+			var parent = $(this).parent(".edit-form");
+			$(this).siblings(".edit-form").hide();
+			var parent = $(this).parent(".edit-form");
+			current_users=$(this);
+			var columnname = $(this).parent(".edit-form").data('columnname');
+			var tablename = $(this).parent(".edit-form").data('tablename');
+			var home_path = $("#home_path").val();
+			$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+			{
+				tablename:tablename,
+				columnname:columnname,
+				inputValue: inputValue,
+				privacy_setting:selText
+			},
+			function(data,status){
+				var status1=status;
+
+				if (status1=='success') {
+				//location.reload(true); 
+				if (selText=='Y') {
+					selText="Global"
+				}
+				else{
+					selText="Private"
+				}
+				current_users.parent(".edit-form").hide();
+				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+				current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
+				current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+				$(".plof_ov").text(inputValue);
+				}
+				else{
+				alert("Data: not updated");
+				}
+			});
+  		});
+
+  		// mobile number
+		$("#mobile_frm").validate({
+			rules: {
+				mobile_name: "required"
+		},
+			messages: {
+				mobile_name: "mobile is required field"
+			}
+		})
+		$("#mobile_btn").on("click", function(){ 	
+			event.preventDefault();   
+			if (!$("#mobile_frm").valid()) { // Not Valid
+				return false;
+			}		 
+			else{
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+				var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
+			 	var inputValue = $(this).siblings("input").val();
+				var parent = $(this).parent(".edit-form");
+				var parent = $(this).parent(".edit-form");
+				$(this).siblings(".edit-form").hide();
+				var parent = $(this).parent(".edit-form");
+				current_users=$(this);
+				var columnname = $(this).parent(".edit-form").data('columnname');
+				var tablename = $(this).parent(".edit-form").data('tablename');
+				var home_path = $("#home_path").val();
+				$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+				{
+					tablename:tablename,
+					columnname:columnname,
+					inputValue: inputValue,
+					privacy_setting:selText
+				},
+				function(data,status){
+					var status1=status;
+
+					if (status1=='success') {
+					//location.reload(true); 
+					if (selText=='Y') {
+						selText="Global"
+					}
+					else{
+						selText="Private"
+					}
+					current_users.parent(".edit-form").hide();
+					$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+					current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
+					current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+					$(".mob_ov").text(inputValue);
+					}
+					else{
+					alert("Data: not updated");
+					}
+				});
+			}
+  		});
+
+		$("#email_frm").validate({
+			rules: {
+				email_name: "required"
+		},
+			messages: {
+				email_name: "email is required field"
+			}
+		})
+		$("#email_btn").on("click", function(){ 	
+			event.preventDefault();   
+			if (!$("#email_frm").valid()) { // Not Valid
+				return false;
+			}		 
+			else{
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+				var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
+			 	var inputValue = $(this).siblings("input").val();
+				var parent = $(this).parent(".edit-form");
+				var parent = $(this).parent(".edit-form");
+				$(this).siblings(".edit-form").hide();
+				var parent = $(this).parent(".edit-form");
+				current_users=$(this);
+				var columnname = $(this).parent(".edit-form").data('columnname');
+				var tablename = $(this).parent(".edit-form").data('tablename');
+				var home_path = $("#home_path").val();
+				$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+				{
+					tablename:tablename,
+					columnname:columnname,
+					inputValue: inputValue,
+					privacy_setting:selText
+				},
+				function(data,status){
+					var status1=status;
+
+					if (status1=='success') {
+					//location.reload(true); 
+					if (selText=='Y') {
+						selText="Global"
+					}
+					else{
+						selText="Private"
+					}
+					current_users.parent(".edit-form").hide();
+					$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+					current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
+					current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+					$(".email_ov").text(inputValue);
+					}
+					else{
+					alert("Data: not updated");
+					}
+				});
+			}
+  		});
+
+		$("#highest_edu_frm").validate({
+		rules: {
+			highest_edu_name: "required"
+		},
+		messages: {
+			highest_edu_name: "education is required field"
+		}
+		})
+		$("#highest_edu_btn").on("click", function(){ 	
+			event.preventDefault();   
+			if (!$("#highest_edu_frm").valid()) { // Not Valid
+				return false;
+			}		 
+			else{
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+				var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
+			 	var inputValue = $(this).siblings("input").val();
+				var parent = $(this).parent(".edit-form");
+				var parent = $(this).parent(".edit-form");
+				$(this).siblings(".edit-form").hide();
+				var parent = $(this).parent(".edit-form");
+				current_users=$(this);
+				var columnname = $(this).parent(".edit-form").data('columnname');
+				var tablename = $(this).parent(".edit-form").data('tablename');
+				var home_path = $("#home_path").val();
+				$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+				{
+					tablename:tablename,
+					columnname:columnname,
+					inputValue: inputValue,
+					privacy_setting:selText
+				},
+				function(data,status){
+					var status1=status;
+
+					if (status1=='success') {
+					//location.reload(true); 
+					if (selText=='Y') {
+						selText="Global"
+					}
+					else{
+						selText="Private"
+					}
+					current_users.parent(".edit-form").hide();
+					$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+					current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
+					current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+					$(".highest_edu_ov").text(inputValue);
+					}
+					else{
+					alert("Data: not updated");
+					}
+				});
+			}
+  		});
+
+		$("#Add_frm").validate({
+		rules: {
+			country: "required",
+			state: "required",
+			city: "required",
+			pincode: "required",
+			area: "required",
+			address: "required"
+		},
+		messages: {
+			country: "please select country",
+			state: "please select state",
+			city: "please select city",
+			pincode: "please select pincode",
+			area: "please select area",
+			address: "please select address"
+		}
+		})
+		$("#save_address_btn").on("click", function(){ 	
+			event.preventDefault();   
+			if (!$("#Add_frm").valid()) { // Not Valid
+				return false;
+			}		 
+			else{
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+				var country = $("#country option:selected").val();  
+				var state = $("#state option:selected").val();  
+				var city = $("#city option:selected").val();  
+				var pincode = $("#pincodes option:selected").val();  
+				var area = $("#area option:selected").val();  
+				var address = $("#address").val();  
+				var home_path = $("#home_path").val();
+				$.post(home_path+"en/PJS-demo/view_and_update_profile_address.php",
+				{
+					country:country,
+					state:state,
+					city: city,
+					pincode:pincode,
+					area:area,
+					address:address
+				},
+				function(data,status){
+					var status1=status;
+
+					if (status1=='success') {
+					location.reload(true); 
+					}
+					else{
+					alert("Data: not updated");
+					}
+				});
+			}
+  		});
+
+		$("#income_frm").validate({
+		rules: {
+			income: "required",
+			details: "required",
+			occupation: "required",
+		},
+		messages: {
+			income: "please select income",
+			details: "please select details",
+			occupation: "please select occupation"
+		}
+		})
+		$("#income_btn").on("click", function(){ 	
+			event.preventDefault();   
+			if (!$("#income_frm").valid()) { // Not Valid
+				return false;
+			}		 
+			else{
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+				var occupation = $("#occupation:visible  option:selected").val();  
+				var details = $("#details:visible").val();  
+				var income = $("#income:visible option:selected").val();  
+				//console.log(occupation+" details:- "+details+" income:-"+income);return;
+				console.log(occupation);
+				current_users=$(this);
+				var parent = $(this).parent(".edit-form");
+				var home_path = $("#home_path").val();
+				$.post(home_path+"en/PJS-demo/view_and_update_profile_occupation.php",
+				{
+					occupation:occupation,
+					details:details,
+					income: income
+				},
+				function(data,status){
+					var status1=status;
+					var data12=$("#occupation:visible  option:selected").val(); 
+					if (status1=='success') {
+					//location.reload(true); 
+					var occupation1='';
+					if(data12==1){
+						occupation1= "Job";
+					} 
+					if(data12==2) {
+						occupation1= "Bussiness";
+					}
+					if(data12==3) { 
+						occupation1= "Housewife";
+					} 
+					if(data12==4) {
+						occupation1="Student";
+					}
+					
+					var income1='';
+					if(income=='1'){ income="Less than 1 lakh";}
+					else if(income=='2'){ income1="1 lakh to 2 lakh";}
+					else if(income=='3'){ income1= "2 lakh to 3 lakh";}
+					else if(income=='4'){ income1= "3 lakh to 4 lakh";}
+					else if(income=='5'){ income1="more than 4 lakh";}
+					else{ income1= "NA";}
+					console.log(occupation1);
+					current_users.parent(".edit-form").hide();
+					$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+					current_users.parent(".edit-form").siblings(".dropdwn-txt").show().text(occupation1);		
+					$(".occupation_ov").text(occupation1);
+					$(".income_ov").text(income1);				
+					$("#income-drp").text(income1);
+					if((data12==3) || (data12==4)){
+							 $("#details").val('');
+							 $("#income").val('');
+					}				
+					}
+					else{
+					alert("Data: not updated");
+					}
+				});
+			}
+  		});
+
 
 	$(".cancel").on("click", function(){ 	
 		event.preventDefault();

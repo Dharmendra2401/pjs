@@ -100,9 +100,10 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 													<li class="list-inline-item">
 														<?php 
 
-														//  $getimg=mysqli_fetch_array(mysqli_query($con,"select display_pic,id from key_member_id where id='".$row['MEMBER_ID']."'"))
+														 $getimg=mysqli_fetch_array(mysqli_query($con,"select display_pic,id from key_member_id where id='".$row['member_id']."'"));
+														
 														?>
-														<img class="tree-user-img" src="<?php echo  $row['display_pic']; ?>">
+														<img class="tree-user-img" src="<?php echo RE_HOME_PATH.$getimg['display_pic'] ?>">
 													</li>
 													<li class="list-inline-item searchoption">
 														<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']; ?></p>
@@ -311,13 +312,12 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 					url: home_path+'en/PJS-demo/dead_persion_send_request.php',
 					type: 'post',
 					data: fd,
-					contentType: false,
+					contentType: false, 
 					processData: false,
 					success: function(response){
 						console.log(response); 
 						if(response == 'success'){
-							$('#exampleModal').modal('hide')
-							$('#success_tic').modal('show')
+							location.reload(true);
 						}else{
 							alert('some thing is not good please try again after some time');
 						}

@@ -10,8 +10,10 @@ $tablename=$_POST['tablename'];
 $submitdate=date('Y-m-d H:i:s');
 
 
-$sql="UPDATE `member` SET `feet`='$inputValueInch',`inches`='$inputValueFeet' WHERE `member_id`='$current_user'";
-    $result = mysqli_query($con,$sql);    
+$sql="UPDATE `member` SET `feet`='$inputValueFeet',`inches`='$inputValueInch' WHERE `member_id`='$current_user'";
+    $result = mysqli_query($con,$sql);  
+$sql1="UPDATE `member_privacy` SET `Height`='$privacy_setting' WHERE `member_id`='$current_user'";
+     $result1 = mysqli_query($con,$sql1);    
     if ($result) {
     	echo "success";
     }

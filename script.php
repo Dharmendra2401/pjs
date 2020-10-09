@@ -66,7 +66,7 @@
 <div class="form-group row">
 <label class="col-md-4 col-form-label"><span class="text-danger">*</span>  Address</label>
 <div class="col-md-8">
-<textarea class="form-control" rows="4" name="opjaddress" maxlength="100" placeholder="Enter your address" id="opjaddress"></textarea>
+<textarea class="form-control inputtexttwo" rows="4" name="opjaddress" maxlength="100" placeholder="Enter your address" id="opjaddress"></textarea>
 </div>
 </div>
 <div class="col-md-12"><div id="opjerror"></div></div>
@@ -266,7 +266,7 @@
 </div>
 <div class="col-md-6">
 <div class="form-group">
-<input class="form-control form-control-sm" type="date" name="emaildob" id="emaildob" placeholder="Enter date of birth" max="<?php echo date('Y-m-d') ; ?>">
+<input class="form-control form-control-sm" type="date" name="emaildob" id="emaildob" placeholder="Enter date of birth">
 </div>
 </div>
 <div class="col-md-12">
@@ -311,11 +311,15 @@
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sorttable.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/lightbox.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/bootbox.min.js"></script>
+<script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sample.js"></script>
 <script type="text/javascript" src="https://cdn.ckeditor.com/4.15.0/standard-all/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/BsMultiSelect.js"></script>
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script>
     
+    CKEDITOR.replace('editor', {
+        extraPlugins: 'colorbutton,colordialog'
+    });
 
 
 
@@ -490,20 +494,13 @@ $('#opjerror').html('<div class="alert alert-danger">Please enter the firstname<
 $('#opjfirstname').focus();
 return false;
 }
-
 else if(opjlastname.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the lastname</div>');
 $('#opjlastname').focus();
 return false;
 }
-
 else if(opjmobile.trim()==''){
 $('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
-$('#opjmobile').focus();
-return false;
-}
-else if(opjmobile.trim().length<8){
-$('#opjerror').html('<div class="alert alert-danger">Please enter valid mobile no</div>');
 $('#opjmobile').focus();
 return false;
 }
@@ -519,7 +516,7 @@ $('#opjemail').focus();
 return false;
 }
 else if(opjaddress.trim()==''){
-$('#opjerror').html('<div class="alert alert-danger">Please enter the address</div>');
+$('#opjerror').html('<div class="alert alert-danger">Please enter the mobile no</div>');
 $('#opjaddress').focus();
 return false;
 }
@@ -682,12 +679,13 @@ $('#getotp').show();
 $('#resend').hide();
 }
 
-
+ 
 
 $(function(){
 $(".shortable").addSortWidget();
 });
 $(document).ready(function(){
+$("#veiw_update_get_city").load("<?php echo RE_EN_PATH; ?>veiw_update_get_city.php");
 $("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
 $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
 $("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
@@ -726,6 +724,26 @@ $('#loadergif').fadeOut();
 });
 }
 
+// 
+
+function veiw_update_get_city(){
+var state= $('#state').val();
+var city=$('#state').data("current_city");
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"<?php echo RE_EN_PATH; ?>veiw_update_get_city.php",
+data:{"state":state,"city":city},
+success:function(data12){
+$("#getarea").load("area.php");
+$("#getpincode").load("getpincode.php");
+$('#getcity').html(data12);
+$('#loadergif').fadeOut();
+}
+});
+}
+// 
+
 function getCitytwo(){
 var state= $('#statetwo').val();
 $('#loadergif').fadeIn();
@@ -753,6 +771,37 @@ $('#getpincode').html(data122);
 $('#loadergif').fadeOut();
 }
 });
+}
+
+function view_update_getpincodes(){
+var city= $('#city').val();
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"<?php echo RE_EN_PATH; ?>view_update_getpincodes.php",
+data:{"city":city},
+success:function(data122){
+$("#getarea").load("area.php");
+$('#getpincode').html(data122);
+$('#loadergif').fadeOut();
+}
+});
+}
+
+function view_update_getArea(){
+var states= $('#state').val();
+var pincode= $('#pincodes').val();
+$('#loadergif').fadeIn();
+$.ajax({
+type:"POST",
+url:"<?php echo RE_EN_PATH; ?>view_update_getArea.php",
+data:{"pincode":pincode},
+success:function(data1224){
+$('#getarea').html(data1224);
+$('#loadergif').fadeOut();
+}
+});
+
 }
 
 function getArea(){
@@ -858,6 +907,7 @@ window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+sear
 		})
 
 });
+
 $('#modal45').on('hide.bs.modal', function (e) {
  var mid=$(".feedback_type").val('');
 var dod=$(".feedback_desc").val('');
@@ -984,17 +1034,13 @@ $(function(){
 });
 
 
-$(document).ready(function() {
-    $(".modal").on("hidden.bs.modal", function() {
-    //$('.modal-content')[0].reset();
-	$(this)
-    .find("input,textarea,select")
-       .val('')
-       .end()
-    .find("input[type=checkbox], input[type=radio]")
-       .prop("checked", "")
-       .end();
-    });
-  });
+$("#dob").on("click", function () {
+
+
+})
+
+function calculateAge() { // birthday is a date
+    
+}
 
 </script>
