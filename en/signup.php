@@ -26,7 +26,7 @@ $year= date('Y'); $setyear=$year-1;
 <div class="col-md-10 shadow pt-4 mb-3">	
 <div class="col-md-12"><?php echo show_message();?></div>
 <div class="formerror"></div>
-<form class="container" id="regForm" method="post" action="formsubmit.php" enctype="multipart/form-data">
+<form class="container mb-3" id="regForm" method="post" action="formsubmit.php" enctype="multipart/form-data">
 <div class="row tabone">
 <div class="col-md-9 ">
 <h3 class="mb-3">Please Enter Personal Details <span class="text-danger">(* Required Fields)</span></h3>
@@ -299,7 +299,7 @@ height: 200px;
 "/>
 </div>
 
-<div class="form-group row">
+<div class="form-group row policy">
 <input type="checkbox" value="privacy" name="privacy" id="privacy"><label>Accept Our <a href="../uploads/privacy/PJS_Privacy_Policy.pdf" target="_blank">privacy policy</a> </label>
 </div>
 
@@ -316,18 +316,11 @@ height: 200px;
 </div>
 </div>
 
-<div class="row">
-<div class="col-md-12">
-
-
-</div>
-</div>
 </form>
 </div>
 </div>	
 </div>
 </div>
-<?php include "../footer.php" ?>
 </body>
 <?php  include "../script.php" ;?>
 
