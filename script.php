@@ -316,12 +316,6 @@
 <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/BsMultiSelect.js"></script>
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 <script>
-    
-    CKEDITOR.replace('editor', {
-        extraPlugins: 'colorbutton,colordialog'
-    });
-
-
 
 function openadminpop(){
 $('#opjcontact').modal('show');
