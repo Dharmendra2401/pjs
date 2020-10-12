@@ -57,7 +57,7 @@ $currentdate=$row['record_inserted_dttm'];
 <td class="text-center"><?php if($row['status']=='N') {?><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;" onClick="return varify('<?php echo $row['id'];?>','Y','schemes');" title='Active'  alt="Active"><i class="fas fa-times"></i></a> <br>Deactive <?php } else {?>  <a class="btn btn-success btn-sm rounded-circle " style="cursor:pointer;" onClick="return unvarify('<?php echo $row['id'];?>','N','schemes');" title='Active'  alt="Active"> <i class="fas fa-check"></i></a><br>Active <?php } ?></td>
 <td>
 <a class="btn btn-success btn-sm rounded-circle" style="cursor:pointer;"title='View'  alt="View" data-toggle="modal" title='View content' data-target="#view" onclick="return update('<?php echo base64_encode($row['content']); ?>')"><i class="fas fa-eye"></i></a>
-<a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;"title='Delete'  alt="Delete" onClick="return btnclickdelete('<?php echo $row['id'];?>','events');"><i class="fas fa-trash"></i></a>
+<a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;"title='Delete'  alt="Delete" onClick="return btnclickdelete('<?php echo $row['id'];?>','schemes');"><i class="fas fa-trash"></i></a>
 
 </td>
 </tr>

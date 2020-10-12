@@ -9,6 +9,11 @@ if($_REQUEST['search']!='')
 
 if(isset($_REQUEST['ustatus']))
 {$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
+
+
+if($_SESSION['user_mid']!='')
+{$statu.= 'and member_id!= "'.$_SESSION['user_mid'].'" ';}
+
 $stat="member where 1=1  $statu order by member_id desc";
 
 //$startpoint = ($page * $limit) - $limit;

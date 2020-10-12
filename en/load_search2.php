@@ -16,6 +16,8 @@ $statu='';
 
 if($_REQUEST['search']!='')
 {$statu.= 'and (member_id LIKE "%'.trim($_REQUEST['search']).'%" or first_name LIKE "%'.trim($_REQUEST['search']).'%") ';}
+if($_SESSION['user_mid']!='')
+{$statu.= 'and member_id!= "'.$_SESSION['user_mid'].'" ';}
 
 $stat="member where 1=1  $statu order by member_id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);

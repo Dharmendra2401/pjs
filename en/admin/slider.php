@@ -11,7 +11,7 @@ if(($title!='') && ($_FILES["image"]["name"]!='')  ){
 
 if($_FILES["image"]["name"]!=''){
 $sizex=1349;
-$sizey=500;
+$sizey=450;
 $ext=explode(".",$_FILES["image"]["name"]);
 $url="../../uploads/slider/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
 $url12="uploads/slider/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
@@ -84,7 +84,7 @@ redirect(RE_HOME_SUPERADMIN."slider.php","Error!Please try again~@~".MSG_ERROR);
 <div class="form-group  col-md-12">
 <label>Image <span class="text-danger">*</span></label><br>
 <input type="file" class="" name="image" id="file" ><br>
-<small>Please select the size of image <i>1349*500</i></small>
+<small>Please select the size of image <i>1349*450</i></small>
 </div>
 
 
