@@ -219,7 +219,7 @@
 </div>
 <div class="col-12 text-right">
 <p class="mb-0 mt-2"><small>Send details to admin</small> </p>
-<button type="button" onclick="return UpdateNumber();" class="btn btn-primary btn-sm">Send</button>
+<button type="button" onclick="return UpdateNumber();" class="btn btn-primary btn-sm mb-2">Send</button>
 </div>
 
 </div>
