@@ -311,7 +311,7 @@
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sorttable.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/lightbox.js"></script>
 <script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/bootbox.min.js"></script>
-<script  type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/sample.js"></script>
+
 <script type="text/javascript" src="https://cdn.ckeditor.com/4.15.0/standard-all/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/BsMultiSelect.js"></script>
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
