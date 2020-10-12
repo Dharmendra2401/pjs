@@ -21,7 +21,7 @@ include "../config/config.php";
 							<h5 class="card-title">Click here to Update Dead Person
 								<i class="fas fa-plus float-right"></i>
 							</h5>
-							<form action="" enctype="multipart/form-data" id="dead_person_form">
+							<form action="" class="d-none-form" enctype="multipart/form-data" id="dead_person_form">
 								<div class="form-group">
 									<label>Name</label>
 									<input type="text" class="form-control form-control-sm" placeholder="Enter name" id="d_name" name="d_name">
@@ -226,6 +226,15 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 
 </html>
 <script type="text/javascript">
+	// $("#dead_person_form").hide();
+	$(".death-update h5 i").on("click", function(){	
+		// $("#dead_person_form").toggle();
+		$(".d-none-form, .d-form").toggleClass("d-none-form d-form");
+		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
+	});
+</script>
+
+<script type="text/javascript">
 	$('#exampleModal').on('show.bs.modal', function (event) {
 	var button = $(event.relatedTarget) // Button that triggered the modal
 	var recipient = button.data('whatever') // Extract info from data-* attributes
@@ -358,13 +367,6 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 });
 </script>
 
-<script type="text/javascript">
-	$("#dead_person_form").hide();
-	$(".death-update h5 i").on("click", function(){
-		$("#dead_person_form").toggle();
-		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
-	});
-</script>
 
 <style type="text/css">
 	#dead_person_form .error{
