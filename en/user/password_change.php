@@ -67,7 +67,7 @@ redirect(RE_HOME_USER."password_change.php","Error! Please try again~@~".MSG_ERR
 
 <div class="form-group row">
 
-<div class="col-md-12 text-center">
+<div class="col-md-12 text-right">
 <input type="submit" class="btn btn-success"  name="passwordchange" value="Submit" required>
 
 </div><br><br>

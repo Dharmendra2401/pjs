@@ -49,7 +49,7 @@ include "../config/config.php";
 			            </div>
 			        </div>
 			        <div class="col-md-12 home-card">
-			        	<h3>Offers for Registered Members Coming Soon</h3>
+			        	<h3>Offers and Discounts for Registered Members Coming Soon</h3>
 			        </div>
 			    </div>
             </div>

@@ -21,7 +21,7 @@ include "../config/config.php";
 							<h5 class="card-title">Click here to Update Dead Person
 								<i class="fas fa-plus float-right"></i>
 							</h5>
-							<form action="" enctype="multipart/form-data" id="dead_person_form">
+							<form action="" class="d-none-form" enctype="multipart/form-data" id="dead_person_form">
 								<div class="form-group">
 									<label>Name</label>
 									<input type="text" class="form-control form-control-sm" placeholder="Enter name" id="d_name" name="d_name">
@@ -35,10 +35,12 @@ include "../config/config.php";
 									<select class="form-control form-control-sm" id="relationship_type" name="relationship_type">
 										<option value="Grandfather">Grandfather</option>              
 										<option value="Father">Father</option>
+										<option value="Husband">Husband</option>
 										<option value="Brother">Brother</option>
 										<option value="Son">Son</option>
 										<option value="Grandmother">Grandmother</option>
-										<option value="Mother">Mother</option>                
+										<option value="Mother">Mother</option>
+										<option value="Wife">Wife</option>                
 										<option value="Daughter">Daughter</option>                
 										<option value="Sister">Sister</option>
 									</select>
@@ -163,13 +165,15 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 					 <div class="form-group" id="live_relation_type">
 							<select class="form-control female" style="display: none">
 								<option value="Grandmother">Grandmother</option>
-								<option value="Mother">Mother</option>                
+								<option value="Mother">Mother</option>   
+								<option value="Wife">Wife</option>             
 								<option value="Daughter">Daughter</option>                
 								<option value="Sister">Sister</option>
 							</select>
 							<select class="form-control male" style="display: none;">
 								<option value="Grandfather">Grandfather</option>              
 								<option value="Father">Father</option>
+								<option value="Husband">Husband</option>
 								<option value="Brother">Brother</option>
 								<option value="Son">Son</option>
 							</select>
@@ -221,6 +225,15 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
  <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
 
 </html>
+<script type="text/javascript">
+	// $("#dead_person_form").hide();
+	$(".death-update h5 i").on("click", function(){	
+		// $("#dead_person_form").toggle();
+		$(".d-none-form, .d-form").toggleClass("d-none-form d-form");
+		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
+	});
+</script>
+
 <script type="text/javascript">
 	$('#exampleModal').on('show.bs.modal', function (event) {
 	var button = $(event.relatedTarget) // Button that triggered the modal
@@ -331,7 +344,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 	$(".approve").on("click", function () {
   var to_userid=$(this).attr('id');
   var home_path=$("#home_path").val();
-
+  var current_varr=$(this);
 
  $.post(home_path+"en/PJS-demo/approveuser.php",
     {
@@ -342,7 +355,8 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
       console.log(status1);
       if (status1=='success') {
      // window.location.reload();
-     alert("data :" + status1);
+    current_varr.removeClass("approve");
+    current_varr.text("member");
   }
   else{
        alert("Data: not updated");
@@ -353,13 +367,6 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 });
 </script>
 
-<script type="text/javascript">
-	$("#dead_person_form").hide();
-	$(".death-update h5 i").on("click", function(){
-		$("#dead_person_form").toggle();
-		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
-	});
-</script>
 
 <style type="text/css">
 	#dead_person_form .error{

@@ -12,6 +12,7 @@ body{
   display: inline-block;  
 }
 
+
 .hindi-text{
   line-height: 40px;
 }
@@ -641,10 +642,9 @@ footer {
 .user-list-img{
     width: 90px;
     height: 90px;
-    /*border-radius: 50%;*/
     vertical-align: bottom;
     position: static;
-    /*margin-left: 30px;*/
+    object-fit: cover;
 }
 
 .user-list-box{
@@ -687,6 +687,15 @@ footer {
 
 
 /*------------------------FAMILY TREE------------------------------------*/
+
+.d-form{
+    display: block;
+}
+
+.d-none-form{
+    display: none;
+}
+
 .add-member-icon{
     font-size: 25px;
     padding-top: 10px;
@@ -1145,13 +1154,14 @@ footer {
 /*--------------------HEADER ENDS---------------------------*/
 
 /*--------------------INDEX--------------------------------*/
-   .carousel-inner .carousel-item img{
+   /*.carousel-inner .carousel-item img{
     height: 35vh;
-   }
+   }*/
+
 
    .home-card{
     color: #fff;
-    height: 160px;
+    height: 290px;
     text-align: center;
     text-transform: capitalize;
     display: flex;
