@@ -22,6 +22,10 @@ $insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,
 $insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_inserted_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['sub_admin_id']."','".$submitdate."' )");
 
 
+$insertprivacy=mysqli_query($con,"INSERT into member_privacy (member_id,Popular_Name,Date_Of_Birth,Time_Of_Birth,Place_Of_Birth,Mobile,Blood_Group,Height,Income)values('".$member_id."','Y','Y','Y','Y','Y','Y','Y','Y') ");
+
+
+
 $insertcommunication=mysqli_query($con,"INSERT into communication (member_id,mobile,email,upd_user,record_inserted_dttm)values('".$member_id."','".$getdate['mobile']."' ,'".$getdate['email']."','".$_SESSION['sub_admin_id']."', '".$submitdate."') ");
 $inserteducation_occp=mysqli_query($con,"insert into education_ocp(member_id,highest_edu,occupation,ocp_details,income,upd_user,record_inserted_dttm) values('".$member_id."','".$getdate['highest_edu']."','".$getdate['occupation']."','".$getdate['ocp_details']."','".$getdate['income']."','".$_SESSION['sub_admin_id']."','".$submitdate."')");
 

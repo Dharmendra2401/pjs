@@ -278,15 +278,14 @@ $(document).on('input', '#rangeInput', function() {
 $(document).on('input', '#range1', function() {
    $('#amount1').html( $(this).val() );
    $('#cage').css('display','none');
-   var renn=$("#rangeInput").val();
    $('#rangeInput').attr('min',$(this).val());
-   if(renn<$(this).val()){
+   $("#rangeInput").val($(this).val());
 
 $('#amount').html( $(this).val() );
 
 //alert( $(this).val() );
 
-   }
+  
    
 });
 
