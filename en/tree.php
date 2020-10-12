@@ -331,7 +331,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 	$(".approve").on("click", function () {
   var to_userid=$(this).attr('id');
   var home_path=$("#home_path").val();
-
+  var current_varr=$(this);
 
  $.post(home_path+"en/PJS-demo/approveuser.php",
     {
@@ -342,7 +342,8 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
       console.log(status1);
       if (status1=='success') {
      // window.location.reload();
-     alert("data :" + status1);
+    current_varr.removeClass("approve");
+    current_varr.text("member");
   }
   else{
        alert("Data: not updated");

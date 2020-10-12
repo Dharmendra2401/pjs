@@ -41,6 +41,11 @@ $row=mysqli_fetch_array($fire);
 								<?php echo $row['popular_name']; ?>
 								</div>
 
+								<div class="col-md-3">Father Name<strong>:</strong></div>
+								<div class="col-md-9 fa_name">
+								<?php echo $row['fathers_name']; ?>
+								</div>
+
 								<div class="col-md-3">Gender <strong>:</strong></div>
 								<div class="col-md-9 gender_cl"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></div>
 
@@ -130,8 +135,16 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3">First Name <strong>:</strong></div>
 								<div class="col-md-9"><?php echo $row['first_name'];?></div>
 
-								<div class="col-md-3">Middle Name<strong>:</strong></div>
-								<div class="col-md-9"><?php echo $row['middle_name']; ?></div>
+								<div class="col-md-3">Father Name <strong>:</strong></div>
+								<div class="col-md-9 edit-wrapper">
+								   <span class="data"><?php echo $row['fathers_name'];?></span> 
+								   <form class="edit-form" data-columnname='fathers_name' data-tablename='member' id="fathers_frm">
+										<input type="text" class="edit-input" name="fathers_name">
+										<button class="btn btn-primary save-change" id="fathers_name_btn">Save Changes</button>
+										<button class="cancel btn btn-secondary	 btn btn-secondary">Cancel</button>
+								   </form>
+								   <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+								</div>
 
 								<div class="col-md-3">Last Name <strong>:</strong></div>
 								<div class="col-md-9">
@@ -237,7 +250,7 @@ $row=mysqli_fetch_array($fire);
 								    <span class="data"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></span>
 								    <span class="privacy"><?php if($row['Date_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span> 
 									<form class="edit-form" data-columnname='date_of_birth' data-tablename='member'  id="date_of_birth_frm">
-										<input type="date" class="edit-input" name="date_of_birth_name">
+										<input type="hidden" class="edit-input" name="date_of_birth_name" value="<?php echo date('d/m/Y',strtotime($row['date_of_birth']));?>">
 <!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
@@ -844,27 +857,15 @@ $(document).ready(function(){
 }
   });
 	// date of birth
-		$("#date_of_birth_frm").validate({
-			rules: {
-					date_of_birth_name: "required"
 
-			},
-			messages: {
-					date_of_birth_name: "please select date of birth"
-			}
-	})
 		//
 	$("#date_of_birth_btn").on("click", function(){ 	
 		event.preventDefault();  
-		if (!$("#date_of_birth_frm").valid()) { // Not Valid
-			return false;
-		} 
-	   else{   
 			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
 			// $(this).siblings(".edit-form").hide();
 			// var inputValue = $(this).siblings("input").val();
 			var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
-		 	var inputValue = $(this).siblings("input").val();
+		 	//var inputValue = $(this).siblings("input").val();
 			var parent = $(this).parent(".edit-form");
 			var parent = $(this).parent(".edit-form");
 			$(this).siblings(".edit-form").hide();
@@ -877,7 +878,6 @@ $(document).ready(function(){
 			{
 				tablename:tablename,
 				columnname:columnname,
-				inputValue: inputValue,
 				privacy_setting:selText
 			},
 			function(data,status){
@@ -895,13 +895,12 @@ $(document).ready(function(){
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 				current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
 				current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
-				$(".dob_ov").text(inputValue);
+				//$(".dob_ov").text(inputValue);
 				}
 				else{
 				alert("Data: not updated");
 				}
 			});
-}
   });
 		$("#time_of_birth_btn").on("click", function(){ 	
 			event.preventDefault();   
@@ -1044,6 +1043,56 @@ $(document).ready(function(){
 					current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
 					current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
 					$(".mob_ov").text(inputValue);
+					}
+					else{
+					alert("Data: not updated");
+					}
+				});
+			}
+  		});		
+  		$("#fathers_frm").validate({
+			rules: {
+				fathers_name: "required"
+		},
+			messages: {
+				fathers_name: "father name is required field"
+			}
+		})
+		$("#fathers_name_btn").on("click", function(){ 	
+			event.preventDefault();   
+			if (!$("#fathers_frm").valid()) { // Not Valid
+				return false;
+			}		 
+			else{
+			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+			// $(this).siblings(".edit-form").hide();
+			// var inputValue = $(this).siblings("input").val();
+				//var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
+			 	var inputValue = $(this).siblings("input").val();
+				var parent = $(this).parent(".edit-form");
+				var parent = $(this).parent(".edit-form");
+				$(this).siblings(".edit-form").hide();
+				var parent = $(this).parent(".edit-form");
+				current_users=$(this);
+				var columnname = $(this).parent(".edit-form").data('columnname');
+				var tablename = $(this).parent(".edit-form").data('tablename');
+				var home_path = $("#home_path").val();
+				$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+				{
+					tablename:tablename,
+					columnname:columnname,
+					inputValue: inputValue
+				},
+				function(data,status){
+					var status1=status;
+
+					if (status1=='success') {
+					//location.reload(true); 
+					current_users.parent(".edit-form").hide();
+					$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+					//current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
+					current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+					$(".fa_name").text(inputValue);
 					}
 					else{
 					alert("Data: not updated");
@@ -1317,6 +1366,7 @@ $(document).ready(function(){
 
 
 $('.nav-tabs' ).on("click", function() {
+	event.preventDefault();
 	if ($(this).children(".active")) {
 		   $(".tab-content").find(".active").show();
            $(".tab-content").find(".tab-pane:not(.active)").css("display", "none");
