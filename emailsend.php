@@ -16,7 +16,7 @@ $getemail=mysqli_fetch_array($countmember);
 $showemail=mysqli_fetch_array(mysqli_query($con,'select email,member_id from communication where member_id="'.$getemail['member_id'].'" '));
 $subject="User Requested Member Id (MID) From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getemail['first_name']." ".$getemail['middle_name']." ".$getemail['last_name'].", you are successfully requested a MEMBER ID and your login MEMBER ID (MID) is : <strong>".$getemail['member_id']."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.=" Dear ".$getemail['first_name']." ".$getemail['middle_name']." ".$getemail['last_name'].", you are successfully requested a login MEMBER ID (MID) is : <strong>".$getemail['member_id']."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$showemail['email'];
 sendmails($to,$message,$subject);

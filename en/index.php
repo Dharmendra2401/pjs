@@ -33,12 +33,14 @@ include "../config/config.php";
 			                <?php $i++;} ?>
 			                </div> 
 			                <!-- Left right -->
-			                 <!-- <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> 
+						<?php if($countslider>0){ ?>
+			                  <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> 
 			                 	<i class="fas fa-chevron-left"></i>
-		                 	 </a> --> 
-		                 	 <!-- <a class="carousel-control-next" href="#custCarousel" data-slide="next">
+		                 	 </a>
+		                 	 <a class="carousel-control-next" href="#custCarousel" data-slide="next">
 			                 	 <i class="fas fa-chevron-right"></i>
-		                 	 </a> --> 
+		                 	 </a>
+							<?php } ?> 
 			                 <!-- Thumbnails -->
 			                  <!-- <ol class="carousel-indicators list-inline">
 			                    <li class="list-inline-item active"> <a id="carousel-selector-0" class="selected" data-slide-to="0" data-target="#custCarousel"> <img src="https://i.imgur.com/weXVL8M.jpg" class="img-fluid"> </a> </li>

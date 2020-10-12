@@ -1438,5 +1438,20 @@ display:none;z-index:9;}
            
             color: white!important;
            }
+        
+
+    .carousel-control-prev i
+    {background: #3eb8e9;
+    width: 25px;
+    height: 25px;
+    padding-top: 5px;
+    border-radius: 50%;}
+
+    .carousel-control-next i
+    {background: #3eb8e9;
+    width: 25px;
+    height: 25px;
+    padding-top: 5px;
+    border-radius: 50%;}
 
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------
