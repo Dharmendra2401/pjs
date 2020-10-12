@@ -18,7 +18,7 @@ $url12="uploads/slider/". str_replace(" ","",sha1($_FILES["image"]["name"].time(
 move_uploaded_file($_FILES["image"]["tmp_name"],$url);
 $x=$sizex;
 $y=$sizey;
-echo $image=imagename($url12,$x,$y);
+$image=imagename($url12,$x,$y);
 imagemulitple($url,$x,$y);
 unlink($url);
 //unlink('../../uploads/events/'.$getaboutus['image']);			

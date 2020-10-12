@@ -11,7 +11,7 @@ if($_SESSION['user_mid']!='')
 
 $stat="member where 1=1  $statu order by member_id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
-$limit = (int) (!isset($_REQUEST["pagesize"]) ? 12 : $_REQUEST["pagesize"]);
+$limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
 $query = "SELECT * FROM ".$stat." LIMIT ".$startpoint." , ".$limit; 
 if($page==1){ $count=1;}else{$count=$page*10-10+1;}

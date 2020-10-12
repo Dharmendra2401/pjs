@@ -26,7 +26,7 @@ function BtnClickPage(x,y)
 var searchtxt=$("#stxt").val();	
 var ustatus=$("#ustatus").val();
 var page=$("#page").val();	
-y=12;
+y=10;
 $('#loadergif').fadeIn();
 $.ajax({
 type: 'POST',
