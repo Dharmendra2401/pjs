@@ -35,10 +35,12 @@ include "../config/config.php";
 									<select class="form-control form-control-sm" id="relationship_type" name="relationship_type">
 										<option value="Grandfather">Grandfather</option>              
 										<option value="Father">Father</option>
+										<option value="Husband">Husband</option>
 										<option value="Brother">Brother</option>
 										<option value="Son">Son</option>
 										<option value="Grandmother">Grandmother</option>
-										<option value="Mother">Mother</option>                
+										<option value="Mother">Mother</option>
+										<option value="Wife">Wife</option>                
 										<option value="Daughter">Daughter</option>                
 										<option value="Sister">Sister</option>
 									</select>
@@ -163,13 +165,15 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 					 <div class="form-group" id="live_relation_type">
 							<select class="form-control female" style="display: none">
 								<option value="Grandmother">Grandmother</option>
-								<option value="Mother">Mother</option>                
+								<option value="Mother">Mother</option>   
+								<option value="Wife">Wife</option>             
 								<option value="Daughter">Daughter</option>                
 								<option value="Sister">Sister</option>
 							</select>
 							<select class="form-control male" style="display: none;">
 								<option value="Grandfather">Grandfather</option>              
 								<option value="Father">Father</option>
+								<option value="Husband">Husband</option>
 								<option value="Brother">Brother</option>
 								<option value="Son">Son</option>
 							</select>
