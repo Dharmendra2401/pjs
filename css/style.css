@@ -588,7 +588,7 @@ footer {
     text-decoration: underline;
 }
 
-.user-details p strong{
+.user-details h5 strong{
     float: right;
 }
 
@@ -1019,6 +1019,15 @@ footer {
     text-align: right;
 }
 
+.sm-tl{
+    text-align: left !important;
+}
+
+.px-sm-0{
+    padding-right: 0px !important;
+    padding-left: 0px !important;
+}
+
 .sm-mt10{
   margin-top: 10px;
 }
@@ -1198,17 +1207,44 @@ footer {
 .icon-mobile{
     position: absolute;
     right: -15px;
-    top: -35px;
+    top: -80px;
     background: #70c5a4;
 }
 
 .icon-mobile i{
     display: block; 
-    padding: 15px 5px;
+    padding: 15px 2px;
 }
 
 .tab-bar .nav-tabs .nav-item{
-    width: 30%;
+    width: 50%;
+}
+
+.user-container .user-detail-container{
+    text-align: left !important;
+}
+
+.user-detail-container .user-img{
+    height: 100px;
+    width: 100px;
+}
+
+.user-detail-info{
+    text-align: left;
+    padding-left: 15px !important;
+}
+
+.user-detail-info h2{
+    font-size: 30px;
+}
+
+.user-details p{
+     font-weight: 400;
+    text-transform: capitalize;
+    word-break: break-all;
+}
+.user-details{
+    margin-bottom: 40px;
 }
 
 /*--------------------USER DETAIL ENDS---------------------------*/
@@ -1220,9 +1256,7 @@ footer {
     margin-bottom: 20px;
 }
 
-.user-details{
-    margin-bottom: 5px;
-}
+
 
 .signup-sm{
     width: 100%;
@@ -1288,6 +1322,21 @@ footer {
 /*--------------------FAMILY TREE---------------------------*/
 .tree-srch-list{
    height: 180px;
+}
+
+.family-profile-img{
+    width: 80px;
+}
+
+.tree-card .family-info{
+    width: 150px;
+}
+
+.list-height{
+    -webkit-box-shadow: 1px -1px 6px -1px rgba(0,0,0,1);
+    -moz-box-shadow: 1px -1px 6px -1px rgba(0,0,0,1);
+    box-shadow: 1px -1px 6px -1px rgba(0,0,0,1);
+    padding-top: 10px;
 }
 
 /*--------------------FAMILY TREE ENDS---------------------------*/

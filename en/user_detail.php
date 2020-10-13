@@ -16,7 +16,7 @@ $login_user='';
 }
 
 
-$row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' AND sp.reference_member_Id='$idd' ,'saved','notsaved') as sp_status,mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on mem.member_id=sp.reference_member_Id inner join member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$idd'"));
+$row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' AND sp.reference_member_Id='$idd' ,'saved','notsaved') as sp_status,mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,mem.Life_status,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on mem.member_id=sp.reference_member_Id inner join member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$idd'"));
 
 $member_request_status=member_request_status($idd,$login_user);
 $request_status_user='';
@@ -56,14 +56,14 @@ $staus_show='no status';
 <div class="user-container" id="example">
 <div class="container">
 <div class="row">
-<div class="col-md-2 text-right">
+<div class="col-md-2 text-right user-detail-container">
 <a data-lightbox="example-1" href="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>">	<img class="user-img img-fluid" src="<?php echo RE_HOME_PATH.$row['display_pic'] ;?>"></a>
 </div>
-<div class="col-md-4 pl-0 align-self-end sm-tr">
+<div class="col-md-4 pl-0 align-self-end sm-tr user-detail-info">
 <h2 class="text-white mb-1"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></h2>
 <h5 class="text-white"><?php echo $row['member_id'] ;?></h5>
 </div>
-<div class="col-md-6 align-self-end text-right sm-mt10">
+<div class="col-md-6 align-self-end text-right sm-mt10 sm-tl">
 <?php if (isset($_SESSION['user_mid'])) { if ( $row['sp_status']=='saved') {?>
 <a type="button" class="btn btn-info mr-3 login-signup" style="background-color:#72bf55">Saved</a>
 <?php } else {?>
@@ -153,85 +153,87 @@ else{?>
 </div>
 </div>
 <div class="row">
-<div class="col-md-12 tab-content">
+<div class="col-md-12 tab-content px-sm-0">
 <div id="about" class="tab-pane active"><br>
 <div class="container user-details">
-<h3>Personal Details <small><i class="fas fa-flag text-danger float-right"></i></small></h3>
+<h3>Personal Details <?php if ($row['Life_status']=='D') {?>
+<small><i class="fas fa-flag text-danger float-right"></i></small>
+<?php } ?></h3>
 <div class="row">
-<div class="col-md-3">
-<p>Full Name <strong>:</strong></p>
+<div class="col-md-3 col-5">
+<h5>Full Name <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">
-<h5><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ; ?></h5>
-</div>
-
-<div class="col-md-3">
-<p>Popular Name <strong>:</strong></p>
+<div class="col-md-9 col-7">
+<p><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ; ?></p>
 </div>
 
-<div class="col-md-9 text-uppercase">
-<h5><?php if(!isset($_SESSION['user_mid']) && $row['Popular_Name']=='N') echo "*******";
-else echo $row['popular_name'];?></h5>
+<div class="col-md-3 col-5">
+<h5>Popular Name <strong>:</strong></h5>
 </div>
 
-<div class="col-md-3">	
-<p>Date of Birth <strong>:</strong></p>
-</div>
-<div class="col-md-9 text-uppercase">
-<h5><?php if(!isset($_SESSION['user_mid']) && $row['Date_Of_Birth']=='N') echo "*******";
-else echo date('d/m/Y',strtotime($row['date_of_birth']));?>	</h5>
+<div class="col-md-9 col-7">
+<p><?php if(!isset($_SESSION['user_mid']) && $row['Popular_Name']=='N') echo "*******";
+else echo $row['popular_name'];?></p>
 </div>
 
-<div class="col-md-3">    	  
-<p>Age <strong>:</strong></p>
+<div class="col-md-3 col-5">	
+<h5>Date of Birth <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">
-<h5><?php echo $row['age']; ?></h5>
-</div>
-
-<div class="col-md-3">     	  
-<p>Gender <strong>:</strong></p>
+<div class="col-md-9 col-7">
+<p><?php if(!isset($_SESSION['user_mid']) && $row['Date_Of_Birth']=='N') echo "*******";
+else echo date('d/m/Y',strtotime($row['date_of_birth']));?>	</p>
 </div>
 
-<div class="col-md-9 text-uppercase">
-<h5><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></h5>
+<div class="col-md-3 col-5">    	  
+<h5>Age <strong>:</strong></h5>
+</div>
+<div class="col-md-9 col-7">
+<p><?php echo $row['age']; ?></p>
 </div>
 
-<div class="col-md-3">
-<p>Status <strong>:</strong></p>
+<div class="col-md-3 col-5">     	  
+<h5>Gender <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">
-<h5><?php echo $row['marital_status']; ?></h5>
+
+<div class="col-md-9 col-7">
+<p><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></p>
+</div>
+
+<div class="col-md-3 col-5">
+<h5>Status <strong>:</strong></h5>
+</div>
+<div class="col-md-9 col-7">
+<p><?php echo $row['marital_status']; ?></p>
 </div>
 
 <?php if($row['marital_status']=='married') {?>
-<div class="col-md-3">
-<p>Husband Name <strong>:</strong></p>
+<div class="col-md-3 col-5">
+<h5>Husband Name <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">
-<h5><?php echo $row['husbandname']; ?></h5>
+<div class="col-md-9 col-7">
+<p><?php echo $row['husbandname']; ?></p>
 </div>
 <?php }  ?>
-<div class="col-md-3">	  
-<p>Mobile No. <strong>:</strong></p>
+<div class="col-md-3 col-5">	  
+<h5>Mobile No. <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">	
-<h5><?php if(!isset($_SESSION['user_mid']) && $row['Mobile']=='N') echo "*******";
-else echo $row['mobile'];?></h5>
+<div class="col-md-9 col-7">	
+<p><?php if(!isset($_SESSION['user_mid']) && $row['Mobile']=='N') echo "*******";
+else echo $row['mobile'];?></p>
 
 </div>
 
-<div class="col-md-3">      
-<p>Email id <strong>:</strong></p>
+<div class="col-md-3 col-5">      
+<h5>Email id <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">	
-<h5><?php echo $row['email']; ?></h5>
+<div class="col-md-9 col-7">	
+<p><?php echo $row['email']; ?></p>
 </div>
 
-<div class="col-md-3">       
-<p>Blood Group <strong>:</strong></p>
+<div class="col-md-3 col-5">       
+<h5>Blood Group <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">	  <h5>
+<div class="col-md-9 col-7">	  <p>
 <?php 
 if(!isset($_SESSION['user_mid']) && $row['Blood_Group']=='N'){
 echo "*******";
@@ -260,31 +262,31 @@ echo 'NA';
 }  
 }?>
 
-</h5>
+</p>
 </div>
 
-<div class="col-md-3">	  
-<p>Birth Time <strong>:</strong></p>
+<div class="col-md-3 col-5">	  
+<h5>Birth Time <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">
-<h5><?php if(!isset($_SESSION['user_mid']) && $row['Time_Of_Birth']=='N'){ echo "*******";}
-else {if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} }?></h5>
+<div class="col-md-9 col-7">
+<p><?php if(!isset($_SESSION['user_mid']) && $row['Time_Of_Birth']=='N'){ echo "*******";}
+else {if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} }?></p>
 
 </div>
 
-<div class="col-md-3">    	  
-<p>Birth Place <strong>:</strong></p>
+<div class="col-md-3 col-5">    	  
+<h5>Birth Place <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">	  
-<h5><?php if(!isset($_SESSION['user_mid']) && $row['Place_Of_Birth']=='N'){ echo "*******";}
-else {if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} }?></h5>
+<div class="col-md-9 col-7">	  
+<p><?php if(!isset($_SESSION['user_mid']) && $row['Place_Of_Birth']=='N'){ echo "*******";}
+else {if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} }?></p>
 </div>
 
-<div class="col-md-3">
-<p>Height <strong>:</strong></p>
+<div class="col-md-3 col-5">
+<h5>Height <strong>:</strong></h5>
 </div>
-<div class="col-md-9 text-uppercase">
-<h5>
+<div class="col-md-9 col-7">
+<p>
 <?php 
 if(!isset($_SESSION['user_mid']) && $row['Height']=='N'){
 echo "*******";
@@ -294,7 +296,7 @@ if($row['feet']!=''){ echo $row['feet'];}else{echo "NA";}  ?>
 
 Inches : <?php  if($row['inches']!=''){ echo $row['inches'];}else{echo "NA";}  
 }?>
-</h5>
+</p>
 </div>
 <div class="col-12 text-center">
 <?php if (isset($_SESSION['user_mid']) || isset($_SESSION['user_mid']) || isset($_SESSION['user_mid'])) {?>
@@ -309,33 +311,33 @@ Inches : <?php  if($row['inches']!=''){ echo $row['inches'];}else{echo "NA";}
 <div class="more-info">
 <h3>About Us</h3>
 <div class="row">
-<div class="col-md-3">
-<p>Present Address <strong>:</strong></p>
+<div class="col-md-3 col-7">
+<h5>Present Address <strong>:</strong></h5>
 </div>
-<div class="col-md-9">
-<h5><?php echo $row['full_address'];  ?></h5>
+<div class="col-md-9 col-5">
+<p><?php echo $row['full_address'];  ?></p>
 </div>
 </div>
 <h3>Education</h3>
 <div class="row">
-<div class="col-md-3">
-<p>Highest Education <strong>:</strong></p>
+<div class="col-md-3 col-7">
+<h5>Highest Education <strong>:</strong></h5>
 </div>
-<div class="col-md-9">
-<h5><?php echo $row['highest_edu'];  ?></h5>
+<div class="col-md-9 col-5">
+<p><?php echo $row['highest_edu'];  ?></p>
 </div>
 </div>
 <h3>Occupation</h3>
 <div class="row">
-<div class="col-md-3">
-<p>Occupation <strong>:</strong></p>
+<div class="col-md-3 col-7">
+<h5>Occupation <strong>:</strong></h5>
 </div>
-<div class="col-md-9">
-<h5>
+<div class="col-md-9 col-5">
+<p>
 <?php if($row['occupation']==1){ echo "
 Job";} else if($row['occupation']==2) { echo "Bussiness";}
 else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?>
-</h5>
+</p>
 </div>
 </div>
 </div>
