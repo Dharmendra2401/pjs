@@ -24,8 +24,8 @@ unlink($url);
 //unlink('../../uploads/events/'.$getaboutus['image']);			
 }
 if($_FILES["mobile"]["name"]!=''){
-    $sizex=1600;
-    $sizey=900;
+    $sizex=900;
+    $sizey=1600;
     $ext=explode(".",$_FILES["mobile"]["name"]);
     $urlimage="../../uploads/mobile-image/". str_replace(" ","",sha1($_FILES["mobile"]["name"].time()).".".$ext[sizeof($ext)-1]);
     $url12image="uploads/mobile-image/". str_replace(" ","",sha1($_FILES["mobile"]["name"].time()).".".$ext[sizeof($ext)-1]);
