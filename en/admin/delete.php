@@ -48,9 +48,10 @@ mysqli_query($con,"DELETE FROM ".$table." WHERE request_id='".$id."'");
 }
 
 if($table=='slider'){	
-$getimage=mysqli_fetch_array(mysqli_query($con,'select image from slider where id="'.$id.'"')); 
+$getimage=mysqli_fetch_array(mysqli_query($con,'select image,mobile_image from slider where id="'.$id.'"')); 
 unlink('../../'.$getimage['image']);
-mysqli_query($con,"DELETE FROM ".$table." WHERE request_id='".$id."'");
+unlink('../../'.$getimage['mobile_image']);
+mysqli_query($con,"DELETE FROM ".$table." WHERE id='".$id."'");
 }
 
 if($table=='gallery'){	

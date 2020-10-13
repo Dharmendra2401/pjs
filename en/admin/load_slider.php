@@ -8,7 +8,8 @@
 <!--<th width="2%">S.No</th>-->
 <th>S.No</th>
 <th>Title</th>
-<th>Image</th>
+<th>Desktop Image</th>
+<th>Mobile Image</th>
 <th>Submited Date</th>
 <th>Active Status</th>
 <th>Action</th>
@@ -53,6 +54,7 @@ $currentdate=$row['record_inserted_dttm'];
 
 <td><?php echo $row['title']; ?></td>
 <td><img src="<?php echo RE_HOME_PATH.'/'.$row['image']; ?>" width="100px"> </td>
+<td><img src="<?php echo RE_HOME_PATH.'/'.$row['mobile_image']; ?>" width="100px"> </td>
 <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
 <td class="text-center"><?php if($row['status']=='N') {?><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;" onClick="return varify('<?php echo $row['id'];?>','Y','slider');" title='Active'  alt="Active"><i class="fas fa-times"></i></a> <br>Deactive <?php } else {?>  <a class="btn btn-success btn-sm rounded-circle " style="cursor:pointer;" onClick="return unvarify('<?php echo $row['id'];?>','N','slider');" title='Active'  alt="Active"> <i class="fas fa-check"></i></a><br>Active <?php } ?></td>
 <td>

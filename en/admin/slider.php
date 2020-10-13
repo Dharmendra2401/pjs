@@ -23,7 +23,23 @@ imagemulitple($url,$x,$y);
 unlink($url);
 //unlink('../../uploads/events/'.$getaboutus['image']);			
 }
-mysqli_query($con,'insert into slider (title,image,record_inserted_dttm,status) values("'.$title.'","'.$image.'","'.$submitdate.'","Y")');
+if($_FILES["mobile"]["name"]!=''){
+    $sizex=1600;
+    $sizey=900;
+    $ext=explode(".",$_FILES["mobile"]["name"]);
+    $urlimage="../../uploads/mobile-image/". str_replace(" ","",sha1($_FILES["mobile"]["name"].time()).".".$ext[sizeof($ext)-1]);
+    $url12image="uploads/mobile-image/". str_replace(" ","",sha1($_FILES["mobile"]["name"].time()).".".$ext[sizeof($ext)-1]);
+    move_uploaded_file($_FILES["mobile"]["tmp_name"],$urlimage);
+    $x=$sizex;
+    $y=$sizey;
+    $imagetwo=imagename($url12image,$x,$y);
+    imagemulitple($urlimage,$x,$y);
+    unlink($urlimage);
+    //unlink('../../uploads/events/'.$getaboutus['image']);			
+    }
+   
+  
+mysqli_query($con,'insert into slider (title,image,mobile_image,record_inserted_dttm,status) values("'.$title.'","'.$image.'","'.$imagetwo.'","'.$submitdate.'","Y")');
 
 redirect(RE_HOME_SUPERADMIN."slider.php","Record successfully created~@~".MSG_SUCCESS);
 }
@@ -87,6 +103,12 @@ redirect(RE_HOME_SUPERADMIN."slider.php","Error!Please try again~@~".MSG_ERROR);
 <small>Please select the size of image <i>1349*450</i></small>
 </div>
 
+<div class="form-group  col-md-12">
+<label>Mobile Image <span class="text-danger">*</span></label><br>
+<input type="file" class="" name="mobile" id="mobile" ><br>
+<small>Please select the size of image <i>1600*900</i></small>
+</div>
+
 
 <div class="modal-footer border-top-0">
 <button type="button" class="btn btn-secondary" data-dismiss="modal">Close</button>
@@ -126,6 +148,7 @@ redirect(RE_HOME_SUPERADMIN."slider.php","Error!Please try again~@~".MSG_ERROR);
 function addgallery(){
 var title=$('#title').val();
 var file=$('#file').val();
+var mobile=$('#mobile').val();
 var content=$('#editor').val();
 if(title.trim()==''){
 $('#title').focus();
@@ -135,6 +158,11 @@ return false;
 else if(file.trim()==''){
 $('#file').focus();
 $("#file").addClass("invalid");
+return false;   
+}
+else if(mobile.trim()==''){
+$('#mobile').focus();
+$("#mobile").addClass("invalid");
 return false;   
 }
 
@@ -172,12 +200,12 @@ type: 'POST',
 url: "delete.php",
 data: {"id":id,"table":table},
 success: function(data1234){
-if(data1234=='ok')	
+if(data1234.trim()=='ok')	
 {	
 BtnClickPage(page,10);
 $('#loadergif').fadeOut();
 }
-if(data1234=='false')	
+if(data1234.trim()=='false')	
 {	
 BtnClickPage(page,10);
 $('#loadergif').fadeOut();
