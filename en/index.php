@@ -49,7 +49,28 @@ include "../config/config.php";
 			                    <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="https://i.imgur.com/JiQ9Ppv.jpg" class="img-fluid"> </a> </li>
 			                  </ol> -->
 			            </div>
-			        </div>
+
+			            <div id="custCarousel1" class="carousel slide d-sm" data-ride="carousel" align="center">
+			                <!-- slides -->
+			                <div class="carousel-inner">
+							    <div class="carousel-item active">
+							      <img src="http://www.porwadjain.com/uploads/slider/02c2d5d45c4b2f50e72c83beb4229df7ff6e1d46-1349x450.jpg" alt="Los Angeles">
+							    </div>
+							    <div class="carousel-item">
+							      <img src="http://www.porwadjain.com/uploads/slider/02c2d5d45c4b2f50e72c83beb4229df7ff6e1d46-1349x450.jpg" alt="Chicago">
+							    </div>
+							    <div class="carousel-item">
+							      <img src="http://www.porwadjain.com/uploads/slider/16e1435fac44889c10776b0e103ead4493ebe494-1349x450.jpg" alt="New York">
+							    </div>
+			                 
+				            </div>
+				             <a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> 
+			                 	<i class="fas fa-chevron-left"></i>
+		                 	 </a>
+		                 	 <a class="carousel-control-next" href="#custCarousel" data-slide="next">
+			                 	 <i class="fas fa-chevron-right"></i>
+		                 	 </a>
+				        </div>
 			        <div class="col-md-12 home-card">
 			        	<h3>Offers and Discounts for Registered Members Coming Soon</h3>
 			        </div>

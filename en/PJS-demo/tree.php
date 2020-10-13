@@ -19,7 +19,7 @@ $result=friend_request_status12();
 					<div class="row">
 							<div class="col-md-10">
 								<?php //echo $row1['dead_p_pic'];?>
-									<img class="d-block" width="50" src="<?php 
+									<img class="family-profile-img" src="<?php 
 									 if($row1['display_pic'])
 									{
 										echo RE_HOME_PATH.$row1['display_pic'];
@@ -31,9 +31,9 @@ $result=friend_request_status12();
 											echo 'http//';
 											} ?>">
 
-							   <strong>Name: </strong>
-										<span><?php if(isset($row1['name'])){echo $row1['name']; } else{echo $row1['dp_name']; }?></span><br>
-										<span><?php 
+							            <ul class="list-unstyled family-info">
+										<li ><?php if(isset($row1['name'])){echo $row1['name']; } else{echo $row1['dp_name']; }?></li>
+										<li><?php 
 												if ($row1['relation_type']=='Father') {
 													if ($row1['request_side_user']=='from-current-user') {
 														echo $row1['relation_type'];
@@ -165,7 +165,8 @@ $result=friend_request_status12();
 													}
 												}
 
-										//echo $row1['Relation_Type'];?></span>
+										//echo $row1['Relation_Type'];?></li>
+									            </ul>
 										<!-- <span class="badge badge-primary float-right"><?php// echo $row1['ACTIVE_STATUS'];?></span> -->				
 							</div>
 							<div class="col-md-2">

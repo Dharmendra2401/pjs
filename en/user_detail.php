@@ -156,7 +156,7 @@ else{?>
 <div class="col-md-12 tab-content">
 <div id="about" class="tab-pane active"><br>
 <div class="container user-details">
-<h3>Personal Details</h3>
+<h3>Personal Details <small><i class="fas fa-flag text-danger float-right"></i></small></h3>
 <div class="row">
 <div class="col-md-3">
 <p>Full Name <strong>:</strong></p>

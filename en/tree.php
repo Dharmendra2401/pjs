@@ -18,7 +18,8 @@ include "../config/config.php";
 				 <div class="col-md-4">
 				 	<div class="card mb-2">
 						<div class="card-body pb-2 death-update">
-							<h5 class="card-title">Click here to Update Dead Person
+							<h5 class="card-title"><i class="fas fa-flag text-danger"></i>
+								Click here to Update Dead Person
 								<i class="fas fa-plus float-right"></i>
 							</h5>
 							<form action="" class="d-none-form" enctype="multipart/form-data" id="dead_person_form">
