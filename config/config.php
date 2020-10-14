@@ -14,7 +14,7 @@ define('RE_EN_PATH', "http://localhost/pjs_user/en/");
 define('RE_HOME_USER', "http://localhost/pjs_user/en/user/");
 define('RE_HOME_ADMIN', "http://localhost/pjs_user/en/subadmin/");
 define('RE_HOME_SUPERADMIN', "http://localhost/pjs_user/en/admin/");
-define('WEBSITE_NAME','PJS');
+define('WEBSITE_NAME','Porwad Samajik Manch');
 define('TITLE','PJS');
 define('TITLE_SITE','');
 define('FROM_EMAIL','support@porwadjain.com');

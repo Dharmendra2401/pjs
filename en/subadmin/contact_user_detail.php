@@ -11,17 +11,17 @@ $status=$_REQUEST['status'];
 
 if($status==1){
 $update=mysqli_query($con,"update non_member_request set request_status='N' where request_id='".$getid."' ");
-$subject="User Successfully Approved From '".WEBSITE_NAME."' ";
+$subject="User Successfully Approved From ".WEBSITE_NAME." ";
 $mes='';
 $mes.=" Dear ".$getdetails['first_name']." ".$getdetails['last_name']." , you are succesfully approved by the admin and your details have been share to the user ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$getdetails['email'];
 sendmails($to,$message,$subject);
 
-$subjectt="OPJ Contact Request From '".WEBSITE_NAME."' ";
+$subjectt="OPJ Contact Request From ".WEBSITE_NAME." ";
 $mess='';
-$mess.=" Dear ".$getuser['first_name']." ".$getuser['last_name']." , an OPJ Contact Requested to contact you here is the detail of opj user : <br>";
-$mess.="Name : ".$getdetails['first_name']." ".$getdetails['last_name']."<br>Mobile : ".$getdetails['mobile']."<br>Email : ".$getdetails['email']."<br> Address : ".$getdetails['address']." <br>";
+$mess.="<p> Dear ".$getuser['first_name']." ".$getuser['last_name']." , an OPJ contact requested to contact you, here is the detail of opj user : </p>";
+$mess.="Name : ".$getdetails['first_name']." ".$getdetails['last_name']."<br>Mobile : ".$getdetails['mobile']."<br>Email : ".$getdetails['email']."<br> Address : ".$getdetails['address']." <br><br>";
 $mess.="if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $messages=$mess;
 $too=$getemails['email'];
@@ -32,15 +32,18 @@ redirect(RE_HOME_ADMIN."opj_request.php","User successfully approved~@~".MSG_SUC
 }
 else if($status==0){
 $trimreason=mysqli_real_escape_string($con,trim($_REQUEST['reason']));
+if($trimreason!=''){
 $update=mysqli_query($con,"update non_member_request set request_status='R',reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
-$subject="Admin Approval OPJ Contact Request Rejected From ".WEBSITE_NAME." ";
+$subject="Admin OPJ Contact Request Rejected From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getdetails['first_name']." ".$getdetails['last_name'].", your OPJ Contact Request is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.=" Dear ".$getdetails['first_name']." ".$getdetails['last_name'].", your opj contact request is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong><br> <br>if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;
 $to=$getdetails['email'];
 sendmails($to,$message,$subject);
 redirect(RE_HOME_ADMIN."opj_request.php","User successfully rejected~@~".MSG_SUCCESS);
-
+}else{
+redirect(RE_HOME_ADMIN."opj_request.php","Error! Please fill out the reason and try again~@~".MSG_ERROR);  
+}
 }
 else{
 redirect(RE_HOME_ADMIN."opj_request.php","Error! Please try again~@~".MSG_ERROR);
@@ -139,6 +142,9 @@ $('.rejection').hide();
 
 });
 });
+
+
+
 </script>
 <?php include "../../footer.php" ?>
 </body>

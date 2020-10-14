@@ -612,19 +612,23 @@ icon: "error",
 });
 
 }else{
+	$('#loadergif').fadeIn();
 $.ajax({
 method:'POST',
 url:'<?php echo RE_HOME_USER ;?>loginuser.php',
 data:{'mid':mid,'password':password},
 success:function(userlog){
 if(userlog.trim()=='false'){
+$('#loadergif').fadeOut();
 swal({
 title: "Error",
 text: "Error! Please fill out the fields! ",
 icon: "error",
 });
+
 }
 if(userlog.trim()=='Error'){
+$('#loadergif').fadeOut();
 swal({
 title: "Error",
 text: "Error! Please enter the valid member id and password! ",
@@ -632,6 +636,7 @@ icon: "error",
 });
 }
 if(userlog.trim()=='true'){
+$('#loadergif').fadeOut();
 window.location.replace("<?php echo RE_EN_PATH; ?>");
 }
 }

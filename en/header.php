@@ -155,7 +155,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_users.php">Registered Requests Reports</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>death_request_reports.php">Death Requests Reports</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>opj_request_reports.php">OPJ Requests Report</a>
-<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>mobile_update_reports.php">Mobile Number Requests Reports</a>
+<!-- <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>mobile_update_reports.php">Mobile Number Requests Reports</a> -->
 </div>
 </li>
 <li class="nav-item">
@@ -163,7 +163,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <div class="dropdown-menu custom-dropdwn">	
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_request.php">New User Registration Requests</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>opj_request.php">OPJ Contact Requests</a>
-<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>user_updation_request.php">Mobile Number Requests</a>
+<!-- <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>user_updation_request.php">Mobile Number Requests</a> -->
 <a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>death_request.php">Death Requests</a>
 </div>
 </li>

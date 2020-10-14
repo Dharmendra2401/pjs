@@ -70,7 +70,7 @@ $currentdate=$row['new_request'];
 <td><?php echo $row['full_address'] ; ?></td>
 <td><?php $getname=mysqli_fetch_array(mysqli_query($con,'select member_id,first_name,last_name from member where member_id="'.$row['reference_member_Id'].'"')); echo $getname['first_name'].' '.$getname['last_name'].' ('.$row['reference_member_Id'].')'  ; ?></td>
 <td><?php echo date('d/m/Y',strtotime($currentdate)); ?></td>
-<td><?php if($row['status_of_request']=='Y'){echo "<label class='btn btn-success btn-sm'>New</label>";} else if($row['status_of_request']=='R'){echo "<label class='btn btn-warning btn-sm'>Rejected</label>";} else{ echo "<label class='btn btn-success btn-sm'>Closed</label>"; }?></td>
+<td><?php if($row['status_of_request']=='Y'){echo "<label class='bg-success text-white btn-sm'>New</label>";} else if($row['status_of_request']=='R'){echo "<label class='bg-warning text-white btn-sm btn-sm'>Rejected</label>";} else{ echo "<label class='bg-success text-white btn-sm'>Closed</label>"; }?></td>
 
 <td><?php  if($row['status_of_request']=='R'){echo $row['reason_of_rejection'];}else{echo "NA";}  ?></td>
 </tr>

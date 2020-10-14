@@ -57,7 +57,7 @@ $currentdate=$row['record_inserted_dttm'];
 <td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
 <td><?php echo $row['city']; ?></td>
 <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
-<td><?php if($row['active_status']=='Y'){echo "<label class='btn btn-success btn-sm'>New</label>";} if($row['active_status']=='R'){echo "<label class='btn btn-warning btn-sm'>Rejected</label>";} ?></td>
+<td><?php if($row['active_status']=='Y'){echo "<label class='bg-success text-white btn-sm'>New</label>";} if($row['active_status']=='R'){echo "<label class='bg-warning text-white btn-sm'>Rejected</label>";} ?></td>
 <td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a> <?php if($row['active_status']=='R'){ ?><a href="#"data-toggle="modal" data-target="#viewreason" onclick="return viewreason('<?php echo $row['reason_of_rejection'];  ?>')" class="btn btn-primary btn-sm" alt="View the reason" title="View the reason"><i class="fa fa-eye"></i></a> <?php } ?></td>
 </tr>
 <?php $count++; }

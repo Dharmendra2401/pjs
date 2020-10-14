@@ -298,12 +298,16 @@ z-index: -1;
 height: 200px;
 "/>
 </div>
+<div class="col-md-9">
+	<br>
+<div class="row p-3 mb-2 bg-warning text-white rounded">Please add your own photo for successful registration</div>
+</div>
 
 <div class="form-group row policy">
 <input type="checkbox" value="privacy" name="privacy" id="privacy"><label>Accept Our <a href="../uploads/privacy/PJS_Privacy_Policy.pdf" target="_blank">privacy policy</a> </label>
 </div>
 
-<div class="form-group row" id="fileerror"><div>
+<div class="row"><div class="col-md-12"><div class="form-group" id="fileerror"><div></div></div>
 </div>
 
 </div>
@@ -618,11 +622,11 @@ function formfour(){
 var privacy=$("input[name='privacy']:checked").val();
 var file=$('#file').val();
 if(file==''){
- $('#fileerror').html('<div class="text-danger">Please select image</div>');
+ $('#fileerror').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">Please select image <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
  return false;
  }
 if(privacy!= 'privacy'){
-$('#fileerror').html('<div class="text-danger">Please accept our privacy policy.</div>');
+$('#fileerror').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">Please accept our privacy policy.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 return false;
 }
 }
@@ -684,7 +688,7 @@ var fsize = fi.files.item(i).size;
 var sizemain=Math.round((fsize / 1024)) ;
 if(sizemain>1024){
 $('#file').val('');
-$('#fileerror').html('<div class="text-danger">Please select image size of maximum 1mb in size.</div>');
+$('#fileerror').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">Please select image size of maximum 1mb in size.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 $('#blah').attr('src', '<?php echo RE_HOME_PATH ;?>uploads/dummy.png');
 }else{
 $('#fileerror').html('');

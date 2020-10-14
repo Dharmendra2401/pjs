@@ -1469,4 +1469,8 @@ display:none;z-index:9;}
     padding-top: 5px;
     border-radius: 50%;}
 
+    .dashboardcode-bsmultiselect ul.dropdown-menu{    max-height: 200px;
+        overflow: auto;    top: 10px!important;
+    }
+
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

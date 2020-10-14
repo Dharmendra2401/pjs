@@ -133,7 +133,7 @@ $("#gridviewone").html(data12);
 }
 
 $(".select").bsMultiSelect({cssPatch : {
-choices: {columnCount:'6' },
+
 }});
 
 function userExport(){
