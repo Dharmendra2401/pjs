@@ -20,7 +20,7 @@ $result=friend_request_status12();
 					<div class="row">
 							<div class="col-md-10">
 								<?php //echo $row1['dead_p_pic'];?>
-									<img class="d-block" width="50" src="<?php 
+									<img class="family-profile-img" src="<?php 
 									 if($row1['display_pic'])
 									{
 										echo RE_HOME_PATH.$row1['display_pic'];
