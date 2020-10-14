@@ -151,7 +151,7 @@
 </div>
 </form>
 <div class="text-center my-4">
-<p class="m-1">Need Help in Logging in? <a type="button" class="signup-link" onclick="return signUp();" >Click Here</a></p>
+<p class="m-1">Forgot password and member id <a type="button" class="signup-link" onclick="return signUp();" >Click Here</a></p>
 <p>New to PJS? <a class="signup-link" href="<?php echo RE_EN_PATH;?>signup.php">SignUp Now</a></p>
 </div>
 </div>
@@ -160,7 +160,79 @@
 </div> 
 
 
+
 <div class="modal fade help" id="help">
+<div class="modal-dialog modal-dialog-centered">
+<div class="modal-content">
+<div class="modal-header">
+<h3 class="modal-title">Forgot Member Id(MID) & Password</h3>	
+<button type="button" id="close-login" class="close" data-dismiss="modal">&times;</button>
+</div> 
+<div class="modal-body">
+<div class="container">
+
+
+
+<form class="" id="forgot-login-form">
+<h5 class="mb-2">Enter The Following Details</h5>
+<div class="row">
+<div class="col-md-6">
+<label><span class="text-danger">*</span> First Name</label> 
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<input class="form-control form-control-sm inputtext" maxlength="50" type="text" id="emailfirst_name" name="emailfirst_name" placeholder="Enter first name">
+</div>
+</div>
+
+
+<div class="col-md-6">
+<label><span class="text-danger">*</span> Last Name</label> 
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<input class="form-control form-control-sm inputtext" maxlength="50" type="text" name="emaillast_name" id="emaillast_name" placeholder="Enter last name">
+</div>
+</div>
+
+<div class="col-md-6">
+<label><span class="text-danger">*</span> Fathers Name</label> 
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<input class="form-control form-control-sm inputtexttwo"  maxlength="100" type="text" name="emailfathers_name" id="emailfathers_name" placeholder="Enter fathers name">
+</div>
+</div>
+
+<div class="col-md-6">
+<label><span class="text-danger">*</span> Date of Birth</label> 
+</div>
+<div class="col-md-6">
+<div class="form-group">
+<input class="form-control form-control-sm" type="date" name="emaildob" id="emaildob" placeholder="Enter date of birth" max="<?php echo date('Y-m-d');?>">
+</div>
+</div>
+<div class="col-md-12">
+<span id="errorcrediential"></span>
+</div>
+
+<div class="col-12 text-right">
+<!-- <p class="mb-0 mt-2"><small class="bg-light">details to admin</small> </p> -->
+<button type="button" onclick="return emailshoot();" class="btn btn-primary btn-sm">Send</button>
+</div>
+</div>
+
+</form>
+</div>	
+</div>	
+</div>
+</div>
+
+
+
+
+
+<!-- <div class="modal fade help" id="help">
 <div class="modal-dialog modal-dialog-centered">
 <div class="modal-content">
 <div class="modal-header">
@@ -287,7 +359,7 @@
 </div>	
 </div>	
 </div>
-</div>
+</div> -->
 
 <div class="modal fade loginPopup" id="commonmodal">
 <div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
