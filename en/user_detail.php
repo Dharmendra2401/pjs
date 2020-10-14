@@ -142,12 +142,25 @@ else{ ?>
 <?php if (isset($_SESSION['user_mid'])) { ?>
 <!-- <i type="button" class="fas fa-download mx-2 login-signup user_profile_download" data-userid="<?php echo $row['member_id'];?>"></i> -->
 <a href="<?php echo RE_EN_PATH; ?>user_detail_pdf.php?id=<?php echo base64_encode($row['member_id']);?>"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
-
+									 <?php  
+									if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
+										$url = "https://";   
+									else  
+										$url = "http://";   
+									// Append the host(domain name, ip) to the URL.   
+										$url.= $_SERVER['HTTP_HOST'];   
+									// Append the requested resource location to the URL   
+										$url.= $_SERVER['REQUEST_URI'];      
+									?>  
+									<a href="whatsapp://send?text=<?php echo $url;?>" class="mob_app"><i type="button" class="fas fa-share mx-2 "></i></a>
+								<a href="https://web.whatsapp.com/send?text=<?php echo $url;?>" class="web_app"><i type="button" class="fas fa-share mx-2 "></i></a>
 <?php }
 else{?>
 <i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#modal21"></i>
-<?php } ?>
 <i type="button" class="fas fa-share mx-2 login-signup" data-toggle="modal" data-target="#modal21"></i>
+<?php } ?>
+
+
 </div>
 </div>
 </div>
@@ -496,6 +509,18 @@ color: #2c2c2c;
 }
 .fa-download:hover{
 color: #2c2c2c;
+}
+.mob_app{
+	display: none;
+}
+
+@media only screen and (max-width: 600px) {
+  .mob_app {
+   display: block !important;
+  }
+  .web_app{
+  	display: none !important;
+  }
 }
 </style>
 
