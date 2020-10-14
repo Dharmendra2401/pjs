@@ -624,7 +624,7 @@ url:'<?php echo RE_HOME_USER ;?>checkmid.php',
 data:{'mid':mid,},
 success:function(midsuccess){
 if(midsuccess.trim()=='false'){
-$('#miderror').html('<div class="text-danger">Invalid MID you entered</div> ');
+$('#miderror').html('<div class="alert alert-danger">Invalid Member Id (MID) you entered <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div> ');
 $('#mid').val('');
 $('#getotp').hide();
 return false;
