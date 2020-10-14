@@ -8,9 +8,9 @@ include "../config/config.php";
 	<div class="container-fluid">
 		<?php include "header.php";  ?>
 			<div class="col-md-10 offset-md-1 accordion content-container" id="accordionExample">
-				<h4 class="my-5">
+				<!-- <h4 class="my-5">
 				  इस सेक्शन में पोरवाड़ सामाजिक मंच के इवेंट्स (पुराने और आने वाले) के बारे में बताए
-				</h4>
+				</h4> -->
 				<?php
 				$getevent=mysqli_query($con,'select * from events where status="Y" order by id desc');
 				$countevent=mysqli_num_rows($getevent);$count=0;

@@ -9,7 +9,7 @@ include "../config/config.php";
     <?php include "header.php";  ?>
          
           <div class="col-md-10 offset-md-1 content-container accordion" id="accordionExample">
-            <h4 class="my-5">इस सेक्शन में पोरवाड़ सामाजिक मंच किस तरह की और क्या स्कीम्स लेन वाला है इस बारे में बताये संक्षिप्त में </h4>
+            <!-- <h4 class="my-5">इस सेक्शन में पोरवाड़ सामाजिक मंच किस तरह की और क्या स्कीम्स लेन वाला है इस बारे में बताये संक्षिप्त में </h4> -->
             <div class="row my-4">
 
 <?php $schemes=mysqli_query($con,'select * from  schemes where status="Y" order by id desc ') ; $count=mysqli_num_rows($schemes);
