@@ -9,7 +9,7 @@ $submitdate=date('Y-m-d H:i:s');
 include '../../config/config.php';
 global $con;
 //$use=$_SESSION['user_mid'];
-
+ 
 if ($mid=='') {
 	echo "Please enter Member Id";
 }

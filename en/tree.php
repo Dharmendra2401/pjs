@@ -18,8 +18,7 @@ include "../config/config.php";
 				 <div class="col-md-4">
 				 	<div class="card mb-2">
 						<div class="card-body pb-2 death-update">
-							<h5 class="card-title"><i class="fas fa-flag text-danger"></i>
-								Click here to Update Dead Person
+							<h5 class="card-title">स्वर्गीय / पूर्वज यहाँ से ऐड करें। 
 								<i class="fas fa-plus float-right"></i>
 							</h5>
 							<form action="" class="d-none-form" enctype="multipart/form-data" id="dead_person_form">
@@ -162,11 +161,13 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 				</button>
 			</div>
 			<div class="modal-body">
+
 				<form>
 					<div class="form-group">
 						<input type="hidden" class="form-control" id="referenc-id">
 						<input type="hidden" class="form-control" id="Member_Id">
 					</div>
+					<p class="err msg" style="background: red;color:#fff;font-weight:400;"></p>
 					 <div class="form-group" id="live_relation_type">
 							<select class="form-control female" style="display: none">
 								<option value="Grandmother">Grandmother</option>
@@ -281,18 +282,108 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 			},
 		function(data,status){
 			var status1=status;
-			if (status1=='success') {
+			var da=$.trim(data);
+			// console.log(da);
+			// return;
+			if (da=='data insert success') {
 				// window.location.reload();
 				// $('#exampleModal').modal('hide')
 				// $('#success_tic').modal('show')
 				location.reload(true);
 			}
 			else{
-				alert("Data: not updated");
+				$('.err.msg').show();
+				$('.err.msg').text(da);
+				$('.err.msg').css("padding","10px");
 			}
 		});
 
 	})
+	$('#exampleModal').on('hide.bs.modal', function (e) {
+		$('.err.msg').hide();
+	})
+// 
+	$(".btnrequest_relation_delete").on("click", function (e) {
+		var member_id=$(this).attr('id');
+		var reference_member_id=$(this).data('referenceid');
+		var curr=$(this);
+
+	bootbox.confirm("Are you sure you want to remove this user", function(result) {
+	if(result){ 
+		$('#loadergif').fadeIn();
+		$.ajax({
+		type: 'POST',
+		url: "<?php echo RE_HOME_PATH?>en/PJS-demo/request_relation_delete.php",
+		data: {"member_id":member_id,"reference_member_id":reference_member_id},
+		success: function(data1234){
+			var da=$.trim(data1234);
+			if(da=='success')	
+			{	
+				//BtnClickPage(page,10);
+				$('#loadergif').fadeOut();
+				$(parent).remove();
+				curr.parents(".col-md-2").parents(".row").parents(".card-body").parents(".tree-card").remove();
+			}
+			if(da=='false')	
+			{	
+			//	BtnClickPage(page,10);
+				$('#loadergif').fadeOut();
+			}
+		} 
+		});	
+	}	
+
+})
+	});
+
+function btnrequest_relation_delete(reference_member_id,member_id,page)
+{
+	 var tar=$(event.target);
+	var parent=$(".rounded-circle").parent(".col-md-2").parent(".row").parent(".card-body").parent(".tree-card");
+	alert(parent);
+	alert(e.target.id)
+	bootbox.confirm("Are you sure you want to delete this user", function(result) {
+	if(result){ 
+		$('#loadergif').fadeIn();
+		$.ajax({
+		type: 'POST',
+		url: "<?php echo RE_HOME_PATH?>en/PJS-demo/request_relation_delete.php",
+		data: {"member_id":member_id,"reference_member_id":reference_member_id},
+		success: function(data1234){
+			var da=$.trim(data1234);
+			if(da=='success')	
+			{	
+				//BtnClickPage(page,10);
+				$('#loadergif').fadeOut();
+				$(parent).remove();
+			}
+			if(da=='false')	
+			{	
+			//	BtnClickPage(page,10);
+				$('#loadergif').fadeOut();
+			}
+		} 
+		});	
+	}	
+	});
+}
+// 
+function BtnClickPage(x,y)
+{
+var searchtxt=$("#stxt").val();	
+var ustatus=$("#ustatus").val();
+var page=$("#page").val();	
+y=10;
+$.ajax({
+type: 'POST',
+url: "load_events.php",
+data: {"page":x,"pagesize":y,"searchtxt":searchtxt,"ustatus":ustatus},
+success: function(data12){
+$("#gridviewdata").html(data12);			
+} 
+});	
+}
+
 	$(".close-icn").on("click", function () {
 			location.reload(true);
 	})

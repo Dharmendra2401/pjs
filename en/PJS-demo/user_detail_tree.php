@@ -182,7 +182,7 @@ $result=user_detail_friend_request($idd);
 											 	<i class='fas fa-flag death-flag'></i>
 												
 											<?php 
-											echo "<br><span class='badge badge-danger float-right ml-1 mb-1'>".$row1['d_dod']."</span>";
+											echo "<br><span class='badge badge-danger float-right ml-1'>".$row1['d_dod']."</span>";
 										}
 										 ?> 
 									 <?php 

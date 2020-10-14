@@ -11,15 +11,16 @@ $current_user=mysqli_fetch_assoc($current_user_data);
 $result=friend_request_status12();
 
 	if(mysqli_num_rows($result)>0) {
+		$counter=0;
 		while( $row1 = mysqli_fetch_assoc($result)){
  ?>
 
-			<div class="card mb-2 tree-card">
+			<div class="card mb-2 tree-card" data-count="<?php echo $counter;?>">
 				<div class="card-body">
 					<div class="row">
-							<div class="col-10">
+							<div class="col-md-10">
 								<?php //echo $row1['dead_p_pic'];?>
-									<img class="family-profile-img" src="<?php 
+									<img class="d-block" width="50" src="<?php 
 									 if($row1['display_pic'])
 									{
 										echo RE_HOME_PATH.$row1['display_pic'];
@@ -124,7 +125,7 @@ $result=friend_request_status12();
 														echo "Sister";
 													}
 													}
-												}
+												} 
 												if ($row1['relation_type']=='Sister') {
 													if ($row1['request_side_user']=='from-current-user') {
 														echo $row1['relation_type'];
@@ -170,7 +171,7 @@ $result=friend_request_status12();
 									            </ul>
 										<!-- <span class="badge badge-primary float-right"><?php// echo $row1['ACTIVE_STATUS'];?></span> -->				
 							</div>
-							<div class="col-2">
+							<div class="col-md-2">
 																	<?php	if(isset($row1['Life_status'])){
 											   if($row1['Life_status']=='L'){
 												echo "<br><span class='badge badge-primary float-right ml-1'></span>";
@@ -204,14 +205,16 @@ $result=friend_request_status12();
 													<span class="badge badge-primary float-right p-1">member</span>
 												<?php
 											}?>
-	
+								
+												<i class="far fa-trash-alt btnrequest_relation_delete mt-2" id="<?php echo $current_user['member_id']; ?>" data-referenceid="<?php echo $row1['reference_member_Id'];?>" style="cursor:pointer;"></i>
+											
 							</div>
 					</div>
 				</div> 
 
 			</div>
-
-<?php }
+ 
+<?php $counter++; }
 } ?>
 <script type="text/javascript">
 
