@@ -16,7 +16,7 @@ include "../config/config.php";
 
 
 <!-- carousel with thumnail -->
-<div class="carousel-container">
+<div class="carousel-container d-none d-md-block">
 <div class="row">
 <div class="col-md-12 px-0">
 <div id="custCarousel" class="carousel slide" data-ride="carousel" align="center">
@@ -48,7 +48,18 @@ while($getslider=mysqli_fetch_array($slider)){
 <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="2" data-target="#custCarousel"> <img src="https://i.imgur.com/83fandJ.jpg" class="img-fluid"> </a> </li>
 <li class="list-inline-item"> <a id="carousel-selector-2" data-slide-to="3" data-target="#custCarousel"> <img src="https://i.imgur.com/JiQ9Ppv.jpg" class="img-fluid"> </a> </li>
 </ol> -->
-<div id="custCarousel1" class="carousel slide d-sm" data-ride="carousel" align="center">
+</div>
+</div>
+<div class="col-md-12 home-card">
+<h3>Offers and Discounts for Registered Members Coming Soon</h3>
+</div>
+</div>
+</div>
+
+<div class="carousel-container d-block d-md-none">
+<div class="row">
+<div class="col-md-12 px-0">
+<div id="custCarousel1" class="carousel slide" data-ride="carousel" align="center">
 <!-- slides -->
 <div class="carousel-inner">
 <?php 
@@ -61,21 +72,14 @@ while($getsliderr=mysqli_fetch_array($sliders)){  ?>
 </div>
 <?php } ?>
 </div>
-<a class="carousel-control-prev" href="#custCarousel" data-slide="prev"> 
+<a class="carousel-control-prev d-none" href="#custCarousel1" data-slide="prev"> 
 <i class="fas fa-chevron-left"></i>
 </a>
-<a class="carousel-control-next" href="#custCarousel" data-slide="next">
+<a class="carousel-control-next d-none" href="#custCarousel1" data-slide="next">
 <i class="fas fa-chevron-right"></i>
 </a>
 </div>
-</div>
-</div>
-<div class="col-md-12 home-card">
-<h3>Offers and Discounts for Registered Members Coming Soon</h3>
-</div>
-</div>
-</div>
-
+</div></div></div>
 </div>
 <?php include "../footer.php" ?>
 </body>

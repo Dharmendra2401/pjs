@@ -3,7 +3,7 @@ include 'tree_structure.php';
 ?>
 <?php
 
-
+ 
  $current_user_data=current_user_data();
 $current_user=mysqli_fetch_assoc($current_user_data);
 
@@ -32,7 +32,7 @@ $result=friend_request_status12();
 											} ?>">
 
 							            <ul class="list-unstyled family-info">
-										<li ><?php if(isset($row1['name'])){echo $row1['name']; } else{echo $row1['dp_name']; }?></li>
+										<li ><?php if(isset($row1['name'])){echo $row1['name']." ".$row1['last_name']; } else{echo $row1['dp_name']; }?></li>
 										<li><?php 
 												if ($row1['relation_type']=='Father') {
 													if ($row1['request_side_user']=='from-current-user') {
@@ -166,6 +166,7 @@ $result=friend_request_status12();
 												}
 
 										//echo $row1['Relation_Type'];?></li>
+											<li><?php echo $row1['reference_member_Id'];?></li>
 									            </ul>
 										<!-- <span class="badge badge-primary float-right"><?php// echo $row1['ACTIVE_STATUS'];?></span> -->				
 							</div>

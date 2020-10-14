@@ -61,7 +61,7 @@ include "../config/config.php";
 					</div>
 				 	<form method="post" action="">
 						<div class="input-group my-auto">
-							<input type="text" class="form-control sm-input mb-3" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
+							<input type="text" class="form-control  mb-3" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
 							<div class="input-group-append">
 							<input class="btn btn-primary mb-3" type="submit" name="submit1" value="submit">
 							</div>
@@ -86,7 +86,7 @@ include "../config/config.php";
 									//
 										
 									$query ="SELECT * FROM `member` WHERE (`first_name` LIKE '%$search_value%' or `member_id` LIKE '%$search_value%') AND member_id NOT IN (SELECT MEM.member_id FROM `relationship` RS INNER JOIN `member` MEM ON RS.reference_member_Id = MEM.member_id WHERE RS.member_id = '$current_user' UNION
-SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member_id = MEM.member_id WHERE RS.reference_member_Id = '$current_user') AND member_id !='$current_user' AND Life_status ='L' ORDER BY member_id"; 
+SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member_id = MEM.member_id WHERE RS.reference_member_Id = '$current_user') AND member_id !='$current_user'  ORDER BY member_id"; 
 
 									//if($page==1){ $count=1;}else{$count=$page*10-10+1;}
 									//$rest = mysqli_query($con,"SELECT * FROM ".$stat);
@@ -113,8 +113,12 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 														<p><?php echo $row['member_id']; ?></p>
 													</li>
 													<li class="list-inline-item float-right">
+														<?php if($row['Life_status']=='D'){?>
+														<i class="fas fa-flag text-danger"></i>
+													<?php } else {?>
 														<i class="fas fa-user-plus add-member-icon" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['member_id']; ?>" data-gender="<?php echo $row['gender'];?>" data-name="<?php echo $fullname=$row['first_name'].' '. $row['middle_name'].' '.$row['last_name'];?>"></i>
 														<input type="hidden" referenc-id="<?php echo $row['member_id'];?>" gender="<?php echo $row['gender'];?>">
+													<?php  } ?>
 													</li>
 												</ul> 
 										</div>

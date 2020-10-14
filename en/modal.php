@@ -69,10 +69,10 @@ require_once("../config/config.php");
 						<form id="feedback_submit_form">
 							<div class="row">
 								<div class="col-md-5">
-									<p>Feedback Type</p>
+									<label>Feedback Type</label>
 								</div>
 								<div class="col-md-7">
-									<select class="feedback_type" name="feedback_type1" id="feedback_type1">
+									<select class="feedback_type form-control mb-2" name="feedback_type1" id="feedback_type1">
 										<option value="">Select feedback type</option>
 										<option value="General">General</option>
 										<option value="Related to Website">Related to Website</option>
@@ -80,10 +80,10 @@ require_once("../config/config.php");
 									</select>
 								</div>
 								<div class="col-md-5">
-									<p>Feedback</p>
+									<label>Feedback<label>
 								</div>
 								<div class="col-md-7">
-									<textarea cols="30" placeholder="write your feedback here" class="feedback_desc" id="feedback_desc1" name="feedback_desc1"></textarea>
+									<textarea cols="30" placeholder="write your feedback here" class="feedback_desc form-control mb-2" id="feedback_desc1" name="feedback_desc1"></textarea>
 									<button class="btn btn-primary float-right" type="button" id="feedback_submit">Submit</button>
 								</div>
 							</div>
