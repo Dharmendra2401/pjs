@@ -631,8 +631,8 @@ footer {
     margin-bottom: 30px;
 }
 
-.user-profile .info> div:nth-of-type(even) {
-    text-transform: uppercase;
+.user-profile .info> div:nth-of-type(odd) {
+    /*text-transform: uppercase;*/
     font-weight: 500;
     font-size: 15px;
 }
@@ -730,6 +730,7 @@ footer {
     width: 230px;
     font-weight: 500;
     display: inline-block;
+    margin-bottom: 0px;
 }
 
 .list-height{
@@ -1056,7 +1057,7 @@ footer {
     display: block;
     position: absolute;
     right: 16px;
-    top: -92px;
+    top: -98px;
     font-size: 20px;
     color: #ffffff;
   }
@@ -1068,7 +1069,7 @@ footer {
 
   .loggedin{
     position: absolute;
-    top: -103px;
+    top: -109px;
     right: 24px;
   }
 
@@ -1127,7 +1128,7 @@ footer {
 
   .sm-icon-alert{
     position: absolute;
-    top: -92px;
+    top: -97px;
     right: 65px;
     font-size: 20px;
     color: #ffffff
@@ -1178,9 +1179,9 @@ footer {
 /*--------------------HEADER ENDS---------------------------*/
 
 /*--------------------INDEX--------------------------------*/
-   /*.carousel-inner .carousel-item img{
-    height: 35vh;
-   }*/
+   .carousel-inner .carousel-item img{
+    height: 620px;
+   }
 
 
    .home-card{
@@ -1307,11 +1308,13 @@ footer {
     -moz-box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
     box-shadow: 0px 0px 9px -1px rgba(0,0,0,0.75);
     margin: 20px 0;
+    background-color: #ffffff;
+    z-index: 1;
+    height: 190px;
 }
 
 .user-profile .info> div:nth-of-type(even){
-    line-height: 16px;
-    margin-bottom: 20px;
+    padding-left: 2px !important;
 }
 
 .address{
@@ -1326,6 +1329,8 @@ footer {
 
 .family-profile-img{
     width: 80px;
+    height: 72px;
+    object-fit: cover;
 }
 
 .tree-card .family-info{
@@ -1339,7 +1344,28 @@ footer {
     padding-top: 10px;
 }
 
+.tree-card .family-info li{
+    text-transform: capitalize !important;
+}
+
+
 /*--------------------FAMILY TREE ENDS---------------------------*/
+
+/*--------------------VIEW AND UPDATE -----------------------------*/
+#overview, #basic-info, #contact, #education{
+    margin-bottom: 40px;
+}
+
+.privacy{
+    position: absolute;
+    right: 45px;
+    font-size: 14px;
+}
+
+.user-profile .btn{
+    padding: 5px;
+}
+/*--------------------VIEW AND UPDATE ENDS---------------------------*/
 
 /************************ ADMIN *********************************/
 
@@ -1504,19 +1530,19 @@ display:none;z-index:9;}
            }
         
 
-    .carousel-control-prev i
+    /*.carousel-control-prev i
     {background: #3eb8e9;
     width: 25px;
     height: 25px;
     padding-top: 5px;
-    border-radius: 50%;}
+    border-radius: 50%;}*/
 
-    .carousel-control-next i
+  /*  .carousel-control-next i
     {background: #3eb8e9;
     width: 25px;
     height: 25px;
     padding-top: 5px;
-    border-radius: 50%;}
+    border-radius: 50%;}*/
 
     .dashboardcode-bsmultiselect ul.dropdown-menu{    max-height: 200px;
         overflow: auto;    top: 10px!important;

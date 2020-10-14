@@ -29,92 +29,92 @@ $row=mysqli_fetch_array($fire);
 					<div class="row">
 						<div class="col-md-12 tab">
 							<h3>Personal Info &nbsp;&nbsp; 
-								<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i> edit</span>
+								<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							</h3>
 							<hr>
 							<div class="row info mb-4">
-								<div class="col-md-3">Full Name <strong>:</strong></div>
-								<div class="col-md-9"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></div>
+								<div class="col-md-3 col-5">Full Name <strong>:</strong></div>
+								<div class="col-md-9 col-7"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></div>
 
-								<div class="col-md-3">Popular Name<strong>:</strong></div>
-								<div class="col-md-9 po_name">
+								<div class="col-md-3 col-5">Popular Name<strong>:</strong></div>
+								<div class="col-md-9 col-7 po_name">
 								<?php echo $row['popular_name']; ?>
 								</div>
 
-								<div class="col-md-3">Father Name<strong>:</strong></div>
-								<div class="col-md-9 fa_name">
+								<div class="col-md-3 col-5">Father Name<strong>:</strong></div>
+								<div class="col-md-9 col-7 fa_name">
 								<?php echo $row['fathers_name']; ?>
 								</div>
 
-								<div class="col-md-3">Gender <strong>:</strong></div>
-								<div class="col-md-9 gender_cl"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></div>
+								<div class="col-md-3 col-5">Gender <strong>:</strong></div>
+								<div class="col-md-9 col-7 gender_cl"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></div>
 
-								<div class="col-md-3">Status <strong>:</strong></div>
-								<div class="col-md-9 mari_sta" ><?php echo $row['marital_status']; ?></div>
+								<div class="col-md-3 col-5">Status <strong>:</strong></div>
+								<div class="col-md-9 col-7 mari_sta" ><?php echo $row['marital_status']; ?></div>
 
-								<div class="col-md-3">Blood Group<strong>:</strong></div>
-								<div class="col-md-9 bld_grp"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
+								<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
+								<div class="col-md-9 col-7 bld_grp"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
                         else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
 
-								<div class="col-md-3">Height <strong>:</strong></div>
-								<div class="col-md-9 height_ov"><?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?> 
+								<div class="col-md-3 col-5">Height <strong>:</strong></div>
+								<div class="col-md-9 col-7 height_ov"><?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?> 
 							</div>
 							</div>
 							<h3>Birth Details &nbsp;&nbsp; 
-								<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i> edit</span>
+								<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							</h3>
 							<hr>
 							<div class="row info mb-4">
-								<div class="col-md-3">Date of Birth <strong>:</strong></div>
-								<div class="col-md-9 dob_ov"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></div>
+								<div class="col-md-3 col-5">Date of Birth <strong>:</strong></div>
+								<div class="col-md-9 col-7 dob_ov"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></div>
 
-								<div class="col-md-3">Birth Time<strong>:</strong></div>
-								<div class="col-md-9 time_ov"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></div>
+								<div class="col-md-3 col-5">Birth Time<strong>:</strong></div>
+								<div class="col-md-9 col-7 time_ov"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></div>
 
-								<div class="col-md-3">Birth Place <strong>:</strong></div>
-								<div class="col-md-9 plof_ov"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></div>
+								<div class="col-md-3 col-5">Birth Place <strong>:</strong></div>
+								<div class="col-md-9 col-7 plof_ov"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></div>
 							</div>
 							<h3>Contact Info &nbsp;&nbsp; 
-								<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> edit</span>
+								<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							</h3>
 							<hr>
 							<div class="row info mb-4">
-								<div class="col-md-3">Mobile No. <strong>:</strong></div>
-								<div class="col-md-9 mob_ov"><?php echo $row['mobile']; ?></div>
+								<div class="col-md-3 col-5">Mobile No. <strong>:</strong></div>
+								<div class="col-md-9 col-7 mob_ov"><?php echo $row['mobile']; ?></div>
 
-								<div class="col-md-3">Email Id<strong>:</strong></div>
-								<div class="col-md-9 email_ov"><?php echo $row['email']; ?></div>
+								<div class="col-md-3 col-5">Email Id<strong>:</strong></div>
+								<div class="col-md-9 col-7 email_ov"><?php echo $row['email']; ?></div>
 							</div>
 							<h3>Address Info &nbsp;&nbsp; 
-								<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> edit</span>
+								<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							</h3>
 							<hr>
 							<div class="row info mb-4">
-								<div class="col-md-3">Address <strong>:</strong></div>
-								<div class="col-md-9">
+								<div class="col-md-3 col-5">Address <strong>:</strong></div>
+								<div class="col-md-9 col-7">
 									<p class="address address_ov"><?php echo $row['full_address'];  ?></p>
 								</div>
 							</div>
 							<h3>Education &nbsp;&nbsp; 
-								<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> edit</span>
+								<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							</h3>
 							<hr>
 							<div class="row info mb-4">
-								<div class="col-md-3">Education <strong>:</strong></div>
-								<div class="col-md-9 highest_edu_ov"><?php echo $row['highest_edu'];  ?></div>
+								<div class="col-md-3 col-5">Education <strong>:</strong></div>
+								<div class="col-md-9 col-7 highest_edu_ov"><?php echo $row['highest_edu'];  ?></div>
 							</div>
 							<h3>Work &nbsp;&nbsp; 
-								<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> edit</span>
+								<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							</h3>
 							<hr>
 							<div class="row info mb-4">
-								<div class="col-md-3">Occupation <strong>:</strong></div>
-								<div class="col-md-9 occupation_ov"><?php if($row['occupation']==1){ echo "
+								<div class="col-md-3 col-5">Occupation <strong>:</strong></div>
+								<div class="col-md-9 col-7 occupation_ov"><?php if($row['occupation']==1){ echo "
 											Job";} else if($row['occupation']==2) { echo "Bussiness";}
 											else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?></div>
 
-								<div class="col-md-3">Income<strong>:</strong></div>
-									<div class="col-md-9 income_ov"><?php if($row['income']==1){ echo "Less than 1 lakh";}
+								<div class="col-md-3 col-5">Income<strong>:</strong></div>
+									<div class="col-md-9 col-7 income_ov"><?php if($row['income']==1){ echo "Less than 1 lakh";}
 										else if($row['income']==2){ echo "1 lakh to 2 lakh";}
 										else if($row['income']==3){ echo "2 lakh to 3 lakh";}
 										else if($row['income']==4){ echo "3 lakh to 4 lakh";}
@@ -132,38 +132,38 @@ $row=mysqli_fetch_array($fire);
 							<h3>Personal Info</h3>
 							<hr>
 							<div class="row info mb-4">
-								<div class="col-md-3">First Name <strong>:</strong></div>
-								<div class="col-md-9"><?php echo $row['first_name'];?></div>
+								<div class="col-md-3 col-5">First Name <strong>:</strong></div>
+								<div class="col-md-9 col-7"><?php echo $row['first_name'];?></div>
 
-								<div class="col-md-3">Father Name <strong>:</strong></div>
-								<div class="col-md-9 edit-wrapper">
+								<div class="col-md-3 col-5">Father Name <strong>:</strong></div>
+								<div class="col-md-9 col-7 edit-wrapper">
 								   <span class="data"><?php echo $row['fathers_name'];?></span> 
 								   <form class="edit-form" data-columnname='fathers_name' data-tablename='member' id="fathers_frm">
 										<input type="text" class="edit-input" name="fathers_name">
 										<button class="btn btn-primary save-change" id="fathers_name_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	 btn btn-secondary">Cancel</button>
 								   </form>
-								   <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+								   <span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 								</div>
 
-								<div class="col-md-3">Last Name <strong>:</strong></div>
-								<div class="col-md-9">
+								<div class="col-md-3 col-5">Last Name <strong>:</strong></div>
+								<div class="col-md-9 col-7">
 									<?php echo $row['last_name']; ?>
 								</div>
 
-								<div class="col-md-3">Popular Name <strong>:</strong></div>
-								<div class="col-md-9 edit-wrapper">
+								<div class="col-md-3 col-5">Popular Name <strong>:</strong></div>
+								<div class="col-md-9 col-7 edit-wrapper">
 								   <span class="data"><?php echo $row['popular_name'];?></span> 
 								   <form class="edit-form" data-columnname='popular_name' data-tablename='member' id="popular_name_frm">
 										<input type="text" class="edit-input" name="popular_name">
 										<button class="btn btn-primary save-change" id="popular_name_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	 btn btn-secondary">Cancel</button>
 								   </form>
-								   <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+								   <span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 								</div>
 
-								<div class="col-md-3">Gender<strong>:</strong></div>
-								<div class="col-md-9">
+								<div class="col-md-3 col-5">Gender<strong>:</strong></div>
+								<div class="col-md-9 col-7">
 									<span class="dropdwn-txt"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></span>
 									<form class="edit-form" data-columnname='gender' data-tablename='member' id="gender_frm">
 									    <select class="select-text form-control mb-2" name="gender_name">
@@ -175,11 +175,11 @@ $row=mysqli_fetch_array($fire);
 										<button class="btn btn-primary save-change" id="gender_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 								   </form>
-								   <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+								   <span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 								</div>
 
-								<div class="col-md-3">Status <strong>:</strong></div>
-								<div class="col-md-9">
+								<div class="col-md-3 col-5">Status <strong>:</strong></div>
+								<div class="col-md-9 col-7">
 									<span class="dropdwn-txt"><?php echo $row['marital_status']; ?></span> 
 									<form class="edit-form" data-columnname='marital_status' data-tablename='member'  id="marital_status_frm" >
 										<!-- <input type="text" class="edit-input" name=""> -->
@@ -191,11 +191,11 @@ $row=mysqli_fetch_array($fire);
 										<button class="btn btn-primary save-change" id="marital_status_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
-									<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 								</div>
 
-								<div class="col-md-3">Blood Group<strong>:</strong></div>
-								<div class="col-md-9">
+								<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
+								<div class="col-md-9 col-7">
 								    	    <span class="dropdwn-txt"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
                         else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A-';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></span>
 								    <form class="edit-form" data-columnname='blood_group' data-tablename='member' id="blood_group_frm">
@@ -213,11 +213,11 @@ $row=mysqli_fetch_array($fire);
 										<button class="btn btn-primary save-change" id="blood_group_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
-									<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							    </div>
 
-								<div class="col-md-3">Height <strong>:</strong></div>
-								<div class="col-md-9">
+								<div class="col-md-3 col-5">Height <strong>:</strong></div>
+								<div class="col-md-9 col-7">
 									<span class="feet"><?php echo $row['feet'];?></span>
 									<span class="inch"><?php echo $row['inches'];?></span>
 									<span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Global';?> </span> 
@@ -239,289 +239,289 @@ $row=mysqli_fetch_array($fire);
 										<button class="btn btn-primary save-change" id="height_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
-									<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							    </div>
 							</div>
 							<h3>Birth Details</h3>
 							<hr>
 							<div class="row info mb-4">
-								<div class="col-md-3">Date of Birth <strong>:</strong></div>
-								<div class="col-md-9">
+								<div class="col-md-3 col-5">Date of Birth <strong>:</strong></div>
+								<div class="col-md-9 col-7">
 								    <span class="data"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></span>
 								    <span class="privacy"><?php if($row['Date_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span> 
 									<form class="edit-form" data-columnname='date_of_birth' data-tablename='member'  id="date_of_birth_frm">
 										<input type="hidden" class="edit-input" name="date_of_birth_name" value="<?php echo date('d/m/Y',strtotime($row['date_of_birth']));?>">
 <!-- 										<div class="btn-group privacy-setting">
-<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-<ul class="dropdown-menu">
-<li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-<li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-</ul>
-</div> -->
-<select class="privacy-setting">
-<!-- <option value="">Select Privacy</option> -->
-<option value="N" <?php if($row['Date_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
-<option value="Y" <?php if($row['Date_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
-</select>
-<button class="btn btn-primary save-change" id="date_of_birth_btn">Save Changes</button>
-<button class="cancel btn btn-secondary	">Cancel</button>
-</form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-</div>
+										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
+										    <ul class="dropdown-menu">
+										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										    </ul>
+									    </div> -->
+										<select class="privacy-setting">
+											<!-- <option value="">Select Privacy</option> -->
+											<option value="N" <?php if($row['Date_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
+											<option value="Y" <?php if($row['Date_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
+										</select>
+										<button class="btn btn-primary save-change" id="date_of_birth_btn">Save Changes</button>
+										<button class="cancel btn btn-secondary	">Cancel</button>
+									</form>
+									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
+							    </div>
 
-<div class="col-md-3">Birth Time<strong>:</strong></div>
-<div class="col-md-9">
-<span class="data"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></span> 
-<span class="privacy"><?php if($row['Time_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
-<form class="edit-form" data-columnname='time_of_birth' data-tablename='member' id="time_of_birth_frm">
-<input type="time" class="edit-input" name="time_of_birth_name">
+								<div class="col-md-3 col-5">Birth Time<strong>:</strong></div>
+								<div class="col-md-9 col-7">
+								     <span class="data"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></span> 
+								     <span class="privacy"><?php if($row['Time_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
+									<form class="edit-form" data-columnname='time_of_birth' data-tablename='member' id="time_of_birth_frm">
+										<input type="time" class="edit-input" name="time_of_birth_name">
 <!-- 										<div class="btn-group privacy-setting">
-<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-<ul class="dropdown-menu">
-<li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-<li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-</ul>
-</div> -->
-<select class="privacy-setting">
-<!-- 	<option value=" ">Select Privacy</option> -->
-<option value="N" <?php if($row['Time_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
-<option value="Y" <?php if($row['Time_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
-</select>
-<button class="btn btn-primary save-change" id="time_of_birth_btn">Save Changes</button>
-<button class="cancel btn btn-secondary	">Cancel</button>
-</form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-</div>
+										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
+										    <ul class="dropdown-menu">
+										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										    </ul>
+									    </div> -->
+										<select class="privacy-setting">
+										<!-- 	<option value=" ">Select Privacy</option> -->
+											<option value="N" <?php if($row['Time_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
+											<option value="Y" <?php if($row['Time_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
+										</select>
+										<button class="btn btn-primary save-change" id="time_of_birth_btn">Save Changes</button>
+										<button class="cancel btn btn-secondary	">Cancel</button>
+									</form>
+									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
+							    </div>
 
-<div class="col-md-3">Birth Place <strong>:</strong></div>
-<div class="col-md-9">
-<span class="data"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></span> 
-<span class="privacy"><?php if($row['Place_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
-<form class="edit-form" data-columnname='place_of_birth' data-tablename='member' id="place_of_birth_frm">
-<input type="text" class="edit-input" name="">
+								<div class="col-md-3 col-5">Birth Place <strong>:</strong></div>
+								<div class="col-md-9 col-7">
+								     <span class="data"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></span> 
+								     <span class="privacy"><?php if($row['Place_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
+									<form class="edit-form" data-columnname='place_of_birth' data-tablename='member' id="place_of_birth_frm">
+										<input type="text" class="edit-input" name="">
 <!-- 										<div class="btn-group privacy-setting">
-<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-<ul class="dropdown-menu">
-<li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-<li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-</ul>
-</div> -->
-<select class="privacy-setting">
-<!-- <option value="">Select Privacy</option> -->
-<option value="N" <?php if($row['Place_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
-<option value="Y" <?php if($row['Place_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
-</select>
-<button class="btn btn-primary save-change" id="place_of_birth_btn">Save Changes</button>
-<button class="cancel btn btn-secondary	">Cancel</button>
-</form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span> 
-</div>
-</div>
-</div>
-</div>
-</div>
-<div id="contact"  class="tab-pane">
-
-<h3>Contact Info</h3>
-<hr>
-<div class="row info mb-4">
-<div class="col-md-3">Mobile No. <strong>:</strong></div>
-<div class="col-md-9">
-<span class="data"><?php echo $row['mobile']; ?></span> 
-<span class="privacy"><?php if($row['Mobile']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
-<form class="edit-form" data-columnname='mobile' data-tablename='communication' id="mobile_frm">
-<input type="tel" class="edit-input" name="mobile_name" onkeypress="return isNumeric(event)" maxlength="15">
+										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
+										    <ul class="dropdown-menu">
+										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										    </ul>
+									    </div> -->
+										<select class="privacy-setting">
+											<!-- <option value="">Select Privacy</option> -->
+											<option value="N" <?php if($row['Place_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
+											<option value="Y" <?php if($row['Place_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
+										</select>
+										<button class="btn btn-primary save-change" id="place_of_birth_btn">Save Changes</button>
+										<button class="cancel btn btn-secondary	">Cancel</button>
+									</form>
+									<span class="edit float-right"><i class="fas fa-edit"></i><span class="d-md"> Edit</span></span> 
+							    </div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div id="contact"  class="tab-pane">
+				   
+						<h3>Contact Info</h3>
+						<hr>
+						<div class="row info mb-4">
+							<div class="col-md-3 col-5">Mobile No. <strong>:</strong></div>
+							<div class="col-md-9 col-7">
+						        <span class="data"><?php echo $row['mobile']; ?></span> 
+						        <span class="privacy"><?php if($row['Mobile']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
+								<form class="edit-form" data-columnname='mobile' data-tablename='communication' id="mobile_frm">
+									<input type="tel" class="edit-input" name="mobile_name" onkeypress="return isNumeric(event)" maxlength="15">
 <!-- 									<div class="btn-group privacy-setting">
-<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-<ul class="dropdown-menu">
-<li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-<li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-</ul>
-</div> -->
-<select class="privacy-setting">
-<!-- <option value="">Select Privacy</option> -->
-<option value="N" <?php if($row['Mobile'] == 'N'){ echo 'selected'; }?>>Private</option>
-<option value="Y" <?php if($row['Mobile'] == 'Y'){ echo 'selected'; }?>>Global</option>
-</select>
-<button class="btn btn-primary save-change" id="mobile_btn">Save Changes</button>
-<button class="cancel btn btn-secondary	">Cancel</button>
-</form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-</div>
+									    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
+									    <ul class="dropdown-menu">
+									      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
+									      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+									    </ul>
+								    </div> -->
+									<select class="privacy-setting">
+										<!-- <option value="">Select Privacy</option> -->
+										<option value="N" <?php if($row['Mobile'] == 'N'){ echo 'selected'; }?>>Private</option>
+										<option value="Y" <?php if($row['Mobile'] == 'Y'){ echo 'selected'; }?>>Global</option>
+									</select>
+									<button class="btn btn-primary save-change" id="mobile_btn">Save Changes</button>
+									<button class="cancel btn btn-secondary	">Cancel</button>
+								</form>
+								<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">Edit</span></span>
+						    </div>
 
-<div class="col-md-3">Email Id<strong>:</strong></div>
-<div class="col-md-9">
-<span class="data"><?php echo $row['email']; ?></span> 
+							<div class="col-md-3 col-5">Email Id<strong>:</strong></div>
+							<div class="col-md-9 col-7">
+							    <span class="data"><?php echo $row['email']; ?></span> 
 <!-- 							<span class="privacy">Global</span> -->
-<form class="edit-form" data-columnname='email' data-tablename='communication' id="email_frm">
-<input type="email" class="edit-input" name="email_name" maxlength="150">
-<!--<div class="btn-group privacy-setting">
-<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
-<ul class="dropdown-menu">
-<li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-<li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
-</ul>
-</div> -->
-<button class="btn btn-primary save-change" id="email_btn">Save Changes</button>
-<button class="cancel btn btn-secondary	">Cancel</button>
-</form> 
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-</div>
-</div>
-<h3>Address Info</h3>
-<hr>
-<div class="row info mb-4">
-<div class="col-md-9 ">
-<form class="" data-columnname='email' data-tablename='communication' id="Add_frm">
-<!-- <h3 class="mb-3">Please Enter Residential Details <span class="text-danger">(* Required Fields)</span></h3> -->
-<div class="form-group row">
-<label class="col-md-3 col-form-label "><span class="text-danger">*	</span> Country</label>
-<div class="col-md-9">
-<select class="custom-select" id="country" name="country">
-<option value="">Select Country</option>
-<option value="India" <?php if($row['country'] == 'India'){ echo 'selected'; }?>>India</option>
+								<form class="edit-form" data-columnname='email' data-tablename='communication' id="email_frm">
+									<input type="email" class="edit-input" name="email_name" maxlength="150">
+									<!--<div class="btn-group privacy-setting">
+										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
+										    <ul class="dropdown-menu">
+										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										    </ul>
+									    </div> -->
+									<button class="btn btn-primary save-change" id="email_btn">Save Changes</button>
+									<button class="cancel btn btn-secondary	">Cancel</button>
+								</form> 
+								<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">Edit</span></span>
+						    </div>
+						</div>
+						<h3>Address Info</h3>
+						<hr>
+						<div class="row info mb-4">
+							<div class="col-md-9 ">
+								<form class="" data-columnname='email' data-tablename='communication' id="Add_frm">
+								<!-- <h3 class="mb-3">Please Enter Residential Details <span class="text-danger">(* Required Fields)</span></h3> -->
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label "><span class="text-danger">*	</span> Country</label>
+									<div class="col-md-9">
+										<select class="custom-select" id="country" name="country">
+										<option value="">Select Country</option>
+										<option value="India" <?php if($row['country'] == 'India'){ echo 'selected'; }?>>India</option>
 
-</select>
-</div>
-</div>
-<div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span> State</label>
-<div class="col-md-9">
-<select class="custom-select" id="state" onchange="return veiw_update_get_city();" name="state" data-current_city="<?php echo $row['city'];?>">
-<option value="" selected>Select State</option>
-<?php
-$state=mysqli_query($con,'select DISTINCT(state) from states_city_country where state!="CHANDIGARG" and state!=""');
-while($show=mysqli_fetch_array($state)){ 
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label"><span class="text-danger">*</span> State</label>
+									<div class="col-md-9">
+										<select class="custom-select" id="state" onchange="return veiw_update_get_city();" name="state" data-current_city="<?php echo $row['city'];?>">
+											<option value="" selected>Select State</option>
+											<?php
+											$state=mysqli_query($con,'select DISTINCT(state) from states_city_country where state!="CHANDIGARG" and state!=""');
+											while($show=mysqli_fetch_array($state)){ 
 
-?>
-<option value="<?php echo $show['state']; ?>" <?php if($row['state'] == $show['state']){ echo 'selected'; } ?>><?php echo $show['state'];  ?></option>
-<?php 
-} 
-?>
-</select>
-</div>
-</div>
-<div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of city/town/village</label>	
-<div class="col-md-9">
-<span id="getcity"></span>
-</div>
-</div>
+											?>
+												<option value="<?php echo $show['state']; ?>" <?php if($row['state'] == $show['state']){ echo 'selected'; } ?>><?php echo $show['state'];  ?></option>
+											<?php 
+											} 
+											?>
+										</select>
+									</div>
+								</div>
+								<div class="form-group row">
+										<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of city/town/village</label>	
+									<div class="col-md-9">
+										<span id="getcity"></span>
+									</div>
+								</div>
 
-<div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Pin Code</label>	
-<div class="col-md-9">
-<span id="getpincode"></span>
-</div>
-</div>
-<div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Area</label>	
-<div class="col-md-9">
-<span id="getarea"></span>
-</div>
-</div>
-<div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Address</label>
-<div class="col-md-9">
-<textarea class="form-control " rows="4" id="address"  maxlength='250' name="address" placeholder="Enter address"><?php echo $row['full_address'];?></textarea>
-</div>
-</div>
-<div style="overflow:auto;">
-<div style="float:right;">
-<!-- <button class="btn" type="button" id="prevBtn" onclick="return preone();" >Previous</button> -->
-<button class="btn btn-primary" type="button" id="save_address_btn">Save Changes</button>
-</div>
-</div>
-</form>
-</div>
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Pin Code</label>	
+									<div class="col-md-9">
+										<span id="getpincode"></span>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Area</label>	
+									<div class="col-md-9">
+										<span id="getarea"></span>
+									</div>
+								</div>
+								<div class="form-group row">
+									<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Address</label>
+									<div class="col-md-9">
+										<textarea class="form-control " rows="4" id="address"  maxlength='250' name="address" placeholder="Enter address"><?php echo $row['full_address'];?></textarea>
+									</div>
+								</div>
+								<div style="overflow:auto;">
+									<div style="float:right;">
+										<!-- <button class="btn" type="button" id="prevBtn" onclick="return preone();" >Previous</button> -->
+										<button class="btn btn-primary" type="button" id="save_address_btn">Save Changes</button>
+									</div>
+								</div>
+							</form>
+							</div>
 
 
-</div>
-</div>
+				</div>
+			</div>
 
-<div id="education"  class="tab-pane">
-<h3>Education</h3>
-<hr>
-<div class="row info mb-4">
-<div class="col-md-3">Education <strong>:</strong></div>
-<div class="col-md-9">
-<span class="data"><?php echo $row['highest_edu']; ?></span> 
-<form class="edit-form" data-columnname='highest_edu' data-tablename='education_ocp' id="highest_edu_frm">
-<input type="text" class="edit-input" name="highest_edu_name" >
-<button class="btn btn-primary save-change" id="highest_edu_btn">Save Changes</button>
-<button class="cancel btn btn-secondary	">Cancel</button>
-</form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-</div>
-</div>
-<h3>Work</h3>
-<hr>
-<div class="row info mb-4">
-<div class="col-md-3">Occupation <strong>:</strong></div>
-<div class="col-md-9">
-<span class="dropdwn-txt"> <?php if($row['occupation']==1){ echo "
-Job";} else if($row['occupation']==2) { echo "Bussiness";}
-else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?></span> 
-<form class="edit-form" data-columnname='occupation' data-tablename='education_ocp'         id="income_frm">
-<!-- <select class="select-text">
-<option value="">Select Occupation</option>
-<option value="1">Job</option>
-<option value="2">Business</option>
-<option value="3">Housewife</option>
-<option value="4">Student</option>
-</select> -->
-<select class="custom-select" name="occupation" id="occupation" onchange="return getincome();">
-<option value="">Select occupation</option>
-<option value="1" <?php if($row['occupation']==1){ echo "
-selected";}?>>Job</option>
-<option value="2" <?php if($row['occupation']==2){ echo "
-selected";}?>>Business </option>
-<option value="3" <?php if($row['occupation']==3){ echo "
-selected";}?>>Housewife</option>
-<option value="4" <?php if($row['occupation']==4){ echo "
-selected";}?>>Student</option>
-<!-- <option value="5">Nothing</option> -->
-</select>
-<div class="form-group row" id="occdetails">
-<label class="col-md-12 col-form-label"><span class="text-danger">*</span> Please Add Details</label>
-<div class="col-md-12">
-<textarea class="form-control " rows="4" name="details" id="details" placeholder="Enter detail" maxlength="50"><?php echo  $row['ocp_details']; ?></textarea>
-</div>
-</div>
-<div class="form-group row" id="income-div" >
-<label class="col-md-12 col-form-label"><span class="text-danger">*</span> Income</label>
-<div class="col-md-12">
-<select class="custom-select" name="income" id="income">
-<option value="">Select income</option>
-<option value="1" <?php if($row['income']==1){echo "selected";}?>>Less than 1 lakh</option>
-<option value="2" <?php if($row['income']==2){echo "selected";}?>>1 lakh to 2 lakh</option>
-<option value="3" <?php if($row['income']==3){echo "selected";}?>>2 lakh to 3 lakh</option>
-<option value="4" <?php if($row['income']==4){echo "selected";}?>>3 lakh to 4 lakh</option>
-<option value="5" <?php if($row['income']==5){echo "selected";}?>>more than 4 lakh</option>
+			<div id="education"  class="tab-pane">
+					<h3>Education</h3>
+					<hr>
+					<div class="row info mb-4">
+						<div class="col-md-3 col-5">Education <strong>:</strong></div>
+						<div class="col-md-9 col-7">
+						    <span class="data"><?php echo $row['highest_edu']; ?></span> 
+							<form class="edit-form" data-columnname='highest_edu' data-tablename='education_ocp' id="highest_edu_frm">
+								<input type="text" class="edit-input" name="highest_edu_name" >
+								<button class="btn btn-primary save-change" id="highest_edu_btn">Save Changes</button>
+								<button class="cancel btn btn-secondary	">Cancel</button>
+							</form>
+							<span class="edit float-right"><i class="fas fa-edit"></i><span class="d-md"> Edit</span></span>
+					    </div>
+					</div>
+					<h3>Work</h3>
+					<hr>
+					<div class="row info mb-4">
+						<div class="col-md-3 col-5">Occupation <strong>:</strong></div>
+						<div class="col-md-9 col-7">
+						    <span class="dropdwn-txt"> <?php if($row['occupation']==1){ echo "
+										Job";} else if($row['occupation']==2) { echo "Bussiness";}
+										else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?></span> 
+							<form class="edit-form" data-columnname='occupation' data-tablename='education_ocp'         id="income_frm">
+                                <!-- <select class="select-text">
+									<option value="">Select Occupation</option>
+									<option value="1">Job</option>
+									<option value="2">Business</option>
+									<option value="3">Housewife</option>
+									<option value="4">Student</option>
+								</select> -->
+								<select class="custom-select" name="occupation" id="occupation" onchange="return getincome();">
+									<option value="">Select occupation</option>
+									<option value="1" <?php if($row['occupation']==1){ echo "
+										selected";}?>>Job</option>
+									<option value="2" <?php if($row['occupation']==2){ echo "
+										selected";}?>>Business </option>
+									<option value="3" <?php if($row['occupation']==3){ echo "
+										selected";}?>>Housewife</option>
+									<option value="4" <?php if($row['occupation']==4){ echo "
+										selected";}?>>Student</option>
+								<!-- <option value="5">Nothing</option> -->
+								</select>
+								<div class="form-group row" id="occdetails">
+									<label class="col-md-12 col-form-label"><span class="text-danger">*</span> Please Add Details</label>
+									<div class="col-md-12">
+									<textarea class="form-control " rows="4" name="details" id="details" placeholder="Enter detail" maxlength="50"><?php echo  $row['ocp_details']; ?></textarea>
+									</div>
+								</div>
+								<div class="form-group row" id="income-div" >
+								    <label class="col-md-12 col-form-label"><span class="text-danger">*</span> Income</label>
+									<div class="col-md-12">
+										<select class="custom-select" name="income" id="income">
+										<option value="">Select income</option>
+										<option value="1" <?php if($row['income']==1){echo "selected";}?>>Less than 1 lakh</option>
+										<option value="2" <?php if($row['income']==2){echo "selected";}?>>1 lakh to 2 lakh</option>
+										<option value="3" <?php if($row['income']==3){echo "selected";}?>>2 lakh to 3 lakh</option>
+										<option value="4" <?php if($row['income']==4){echo "selected";}?>>3 lakh to 4 lakh</option>
+										<option value="5" <?php if($row['income']==5){echo "selected";}?>>more than 4 lakh</option>
 
-</select>
-</div>
-</div>
-<button class="btn btn-primary save-change" id="income_btn">Save Changes</button>
-<button class="cancel btn btn-secondary	">Cancel</button>
-</form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
-</div>
+										</select>
+									</div>
+								</div>
+								<button class="btn btn-primary save-change" id="income_btn">Save Changes</button>
+								<button class="cancel btn btn-secondary	">Cancel</button>
+							</form>
+							<span class="edit float-right"><i class="fas fa-edit"></i><span class="d-md"> Edit</span></span>
+					    </div>
 
-<div class="col-md-3">Income<strong>:</strong></div>
-<div class="col-md-9" >
-<span class="dropdwn-txt" id="income-drp"><?php if($row['income']==1){ echo "Less than 1 lakh";}
-else if($row['income']==2){ echo "1 lakh to 2 lakh";}
-else if($row['income']==3){ echo "2 lakh to 3 lakh";}
-else if($row['income']==4){ echo "3 lakh to 4 lakh";}
-else if($row['income']==5){ echo "more than 4 lakh";}
-else{ echo "NA";}
-?></span> 
-<!-- <span class="privacy">Global</span> -->
-<!-- <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span> -->
-</div>
-</div>
-</div>
+						<div class="col-md-3 col-5">Income<strong>:</strong></div>
+						<div class="col-md-9 col-7" >
+						    <span class="dropdwn-txt" id="income-drp"><?php if($row['income']==1){ echo "Less than 1 lakh";}
+									else if($row['income']==2){ echo "1 lakh to 2 lakh";}
+									else if($row['income']==3){ echo "2 lakh to 3 lakh";}
+									else if($row['income']==4){ echo "3 lakh to 4 lakh";}
+									else if($row['income']==5){ echo "more than 4 lakh";}
+									else{ echo "NA";}
+								?></span> 
+						    <!-- <span class="privacy">Global</span> -->
+							<!-- <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span> -->
+					    </div>
+					</div>
+				</div>
 
 </div>	
 </div>
@@ -544,39 +544,39 @@ $('#occdetails').show();
 }
 $(document).ready(function(){
 
-$(".nav-tabs a").click(function(){
-$(this).tab('show');
-});
+  $(".nav-tabs a").click(function(){
+	$(this).tab('show');
+  });
 
-$('.nav-tabs a').on('shown.bs.tab', function(event){
-var x = $(event.target).text();         // active tab
-var y = $(event.relatedTarget).text();  // previous tab
-$(".act span").text(x);
-$(".prev span").text(y);
-});
+  $('.nav-tabs a').on('shown.bs.tab', function(event){
+	var x = $(event.target).text();         // active tab
+	var y = $(event.relatedTarget).text();  // previous tab
+	$(".act span").text(x);
+	$(".prev span").text(y);
+  });
 
 
 
-$(".edit").on("click", function(){ 
-$(this).siblings('.data').hide();	
-$(this).siblings('.feet, .inch, .male, .female').hide();	
-$(this).siblings('.privacy').hide();	
-$(this).siblings('.dropdwn-txt').hide();	
-$(this).siblings('.data').text();
-$(this).siblings('.privacy').text();
-$(this).siblings('.dropdwn-txt').text();
-var inputData = $(this).siblings('.data').text();
-var inputFeet = $(this).siblings('.feet').text();
-var inputInch = $(this).siblings('.inch').text();
-$(this).parent('.col-md-9').css({"background-color": "#eeeeee", "padding": "20px", "margin-bottom":"10px"});
-$(this).siblings(".edit-form").css("display", "inline-block");
-// $(this).siblings(".edit-form").toggle();
-$(this).siblings(".edit-form").children('input').css("display", "block");
-$(this).siblings('form').children('input.edit-input').val(inputData);
-$(this).siblings('form').children('input.edit-input-feet').val(inputFeet);
-$(this).siblings('form').children('input.edit-input-inch').val(inputInch);
-
-});
+ $(".edit").on("click", function(){ 
+	 $(this).siblings('.data').hide();	
+	 $(this).siblings('.feet, .inch, .male, .female').hide();	
+	 $(this).siblings('.privacy').hide();	
+	 $(this).siblings('.dropdwn-txt').hide();	
+	 $(this).siblings('.data').text();
+	 $(this).siblings('.privacy').text();
+	 $(this).siblings('.dropdwn-txt').text();
+	 var inputData = $(this).siblings('.data').text();
+	 var inputFeet = $(this).siblings('.feet').text();
+	 var inputInch = $(this).siblings('.inch').text();
+	 $(this).parent('.col-md-9').css({"background-color": "#eeeeee", "padding": "20px", "margin-bottom":"10px"});
+	 $(this).siblings(".edit-form").css("display", "inline-block");
+	 // $(this).siblings(".edit-form").toggle();
+	 $(this).siblings(".edit-form").children('input').css("display", "block");
+	 $(this).siblings('form').children('input.edit-input').val(inputData);
+	 $(this).siblings('form').children('input.edit-input-feet').val(inputFeet);
+	 $(this).siblings('form').children('input.edit-input-inch').val(inputInch);
+	 
+  });
 
 //    var selText = "";
 //  $(".dropdown-menu li").click(function(){
@@ -1298,7 +1298,6 @@ $(this).siblings('form').children('input.edit-input-inch').val(inputInch);
 				var details = $("#details:visible").val();  
 				var income = $("#income:visible option:selected").val();  
 				//console.log(occupation+" details:- "+details+" income:-"+income);return;
-				console.log(occupation);
 				current_users=$(this);
 				var parent = $(this).parent(".edit-form");
 				var home_path = $("#home_path").val();
@@ -1334,7 +1333,6 @@ $(this).siblings('form').children('input.edit-input-inch').val(inputInch);
 					else if(income=='4'){ income1= "3 lakh to 4 lakh";}
 					else if(income=='5'){ income1="more than 4 lakh";}
 					else{ income1= "NA";}
-					console.log(occupation1);
 					current_users.parent(".edit-form").hide();
 					$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 					current_users.parent(".edit-form").siblings(".dropdwn-txt").show().text(occupation1);		
@@ -1372,47 +1370,47 @@ $('.nav-tabs' ).on("click", function() {
            $(".tab-content").find(".tab-pane:not(.active)").css("display", "none");
 			}
 });
-
+   
 $(".edit-link").on("click", function() {
 
-$(".nav-link").removeClass("active");
-$(".tab-pane").removeClass("active"); 
+    $(".nav-link").removeClass("active");
+    $(".tab-pane").removeClass("active"); 
 
-if ($(this).hasClass("edit-basic-info")) {
-$( 'a[ href="#basic-info" ]' ).addClass("active");
-$( "div#basic-info" ).show();
-$( "div#basic-info" ).addClass("active");
-$("div#contact").removeClass("active");
-$("div#education").removeClass("active");
-}
+    if ($(this).hasClass("edit-basic-info")) {
+    	$( 'a[ href="#basic-info" ]' ).addClass("active");
+    	$( "div#basic-info" ).show();
+    	$( "div#basic-info" ).addClass("active");
+    	$("div#contact").removeClass("active");
+    	$("div#education").removeClass("active");
+    }
 
-else if($(this).hasClass("edit-contact-info")) {
-$( 'a[ href="#contact" ]' ).addClass("active");
-$( "div#contact" ).show();
-$( "div#contact" ).addClass("active");
-$("div#education").removeClass("active");
-$( "div#basic-info" ).removeClass("active");
+    else if($(this).hasClass("edit-contact-info")) {
+    	$( 'a[ href="#contact" ]' ).addClass("active");
+    	$( "div#contact" ).show();
+    	$( "div#contact" ).addClass("active");
+    	$("div#education").removeClass("active");
+    	$( "div#basic-info" ).removeClass("active");
 
 
-}
+    }
 
-else if($(this).hasClass("edit-education-info")) {
-$( 'a[ href="#education" ]' ).addClass("active");
-$( "div#education" ).show();
-$( "div#education" ).addClass("active");
-$( "div#basic-info" ).removeClass("active");
-$("div#contact").removeClass("active");
+     else if($(this).hasClass("edit-education-info")) {
+    	$( 'a[ href="#education" ]' ).addClass("active");
+    	$( "div#education" ).show();
+    	$( "div#education" ).addClass("active");
+    	$( "div#basic-info" ).removeClass("active");
+    	$("div#contact").removeClass("active");
 
-}
+    }
 
 });
-
+  
 });
 </script>
 
 </html>
 <style type="text/css">
-label.error{
-display: block;
-}
+	label.error{
+		display: block;
+	}
 </style>
