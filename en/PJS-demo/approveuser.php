@@ -1,5 +1,6 @@
 <?php 
 include '../../config/config.php';
+user_session_check();
 global $con;
 
 $current_user_id=$_SESSION['user_mid'];

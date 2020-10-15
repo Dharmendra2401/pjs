@@ -325,9 +325,10 @@ height: 200px;
 </div>	
 </div>
 </div>
+  <?php include "../footer.php" ?>
 </body>
 <?php  include "../script.php" ;?>
-
+  
 <script>
 $("#feet").on("change paste keyup", function() {
    if($(this).val()==0){

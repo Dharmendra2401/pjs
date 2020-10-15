@@ -1,5 +1,6 @@
 <?php 
 include '../../config/config.php';
+user_session_check();
 $current_user=$_POST['current_user'];
 $feedback_type=$_POST['feedback_type'];
 $feedback_desc=$_POST['feedback_desc'];

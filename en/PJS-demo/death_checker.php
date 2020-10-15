@@ -7,6 +7,7 @@ $submitdate=date('Y-m-d H:i:s');
 
 
 include '../../config/config.php';
+user_session_check();
 global $con;
 //$use=$_SESSION['user_mid'];
  
