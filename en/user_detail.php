@@ -358,7 +358,7 @@ else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==
 </div>
 <div id="familyTree" class="tab-pane fade"><br>
 <div class="container">
-<p>tree map</p>
+
 <?php include_once 'PJS-demo/user_detail_tree.php'; ?>
 </div>
 </div>

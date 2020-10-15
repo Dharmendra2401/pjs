@@ -1,4 +1,3 @@
-
 <?php
 require_once("../config/config.php");
 $stat='';
@@ -22,21 +21,22 @@ while($row=mysqli_fetch_assoc($rs)){
 ?>
 
 <div class="col-md-12">
-<a class="search-output" href="<?php echo RE_EN_PATH; ?>user_detail.php?token=<?php echo base64_encode($row['member_id']);?>">
-<ul class="list-unstyled list-inline search">
-<li class="list-inline-item">
-<?php 
+    <a class="search-output"
+        href="<?php echo RE_EN_PATH; ?>user_detail.php?token=<?php echo base64_encode($row['member_id']);?>">
+        <ul class="list-unstyled list-inline search">
+            <li class="list-inline-item">
+                <?php 
 
-$getimg=mysqli_fetch_array(mysqli_query($con,"select display_pic,id from key_member_id where id='".$row['member_id']."'"))
+$getimg=mysqli_fetch_array(mysqli_query($con,"select display_pic,id from key_member_id where id='".$row['member_id']."'"));
 ?>
-<img class="user-list-img" src="<?php echo RE_HOME_PATH.''. $getimg['display_pic']; ?>">
-</li>
-<li class="list-inline-item searchoption">
-<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']; ?></p>
-<p><?php echo $row['member_id']; ?></p>
-</li>
-</ul>
-</a>
+                <img class="user-list-img" src="<?php echo RE_HOME_PATH.''. $getimg['display_pic']; ?>">
+            </li>
+            <li class="list-inline-item searchoption">
+                <p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']; ?></p>
+                <p><?php echo $row['member_id']; ?></p>
+            </li>
+        </ul>
+    </a>
 </div>
 <?php $count++; }
 if($row_count<=0){
@@ -44,8 +44,8 @@ if($row_count<=0){
 
 <div class="col-md-12 text-center">No records found
 
-<?php }?>
-<?php
+    <?php }?>
+    <?php
 
 $txtpage= paginationjquery($con,$stat,$limit,$page,"?","");					   
 

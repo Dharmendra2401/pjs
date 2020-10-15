@@ -10,7 +10,7 @@ $pdf = new tFPDF('P','mm','A4');
 $pdf->AddPage();
 
 // Add a Unicode font (uses UTF-8)
-$pdf->AddFont('DejaVu','','DejaVuSans-Bold.ttf',true);
+$pdf->AddFont('DejaVu','','DejaVuSans-ExtraLight.ttf',true);
 $pdf->SetFont('DejaVu','',14);
 
 $userid=base64_decode($_GET['id']);
