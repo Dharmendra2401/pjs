@@ -219,14 +219,24 @@ else echo date('d/m/Y',strtotime($row['date_of_birth']));?>	</p>
 <p><?php echo $row['marital_status']; ?></p>
 </div>
 
-<?php if($row['marital_status']=='married') {?>
+<?php if(($row['marital_status']=='married')&& ($row['gender']=='F') ) {?>
 <div class="col-md-3 col-5">
-<h5>Husband Name <strong>:</strong></h5>
+<h5>Husband's Name <strong>:</strong></h5>
 </div>
 <div class="col-md-9 col-7">
-<p><?php echo $row['husbandname']; ?></p>
+<p><?php echo $row['husband_wife_name']; ?></p>
 </div>
 <?php }  ?>
+
+<?php if(($row['marital_status']=='married')&& ($row['gender']=='M') ) {?>
+<div class="col-md-3 col-5">
+<h5>Wife's Name <strong>:</strong></h5>
+</div>
+<div class="col-md-9 col-7">
+<p><?php echo $row['husband_wife_name']; ?></p>
+</div>
+<?php }  ?>
+
 <div class="col-md-3 col-5">	  
 <h5>Mobile No. <strong>:</strong></h5>
 </div>

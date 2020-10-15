@@ -53,14 +53,14 @@ $year= date('Y'); $setyear=$year-1;
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Father's Name</label>	
 <div class="col-md-9">
-<input type="text" class="form-control inputtext" placeholder="Enter father name" name="fathername" id="fathername" onchange="return chechSrc();">
+<input type="text" class="form-control inputtext" placeholder="Enter father name" name="fathername" id="fathername" maxlength='50' onchange="return chechSrc();">
 </div>
 </div>
 
 <div class="form-group row">
 <label class="col-md-3 col-form-label"> Popular Name</label>	
 <div class="col-md-9">
-<input type="text" name="popularnamess" class="form-control inputtexttwo" placeholder="Enter popular name" id="popular">
+<input type="text" name="popularnamess" class="form-control inputtexttwo" placeholder="Enter popular name" id="popular" maxlength='50'>
 </div>
 </div>
 <div class="form-group row">
@@ -84,24 +84,24 @@ $year= date('Y'); $setyear=$year-1;
 <div class="form-group row">
 <label class="col-md-3"><span class="text-danger">*</span> Gender</label>	
 <div class="col-md-9">
-<input type="radio" name="gender" value="M" checked> <label class="mr-5">Male</label>
-<input type="radio" name="gender" value="F"> <label>Female</label>
+<input type="radio" name="gender" value="M" checked onchange="return statushere();"> <label class="mr-5">Male</label>
+<input type="radio" name="gender" value="F" onchange="return statushere();"> <label>Female</label>
 </div>
 </div>
 <div class="form-group row">
 <label class="col-md-3"><span class="text-danger">*</span> Status</label>	
 <div class="col-md-9">
-<input type="radio" value="single" name="status" checked id="single" > <label class="mr-4">Single</label>
-<input type="radio" value="married" name="status" id="married"> <label>Married</label>
+<input type="radio" value="single" name="status" checked id="single" onchange="return statushere();"> <label class="mr-4">Single</label>
+<input type="radio" value="married" name="status" id="married" onchange="return statushere();"> <label>Married</label>
 </div>
 </div>
 
-<!-- <div class="form-group row" id="gethusbanddiv" style="display:none;">
-<label class="col-md-3 col-form-label"> <span class="text-danger">*</span> Husband's Name</label>
+<div class="form-group row" id="gethusbanddiv" style="display:none;">
+<label class="col-md-3 col-form-label"> <span class="text-danger">*</span> <span id="hus_wife"> </span></label>
 <div class="col-md-9">
-<input type="text" class="form-control inputtext" maxlength='50'  placeholder="Enter husband's name" name="husbandname"  id="husbandname">
+<input type="text" class="form-control inputtext" maxlength='50'   name="husbandname"  id="husbandname">
 </div>
-</div> -->
+</div>
 
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Mobile No.</label>	
@@ -324,11 +324,30 @@ height: 200px;
 </div>
 </div>	
 </div>
-</div>
+</div><?php  include "../footer.php" ;?>
+
 </body>
 <?php  include "../script.php" ;?>
 
 <script>
+function statushere(){
+var statuss=$("input[name='status']:checked"). val();
+var genderr=$("input[name='gender']:checked"). val();
+if((statuss=='married')&& (genderr=='F') ){
+$('#gethusbanddiv').show();
+$('#hus_wife').html("Husband's Name");
+$("#husbandname").attr("placeholder", "Enter husband's name");
+}
+else if((statuss=='married')&& (genderr=='M') ){
+$('#gethusbanddiv').show();
+$('#hus_wife').html("Wife's Name");
+$("#husbandname").attr("placeholder", "Enter wife's name");
+}
+else{
+	$('#gethusbanddiv').hide();
+}
+}
+
 $("#feet").on("change paste keyup", function() {
    if($(this).val()==0){
    $('#feet').val('');
@@ -405,7 +424,7 @@ var getyear=dateed.getFullYear()-1;
 var totaldate=getyear+'-'+getmonth+'-'+getdate;
 var letters = /^[A-Za-z ]+$/;
 var firstname=$('#firstname').val();
-//var husbandname=$('#husbandname').val();
+var husbandname=$('#husbandname').val();
 var fathername=$('#fathername').val();
 var lastname=$('#lastname').val();
 var popularname=$('#popularname').val();
@@ -419,7 +438,8 @@ var status=$("input[name='status']:checked"). val();
 var mobilevalidate = /^\d{10}$/;
 var feet = $('#feet').val();
 var inches = $('#inches').val();
-  
+var statuss=$("input[name='status']:checked"). val();
+var genderr=$("input[name='gender']:checked"). val();
   
   
 
@@ -478,7 +498,12 @@ var inches = $('#inches').val();
 	$("#dob").addClass("invalid");
 	return false;
 	}
-
+else if((statuss=='married')&&(husbandname.trim()=='')){
+	
+	$('#husbandname').focus();
+	$("#husbandname").addClass("invalid");
+	return false;
+}
 	else if(mobileno==''){
 	$('#mobileno').focus();
 	$("#mobileno").addClass("invalid");

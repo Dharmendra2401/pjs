@@ -17,7 +17,7 @@ $sorcevalue=strtoupper(substr($getdate['first_name'],0,3)).'_'.strtoupper(substr
   $insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm,id,password)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$member_id."','".$password."')");
 
 
-$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,husbandname,area,feet,inches,life_status) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['husbandname']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."','L'  ) ");
+$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,husband_wife_name,area,feet,inches,life_status) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['husband_wife_name']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."','L'  ) ");
 
 $insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_inserted_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['sub_admin_id']."','".$submitdate."' )");
 
@@ -119,6 +119,16 @@ redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR)
 <div class="col-md-9"> 
 <?php if($getdate['blood_group']==1){echo 'A+';} else if($getdate['blood_group']==2){echo 'B+';}
 else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']==4){echo 'O+';}else if($getdate['blood_group']==5){echo 'A+';}else if($getdate['blood_group']==6){echo 'B-';} else if($getdate['blood_group']==7){echo 'AB-';}else if($getdate['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
+
+<?php if(($getdate['martial_status']=='married')&&($getdate['gender']=='F') ){?>
+<div class="col-md-3">Husband's Name <strong>:</strong></div>
+<div class="col-md-9"><?php echo $getdate['husband_wife_name'] ; ?></div>
+<?php } ?>
+
+<?php if(($getdate['martial_status']=='married')&&($getdate['gender']=='M') ){?>
+<div class="col-md-3">Wife's Name <strong>:</strong></div>
+<div class="col-md-9"><?php echo $getdate['husband_wife_name'] ; ?></div>
+<?php } ?>
 
 <div class="col-md-3">Height <strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['height']!=''){echo $getdate['height'];}else{echo "NA";} ; ?></div>
