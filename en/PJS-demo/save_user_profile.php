@@ -1,5 +1,6 @@
 <?php 
 include '../../config/config.php';
+user_session_check();
 $current_user=$_POST['current_user'];
 $reference_user_mid=$_POST['reference_user_mid'];
 $submitdate=date('Y-m-d H:i:s');

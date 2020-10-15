@@ -324,11 +324,11 @@ height: 200px;
 </div>
 </div>	
 </div>
-</div><?php  include "../footer.php" ;?>
-
+</div>
+  <?php include "../footer.php" ?>
 </body>
 <?php  include "../script.php" ;?>
-
+  
 <script>
 function statushere(){
 var statuss=$("input[name='status']:checked"). val();

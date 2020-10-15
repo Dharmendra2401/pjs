@@ -1,5 +1,6 @@
 <?php 
 include '../../config/config.php';
+user_session_check();
 global $con;
 $d_name=$_POST['d_name'];
 $d_popname=$_POST['d_popname'];

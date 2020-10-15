@@ -1,6 +1,6 @@
 <?php 
 include "../config/config.php";
-
+user_session_check();
 ?>
 
 <!DOCTYPE html>
@@ -18,7 +18,7 @@ include "../config/config.php";
 				 <div class="col-md-4">
 				 	<div class="card mb-2">
 						<div class="card-body pb-2 death-update">
-							<h5 class="card-title"><i class="fas fa-flag text-danger pr-2"></i>स्वर्गीय / पूर्वज यहाँ से ऐड करें। 
+							<h5 class="card-title"><i class="fas fa-flag text-danger pr-2"></i>अपंजीकृत स्वर्गीय / पूर्वज यहाँ से ऐड करें। 
 								<i class="fas fa-plus float-right"></i>
 							</h5>
 							<form action="" class="d-none-form" enctype="multipart/form-data" id="dead_person_form">
@@ -161,7 +161,6 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 				</button>
 			</div>
 			<div class="modal-body">
-
 				<form>
 					<div class="form-group">
 						<input type="hidden" class="form-control" id="referenc-id">
@@ -171,15 +170,19 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 					 <div class="form-group" id="live_relation_type">
 							<select class="form-control female" style="display: none">
 								<option value="Grandmother">Grandmother</option>
-								<option value="Mother">Mother</option>   
-								<option value="Wife">Wife</option>             
+								<option value="Mother">Mother</option>  
+								<?php if($_SESSION['curr_gender']=='M'){ ?> 
+								<option value="Wife">Wife</option>    
+								<?php } ?>         
 								<option value="Daughter">Daughter</option>                
 								<option value="Sister">Sister</option>
 							</select>
 							<select class="form-control male" style="display: none;">
 								<option value="Grandfather">Grandfather</option>              
 								<option value="Father">Father</option>
+								<?php if($_SESSION['curr_gender']=='F'){ ?>
 								<option value="Husband">Husband</option>
+							<?php } ?>
 								<option value="Brother">Brother</option>
 								<option value="Son">Son</option>
 							</select>
@@ -218,7 +221,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 			</div>
 		</div>
 	</div>
-
+ 
 </div>
 <input type="hidden" name="" id="home_path" value="<?php echo RE_HOME_PATH;?>">
 <!---->
@@ -299,9 +302,9 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 		});
 
 	})
-	$('#exampleModal').on('hide.bs.modal', function (e) {
-		$('.err.msg').hide();
-	})
+	// $('#exampleModal').on('hide.bs.modal', function (e) {
+	// 	$('.err').hide();
+	// })
 // 
 	$(".btnrequest_relation_delete").on("click", function (e) {
 		var member_id=$(this).attr('id');

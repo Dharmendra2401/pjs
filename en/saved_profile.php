@@ -1,5 +1,6 @@
 <?php 
 include "../config/config.php";
+user_session_check();
 include 'PJS-demo/selectfunction.php';
 
 ?>

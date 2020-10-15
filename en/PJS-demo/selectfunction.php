@@ -1,4 +1,5 @@
 <?php 
+user_session_check();
 function get_all_saved_profile(){
 	global $con;
 	$current_user=$_SESSION['user_mid'];
