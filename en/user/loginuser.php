@@ -1,8 +1,8 @@
 <?php  
 include '../../config/config.php';
 
-$password=mysqli_real_escape_string($con,trim(base64_encode($_REQUEST['password'])));
-$mid=mysqli_real_escape_string($con,trim($_REQUEST["mid"]));
+$password=mysqli_real_escape_string($con,trim($_REQUEST['password']));
+$mid=mysqli_real_escape_string($con,trim(base64_encode($_REQUEST["mid"])));
 
 if(($password!='') && ($mid!='') ){
 
@@ -10,9 +10,10 @@ if(($password!='') && ($mid!='') ){
 $row=mysqli_query($con,'select * from key_member_id where id="'.$mid.'" and password="'.$password.'" ');
 if(mysqli_num_rows($row)>0){
 $getuserdata=mysqli_fetch_array($row);
-$member=mysqli_fetch_array(mysqli_query($con,'select first_name,member_id,last_name from member where member_id ="'.$mid.'"  '));
+$member=mysqli_fetch_array(mysqli_query($con,'select first_name,member_id,last_name,gender from member where member_id ="'.$mid.'"  '));
 $_SESSION['user_mid']=$member['member_id'];
 $_SESSION['ufullname']=$member['first_name'].' '.$member['middle_name'].' '.$member['last_name'];
+$_SESSION['curr_gender']=$member['gender'];
 echo "true";
 }else{
     echo "Error";
