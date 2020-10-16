@@ -108,7 +108,7 @@ $currentdate=$row['record_inserted_dttm'];
 <td><?php echo $row['first_name'].' '.$row['last_name'];;  ?></td>
 <td><?php echo $row['member_id'];?></td>
 <td><?php echo $row['mobile'];?></td>
-<td><?php echo $row['city'];?></td>
+<td><?php if($row['city']!='') {echo $row['city'];}else{echo "NA";}?></td>
 <td><?php if($row['gender']=='M'){echo 'Male';}else{ echo "Female"; }?></td>
 <td><?php echo $row['marital_status']; ?></td>
 <td><?php echo $row['age'] ;?></td>

@@ -27,7 +27,7 @@ $highest=mysqli_real_escape_string($con,trim( $_REQUEST['highest']));
 $occupation=mysqli_real_escape_string($con,trim( $_REQUEST['occupation']));
 $details=mysqli_real_escape_string($con,trim( $_REQUEST['details']));
 $income=mysqli_real_escape_string($con,trim( $_REQUEST['income']));
-$age=mysqli_real_escape_string($con,trim( $_REQUEST['age']));
+$age=mysqli_real_escape_string($con,trim( $_REQUEST['ageone']));
 $area=mysqli_real_escape_string($con,trim( $_REQUEST['area']));
 $submitdate=date('Y-m-d H:i:s');
 
@@ -43,7 +43,7 @@ $getcount=mysqli_num_rows($getvalid);
 
 
 
-if(($firstname!='')&& ($lastname!='') && ($dob!='') && ($gender!='')&& ($mobileno!='')&& ($status!='')&& ($email!='')&& ($bloodgroup!='')&& ($country!='')&& ($state!='')&& ($city!='')&& ($address!='')&& ($pincode!='')&& ($highest!='')&& ($occupation!='')){
+if(($firstname!='')&& ($lastname!='') && ($dob!='') && ($gender!='')&& ($mobileno!='')&& ($status!='')&& ($email!='')&& ($bloodgroup!='')&& ($country!='')&& ($address!='')&& ($highest!='')&& ($occupation!='')){
 
 if($getcount>0){
 

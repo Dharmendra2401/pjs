@@ -31,8 +31,8 @@ $inserteducation_occp=mysqli_query($con,"insert into education_ocp(member_id,hig
 
 
 $update=mysqli_query($con,"update staging_approval set active_status='N' where request_id='".$getid."' ");
-$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husbandname,age,area,feet,inches)
-SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husbandname,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
+$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches)
+SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
 mysqli_query($con,$insert);
 
 $subject="User Crediential From ".WEBSITE_NAME." ";
@@ -137,7 +137,7 @@ else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']=
 <div class="col-md-9"><?php echo date('d/m/Y',strtotime($getdate['date_of_birth'] )); ?></div>
 
 <div class="col-md-3">Birth Time<strong>:</strong></div>
-<div class="col-md-9"><?php if($getdate['time_of_birth']!='') {echo date('H:i',strtotime($getdate['time_of_birth'])); } else{ echo "NA";} ?></div>
+<div class="col-md-9"><?php if($getdate['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($getdate['time_of_birth'])); } else{ echo "NA";} ?></div>
 
 <div class="col-md-3">Birth Place <strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['place_of_birth']!=''){echo $getdate['place_of_birth'];}else{echo "NA";} ?></div>
@@ -157,6 +157,7 @@ else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']=
 <div class="col-md-3">Country <strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['country']!=''){echo $getdate['country'];}else{echo "NA";} ; ?></div>
 
+<?php if($getdate['country']!='Outside India'){?>
 <div class="col-md-3">State <strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['state']!=''){echo $getdate['state'];}else{echo "NA";} ; ?></div>
 
@@ -166,11 +167,11 @@ else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']=
 <div class="col-md-9"><?php if($getdate['city']!=''){echo $getdate['city'];}else{echo "NA";} ; ?></div>
 
 <div class="col-md-3">Pin Code <strong>:</strong></div>
-<div class="col-md-9"><?php if($getdate['pincode']!=''){echo $getdate['pincode'];}else{echo "NA";} ; ?></div>
+<div class="col-md-9"><?php if($getdate['pincode']!='0'){echo $getdate['pincode'];}else{echo "NA";} ; ?></div>
 
 <div class="col-md-3">Area <strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['area']!=''){echo $getdate['area'];}else{echo "NA";} ; ?></div>
-
+<?php } ?>
 <div class="col-md-3">Address  <strong>:</strong></div>
 <div class="col-md-9 address"><?php if($getdate['full_address']!=''){echo $getdate['full_address'];}else{echo "NA";} ; ?></div>
 

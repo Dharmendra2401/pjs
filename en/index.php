@@ -70,12 +70,12 @@ while($getsliderr=mysqli_fetch_array($sliders)){  ?>
 <div class="carousel-item <?php if($ij==1){echo 'active';}; ?>">
 <img src="<?php echo RE_HOME_PATH.$getsliderr['mobile_image']; ?>" alt="">
 </div>
-<?php } ?>
+<?php $ij++;} ?>
 </div>
-<a class="carousel-control-prev d-none" href="#custCarousel1" data-slide="prev"> 
+<a class="carousel-control-prev" href="#custCarousel1" data-slide="prev"> 
 <i class="fas fa-chevron-left"></i>
 </a>
-<a class="carousel-control-next d-none" href="#custCarousel1" data-slide="next">
+<a class="carousel-control-next" href="#custCarousel1" data-slide="next">
 <i class="fas fa-chevron-right"></i>
 </a>
 </div>
