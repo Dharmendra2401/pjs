@@ -84,8 +84,11 @@ elseif ($request_status_user=='from' AND $staus_show=='Y') {?>
 <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Member</a>
 <?php }
 else{ ?>
+	 <?php if ($row['Life_status']=='D') { ?>
+	 	<a type="button" class="btn btn-warning add-relation" style="pointer-events: none;">Add Member</a>
+	 <?php } else {?>
 <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['member_id']; ?>" data-gender="<?php echo $row['gender'];?>" data-name="<?php echo $fullname=$row['first_name'].' '. $row['middle_name'].' '.$row['last_name'];?>">Add Member</a>
-<?php }
+<?php } }
 }  else {?>
 <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Add Member</a>
 <?php }?>
@@ -140,7 +143,8 @@ else{ ?>
 <!-- <i type="button" class="fas fa-phone-alt mx-2" data-toggle="modal" data-target="#contactoption"></i> -->
 <?php if (isset($_SESSION['user_mid'])) { ?>
 <!-- <i type="button" class="fas fa-download mx-2 login-signup user_profile_download" data-userid="<?php echo $row['member_id'];?>"></i> -->
-<a href="<?php echo RE_EN_PATH; ?>user_detail_pdf.php?id=<?php echo base64_encode($row['member_id']);?>"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
+<a href="<?php echo RE_EN_PATH; ?>user_detail_pdf.php?id=<?php echo base64_encode($row['member_id']);?>"
+	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
 									 <?php  
 									if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
 										$url = "https://";   

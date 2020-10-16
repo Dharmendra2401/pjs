@@ -185,7 +185,7 @@ $result=user_detail_friend_request($idd);
 											echo "<br><span class='badge badge-danger float-right ml-1'>".$row1['d_dod']."</span>";
 										}
 										 ?> 
-									 <?php 
+<!-- 									 <?php 
 											if ($row1['request_side_user']=='from-current-user' && $row1['member_request_status']=='N') {
 											 ?>
 												<span class="badge badge-primary float-right p-1">Request Sent</span>
@@ -200,7 +200,7 @@ $result=user_detail_friend_request($idd);
 												?>
 													<span class="badge badge-primary float-right p-1">member</span>
 												<?php
-											}?>
+											}?> -->
 	
 							</div>
 					</div>

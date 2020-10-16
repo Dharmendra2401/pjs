@@ -208,6 +208,9 @@ if ($_SESSION['admin_email']!=''){
 <li class="nav-item">
 <a class="nav-link" href="<?php echo RE_HOME_SUPERADMIN;?>sub_admin.php">Sub Admins</a>
 </li>
+<li class="nav-item">
+<a class="nav-link" href="<?php echo RE_HOME_SUPERADMIN;?>feedback.php">FeedBack</a>
+</li>
 <?php } ?>
 
 
