@@ -197,12 +197,12 @@ $result=friend_request_status12();
 											}
 											elseif ($row1['request_side_user']=='to-user' && $row1['member_request_status']=='N') {
 											 ?>
-												<span class="badge badge-primary float-right approve p-1" id="<?php echo $row1['reference_member_Id'];?>">Accept It</span>
+												<span class="badge badge-primary float-right approve p-1" id="<?php echo $row1['reference_member_Id'];?>">Accept</span>
 											 <?php
 											}
 											else{
 												?>
-													<span class="badge badge-primary float-right p-1">member</span>
+													<!-- <span class="badge badge-primary float-right p-1">member</span> -->
 												<?php
 											}?>
 								

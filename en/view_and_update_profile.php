@@ -221,7 +221,7 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-9 col-7">
 									<span class="feet"><?php echo $row['feet'];?></span>
 									<span class="inch"><?php echo $row['inches'];?></span>
-									<span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Global';?> </span> 
+									<span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Public';?> </span> 
 									<form class="edit-form" data-columnname='feet' data-tablename='member' id="height_frm">
 										<input type="tel" class="edit-input-feet form-control mb-2" name="height_feet" maxlength="2" onkeypress="return isNumeric(event)">
 										<input type="tel" class="edit-input-inch form-control" name="height_inch" maxlength="2" onkeypress="return isNumeric(event)">
@@ -229,13 +229,13 @@ $row=mysqli_fetch_array($fire);
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
 										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Public</li>
 										    </ul>
 									    </div> -->
 										<select class="privacy-setting" name="privacy_setting_name">
 											<!-- <option value="">Select Privacy</option> -->
 											<option value="N" <?php if($row['Height'] == 'N'){ echo 'selected'; }?>>Private</option>
-											<option value="Y" <?php if($row['Height'] == 'Y'){ echo 'selected'; }?>>Global</option>
+											<option value="Y" <?php if($row['Height'] == 'Y'){ echo 'selected'; }?>>Public</option>
 										</select>
 										<button class="btn btn-primary save-change" id="height_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
@@ -249,20 +249,20 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3 col-5">Date of Birth <strong>:</strong></div>
 								<div class="col-md-9 col-7">
 								    <span class="data"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></span>
-								    <span class="privacy"><?php if($row['Date_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span> 
+								    <span class="privacy"><?php if($row['Date_Of_Birth']=='Y'){echo "Public";}else{ echo "Private";} ?></span> 
 									<form class="edit-form" data-columnname='date_of_birth' data-tablename='member'  id="date_of_birth_frm">
 										<input type="hidden" class="edit-input" name="date_of_birth_name" value="<?php echo date('d/m/Y',strtotime($row['date_of_birth']));?>">
 <!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
 										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Public</li>
 										    </ul>
 									    </div> -->
 										<select class="privacy-setting">
 											<!-- <option value="">Select Privacy</option> -->
 											<option value="N" <?php if($row['Date_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
-											<option value="Y" <?php if($row['Date_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
+											<option value="Y" <?php if($row['Date_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Public</option>
 										</select>
 										<button class="btn btn-primary save-change" id="date_of_birth_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
@@ -273,20 +273,20 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3 col-5">Birth Time<strong>:</strong></div>
 								<div class="col-md-9 col-7">
 								     <span class="data"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></span> 
-								     <span class="privacy"><?php if($row['Time_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
+								     <span class="privacy"><?php if($row['Time_Of_Birth']=='Y'){echo "Public";}else{ echo "Private";} ?></span>
 									<form class="edit-form" data-columnname='time_of_birth' data-tablename='member' id="time_of_birth_frm">
 										<input type="time" class="edit-input" name="time_of_birth_name">
 <!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
 										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Public</li>
 										    </ul>
 									    </div> -->
 										<select class="privacy-setting">
 										<!-- 	<option value=" ">Select Privacy</option> -->
 											<option value="N" <?php if($row['Time_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
-											<option value="Y" <?php if($row['Time_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
+											<option value="Y" <?php if($row['Time_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Public</option>
 										</select>
 										<button class="btn btn-primary save-change" id="time_of_birth_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
@@ -297,20 +297,20 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3 col-5">Birth Place <strong>:</strong></div>
 								<div class="col-md-9 col-7">
 								     <span class="data"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></span> 
-								     <span class="privacy"><?php if($row['Place_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
+								     <span class="privacy"><?php if($row['Place_Of_Birth']=='Y'){echo "Public";}else{ echo "Private";} ?></span>
 									<form class="edit-form" data-columnname='place_of_birth' data-tablename='member' id="place_of_birth_frm">
 										<input type="text" class="edit-input" name="">
 <!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
 										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Public</li>
 										    </ul>
 									    </div> -->
 										<select class="privacy-setting">
 											<!-- <option value="">Select Privacy</option> -->
 											<option value="N" <?php if($row['Place_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
-											<option value="Y" <?php if($row['Place_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
+											<option value="Y" <?php if($row['Place_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Public</option>
 										</select>
 										<button class="btn btn-primary save-change" id="place_of_birth_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
@@ -329,20 +329,20 @@ $row=mysqli_fetch_array($fire);
 							<div class="col-md-3 col-5">Mobile No. <strong>:</strong></div>
 							<div class="col-md-9 col-7">
 						        <span class="data"><?php echo $row['mobile']; ?></span> 
-						        <span class="privacy"><?php if($row['Mobile']=='Y'){echo "Global";}else{ echo "Private";} ?></span>
+						        <span class="privacy"><?php if($row['Mobile']=='Y'){echo "Public";}else{ echo "Private";} ?></span>
 								<form class="edit-form" data-columnname='mobile' data-tablename='communication' id="mobile_frm">
 									<input type="tel" class="edit-input" name="mobile_name" onkeypress="return isNumeric(event)" maxlength="15">
 <!-- 									<div class="btn-group privacy-setting">
 									    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 									    <ul class="dropdown-menu">
 									      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-									      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+									      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Public</li>
 									    </ul>
 								    </div> -->
 									<select class="privacy-setting">
 										<!-- <option value="">Select Privacy</option> -->
 										<option value="N" <?php if($row['Mobile'] == 'N'){ echo 'selected'; }?>>Private</option>
-										<option value="Y" <?php if($row['Mobile'] == 'Y'){ echo 'selected'; }?>>Global</option>
+										<option value="Y" <?php if($row['Mobile'] == 'Y'){ echo 'selected'; }?>>Public</option>
 									</select>
 									<button class="btn btn-primary save-change" id="mobile_btn">Save Changes</button>
 									<button class="cancel btn btn-secondary	">Cancel</button>
@@ -353,14 +353,14 @@ $row=mysqli_fetch_array($fire);
 							<div class="col-md-3 col-5">Email Id<strong>:</strong></div>
 							<div class="col-md-9 col-7">
 							    <span class="data"><?php echo $row['email']; ?></span> 
-<!-- 							<span class="privacy">Global</span> -->
+<!-- 							<span class="privacy">Public</span> -->
 								<form class="edit-form" data-columnname='email' data-tablename='communication' id="email_frm">
 									<input type="email" class="edit-input" name="email_name" maxlength="150">
 									<!--<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
 										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
-										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+										      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Public</li>
 										    </ul>
 									    </div> -->
 									<button class="btn btn-primary save-change" id="email_btn">Save Changes</button>
@@ -518,7 +518,7 @@ $row=mysqli_fetch_array($fire);
 									else if($row['income']==5){ echo "more than 4 lakh";}
 									else{ echo "NA";}
 								?></span> 
-						    <!-- <span class="privacy">Global</span> -->
+						    <!-- <span class="privacy">Public</span> -->
 							<!-- <span class="edit float-right"><i class="fas fa-edit"></i> Edit</span> -->
 					    </div>
 					</div>
@@ -840,7 +840,7 @@ $(document).ready(function(){
 				if (status1=='success') {
 				//location.reload(true); 
 				if (selText=='Y') {
-					selText="Global"
+					selText="Public"
 				}
 				else{
 					selText="Private"
@@ -887,7 +887,7 @@ $(document).ready(function(){
 				if (status1=='success') {
 				//location.reload(true); 
 				if (selText=='Y') {
-					selText="Global"
+					selText="Public"
 				}
 				else{
 					selText="Private"
@@ -931,7 +931,7 @@ $(document).ready(function(){
 				if (status1=='success') {
 				//location.reload(true); 
 				if (selText=='Y') {
-					selText="Global"
+					selText="Public"
 				}
 				else{
 					selText="Private"
@@ -976,7 +976,7 @@ $(document).ready(function(){
 				if (status1=='success') {
 				//location.reload(true); 
 				if (selText=='Y') {
-					selText="Global"
+					selText="Public"
 				}
 				else{
 					selText="Private"
@@ -1034,7 +1034,7 @@ $(document).ready(function(){
 					if (status1=='success') {
 					//location.reload(true); 
 					if (selText=='Y') {
-						selText="Global"
+						selText="Public"
 					}
 					else{
 						selText="Private"
@@ -1142,7 +1142,7 @@ $(document).ready(function(){
 					if (status1=='success') {
 					//location.reload(true); 
 					if (selText=='Y') {
-						selText="Global"
+						selText="Public"
 					}
 					else{
 						selText="Private"
@@ -1200,7 +1200,7 @@ $(document).ready(function(){
 					if (status1=='success') {
 					//location.reload(true); 
 					if (selText=='Y') {
-						selText="Global"
+						selText="Public"
 					}
 					else{
 						selText="Private"

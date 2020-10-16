@@ -85,8 +85,11 @@ elseif ($request_status_user=='from' AND $staus_show=='Y') {?>
 <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Member</a>
 <?php }
 else{ ?>
+	 <?php if ($row['Life_status']=='D') { ?>
+	 	<a type="button" class="btn btn-warning add-relation" style="pointer-events: none;">Add Member</a>
+	 <?php } else {?>
 <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['member_id']; ?>" data-gender="<?php echo $row['gender'];?>" data-name="<?php echo $fullname=$row['first_name'].' '. $row['middle_name'].' '.$row['last_name'];?>">Add Member</a>
-<?php }
+<?php } }
 }  else {?>
 <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Add Member</a>
 <?php }?>
