@@ -35,7 +35,7 @@ $checkcurrent_relation_query = mysqli_query($con,$checkcureent_relation)or die(m
 $data=mysqli_fetch_assoc($checkcurrent_relation_query);
 if (mysqli_num_rows($checkcurrent_relation_query)>0 && $data['count']!='Null') {
 	if ($data['count']=='from') {
-		echo "You have already sent request";
+		echo "you already sent request to someone";
 	}
 	if ($data['count']=='to') {
 		echo "someone already sent you request";
