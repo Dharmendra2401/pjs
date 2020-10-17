@@ -253,6 +253,113 @@ else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo
 <form class="edit-form" data-columnname='date_of_birth' data-tablename='member'  id="date_of_birth_frm">
 <input type="hidden" class="edit-input" name="date_of_birth_name" value="<?php echo date('d/m/Y',strtotime($row['date_of_birth']));?>">
 <!-- 										<div class="btn-group privacy-setting">
+<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
+<li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+</ul>
+</div> -->
+<select class="privacy-setting">
+<!-- <option value="">Select Privacy</option> -->
+<option value="N" <?php if($row['Date_Of_Birth'] == 'N'){ echo 'selected'; }?>>Private</option>
+<option value="Y" <?php if($row['Date_Of_Birth'] == 'Y'){ echo 'selected'; }?>>Global</option>
+</select>
+<button class="btn btn-primary save-change" id="date_of_birth_btn">Save Changes</button>
+<button class="cancel btn btn-secondary	">Cancel</button>
+</form>
+<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+</div>
+
+<div class="col-md-3">Gender<strong>:</strong></div>
+<div class="col-md-9">
+<span class="dropdwn-txt"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></span>
+<form class="edit-form" data-columnname='gender' data-tablename='member' id="gender_frm">
+<select class="select-text form-control mb-2" name="gender_name">
+<option value="">Select Gender</option>
+<option value="M">Male</option>
+<option value="F">Female</option>
+</select>
+<!-- <input type="text" class="edit-input" name=""> -->
+<button class="btn btn-primary save-change" id="gender_btn">Save Changes</button>
+<button class="cancel btn btn-secondary	">Cancel</button>
+</form>
+<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+</div>
+
+<div class="col-md-3">Status <strong>:</strong></div>
+<div class="col-md-9">
+<span class="dropdwn-txt"><?php echo $row['marital_status']; ?></span> 
+<form class="edit-form" data-columnname='marital_status' data-tablename='member'  id="marital_status_frm" >
+<!-- <input type="text" class="edit-input" name=""> -->
+<select class="select-text form-control mb-2" name="marital_status_name">
+<option value="">Select Status</option>
+<option value="single">Single</option>
+<option value="married">Married</option>
+</select>
+<button class="btn btn-primary save-change" id="marital_status_btn">Save Changes</button>
+<button class="cancel btn btn-secondary	">Cancel</button>
+</form>
+<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+</div>
+
+<div class="col-md-3">Blood Group<strong>:</strong></div>
+<div class="col-md-9">
+<span class="dropdwn-txt"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
+else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A-';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></span>
+<form class="edit-form" data-columnname='blood_group' data-tablename='member' id="blood_group_frm">
+<select class="select-text form-control" name="blood_group_name">
+<option value="">Select Blood Group</option>
+<option value="1">A+</option>
+<option value="2">B+</option>
+<option value="3">AB+</option>
+<option value="4">O+</option>
+<option value="5">A-</option>
+<option value="6">B-</option>
+<option value="7">AB-</option>
+<option value="8">O-</option>
+</select>
+<button class="btn btn-primary save-change" id="blood_group_btn">Save Changes</button>
+<button class="cancel btn btn-secondary	">Cancel</button>
+</form>
+<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+</div>
+
+<div class="col-md-3">Height <strong>:</strong></div>
+<div class="col-md-9">
+<span class="feet"><?php echo $row['feet'];?></span>
+<span class="inch"><?php echo $row['inches'];?></span>
+<span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Global';?> </span> 
+<form class="edit-form" data-columnname='feet' data-tablename='member' id="height_frm">
+<input type="tel" class="edit-input-feet form-control mb-2" name="height_feet" maxlength="2" onkeypress="return isNumeric(event)">
+<input type="tel" class="edit-input-inch form-control" name="height_inch" maxlength="2" onkeypress="return isNumeric(event)">
+<!-- 										<div class="btn-group privacy-setting">
+<a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
+<ul class="dropdown-menu">
+<li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>
+<li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Global</li>
+</ul>
+</div> -->
+<select class="privacy-setting" name="privacy_setting_name">
+<!-- <option value="">Select Privacy</option> -->
+<option value="N" <?php if($row['Height'] == 'N'){ echo 'selected'; }?>>Private</option>
+<option value="Y" <?php if($row['Height'] == 'Y'){ echo 'selected'; }?>>Global</option>
+</select>
+<button class="btn btn-primary save-change" id="height_btn">Save Changes</button>
+<button class="cancel btn btn-secondary	">Cancel</button>
+</form>
+<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+</div>
+</div>
+<h3>Birth Details</h3>
+<hr>
+<div class="row info mb-4">
+<div class="col-md-3">Date of Birth <strong>:</strong></div>
+<div class="col-md-9">
+<span class="data"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></span>
+<span class="privacy"><?php if($row['Date_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span> 
+<form class="edit-form" data-columnname='date_of_birth' data-tablename='member'  id="date_of_birth_frm">
+<input type="hidden" class="edit-input" name="date_of_birth_name" value="<?php echo date('d/m/Y',strtotime($row['date_of_birth']));?>">
+<!-- 										<div class="btn-group privacy-setting">
 										    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 										    <ul class="dropdown-menu">
 										      <li class="dropdown-item"><i class="fas fa-lock"></i>&nbsp; Private</li>

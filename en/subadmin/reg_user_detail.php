@@ -66,7 +66,7 @@ else{
 redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR);
 
 }
-
+  
 
 
 }
