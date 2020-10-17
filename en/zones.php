@@ -43,39 +43,24 @@ include "../config/config.php";
       </div> -->
 
       <div class="col-md-10 offset-md-1 content-container">
-            <div class="col-12 my-4">
-                <div class="col-12">
-                 <p>
-                   इस सेक्शन में पोरवाड़ सामाजिक मंच के कितने ज़ोन्स है और हर ज़ोन के अध्यक्ष या वालंटियर के निम्नलिखित जानकारी दे
-                 </p>
-                 <ul>
-                   <li>फोटो</li>
-                   <li>नाम</li>
-                   <li>पता</li>
-                   <li>फ़ोन नंबर</li>
-                   <li>ईमेल</li>
-                 </ul>
-              </div>
-            </div>
-
             <?php 
             $zone=mysqli_query($con,'select * from zones where status="Y" order by id desc'); 
             $count=mysqli_num_rows($zone);
             while($getzones=mysqli_fetch_array($zone)){
             ?>
-            <div class="row my-4">
-              <div class="col-md-3 px-4">
+            <div class="row my-4 zone-card">
+              <div class="col-md-3 px-4 zone-img-container">
                 <img width="100%" class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getzones['short_image'] ?>" alt="Event">
               </div>
               <div class="col-md-9">
                   <div class="row">
-                      <div class="col-md-3 font-weight-bold">
+                      <div class="col-md-3 col-5 font-weight-bold">
                           <p>Name :</p>
                           <p>Address :</p>
                           <p>Phone Number :</p>
                           <p>Email :</p>
                       </div>
-                      <div class="col-md-9">
+                      <div class="col-md-9 col-7">
                           <p><?php echo $getzones['fullname'] ;?></p>
                           <p><?php echo $getzones['address'] ; ?></p>
                           <p><?php echo $getzones['mobileno'] ; ?></p>

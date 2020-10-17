@@ -324,7 +324,7 @@ footer {
 
 
 /*-----------------------ZONES---------------------------------------------------*/
-.zones-bg{
+/*.zones-bg{
     background: #eeeeee;
     box-shadow: 0px 3px 8px 2px rgba(0,0,0,0.69);
     -webkit-box-shadow: 0px 3px 8px 2px rgb(0 0 0 / 32%);
@@ -348,7 +348,8 @@ footer {
 .zones-bg .profile-img{
     height: 140px;
     object-fit: cover;
-}
+}*/
+
 /*-----------------------ZONES ENDS----------------------------------------------*/
 
 
@@ -635,6 +636,7 @@ footer {
     /*text-transform: uppercase;*/
     font-weight: 500;
     font-size: 15px;
+    padding-right: 5px;
 }
 /*------------------------USER PROFILE ENDS------------------------------------*/
 
@@ -1069,7 +1071,7 @@ footer {
 
   .loggedin{
     position: absolute;
-    top: -109px;
+    top: -104px;
     right: 24px;
   }
 
@@ -1128,7 +1130,7 @@ footer {
 
   .sm-icon-alert{
     position: absolute;
-    top: -97px;
+    top: -95px;
     right: 65px;
     font-size: 20px;
     color: #ffffff
@@ -1202,6 +1204,16 @@ footer {
     line-height: 40px;
    }
 /*--------------------INDEX ENDS---------------------------*/
+
+/*--------------------GLOBAL SEARCH---------------------------*/
+.searhing-top{
+    margin-top: 20px;
+}
+
+.srch-card img{
+    margin-left: unset;
+}
+/*--------------------GLOBAL SEARCH ENDS---------------------------*/
 
 /*--------------------USER DETAIL---------------------------*/
 
@@ -1314,7 +1326,7 @@ footer {
 }
 
 .user-profile .info> div:nth-of-type(even){
-    padding-left: 2px !important;
+    padding-left: 3px !important;
 }
 
 .address{
@@ -1365,7 +1377,52 @@ footer {
 .user-profile .btn{
     padding: 5px;
 }
+
+.edit-input{
+    padding: .375rem 5px;
+}
+
+.edit-form{
+    padding-bottom: 15px;
+}
+
+.edit-wrapper{
+    padding: 10px 10px 12px 0px;
+    line-height: 5px;
+}
+
+.privacy-setting{
+    position: relative;
+    width: 100%;
+    left: 0;
+    top: 0;
+}
 /*--------------------VIEW AND UPDATE ENDS---------------------------*/
+
+
+/*--------------------SCHEMES--------------------------------*/
+.schemes-card{
+
+}
+
+.schemes-img-container{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    padding-bottom: 15px;
+}
+/*--------------------SCHEMES ENDS---------------------------*/
+
+.zone-card{
+    margin-top: 10px !important; 
+    word-break: break-all;
+    line-height: 15px;  
+}
+
+.zone-img-container{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+    padding-bottom: 15px;
+}
 
 /************************ ADMIN *********************************/
 
@@ -1547,14 +1604,5 @@ display:none;z-index:9;}
     .dashboardcode-bsmultiselect ul.dropdown-menu{    max-height: 200px;
         overflow: auto;    top: 10px!important;
     }
-.carousel-control-prev i{background: #3eb8e9;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    padding-top: 7px;}
-    .carousel-control-next i{background: #3eb8e9;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        padding-top: 7px;}
+
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

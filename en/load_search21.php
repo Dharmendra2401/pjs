@@ -23,7 +23,7 @@ while($row=mysqli_fetch_assoc($rs)){
 <div class="col-md-12">
     <a class="search-output"
         href="<?php echo RE_EN_PATH; ?>user_detail.php?token=<?php echo base64_encode($row['member_id']);?>">
-        <ul class="list-unstyled list-inline search">
+        <ul class="list-unstyled list-inline search srch-card">
             <li class="list-inline-item">
                 <?php 
 
