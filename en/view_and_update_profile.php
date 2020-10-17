@@ -139,12 +139,7 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3 col-5">Father Name <strong>:</strong></div>
 								<div class="col-md-9 col-7 edit-wrapper">
 								   <span class="data"><?php echo $row['fathers_name'];?></span> 
-								   <form class="edit-form" data-columnname='fathers_name' data-tablename='member' id="fathers_frm">
-										<input type="text" class="edit-input" name="fathers_name">
-										<button class="btn btn-primary save-change" id="fathers_name_btn">Save Changes</button>
-										<button class="cancel btn btn-secondary	 btn btn-secondary">Cancel</button>
-								   </form>
-								   <span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
+
 								</div>
 
 								<div class="col-md-3 col-5">Last Name <strong>:</strong></div>
