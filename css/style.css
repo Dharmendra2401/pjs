@@ -696,6 +696,10 @@ footer {
     display: none;
 }
 
+.d-none-new-form{
+    display: none;
+}
+
 .add-member-icon{
     font-size: 25px;
     padding-top: 10px;
