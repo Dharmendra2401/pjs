@@ -26,16 +26,10 @@ $result=friend_request_status12();
 										echo RE_HOME_PATH.$row1['display_pic'];
 									}
 										elseif($row1['dead_p_pic']){
-										
-											if($row1['dead_p_pic']){
-												echo RE_HOME_PATH.'/images/default_user/dummy.png';
-											}
-											else{
-													echo RE_HOME_PATH.$row1['dead_p_pic']."sds";
-											}
+											echo RE_HOME_PATH.$row1['dead_p_pic'];
 										} else 
 										{
-											echo RE_HOME_PATH.'/images/default_user/dummy.png';
+											echo 'http//';
 											} ?>">
 
 							            <ul class="list-unstyled family-info">
@@ -212,8 +206,7 @@ $result=friend_request_status12();
 												<?php
 											}?>
 								
-												<i class="far fa-trash-alt btnrequest_relation_delete mt-2" id="<?php echo $current_user['member_id']; ?>" data-referenceid="<?php echo $row1['reference_member_Id'];?>" <?php if (!isset($row1['reference_member_Id'])) {
-												 ?>data-relationshiptype="<?php echo $row1['relation_type']; ?>" <?php } ?> style="cursor:pointer;"></i>
+												<i class="far fa-trash-alt btnrequest_relation_delete mt-2" id="<?php echo $current_user['member_id']; ?>" data-referenceid="<?php echo $row1['reference_member_Id'];?>" style="cursor:pointer;"></i>
 											
 							</div>
 					</div>

@@ -31,9 +31,8 @@ user_session_check();
 									<input type="text" class="form-control form-control-sm" placeholder="Enter name" id="d_popname" name="d_popname">
 								</div>
 								<div class="form-group">
-										<label>Relation type</label>
+										<label>relation type</label>
 									<select class="form-control form-control-sm" id="relationship_type" name="relationship_type">
-										<option value="">please select relationship</option> 
 										<option value="Grandfather">Grandfather</option>              
 										<option value="Father">Father</option>
 										<option value="Husband">Husband</option>
@@ -59,44 +58,19 @@ user_session_check();
 							</form>
 						</div>	
 					</div>
-					<div class="card mb-2">
-						<div class="card-body pb-2 new-update">
-							<h5 class="card-title"><i class="fas fa-flag text-danger pr-2"></i>जीवित रजिस्टर्ड मेंबर्स को यहाँ सर्च करे। 
-								<i class="fas fa-plus float-right"></i>
-							</h5>
-<!-- 							<form class="d-none-new-form" method="post" action="">
-								<div class="input-group my-auto">
-									<input type="text" class="form-control  mb-3" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
-									<div class="input-group-append">
-									<input class="btn btn-primary mb-3" type="submit" name="submit1" value="submit">
-									</div>
-								</div>
-							</form> -->
-							<form class="d-none-new-form">
-							<div class="input-group my-auto">
-							<input type="text" class="form-control" onkeyup="return searchBar1();" placeholder="Search" id="search1" size="30" autocomplete="off" ><button class="cancel-btn1 searchbtn1" onclick="return searchbarclick1();" style="display: none;"><i class="fa fa-times"></i></button>
-							</div>
-
-							<div id="searchdata1" class="searchdata1" style="display: none;"></div>
-							</form>
-						</div>	
-					</div>
-<!-- 				 	<form method="post" action="">
+				 	<form method="post" action="">
 						<div class="input-group my-auto">
 							<input type="text" class="form-control  mb-3" placeholder="Search" id="search" size="30" autocomplete="off" name="search_value" >
 							<div class="input-group-append">
 							<input class="btn btn-primary mb-3" type="submit" name="submit1" value="submit">
 							</div>
 						</div>
-
-					</form> -->
+					</form>
 					
 					
-					
+					<div id="searchdata" class="searchdata d-none"></div>
 								<!-- <button class="btn btn-primary float-right my-3 save">Save</button> -->
-
-
-<!-- 							for search 		<div class="row tree-srch-list">
+									<div class="row tree-srch-list">
                                 
 								<?php  if(isset($_POST['submit1'])){
 							 $current_user=$_SESSION['user_mid'];
@@ -160,7 +134,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 											}					 
 									}
 								?>
-				        </div> -->
+				        </div>
 
 				 </div>
 				 <div id="add" class="col-md-4 list-height">
@@ -169,7 +143,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 				 <div class="col-md-4 text-right">
 				 	<span>
 				 		<i class="fas fa-flag text-danger"></i>
-				 		<strong>: स्वर्गीय </strong>
+				 		<strong>: Indicates Dead person</strong>
 				 	</span>
 				 	   
 				 </div>
@@ -267,11 +241,6 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 		$(".d-none-form, .d-form").toggleClass("d-none-form d-form");
 		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
 	});
-	$(".new-update h5 i").on("click", function(){	
-		// $("#dead_person_form").toggle();
-		$(".d-none-new-form, .d-form").toggleClass("d-none-new-form d-form");
-		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
-	});
 </script>
 
 <script type="text/javascript">
@@ -333,22 +302,22 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 		});
 
 	})
-	$('#exampleModal').on('hide.bs.modal', function (e) {
-		$('.err').hide();
-	})
-//  
+	// $('#exampleModal').on('hide.bs.modal', function (e) {
+	// 	$('.err').hide();
+	// })
+// 
 	$(".btnrequest_relation_delete").on("click", function (e) {
 		var member_id=$(this).attr('id');
 		var reference_member_id=$(this).data('referenceid');
-		var relationshiptype=$(this).data('relationshiptype');
 		var curr=$(this);
+
 	bootbox.confirm("Are you sure you want to remove this user", function(result) {
 	if(result){ 
 		$('#loadergif').fadeIn();
 		$.ajax({
 		type: 'POST',
 		url: "<?php echo RE_HOME_PATH?>en/PJS-demo/request_relation_delete.php",
-		data: {"member_id":member_id,"reference_member_id":reference_member_id,"relationshiptype":relationshiptype},
+		data: {"member_id":member_id,"reference_member_id":reference_member_id},
 		success: function(data1234){
 			var da=$.trim(data1234);
 			if(da=='success')	
@@ -370,8 +339,53 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 })
 	});
 
-
-
+function btnrequest_relation_delete(reference_member_id,member_id,page)
+{
+	 var tar=$(event.target);
+	var parent=$(".rounded-circle").parent(".col-md-2").parent(".row").parent(".card-body").parent(".tree-card");
+	alert(parent);
+	alert(e.target.id)
+	bootbox.confirm("Are you sure you want to delete this user", function(result) {
+	if(result){ 
+		$('#loadergif').fadeIn();
+		$.ajax({
+		type: 'POST',
+		url: "<?php echo RE_HOME_PATH?>en/PJS-demo/request_relation_delete.php",
+		data: {"member_id":member_id,"reference_member_id":reference_member_id},
+		success: function(data1234){
+			var da=$.trim(data1234);
+			if(da=='success')	
+			{	
+				//BtnClickPage(page,10);
+				$('#loadergif').fadeOut();
+				$(parent).remove();
+			}
+			if(da=='false')	
+			{	
+			//	BtnClickPage(page,10);
+				$('#loadergif').fadeOut();
+			}
+		} 
+		});	
+	}	
+	});
+}
+// 
+function BtnClickPage(x,y)
+{
+var searchtxt=$("#stxt").val();	
+var ustatus=$("#ustatus").val();
+var page=$("#page").val();	
+y=10;
+$.ajax({
+type: 'POST',
+url: "load_events.php",
+data: {"page":x,"pagesize":y,"searchtxt":searchtxt,"ustatus":ustatus},
+success: function(data12){
+$("#gridviewdata").html(data12);			
+} 
+});	
+}
 
 	$(".close-icn").on("click", function () {
 			location.reload(true);
@@ -380,12 +394,10 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 	$(document).ready(function() {
 			$("#dead_person_form").validate({
 					rules: {
-							d_name: "required",
-							relationship_type:"required"
+							d_name: "required"
 					},
 					messages: {
-							d_name: "Please specify name",
-							relationship_type:"Please select relationship type"
+							d_name: "Please specify name"
 					}
 			})
 			$(".dead_person").on("click", function () {
@@ -457,10 +469,9 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 
 <style type="text/css">
 	#dead_person_form .error{
-		
+		color: red;
 	}
 	.approve{
 		cursor: pointer;
 	}
-	#dead_person_form .error
 </style>

@@ -896,40 +896,7 @@ $('.searchdata').hide();
 $('#search').val('');
 $('.cancel-btn').hide();
 }
-function searchbarclick1(){
-$('.searchdata1').hide();
-$('#search1').val('');
-$('.cancel-btn1').hide();
-}
 
-function searchBar1(x,y)
-{
-
-var search=$("#search1").val();
-if(search.trim()!=''){
-y=10;
-//$('#loadergif').fadeIn();
-$.ajax({
-type: 'POST',
-url: "<?php echo RE_EN_PATH; ?>new_load_family_search.php",
-data: {"search":search},
-success: function(search){
-$('.searchdata1').css("display","block");
-$('.cancel-btn1').show();
-$('.searchbtn1').removeAttr("disabled");
-//$('#loadergif').fadeOut();
-$("#searchdata1").html(search);			    } 
-});
-
-
-}else{
-$('.searchdata1').css("display","none");
-$('.cancel-btn1').css("display","none");
-$('.searchbtn').prop("disabled",true);
-}
-
-}
-// search data
 function searchBar(x,y)
 {
 
@@ -958,10 +925,6 @@ $('.searchbtn').prop("disabled",true);
 
 }
 
-
-
-// 
-
 function searchpage() {
 var search=$("#search").val();
 if(search.trim()!=''){
@@ -977,7 +940,7 @@ window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+sear
 							feedback_type1:"required" 
 					},
 					messages: {
-							feedback_desc1: "Fill the Description",
+							feedback_desc1: "Please fill discription",
 							feedback_type1: "Please select type"
 					}
 			})
@@ -1019,7 +982,6 @@ window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+sear
 $('#modal45').on('hide.bs.modal', function (e) {
  var mid=$(".feedback_type").val('');
 var dod=$(".feedback_desc").val('');
-$('label.error').text('');
 $('.succ.msg').hide();
 $('.err.msg').hide();
 })
