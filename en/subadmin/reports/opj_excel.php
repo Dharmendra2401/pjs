@@ -3,10 +3,7 @@ include "../../../config/config.php";
 $stat='';
 $statu='';
 
-if($_REQUEST['state']!='')
-{
-$state=Implode('","',$_REQUEST['state']);    
-$statu.= 'and address in ("'.$state.'")';}
+
 
 if($_REQUEST['refrenceid']!='')
 {
@@ -28,6 +25,7 @@ $statu.= 'and user_id in ("'.trim($getmid).'") ';
 $stat="non_member_request where 1=1  $statu order by request_id desc";
 $sql = "SELECT * FROM ".$stat." "; 
 
+
 $setRec = mysqli_query($con, $sql);  
 $count=mysqli_num_rows($setRec);
 if(mysqli_num_rows($setRec) > 0)
@@ -39,7 +37,7 @@ if(mysqli_num_rows($setRec) > 0)
                     <tr style="border:1px solid #969696;"> 
                     <th style="width:150px;">S.NO</th> 
                     <th style="width:150px;">Refrence Id</th>
-                    <th style="width:150px;">Requested User Name</th>
+                    <th style="width:150px;">Name</th>
                     <th style="width:150px;">Mobile No</th>
                     <th style="width:150px;">Email</th>
                     <th style="width:150px;">Address</th>

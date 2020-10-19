@@ -46,7 +46,7 @@ $year= date('Y'); $setyear=$year-1;
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Age </label>	
 <div class="col-md-9">
-<input type="tel" maxlength="3" class="form-control" placeholder="Enter age"  name="age" id="age"  onKeyPress="return isNumeric(event)" disabled title="Select date of birth to change the age">
+<input type="text" maxlength="3" class="form-control" placeholder="Age will be auto calculated"  name="ageone" id="age"  onKeyPress="return isNumeric(event)"  title="Select actual date of birth to change the age" readonly>
 </div>
 </div>
 
@@ -160,14 +160,16 @@ $year= date('Y'); $setyear=$year-1;
 <div class="form-group row">
 <label class="col-md-3 col-form-label "><span class="text-danger">*</span> Country</label>
 <div class="col-md-9">
-<select class="custom-select" id="country" name="country">
+<select class="custom-select" id="country" name="country" onchange="return countryies();">
 <option value="" selected>Select Country</option>
 <option value="India">India</option>
-
+<option value="Outside India" >Outside India</option>
 </select>
 </div>
 </div>
-<div class="form-group row">
+
+
+<div class="form-group row" id="statetop">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> State</label>
 <div class="col-md-9">
 <select class="custom-select" id="state" onchange="return getCity();" name="state">
@@ -184,21 +186,21 @@ while($show=mysqli_fetch_array($state)){
 </select>
 </div>
 </div>
-<div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Name of city/town/village</label>	
+<div class="form-group row" id="citytop">
+<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Name of city/town/village</label>	
 <div class="col-md-9">
 <span id="getcity"></span>
 </div>
 </div>
 
-<div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Pin Code</label>	
+<div class="form-group row" id="pincodetop">
+<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Pin Code</label>	
 <div class="col-md-9">
 <span id="getpincode"></span>
 </div>
 </div>
-<div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Area</label>	
+<div class="form-group row" id="areatop">
+<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Area</label>	
 <div class="col-md-9">
 <span id="getarea"></span>
 </div>
@@ -330,6 +332,27 @@ height: 200px;
 <?php  include "../script.php" ;?>
   
 <script>
+
+function countryies(){
+var countries=$('#country').val();
+if(countries=='Outside India'){
+$('#state').val('');
+$('#statetop').hide();
+$('#citytop').hide();
+$('#pincodetop').hide();
+$('#areatop').hide();
+getCity();
+}else{
+$('#state').val('');
+$('#statetop').show();
+$('#citytop').show();
+$('#pincodetop').show();
+$('#areatop').show();
+getCity();
+}
+
+}
+
 function statushere(){
 var statuss=$("input[name='status']:checked"). val();
 var genderr=$("input[name='gender']:checked"). val();
@@ -344,15 +367,15 @@ $('#hus_wife').html("Wife's Name");
 $("#husbandname").attr("placeholder", "Enter wife's name");
 }
 else{
-	$('#gethusbanddiv').hide();
+$('#gethusbanddiv').hide();
 }
 }
 
 $("#feet").on("change paste keyup", function() {
-   if($(this).val()==0){
-   $('#feet').val('');
-   $("#feet").addClass("invalid");
-   } 
+if($(this).val()==0){
+$('#feet').val('');
+$("#feet").addClass("invalid");
+} 
 });
 
 $(document).on('input', '#dob', function() {
@@ -367,6 +390,7 @@ var getdob=getyear-year;
 
 //var year=dob.getYear();
 $('#age').val(getdob);
+$('#age').attr('value',getdob);
 
 });
 		$("#feet").click( 
@@ -556,29 +580,32 @@ var city=$('#city').val();
 var address=$('#address').val();
 var pincode=$('#pincodes').val();
 var area=$('#area').val();
+var othercounties=$('#othercounties').val();
+
 
 if(country==''){
 $('#country').focus();
 $("#country").addClass("invalid");
 return false;
 }
-else if(state==''){
+
+else if((state=='') && (country!='Outside India')){
 $('#state').focus();
 $("#state").addClass("invalid");
 return false;
 }
-else if(city==''){
+else if((city=='')&& (country!='Outside India')){
 $('#city').focus();
 $("#city").addClass("invalid");
 return false;
 }
 
-else if(pincode==''){
+else if((pincode=='')&& (country!='Outside India')){
 $('#pincodes').focus();
 $("#pincodes").addClass("invalid");
 return false;
 }
-else if(area==''){
+else if((area=='')&& (country!='Outside India')){
 $('#area').focus();
 $("#area").addClass("invalid");
 return false;

@@ -64,13 +64,11 @@ if ($_SESSION['sub_admin_email']!=''){
     <span class="d-md"><?php echo $_SESSION['ufullname']; ?></span>
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
-<a class="dropdown-item" href="<?php echo  RE_HOME_PATH;?>en/view_and_update_profile.php">View & Update Profile</a>
-<a class="dropdown-item" href="saved_profile.php">Saved Profile</a>
+<a class="dropdown-item" href="<?php echo RE_EN_PATH;?>view_and_update_profile.php">View & Update Profile</a>
+<a class="dropdown-item" href="<?php echo RE_EN_PATH;?>saved_profile.php">Saved Profile</a>
 <a class="dropdown-item feed_btn" data-toggle="modal" data-target="#modal45">Feedback</a>
-<a class="dropdown-item" href="<?php echo  RE_HOME_USER;?>password_change.php">Password Change</a>
-<!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
-<a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
-<a class="dropdown-item" href="<?php echo  RE_HOME_USER;?>logout_user.php">Logout</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_USER;?>password_change.php">Password Change</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_USER;?>logout_user.php">Logout</a>
 
 </div>
 </div>
@@ -169,25 +167,7 @@ if ($_SESSION['sub_admin_email']!=''){
 </li>
 <?php } ?>
 <?php 
-if ($_SESSION['user_email']!=''){
-?>
-<li class="nav-item">
-<a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown">Reports</a>
-<div class="dropdown-menu custom-dropdwn">	
-<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN;?>reg_request.php">Registered Users Count</a>
-<a class="dropdowncls-item" href="<?php echo RE_HOME_ADMIN;?>contact_request">Death Count</a>
-<a class="dropdown-item" href="">OPJ Requests Report</a>
-<a class="dropdown-item" href="#">Update Request Count</a>
-</div>
-</li>
-<li class="nav-item">
-<a class="nav-link dropdown-toggle" type="button" data-toggle="dropdown" href="#">Tickets</a>
-<div class="dropdown-menu custom-dropdwn">	
-<a class="dropdown-item" href="<?php echo RE_HOME_ADMIN; ?>reg_request.php">New User Registration Requests</a>
-<a class="dropdown-item" href="#">OPJ Contact Requests</a>
-</div>
-</li>
-<?php } 
+
 
 if ($_SESSION['admin_email']!=''){
 

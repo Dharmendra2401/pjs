@@ -3,7 +3,6 @@ include "../config/config.php";
 include 'PJS-demo/selectfunction.php';
 
 $idd=base64_decode($_REQUEST['token']);
-
 if($idd==''){
 redirect(RE_EN_PATH."index.php");
 }

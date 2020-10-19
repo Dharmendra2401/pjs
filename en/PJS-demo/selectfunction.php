@@ -1,5 +1,4 @@
 <?php 
-user_session_check();
 function get_all_saved_profile(){
 	global $con;
 	$current_user=$_SESSION['user_mid'];
@@ -15,6 +14,7 @@ function member_request_status($login_user,$idd){
 	$sql12 ="SELECT * FROM `relationship` WHERE member_id='$current_user' AND reference_member_Id='$list_user'";
 	$result = mysqli_query($con,$sql12);	
 	return $result;
+	
 }
 function member_request_status2($login_user,$idd){
 	global $con;

@@ -55,7 +55,7 @@ $currentdate=$row['record_inserted_dttm'];
 <td><?php echo $count;  ?></td>
 <td><?php echo $row['request_id'] ; ?></td>
 <td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
-<td><?php echo $row['city']; ?></td>
+<td><?php if ($row['city']!=''){echo $row['city'];}else{echo "NA";} ?></td>
 <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
 <td><a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a></td>
 </tr>

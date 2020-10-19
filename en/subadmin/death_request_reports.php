@@ -68,7 +68,7 @@ while($showmemid=mysqli_fetch_array($memberid)){
 </li>
 <li class="collapse-wrapper">
 <a class="btn btn-default w-100" data-toggle="collapse" href="#blood-group" role="button" aria-expanded="false" aria-controls="blood-group">
-<span class="float-left">Rquested For</span>
+<span class="float-left">Requested For</span>
 </a>
 <i class="fas fa-angle-down"></i>
 <div class="collapse" id="blood-group">

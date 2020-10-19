@@ -27,7 +27,7 @@ $highest=mysqli_real_escape_string($con,trim( $_REQUEST['highest']));
 $occupation=mysqli_real_escape_string($con,trim( $_REQUEST['occupation']));
 $details=mysqli_real_escape_string($con,trim( $_REQUEST['details']));
 $income=mysqli_real_escape_string($con,trim( $_REQUEST['income']));
-$age=mysqli_real_escape_string($con,trim( $_REQUEST['age']));
+$age=mysqli_real_escape_string($con,trim( $_REQUEST['ageone']));
 $area=mysqli_real_escape_string($con,trim( $_REQUEST['area']));
 $submitdate=date('Y-m-d H:i:s');
 
@@ -43,7 +43,7 @@ $getcount=mysqli_num_rows($getvalid);
 
 
 
-if(($firstname!='')&& ($lastname!='') && ($dob!='') && ($gender!='')&& ($mobileno!='')&& ($status!='')&& ($email!='')&& ($bloodgroup!='')&& ($country!='')&& ($state!='')&& ($city!='')&& ($address!='')&& ($pincode!='')&& ($highest!='')&& ($occupation!='')){
+if(($firstname!='')&& ($lastname!='') && ($dob!='') && ($gender!='')&& ($mobileno!='')&& ($status!='')&& ($email!='')&& ($bloodgroup!='')&& ($country!='')&& ($address!='')&& ($highest!='')&& ($occupation!='')){
 
 if($getcount>0){
 
@@ -53,7 +53,8 @@ redirect(RE_EN_PATH."signup.php","Error! You are already registered with us~@~".
 else{
 $subject="Successfull Registration User From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$firstname." ".$middlename." ".$lastname.", you are successfully registered with ".WEBSITE_NAME." and your REFRENCE ID is <strong>".$request_id."</strong>, wait till the admin approval if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.="<p> Dear ".$firstname." ".$middlename." ".$lastname.", you are successfully registered on ".WEBSITE_NAME." and your REFERENCE ID is <strong>".$request_id."</strong>. We request you to wait until the admin approves your profile.</p>
+<p>If you face any problem in using the website ,email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$email;
 sendmails($to,$message,$subject);

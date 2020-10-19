@@ -6,7 +6,7 @@
 <!--<th width="2%">S.No</th>-->
 
 <th>Refrence Id</th>
-<th>Requested User Name</th>
+<th>Name</th>
 <th>Mobile No</th>
 <th>Email</th>
 <th>Address</th>

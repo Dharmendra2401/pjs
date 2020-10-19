@@ -1547,5 +1547,14 @@ display:none;z-index:9;}
     .dashboardcode-bsmultiselect ul.dropdown-menu{    max-height: 200px;
         overflow: auto;    top: 10px!important;
     }
-
+.carousel-control-prev i{background: #3eb8e9;
+    border-radius: 50%;
+    width: 30px;
+    height: 30px;
+    padding-top: 7px;}
+    .carousel-control-next i{background: #3eb8e9;
+        border-radius: 50%;
+        width: 30px;
+        height: 30px;
+        padding-top: 7px;}
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------
