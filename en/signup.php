@@ -46,7 +46,7 @@ $year= date('Y'); $setyear=$year-1;
 <div class="form-group row">
 <label class="col-md-3 col-form-label"><span class="text-danger">*</span> Age </label>	
 <div class="col-md-9">
-<input type="text" maxlength="3" class="form-control" placeholder="Age will auto be calculated"  name="ageone" id="age"  onKeyPress="return isNumeric(event)"  title="Select actual date of birth to change the age" readonly>
+<input type="text" maxlength="3" class="form-control" placeholder="Age will be auto calculated"  name="ageone" id="age"  onKeyPress="return isNumeric(event)"  title="Select actual date of birth to change the age" readonly>
 </div>
 </div>
 

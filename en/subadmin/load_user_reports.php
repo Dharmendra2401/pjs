@@ -5,7 +5,7 @@
 <tr class="table-headings">
 <!--<th width="2%">S.No</th>-->
 <th>S.no.</th>
-<th>User Name</th>
+<th>Name</th>
 <th>MID</th>
 <th>Mobile no</th>
 <th>C/T/V</th>

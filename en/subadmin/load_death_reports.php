@@ -23,10 +23,7 @@
 $stat='';
 $statu='';
 
-if($_REQUEST['state']!='')
-{
-$state=Implode('","',$_REQUEST['state']);    
-$statu.= 'and address in ("'.$state.'")';}
+
 
 if($_REQUEST['refrenceid']!='')
 {

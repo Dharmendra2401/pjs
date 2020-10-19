@@ -37,7 +37,7 @@ mysqli_query($con,$insert);
 
 $subject="User Crediential From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getdate['first_name']." ".$getdate['last_name'].",<br> you are successfully approved by the admin and your login crediential is : <br>  MEMBER ID (MID) : <strong>".$member_id."</strong> <br> Password : <strong>".base64_decode($password)."</strong><p> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
+$mes.="<p> Dear ".$getdate['first_name']." ".$getdate['last_name'].",you are successfully approved by the admin and your login details are : <br>  MEMBER ID (MID) : <strong>".$member_id."</strong> <br> Password : <strong>".base64_decode($password)."</strong></p><p> If you face any problem in using the website ,email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$getdate['email'];
 sendmails($to,$message,$subject);
@@ -55,7 +55,7 @@ $trimreason=rtrim($getreason,',');
 $update=mysqli_query($con,"update staging_approval set reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
 $subject="User Approval Rejected From ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getdate['first_name']."  ".$getdate['last_name'].", your user application is rejected by the admin and reason for the rejection is :<strong>".$trimreason."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.="<p> Dear ".$getdate['first_name']."  ".$getdate['last_name'].", your application is rejected by the admin and reason for the rejection is : <strong>".$trimreason."</strong></p> <p> Please re-register by clicking <a href='".RE_EN_PATH."signup.php'>here</a> </p> <p>if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$getdate['email'];
 sendmails($to,$message,$subject);
