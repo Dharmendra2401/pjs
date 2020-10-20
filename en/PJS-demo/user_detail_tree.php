@@ -174,12 +174,12 @@ $result=user_detail_friend_request($idd);
 											}
 												else{
 													echo "<br>
-													<i class='fas fa-flag death-flag'></i>";
+													<span class='death-flag'><i class='fas fa-flag' style='margin-right: 4px;'></i><strong style='color: #2c2c2c;'>: स्वर्गीय </strong></span>";
 												} 
 											 }
 											else{ ?><br>
 											 
-											 	<i class='fas fa-flag death-flag'></i>
+											 	<span class='death-flag'><i class='fas fa-flag' style='margin-right: 4px;'></i><strong style='color: #2c2c2c;'>: स्वर्गीय </strong></span>
 												
 											<?php 
 											echo "<br><span class='badge badge-danger float-right ml-1'>".$row1['d_dod']."</span>";

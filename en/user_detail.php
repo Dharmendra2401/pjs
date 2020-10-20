@@ -172,7 +172,7 @@ else{?>
 <div id="about" class="tab-pane active"><br>
 <div class="container user-details">
 <h3>Personal Details <?php if ($row['Life_status']=='D') {?>
-<small><i class="fas fa-flag text-danger float-right"></i></small>
+<span style="float: right;font-size: 20px;"><small><i class="fas fa-flag text-danger" style="margin-right: 4px;"></i><strong>: स्वर्गीय </strong></small></span>
 <?php } ?></h3>
 <div class="row">
 <div class="col-md-3 col-5">

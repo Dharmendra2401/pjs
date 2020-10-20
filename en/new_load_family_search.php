@@ -42,7 +42,10 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 													</li>
 													<li class="list-inline-item float-right">
 														<?php if($row['Life_status']=='D'){?>
-														<i class="fas fa-flag text-danger"></i>
+														<span style='font-size:10px;'>
+				 		<i class='fas fa-flag text-danger'></i>
+				 		<strong>: स्वर्गीय </strong>
+				 	</span>
 													<?php } else {?>
 														<i class="fas fa-user-plus add-member-icon" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['member_id']; ?>" data-gender="<?php echo $row['gender'];?>" data-name="<?php echo $fullname=$row['first_name'].' '. $row['middle_name'].' '.$row['last_name'];?>"></i>
 														<input type="hidden" referenc-id="<?php echo $row['member_id'];?>" gender="<?php echo $row['gender'];?>">

@@ -26,12 +26,11 @@ $result=friend_request_status12();
 										echo RE_HOME_PATH.$row1['display_pic'];
 									}
 										elseif($row1['dead_p_pic']){
-										
-											if($row1['dead_p_pic']){
-												echo RE_HOME_PATH.'/images/default_user/dummy.png';
+											if(isset($row1['dead_p_pic'])){
+												echo RE_HOME_PATH.$row1['dead_p_pic'];
 											}
 											else{
-													echo RE_HOME_PATH.$row1['dead_p_pic']."sds";
+													echo RE_HOME_PATH.'/images/default_user/dummy.png';
 											}
 										} else 
 										{
@@ -184,12 +183,18 @@ $result=friend_request_status12();
 											}
 												else{
 													echo "<br>
-													<i class='fas fa-flag death-flag'></i>";
+													<span style='font-size:10px;'>
+				 		<i class='fas fa-flag text-danger'></i>
+				 		<strong>: स्वर्गीय </strong>
+				 	</span>";
 												} 
 											 }
 											else{ ?><br>
 											 
-											 	<i class='fas fa-flag death-flag'></i>
+											 	<span style="font-size: 10px;">
+				 		<i class='fas fa-flag text-danger'></i>
+				 		<strong>: स्वर्गीय </strong>
+				 	</span>
 												
 											<?php 
 											echo "<br><span class='badge badge-danger float-right ml-1 mb-1'>".$row1['d_dod']."</span>";

@@ -20,7 +20,7 @@ if(isset($_FILES["file"]["name"])){
 	$max_dim = 800;      
 }
 else{
-	$url12=' ';
+	$url12='';
 }
 
 
