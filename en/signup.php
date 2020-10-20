@@ -133,6 +133,16 @@ $year= date('Y'); $setyear=$year-1;
 </select>
 </div>
 </div>
+
+<div class="form-group row">
+<label class="col-md-3"><span class="text-danger">*</span> Are you willing to donate?
+</label>	
+<div class="col-md-9">
+<input type="radio" name="donate" value="Yes" checked > <label class="mr-5">Yes</label>
+<input type="radio" name="donate" value="No" > <label>No</label>
+</div>
+</div>
+
 <div class="form-group row">
 <label class="col-md-3 col-form-label"> Height</label>	
 <div class="col-md-3">
