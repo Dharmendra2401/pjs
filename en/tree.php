@@ -61,7 +61,7 @@ user_session_check();
 					</div>
 					<div class="card mb-2">
 						<div class="card-body pb-2 new-update">
-							<h5 class="card-title"><i class="fas fa-flag text-danger pr-2"></i>जीवित रजिस्टर्ड मेंबर्स को यहाँ सर्च करे। 
+							<h5 class="card-title">जीवित रजिस्टर्ड मेंबर्स को यहाँ सर्च करे। 
 								<i class="fas fa-plus float-right"></i>
 							</h5>
 <!-- 							<form class="d-none-new-form" method="post" action="">
