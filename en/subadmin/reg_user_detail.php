@@ -17,7 +17,7 @@ $sorcevalue=strtoupper(substr($getdate['first_name'],0,3)).'_'.strtoupper(substr
   $insertkey_member_table=mysqli_query($con,"insert into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm,id,password)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$member_id."','".$password."')");
 
 
-$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,husband_wife_name,area,feet,inches,life_status) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['husband_wife_name']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."','L'  ) ");
+$insertmember_table=mysqli_query($con,"INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,husband_wife_name,area,feet,inches,life_status,blood_donate) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['husband_wife_name']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."','L','".$getdate['blood_donate']."'  ) ");
 
 $insertaddress_table=mysqli_query($con,"INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_inserted_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['sub_admin_id']."','".$submitdate."' )");
 
@@ -31,8 +31,8 @@ $inserteducation_occp=mysqli_query($con,"insert into education_ocp(member_id,hig
 
 
 $update=mysqli_query($con,"update staging_approval set active_status='N' where request_id='".$getid."' ");
-$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches)
-SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
+$insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches,blood_donate)
+SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches,blood_donate from staging_approval where request_id='".$getid."' ";
 mysqli_query($con,$insert);
 
 $subject="Approval of your application on  ".WEBSITE_NAME." website ";
@@ -119,6 +119,10 @@ redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR)
 <div class="col-md-9"> 
 <?php if($getdate['blood_group']==1){echo 'A+';} else if($getdate['blood_group']==2){echo 'B+';}
 else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']==4){echo 'O+';}else if($getdate['blood_group']==5){echo 'A+';}else if($getdate['blood_group']==6){echo 'B-';} else if($getdate['blood_group']==7){echo 'AB-';}else if($getdate['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
+
+<div class="col-md-3">Are you willing to donate?
+ <strong>:</strong></div>
+<div class="col-md-9"><?php if($getdate['blood_donate']!='') {echo $getdate['blood_donate'] ;}else{echo "NA";}?></div>
 
 <?php if(($getdate['martial_status']=='married')&&($getdate['gender']=='F') ){?>
 <div class="col-md-3">Husband's Name <strong>:</strong></div>

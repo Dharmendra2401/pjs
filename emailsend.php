@@ -15,9 +15,10 @@ if($counttable>0){
 $getemail=mysqli_fetch_array($countmember);
 $showemail=mysqli_fetch_array(mysqli_query($con,'select email,member_id from communication where member_id="'.$getemail['member_id'].'" '));
 $getpassword=mysqli_fetch_array(mysqli_query($con,'select password from key_member_id where id="'.$getemail['member_id'].'" '));
-$subject="User Requested Member Id (MID) & Password From ".WEBSITE_NAME." ";
+$subject="Your Account Login details from ".WEBSITE_NAME." website";
 $mes='';
-$mes.=" Dear ".$getemail['first_name']." ".$getemail['middle_name']." ".$getemail['last_name'].", you are successfully requested your login crediential are : <br><br> MEMBER ID (MID) : <strong>".$getemail['member_id']."</strong><br> Password : <strong>".base64_decode($getpassword['password'])."</strong><br><br> if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.="<p> Dear ".$getemail['first_name']." ".$getemail['last_name'].", Below are your login details:
+ <br><br> MEMBER ID (MID) : <strong>".$getemail['member_id']."</strong><br> Password : <strong>".base64_decode($getpassword['password'])."</strong><br><br> if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$showemail['email'];
 sendmails($to,$message,$subject);
