@@ -18,9 +18,9 @@ $message=$mes;
 $to=$getdetails['email'];
 sendmails($to,$message,$subject);
 
-$subjectt="OPJ Contact Request From ".WEBSITE_NAME." ";
+$subjectt="Someone outside the PJS wish to connect with you ".WEBSITE_NAME." ";
 $mess='';
-$mess.="<p> Dear ".$getuser['first_name']." ".$getuser['last_name']." , an OPJ contact requested to contact you, here is the detail of opj user : </p>";
+$mess.="<p> Dear ".$getuser['first_name']." ".$getuser['last_name']." , a person outside the ".WEBSITE_NAME." wish to connect with you.Below are the contact details of that person. We request you to follow utmost precaution while connecting a person outside the community. : </p>";
 $mess.="Name : ".$getdetails['first_name']." ".$getdetails['last_name']."<br>Mobile : ".$getdetails['mobile']."<br>Email : ".$getdetails['email']."<br> Address : ".$getdetails['address']." <br><br>";
 $mess.="if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $messages=$mess;

@@ -19,7 +19,7 @@ $request_id=uniqtskid($con);
 if(($firstname!='') && ($lastname!='')  && ($mobile!='') && ($country!='')  && ($state!='') && ($city!='')  && ($pincode!='') ){
 
 mysqli_query($con,'insert into sub_admin_login (request_id,first_name,last_name,mobile,email,password,record_inserted_dttm,city,state,pincode,active_status,country,area) values("'.$request_id.'","'.$firstname.'","'.$lastname.'","'.$mobile.'","'.$email.'","'.$password.'","'.$submitdate.'","'.$city.'","'.$state.'","'.$pincode.'","N","'.$country.'","'.$area.'")');
-$subject="Registered As Sub Admin ".WEBSITE_NAME." ";
+$subject="You’re registered as Subadmin in ".WEBSITE_NAME." website";
 $mes='';
 $mes.=" Dear ".$firstname." ".$lastname.", you are successfully registered as SUB ADMIN and your refrence id is :<strong>".$request_id."</strong> wait till the admin approval mail, if any query email us <a href='".FROM_EMAIL."'>".FROM_EMAIL."</a>";
 $message=$mes;

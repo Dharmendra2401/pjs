@@ -39,9 +39,9 @@ $contt=mysqli_num_rows($getemail);
 
 if($contt>0){
 $getpass=mysqli_fetch_array($getemail);
-$subject="Request For Sub Admin Password ".WEBSITE_NAME." ";
+$subject="Your Account Login details ".WEBSITE_NAME." ";
 $mes='';
-$mes.=" Dear ".$getpass['first_name']." ".$getpass['last_name'].", your login password is :<strong>".base64_decode($getpass['password'])."</strong> ,if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a>";
+$mes.=" <p>Dear ".$getpass['first_name']." ".$getpass['last_name'].", Below are your login details your login password is :<strong>".base64_decode($getpass['password'])."</strong> </p> <p><a href='".RE_HOME_ADMIN."'> Click here</a> to login now. if any query email us<a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$emails;
 

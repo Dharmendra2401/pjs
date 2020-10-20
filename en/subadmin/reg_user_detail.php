@@ -35,7 +35,7 @@ $insert="INSERT INTO staging (request_id,first_name, last_name, date_of_birth, g
 SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches from staging_approval where request_id='".$getid."' ";
 mysqli_query($con,$insert);
 
-$subject="User Crediential From ".WEBSITE_NAME." ";
+$subject="Approval of your application on  ".WEBSITE_NAME." website ";
 $mes='';
 $mes.="<p> Dear ".$getdate['first_name']." ".$getdate['last_name'].",you are successfully approved by the admin and your login details are : <br>  MEMBER ID (MID) : <strong>".$member_id."</strong> <br> Password : <strong>".base64_decode($password)."</strong></p><p> If you face any problem in using the website ,email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
@@ -53,9 +53,9 @@ mysqli_query($con,"update staging_approval set active_status='R' where request_i
 $getreason=Implode(',',$reason);
 $trimreason=rtrim($getreason,',');
 $update=mysqli_query($con,"update staging_approval set reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
-$subject="User Approval Rejected From ".WEBSITE_NAME." ";
+$subject="PJS Application is rejected by SUBADMIN ".WEBSITE_NAME." ";
 $mes='';
-$mes.="<p> Dear ".$getdate['first_name']."  ".$getdate['last_name'].", your application is rejected by the admin and reason for the rejection is : <strong>".$trimreason."</strong></p> <p> Please re-register by clicking <a href='".RE_EN_PATH."signup.php'>here</a> </p> <p>if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
+$mes.="<p> Dear ".$getdate['first_name']."  ".$getdate['last_name'].", your application is rejected by the admin and the reason for the rejection is : <strong>".$trimreason."</strong></p> <p> Please re-register by clicking <a href='".RE_EN_PATH."signup.php'>here</a> </p> <p>if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$getdate['email'];
 sendmails($to,$message,$subject);
