@@ -30,92 +30,92 @@ $row=mysqli_fetch_array($fire);
 <div class="row">
 <div class="col-md-12 tab">
 <h3>Personal Info &nbsp;&nbsp; 
-<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i> edit</span>
+<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i><span class="d-md">edit</span></span>
 </h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Full Name <strong>:</strong></div>
-<div class="col-md-9"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></div>
+<div class="col-md-3 col-5">Full Name <strong>:</strong></div>
+<div class="col-md-9 col-7"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></div>
 
-<div class="col-md-3">Popular Name<strong>:</strong></div>
-<div class="col-md-9 po_name">
+<div class="col-md-3 col-5">Popular Name<strong>:</strong></div>
+<div class="col-md-9 col-7 po_name">
 <?php echo $row['popular_name']; ?>
 </div>
 
-<div class="col-md-3">Father Name<strong>:</strong></div>
-<div class="col-md-9 fa_name">
+<div class="col-md-3 col-5">Father Name<strong>:</strong></div>
+<div class="col-md-9 col-7 fa_name">
 <?php echo $row['fathers_name']; ?>
 </div>
 
-<div class="col-md-3">Gender <strong>:</strong></div>
-<div class="col-md-9 gender_cl"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></div>
+<div class="col-md-3 col-5">Gender <strong>:</strong></div>
+<div class="col-md-9 col-7 gender_cl"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></div>
 
-<div class="col-md-3">Status <strong>:</strong></div>
-<div class="col-md-9 mari_sta" ><?php echo $row['marital_status']; ?></div>
+<div class="col-md-3 col-5">Status <strong>:</strong></div>
+<div class="col-md-9 col-7 mari_sta" ><?php echo $row['marital_status']; ?></div>
 
-<div class="col-md-3">Blood Group<strong>:</strong></div>
-<div class="col-md-9 bld_grp"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
+<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
+<div class="col-md-9 col-7 bld_grp"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
 else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
 
-<div class="col-md-3">Height <strong>:</strong></div>
-<div class="col-md-9 height_ov"><?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?> 
+<div class="col-md-3 col-5">Height <strong>:</strong></div>
+<div class="col-md-9 col-7 height_ov"><?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?> 
 </div>
 </div>
 <h3>Birth Details &nbsp;&nbsp; 
-<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i> edit</span>
+<span class="edit-link edit-basic-info"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Date of Birth <strong>:</strong></div>
-<div class="col-md-9 dob_ov"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></div>
+<div class="col-md-3 col-5">Date of Birth <strong>:</strong></div>
+<div class="col-md-9 col-7 dob_ov"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></div>
 
-<div class="col-md-3">Birth Time<strong>:</strong></div>
-<div class="col-md-9 time_ov"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></div>
+<div class="col-md-3 col-5">Birth Time<strong>:</strong></div>
+<div class="col-md-9 col-7 time_ov"><?php if($row['time_of_birth']!='00:00:00') {echo date('H:i',strtotime($row['time_of_birth'])); } else{ echo "NA";} ?></div>
 
-<div class="col-md-3">Birth Place <strong>:</strong></div>
-<div class="col-md-9 plof_ov"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></div>
+<div class="col-md-3 col-5">Birth Place <strong>:</strong></div>
+<div class="col-md-9 col-7 plof_ov"><?php if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA";} ?></div>
 </div>
 <h3>Contact Info &nbsp;&nbsp; 
-<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> edit</span>
+<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Mobile No. <strong>:</strong></div>
-<div class="col-md-9 mob_ov"><?php echo $row['mobile']; ?></div>
+<div class="col-md-3 col-5">Mobile No. <strong>:</strong></div>
+<div class="col-md-9 col-7 mob_ov"><?php echo $row['mobile']; ?></div>
 
-<div class="col-md-3">Email Id<strong>:</strong></div>
-<div class="col-md-9 email_ov"><?php echo $row['email']; ?></div>
+<div class="col-md-3 col-5">Email Id<strong>:</strong></div>
+<div class="col-md-9 col-7 email_ov"><?php echo $row['email']; ?></div>
 </div>
 <h3>Address Info &nbsp;&nbsp; 
-<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> edit</span>
+<span class="edit-link edit-contact-info"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Address <strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Address <strong>:</strong></div>
+<div class="col-md-9 col-7">
 <p class="address address_ov"><?php echo $row['full_address'];  ?></p>
 </div>
 </div>
 <h3>Education &nbsp;&nbsp; 
-<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> edit</span>
+<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Education <strong>:</strong></div>
-<div class="col-md-9 highest_edu_ov"><?php echo $row['highest_edu'];  ?></div>
+<div class="col-md-3 col-5">Education <strong>:</strong></div>
+<div class="col-md-9 col-7 highest_edu_ov"><?php echo $row['highest_edu'];  ?></div>
 </div>
 <h3>Work &nbsp;&nbsp; 
-<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> edit</span>
+<span class="edit-link edit-education-info"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Occupation <strong>:</strong></div>
-<div class="col-md-9 occupation_ov"><?php if($row['occupation']==1){ echo "
+<div class="col-md-3 col-5">Occupation <strong>:</strong></div>
+<div class="col-md-9 col-7 occupation_ov"><?php if($row['occupation']==1){ echo "
 Job";} else if($row['occupation']==2) { echo "Bussiness";}
 else if($row['occupation']==3) { echo "Housewife";} else if($row['occupation']==4) { echo "Student";}else if($row['occupation']==5) { echo "Nothing";}else{ echo 'NA';} ?></div>
 
-<div class="col-md-3">Income<strong>:</strong></div>
-<div class="col-md-9 income_ov"><?php if($row['income']==1){ echo "Less than 1 lakh";}
+<div class="col-md-3 col-5">Income<strong>:</strong></div>
+<div class="col-md-9 col-7 income_ov"><?php if($row['income']==1){ echo "Less than 1 lakh";}
 else if($row['income']==2){ echo "1 lakh to 2 lakh";}
 else if($row['income']==3){ echo "2 lakh to 3 lakh";}
 else if($row['income']==4){ echo "3 lakh to 4 lakh";}
@@ -133,38 +133,38 @@ else{ echo "NA";}
 <h3>Personal Info</h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">First Name <strong>:</strong></div>
-<div class="col-md-9"><?php echo $row['first_name'];?></div>
+<div class="col-md-3 col-5">First Name <strong>:</strong></div>
+<div class="col-md-9 col-7"><?php echo $row['first_name'];?></div>
 
-<div class="col-md-3">Father Name <strong>:</strong></div>
-<div class="col-md-9 edit-wrapper">
+<div class="col-md-3 col-5">Father Name <strong>:</strong></div>
+<div class="col-md-9 col-7 edit-wrapper">
 <span class="data"><?php echo $row['fathers_name'];?></span> 
 <form class="edit-form" data-columnname='fathers_name' data-tablename='member' id="fathers_frm">
 <input type="text" class="edit-input" name="fathers_name">
 <button class="btn btn-primary save-change" id="fathers_name_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	 btn btn-secondary">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Last Name <strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Last Name <strong>:</strong></div>
+<div class="col-md-9 col-7">
 <?php echo $row['last_name']; ?>
 </div>
 
-<div class="col-md-3">Popular Name <strong>:</strong></div>
-<div class="col-md-9 edit-wrapper">
+<div class="col-md-3 col-5">Popular Name <strong>:</strong></div>
+<div class="col-md-9 col-7 edit-wrapper">
 <span class="data"><?php echo $row['popular_name'];?></span> 
 <form class="edit-form" data-columnname='popular_name' data-tablename='member' id="popular_name_frm">
 <input type="text" class="edit-input" name="popular_name">
 <button class="btn btn-primary save-change" id="popular_name_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	 btn btn-secondary">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Gender<strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Gender<strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="dropdwn-txt"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></span>
 <form class="edit-form" data-columnname='gender' data-tablename='member' id="gender_frm">
 <select class="select-text form-control mb-2" name="gender_name">
@@ -176,11 +176,11 @@ else{ echo "NA";}
 <button class="btn btn-primary save-change" id="gender_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Status <strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Status <strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="dropdwn-txt"><?php echo $row['marital_status']; ?></span> 
 <form class="edit-form" data-columnname='marital_status' data-tablename='member'  id="marital_status_frm" >
 <!-- <input type="text" class="edit-input" name=""> -->
@@ -192,11 +192,11 @@ else{ echo "NA";}
 <button class="btn btn-primary save-change" id="marital_status_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Blood Group<strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="dropdwn-txt"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
 else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A-';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></span>
 <form class="edit-form" data-columnname='blood_group' data-tablename='member' id="blood_group_frm">
@@ -214,11 +214,11 @@ else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo
 <button class="btn btn-primary save-change" id="blood_group_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Height <strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Height <strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="feet"><?php echo $row['feet'];?></span>
 <span class="inch"><?php echo $row['inches'];?></span>
 <span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Global';?> </span> 
@@ -240,14 +240,14 @@ else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo
 <button class="btn btn-primary save-change" id="height_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 </div>
 <h3>Birth Details</h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Date of Birth <strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Date of Birth <strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="data"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></span>
 <span class="privacy"><?php if($row['Date_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span> 
 <form class="edit-form" data-columnname='date_of_birth' data-tablename='member'  id="date_of_birth_frm">
@@ -267,11 +267,11 @@ else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo
 <button class="btn btn-primary save-change" id="date_of_birth_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Gender<strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Gender<strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="dropdwn-txt"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></span>
 <form class="edit-form" data-columnname='gender' data-tablename='member' id="gender_frm">
 <select class="select-text form-control mb-2" name="gender_name">
@@ -283,11 +283,11 @@ else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo
 <button class="btn btn-primary save-change" id="gender_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Status <strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Status <strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="dropdwn-txt"><?php echo $row['marital_status']; ?></span> 
 <form class="edit-form" data-columnname='marital_status' data-tablename='member'  id="marital_status_frm" >
 <!-- <input type="text" class="edit-input" name=""> -->
@@ -299,11 +299,11 @@ else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo
 <button class="btn btn-primary save-change" id="marital_status_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Blood Group<strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="dropdwn-txt"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
 else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A-';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></span>
 <form class="edit-form" data-columnname='blood_group' data-tablename='member' id="blood_group_frm">
@@ -321,11 +321,11 @@ else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo
 <button class="btn btn-primary save-change" id="blood_group_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 
-<div class="col-md-3">Height <strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Height <strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="feet"><?php echo $row['feet'];?></span>
 <span class="inch"><?php echo $row['inches'];?></span>
 <span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Global';?> </span> 
@@ -347,14 +347,14 @@ else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo
 <button class="btn btn-primary save-change" id="height_btn">Save Changes</button>
 <button class="cancel btn btn-secondary	">Cancel</button>
 </form>
-<span class="edit float-right"><i class="fas fa-edit"></i> Edit</span>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md">edit</span></span>
 </div>
 </div>
 <h3>Birth Details</h3>
 <hr>
 <div class="row info mb-4">
-<div class="col-md-3">Date of Birth <strong>:</strong></div>
-<div class="col-md-9">
+<div class="col-md-3 col-5">Date of Birth <strong>:</strong></div>
+<div class="col-md-9 col-7">
 <span class="data"><?php echo date('d/m/Y',strtotime($row['date_of_birth'])); ?></span>
 <span class="privacy"><?php if($row['Date_Of_Birth']=='Y'){echo "Global";}else{ echo "Private";} ?></span> 
 <form class="edit-form" data-columnname='date_of_birth' data-tablename='member'  id="date_of_birth_frm">

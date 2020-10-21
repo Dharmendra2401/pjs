@@ -14,7 +14,7 @@ $year= date('Y'); $setyear=$year-1;
 
 <?php include "header.php";  ?>
 
-<div class="col-md-2 bg-color pt-3">
+<div class="col-md-2 sign-up-tab pt-3">
 
 <ul class="list-unstyled form-steps">
 <li class="step alert btn-primary" id="step">Personal Details</li>
@@ -23,7 +23,7 @@ $year= date('Y'); $setyear=$year-1;
 <li class="step step3" id="step3">Upload Photo</li>
 </ul>
 </div>
-<div class="col-md-10 shadow pt-4 mb-3">	
+<div class="col-md-10 shadow mobile-form pt-4 mb-5">	
 <div class="col-md-12"><?php echo show_message();?></div>
 <div class="formerror"></div>
 <form class="container mb-3" id="regForm" method="post" action="formsubmit.php" enctype="multipart/form-data">
@@ -146,7 +146,12 @@ $year= date('Y'); $setyear=$year-1;
 <div class="form-group row">
 <label class="col-md-3 col-form-label"> Height</label>	
 <div class="col-md-3">
-<input type="tel" step="any" class="form-control" placeholder="Enter feet" maxlength="2" name="feet" id="feet" onKeyPress="return isNumeric(event)"><span class="label-two">Feet</span>
+	<div class="input-group feet">
+<input type="tel" step="any" class="form-control" placeholder="Enter feet" maxlength="2" name="feet" id="feet" onKeyPress="return isNumeric(event)">
+    <div class="input-group-append">
+      <span class="input-group-text">Feet</span>
+    </div>
+    </div>
 </div>
 <div class="col-md-3">
 <input type="tel" step="any" class="form-control" placeholder="Enter inches" maxlength="2" name="inches" id="inches" onKeyPress="return isNumeric(event)"><span class="label-two">Inches</span>

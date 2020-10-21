@@ -696,6 +696,10 @@ footer {
     display: none;
 }
 
+.d-none-new-form{
+    display: none;
+}
+
 .add-member-icon{
     font-size: 25px;
     padding-top: 10px;
@@ -1180,7 +1184,7 @@ footer {
 
 /*--------------------INDEX--------------------------------*/
    .carousel-inner .carousel-item img{
-    height: 620px;
+    height: 520px;
    }
 
 
@@ -1322,6 +1326,58 @@ footer {
 }
 /*--------------------PROFILE ENDS---------------------------*/
 
+/*--------------------SIGNUP--------------------------------*/
+.sign-up-tab ul.form-steps{
+   -webkit-box-shadow: 1px 2px 5px 0px rgba(72,72,72,1);
+    -moz-box-shadow: 1px 2px 5px 0px rgba(72,72,72,1);
+    box-shadow: 1px 2px 5px 0px rgba(72,72,72,1);
+}
+
+.mobile-form{
+    margin-bottom: 70px !important;
+}
+
+.feet{
+    margin-bottom: 5px;
+}
+/*--------------------SIGNUP ENDS---------------------------*/
+
+
+/*--------------------ZONE--------------------------------*/
+.zone{
+    margin-top: 10px !important;
+}
+
+.zone-img-container{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.zone-info{
+    margin-top: 15px;
+}
+
+.zone-info p{
+    margin-bottom: 5px;
+    word-break: break-all;
+}
+/*--------------------ZONE ENDS---------------------------*/
+
+/*--------------------SCHEMES--------------------------------*/
+.schemes{
+    margin-top: 10px !important;
+}
+
+.schemes .schemes-img-container{
+    padding-left: 15px !important;
+    padding-right: 15px !important;
+}
+
+.schemes-info h3{
+    margin-top: 15px;
+}
+/*--------------------SCHEMES ENDS---------------------------*/
+
 /*--------------------FAMILY TREE---------------------------*/
 .tree-srch-list{
    height: 180px;
@@ -1360,6 +1416,13 @@ footer {
     position: absolute;
     right: 45px;
     font-size: 14px;
+}
+
+.privacy-setting{
+    position: relative;
+    width: 100%;
+    left: unset;
+    top: unset;
 }
 
 .user-profile .btn{
@@ -1547,14 +1610,5 @@ display:none;z-index:9;}
     .dashboardcode-bsmultiselect ul.dropdown-menu{    max-height: 200px;
         overflow: auto;    top: 10px!important;
     }
-.carousel-control-prev i{background: #3eb8e9;
-    border-radius: 50%;
-    width: 30px;
-    height: 30px;
-    padding-top: 7px;}
-    .carousel-control-next i{background: #3eb8e9;
-        border-radius: 50%;
-        width: 30px;
-        height: 30px;
-        padding-top: 7px;}
+
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------
