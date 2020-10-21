@@ -52,7 +52,7 @@ redirect(RE_EN_PATH."signup.php","Error! You are already registered with us~@~".
 
 }
 else{
-$subject="".$firstname." ".$middlename." ".$lastname.", Welcome to Porwad Jain Samaaj ".WEBSITE_NAME." ";
+$subject="".$firstname." ".$middlename." ".$lastname.", Welcome to ".WEBSITE_NAME." ";
 $mes='';
 $mes.="<p> Dear ".$firstname." ".$middlename." ".$lastname.", you are successfully registered on Porwad Jain Samaj website and your REFERENCE ID is <strong>".$request_id."</strong>. We request you to wait until the admin approves your profile.</p>
 <p>If you face any problem in using the website ,email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";

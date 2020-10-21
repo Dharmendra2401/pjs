@@ -389,19 +389,10 @@ $("#feet").addClass("invalid");
 });
 
 $(document).on('input', '#dob', function() {
-var date = new Date($('#dob').val());
-var day = date.getDate();
-var year = date.getFullYear();
-var dateed=new Date();
-var getdate=('0' + dateed.getDate()).slice(-2) ;
-var getmonth=('0' + (dateed.getMonth()+1)).slice(-2);
-var getyear=dateed.getFullYear();
-var getdob=getyear-year;
-
-//var year=dob.getYear();
-$('#age').val(getdob);
-$('#age').attr('value',getdob);
-
+var dob = new Date($('#dob').val());
+var today = new Date();
+var age = Math.floor((today-dob) / (365.25 * 24 * 60 * 60 * 1000));
+$('#age').val(age);
 });
 		$("#feet").click( 
           function(event) { 
