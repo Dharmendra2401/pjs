@@ -1,8 +1,8 @@
 <?php  
 include '../../config/config.php';
 
-$password=mysqli_real_escape_string($con,trim($_REQUEST['password']));
-$mid=mysqli_real_escape_string($con,trim(base64_encode($_REQUEST["mid"])));
+$password=base64_encode(mysqli_real_escape_string($con,trim($_REQUEST['password'])));
+$mid=mysqli_real_escape_string($con,trim($_REQUEST["mid"]));
 
 if(($password!='') && ($mid!='') ){
 

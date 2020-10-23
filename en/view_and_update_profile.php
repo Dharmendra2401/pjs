@@ -23,6 +23,7 @@ $row=mysqli_fetch_array($fire);
 					<li class="nav-item"><a class="nav-link" href="#basic-info">Basic Info</a></li>
 					<li class="nav-item"><a class="nav-link" href="#contact">Contact & Address Info</a></li>
 					<li class="nav-item"><a class="nav-link" href="#education">Education & Work</a></li>
+					<li class="nav-item"><a class="nav-link" href="#profilepic">Profile Image</a></li>
 				</ul>
 			</div>
 			<div class="col-md-10 tab-content user-profile shadow">	
@@ -124,6 +125,22 @@ $row=mysqli_fetch_array($fire);
 									?>
 									</div>
 							</div>
+
+
+
+							<h3>Profile Image &nbsp;&nbsp; 
+								<span class="edit-link edit-profile-pic"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
+							</h3>
+							<hr>
+							<div class="row info mb-4">
+							<div class="col-md-12 col-5">
+								<img src="<?php echo RE_HOME_PATH.''.$row['display_pic'];  ?>" alt="profile pic" title="profile pic" width="200px" id="profilepics">
+							</div>
+							</div>
+
+
+
+							
 						</div>
 					</div>
 				</div>
@@ -524,6 +541,34 @@ $row=mysqli_fetch_array($fire);
 					</div>
 				</div>
 
+
+				<div id="profilepic"  class="tab-pane">
+					<h3>Profile Image</h3>
+					<hr>
+					<div class="row info mb-4">
+						<div class="col-md-3 col-5">Profile Image <strong>:</strong></div>
+						<div class="col-md-9 col-7">
+						    <span class="data" ><img src="<?php echo RE_HOME_PATH.''.$row['display_pic'];?>" alt="profile pic" id="imageimage" title="profile pic" width="200px"></span> 
+							<form class="edit-form" data-columnname='highest_edu' data-tablename='education_ocp' id="uploadform" enctype="multipart/form-data" method="post">
+							
+							<input type="file" class="form-control profile-pic"  id="file" name="profile" onchange="return GetFileSize();" accept="image/png, image/jpeg" title="Select profile image">
+							<span id="fileerror"></span>
+								<button class="btn btn-primary save-change" type="button" id="btn-profile">Save Changes</button>
+								<button class="cancel btn btn-secondary	">Cancel</button>
+							</form>
+							<span class="edit float-right"><i class="fas fa-edit"></i><span class="d-md"> Edit</span></span>
+					    </div>
+					</div>
+					    </div>
+					</div>
+				</div>
+
+
+
+
+
+
+
 </div>	
 </div>
 </div>
@@ -554,6 +599,7 @@ $(document).ready(function(){
 	var y = $(event.relatedTarget).text();  // previous tab
 	$(".act span").text(x);
 	$(".prev span").text(y);
+	
   });
 
 
@@ -576,6 +622,7 @@ $(document).ready(function(){
 	 $(this).siblings('form').children('input.edit-input').val(inputData);
 	 $(this).siblings('form').children('input.edit-input-feet').val(inputFeet);
 	 $(this).siblings('form').children('input.edit-input-inch').val(inputInch);
+	 
 	 
   });
 
@@ -1364,6 +1411,48 @@ $(document).ready(function(){
   });
 
 
+
+
+
+
+$(document).ready(function(){
+
+$("#btn-profile").click(function(){
+	var fd = new FormData();
+	var files = $('#file')[0].files;
+	
+	
+	// Check file selected or not
+	if(files.length > 0 ){
+	   fd.append('file',files[0]);
+	   $.ajax({
+		url: "<?php echo RE_EN_PATH;?>PJS-demo/view_and_update_profilepic.php",
+		  type: 'post',
+		  data: fd,
+		  contentType: false,
+		  processData: false,
+		  success: function(response){
+			$('#imageimage').attr('src',response); 
+			$('#profilepics').attr('src',response); 
+			
+			$( 'a[ href="#profilepic" ]' ).addClass("active");
+			$('#filename').val(response); 
+			$('#uploadform').hide();
+			$('#uploadform')[0].reset();
+            $('.data').show();
+			$('#fileerror').html('');
+			return false;
+		  },
+	   });
+	}else{
+$('#file').val('');
+$('#fileerror').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">Please select image size of maximum 1mb in size.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+	}
+});
+});
+
+
+
 $('.nav-tabs' ).on("click", function() {
 	event.preventDefault();
 	if ($(this).children(".active")) {
@@ -1402,11 +1491,44 @@ $(".edit-link").on("click", function() {
     	$( "div#basic-info" ).removeClass("active");
     	$("div#contact").removeClass("active");
 
+	}
+	
+	else if ($(this).hasClass("edit-profile-pic")) {
+    	$( 'a[ href="#profilepic" ]' ).addClass("active");
+    	$( "div#profilepic" ).show();
+    	$( "div#basic-info" ).hide();
+    	$("div#contact").hide();
+    	$("div#education").hide();
     }
 
 });
   
 });
+
+function GetFileSize() {
+var fi = document.getElementById('file'); // GET THE FILE INPUT.
+
+// VALIDATE OR CHECK IF ANY FILE IS SELECTED.
+if (fi.files.length > 0) {
+// RUN A LOOP TO CHECK EACH SELECTED FILE.
+for (var i = 0; i <= fi.files.length - 1; i++) {
+
+var fsize = fi.files.item(i).size; 
+// THE SIZE OF THE FILE.
+// document.getElementById('fp').innerHTML =
+//     document.getElementById('fp').innerHTML + '<br /> ' +
+//         '<b>' + Math.round((fsize / 1024)) + '</b> KB';
+var sizemain=Math.round((fsize / 1024)) ;
+if(sizemain>1024){
+$('#file').val('');
+$('#fileerror').html('<div class="alert alert-danger alert-dismissible fade show" role="alert">Please select image size of maximum 1mb in size.<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+$('#blah').attr('src', '<?php echo RE_HOME_PATH ;?>uploads/dummy.png');
+}else{
+$('#fileerror').html('');
+}
+}
+}
+}
 </script>
 
 </html>
