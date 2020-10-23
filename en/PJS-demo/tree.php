@@ -179,10 +179,10 @@ $result=friend_request_status12();
 							<div class="col-md-2">
 																	<?php	if(isset($row1['Life_status'])){
 											   if($row1['Life_status']=='L'){
-												echo "<br><span class='badge badge-primary float-right ml-1'></span>";
+												echo "<span class='badge badge-primary float-right ml-1'></span>";
 											}
 												else{
-													echo "<br>
+													echo "
 													<span style='font-size:10px;'>
 				 		<i class='fas fa-flag text-danger'></i>
 				 		<strong>: स्वर्गीय </strong>
@@ -197,7 +197,7 @@ $result=friend_request_status12();
 				 	</span>
 												
 											<?php 
-											echo "<br><span class='badge badge-danger float-right ml-1 mb-1'>".$row1['d_dod']."</span>";
+											echo "<span class='badge badge-danger float-right ml-1 mb-1'>".$row1['d_dod']."</span>";
 										}
 										 ?> 
 									 <?php 

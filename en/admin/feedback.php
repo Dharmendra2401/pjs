@@ -14,7 +14,7 @@ admin_session_check();
 <div class="container-fluid">
 <?php  include "../header.php" ?>
 </div>
-<div class="container shadow">
+<div class="container mb-5 shadow">
 
 <h3 class="ticket-header">FeedBack List </h3>
 <div class="row"> 

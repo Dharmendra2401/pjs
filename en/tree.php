@@ -7,6 +7,40 @@ user_session_check();
 <html>
 <head>
  <?php include "../styles.php" ?>
+ <style type="text/css">
+ 	.death-update .file-input{
+    position: relative;
+    display: block;
+    width: 100%;
+    height: calc(1em + .75rem + 2px);
+    padding: .375rem .75rem;
+    font-size: 1rem;
+    font-weight: 400;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: .25rem;
+    transition: border-color .15s ease-in-out,box-shadow .15s ease-in-out;
+    margin-bottom: 15px;
+}
+
+.file-type{
+    opacity: 0;
+    width: 100%;
+}
+
+.browse-txt{
+    position: absolute;
+    right: 0;
+    top: 0px;
+    font-size: 14px;
+    background-color: #eeeeee;
+    height: calc(1em + .75rem + 2px);
+    padding: 4px 20px 0 20px;
+}
+ </style>
 </head>
 
 <body class="bg-white">
@@ -23,7 +57,7 @@ user_session_check();
 							</h5>
 							<form action="" class="d-none-form" enctype="multipart/form-data" id="dead_person_form">
 								<div class="form-group">
-									<label>Name</label>
+						        	<label>Name</label>
 									<input type="text" class="form-control form-control-sm" placeholder="Enter name" id="d_name" name="d_name">
 								</div>
 								<div class="form-group">
@@ -50,11 +84,13 @@ user_session_check();
 									<label>Date of Death</label>
 									<input type="text" onfocus="(this.type='date')" class="form-control form-control-sm dod" placeholder="Enter Date" id="dod">
 								</div>
-								<div class="form-group">
-									<label>Upload Image</label>
-
-								 <input type="file" class="form-control form-control-sm" id="file" name="file">
-								</div>
+								
+									<!-- <label>Upload Image</label> -->
+								 <div class="file-input">
+								 	<input type="file" class="file-type" placeholder="Choose File" id="file" name="file">
+								 	<span class="browse-txt">Browse</span>
+								 </div>
+								
 								<button type="button" class="btn btn-primary btn-sm mb-2 float-right dead_person">Submit</button>
 							</form>
 						</div>	
