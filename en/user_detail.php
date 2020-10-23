@@ -15,7 +15,7 @@ $login_user='';
 }
 
 
-$row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' AND sp.reference_member_Id='$idd' ,'saved','notsaved') as sp_status,mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,mem.Life_status,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on mem.member_id=sp.reference_member_Id AND sp.member_Id='$login_user' inner join member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$idd'"));
+$row=mysqli_fetch_array(mysqli_query($con,"SELECT if(sp.member_Id='$login_user' AND sp.reference_member_Id='$idd' ,'saved','notsaved') as sp_status,mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.country_flag,comm.country_code,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,mem.Life_status,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id LEFT join saved_profile as sp on mem.member_id=sp.reference_member_Id AND sp.member_Id='$login_user' inner join member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$idd'"));
 $member_request_status=member_request_status($idd,$login_user);
 $request_status_user='';
 $staus_show='';
@@ -243,8 +243,8 @@ else echo date('d/m/Y',strtotime($row['date_of_birth']));?>	</p>
 <h5>Mobile No. <strong>:</strong></h5>
 </div>
 <div class="col-md-9 col-7">	
-<p><?php if(!isset($_SESSION['user_mid']) && $row['Mobile']=='N') echo "*******";
-else echo $row['mobile'];?></p>
+<?php if(($_SESSION['user_mid']!='') && ($row['Mobile']=='N')) { echo "*******";}
+else { ?><div class="cc-picker form-control" style="width: 80px;" readonly><div class="cc-picker-flag <?php echo $row['country_flag']; ?>"></div><span class="cc-picker-code"><?php echo $row['country_code']; ?></span>  </div> <?php echo $row['mobile']; ?><?php } ?>
 
 </div>
 

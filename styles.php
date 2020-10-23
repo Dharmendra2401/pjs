@@ -11,5 +11,7 @@
 	<link rel="stylesheet" type="text/css" href="<?php echo RE_HOME_PATH; ?>css/sucesstick.css">
 	<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/bootstrap-select/1.13.1/css/bootstrap-select.css" />
 	<link rel="stylesheet" href="<?php echo RE_HOME_PATH; ?>css/bootstrap-multiselect.css" type="text/css"/>
+	<link rel="stylesheet" href="<?php echo RE_HOME_PATH; ?>css/jquery.ccpicker.css" type="text/css"/>
 
+	
 </head>

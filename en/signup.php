@@ -26,7 +26,7 @@ $year= date('Y'); $setyear=$year-1;
 <div class="col-md-10 shadow pt-4 mb-3">	
 <div class="col-md-12"><?php echo show_message();?></div>
 <div class="formerror"></div>
-<form class="container mb-3" id="regForm" method="post" action="formsubmit.php" enctype="multipart/form-data">
+<form class="container mb-3" id="regForm" method="post" action="formsubmit.php" enctype="multipart/form-data" autocomplete="off">
 <div class="row tabone">
 <div class="col-md-9 ">
 <h3 class="mb-3">Please Enter Personal Details <span class="text-danger">(* Required Fields)</span></h3>
@@ -104,9 +104,12 @@ $year= date('Y'); $setyear=$year-1;
 </div>
 
 <div class="form-group row">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Mobile No.</label>	
+<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Mobile No.</label>
+	
 <div class="col-md-9">
-<input type="tel" class="form-control" placeholder="Enter mobile no."   name="mobileno" id="mobileno"  onKeyPress="return isNumeric(event)" maxlength='15'>
+<div class="row padding-manage">
+<input type="tel" class="form-control input-phone col-md-10" placeholder="Enter mobile no."   name="mobileno" id="mobileno"  onKeyPress="return isNumeric(event)" maxlength='15'>
+</div>
 </div>
 </div>
 <div class="form-group row">
@@ -343,6 +346,17 @@ height: 200px;
   
 <script>
 
+			$( document ).ready(function() {
+				$(".input-phone").CcPicker();
+				$(".input-phone").CcPicker("setCountryByCode","in");
+				//$(".input-phone").CcPicker({"countryCode":"in"});
+				// $(".input-phone").CcPicker();
+				// $(".input-phone").on("countrySelect", function(e, i){
+				// 										alert(i.countryName + " " + i.phoneCode +" "+i.code);
+				// 									});
+			});
+		
+
 function countryies(){
 var countries=$('#country').val();
 if(countries=='Outside India'){
@@ -465,10 +479,10 @@ var feet = $('#feet').val();
 var inches = $('#inches').val();
 var statuss=$("input[name='status']:checked"). val();
 var genderr=$("input[name='gender']:checked"). val();
-  
-  
 
-	if(firstname.trim()==''){
+var countryflag=$('#flagname').val();
+var countrycode=$('.cc-picker-code').html();
+if(firstname.trim()==''){
 	$('#firstname').focus();
 	$("#firstname").addClass("invalid");
 	return false;
