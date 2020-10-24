@@ -244,7 +244,7 @@ else echo date('d/m/Y',strtotime($row['date_of_birth']));?>	</p>
 </div>
 <div class="col-md-9 col-7">	
 <?php if(($_SESSION['user_mid']!='') && ($row['Mobile']=='N')) { echo "*******";}
-else { ?><div class="cc-picker form-control" style="width: 80px;" readonly><div class="cc-picker-flag <?php echo $row['country_flag']; ?>"></div><span class="cc-picker-code"><?php echo $row['country_code']; ?></span>  </div> <?php echo $row['mobile']; ?><?php } ?>
+else { ?><div class="cc-picker mobile-code" readonly><div class="cc-picker-flag <?php echo $row['country_flag']; ?>"></div><span class="cc-picker-code"><?php echo $row['country_code']; ?></span>  </div> <?php echo $row['mobile']; ?><?php } ?>
 
 </div>
 

@@ -601,6 +601,13 @@ footer {
     border: none;
 }
 
+.mobile-code{
+    width: 80px;
+    line-height: 5px;
+    background-color: #eeeeee;
+    padding: 5px 0 5px 5px;
+}
+
 /*-------------USER DETAIL ENDS----------------------------------------------*/
 
 /*--------------------------USER PROFILE--------------------------------------*/
@@ -774,6 +781,8 @@ footer {
 .family-profile-img{
     vertical-align: top;
     width: 100px;
+     height: 90px;
+    object-fit: cover;
 }
 
 /*------------------------FAMILY TREE ENDS------------------------------------*/
@@ -1187,6 +1196,12 @@ footer {
 
 /*--------------------HEADER ENDS---------------------------*/
 
+/*--------------------SEARCHLIST-----------------------------*/
+.cancel-btn{
+     right: 15px !important;
+}
+/*--------------------SEARCHLIST ENDS------------------------*/
+
 /*--------------------INDEX--------------------------------*/
    .carousel-inner .carousel-item img{
     height: 520px;
@@ -1257,6 +1272,13 @@ footer {
     margin-bottom: 40px;
 }
 
+.mobile-code{
+    width: 60px;
+    line-height: 5px;
+    background-color: #eeeeee;
+    padding: 5px 0 5px 5px;
+}
+
 /*--------------------USER DETAIL ENDS---------------------------*/
 
 
@@ -1298,7 +1320,7 @@ footer {
     width: 40px;
     height: 40px;
     position: static;
-    margin-left: 65px;
+    /*margin-left: 65px;*/
 }
 
 .user-list ul li p {
@@ -1321,11 +1343,12 @@ footer {
     margin: 20px 0;
     background-color: #ffffff;
     z-index: 1;
-    height: 190px;
+    height: 225px;
 }
 
 .user-profile .info> div:nth-of-type(even){
     padding-left: 2px !important;
+    word-break: break-all;
 }
 
 .address{
