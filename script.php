@@ -118,7 +118,16 @@
 </div>
 </div>
 </div> -->
-
+<style>
+.checkboxpassword{text-align: right;
+    width: 100%;
+    font-size: 13px;
+	font-family: sans-serif;}
+	.checkboxpassword span{	background: rgb(128 128 128 / 12%);
+    display: inline-block;
+    margin: 5px 0px 5px;
+    padding: 1px 5px 1px;}
+</style>
 
 
 <div class="modal fade" id="login" tabindex="-1" role="dialog">
@@ -137,7 +146,8 @@
 
 <div class="form-group row">
 <label class="col-md-6 col-form-label" for="password"> <span class="text-danger">*</span> Password </label>
-<input type="password" class="form-control col-md-6" placeholder="Enter password" name="password" id="password"  required>
+<input type="password" class="form-control col-md-6" placeholder="Enter password"  name="password" id="password"  required><div class="checkboxpassword"><span class=""><input type="checkbox" onclick="return togglerFunfction()"> Show Password</span></div>
+
 </div>
 
 <div class="col-md-12">
@@ -673,7 +683,7 @@ var password=$('#password').val();
 if(mid.trim()==''){
 swal({
 title: "Error",
-text: "Please fill the MID",
+text: "Please enter the MID",
 icon: "error",
 });
 return false;
@@ -706,6 +716,14 @@ $('#loadergif').fadeOut();
 swal({
 title: "Error",
 text: "Error! Please enter the valid member id and password! ",
+icon: "error",
+});
+}
+if(userlog.trim()=='Death'){
+$('#loadergif').fadeOut();
+swal({
+title: "Error",
+text: "Error! Sorry dead person may not login! ",
 icon: "error",
 });
 }
@@ -1155,5 +1173,14 @@ $('.modal').on('hidden.bs.modal', function (e) {
        .prop("checked", "")
        .end();
 })
+
+function togglerFunfction() {
+  var x = document.getElementById("password");
+  if (x.type === "password") {
+    x.type = "text";
+  } else {
+    x.type = "password";
+  }
+}
 
 </script>
