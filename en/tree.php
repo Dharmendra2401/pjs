@@ -297,16 +297,14 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 
 </html>
 <script type="text/javascript">
-	// $("#dead_person_form").hide();
 	$(".death-update h5 i").on("click", function(){	
-		// $("#dead_person_form").toggle();
-		$(".d-none-form, .d-form").toggleClass("d-none-form d-form");
-		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
+		$(this).parent(".card-title").siblings("form").toggleClass("d-none-form");
+		$(this).toggleClass("fa-plus fa-minus");
 	});
+
 	$(".new-update h5 i").on("click", function(){	
-		// $("#dead_person_form").toggle();
-		$(".d-none-new-form, .d-form").toggleClass("d-none-new-form d-form");
-		$(".fa-plus, .fa-minus").toggleClass("fa-plus fa-minus");
+		$(this).parent(".card-title").siblings("form").toggleClass("d-none-new-form");
+		$(this).toggleClass("fa-plus fa-minus");
 	});
 </script>
 

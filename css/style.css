@@ -351,6 +351,18 @@ footer {
 }
 /*-----------------------ZONES ENDS----------------------------------------------*/
 
+/*-----------------------GALLERY---------------------------------------------------*/
+.gallery img{
+ -webkit-box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
+-moz-box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
+box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
+}
+
+/*.image-modal{
+    position: absolute;
+}*/
+/*-----------------------GALLERY ENDS----------------------------------------------*/
+
 
 /*-------------CAROUSEL WITH THYUMBNAIL----------------------*/
 .carousel-inner .carousel-item img {
@@ -1032,7 +1044,8 @@ footer {
 
 
 /*--------------------MEDIA QUERY---------------------------------------*/
-@media only screen and (max-width: 600px) {
+@media only screen  and (max-device-width: 680px) 
+                       {
 /*-------------------------GLOBAL------------------------*/
 .sm-tr{
     text-align: right;
