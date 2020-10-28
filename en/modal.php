@@ -193,6 +193,7 @@ require_once("../config/config.php");
 						<input type="hidden" class="form-control" id="referenc-id">
 						<input type="hidden" class="form-control" id="Member_Id">
 					</div>
+					<p class="err msg" style="background: red;color:#fff;font-weight:400;"></p>
 					 <div class="form-group" id="live_relation_type">
 							<select class="form-control female" style="display: none">
 								<option value="Grandmother">Grandmother</option>
