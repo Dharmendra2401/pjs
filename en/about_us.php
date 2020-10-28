@@ -16,7 +16,7 @@ include "../config/config.php";
 			   }else{
 				   echo "<div class='alert alert-danger text-center'>No Records Founds </div> ";
 			   }
-			     
+			        
 			   ?>
 			</div>
         </div>
