@@ -729,7 +729,8 @@ icon: "error",
 }
 if(userlog.trim()=='true'){
 $('#loadergif').fadeOut();
-window.location.replace("<?php echo RE_EN_PATH; ?>");
+//window.location.replace("<?php echo RE_EN_PATH; ?>");
+location.reload(true);
 }
 }
 
