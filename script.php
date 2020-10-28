@@ -1183,5 +1183,38 @@ function togglerFunfction() {
     x.type = "password";
   }
 }
+//load notification 
+ function load_unseen_notification(view = '')
+ {
+  $.ajax({
+   url:"<?php echo RE_HOME_PATH?>en/PJS-demo/notification.php",
+   method:"POST",
+   data:{view:view},
+   dataType:"json",
+   success:function(data)
+   {
+    $('.notification-menu').html(data.notification);
+   
+    if(data.unseen_notification > 0)
+    {
+     $('.count').html(data.unseen_notification);
+    }
+    if (data.unseen_notification == 0) {
+    	$('.notification').children("span.label-pill").css("padding","0px");
+    }
+   }
+  });
+ }
+ 
 
+$(document).on('click', '.notification', function(){
+	$('.count').html('');
+	$('.notification').children("span.label-pill").css("padding","0px");
+	load_unseen_notification('yes');
+});
+
+ // setInterval(function(){ 
+ //  load_unseen_notification(); 
+ // }, 5000);
+load_unseen_notification()
 </script>

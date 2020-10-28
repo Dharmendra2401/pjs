@@ -27,10 +27,12 @@
 <!-- <i class="fas fa-language sm-icon-language"></i> -->
 <?php 
 
-if ($_SESSION['sub_admin_email']!='' || $_SESSION['user_mid']!='' || $_SESSION['admin_id']!=''){
+if ($_SESSION['user_mid']!='' || $_SESSION['admin_id']!=''){
 
 ?>
-<i class="far fa-bell sm-icon-alert"></i>
+ <a href="#" class="dropdown-toggle notification" data-toggle="dropdown"><i class="far fa-bell sm-icon-alert"></i>
+<span class="label label-pill label-danger count" style="border-radius:50%;font-size: 9px;position: relative;top: -18px;left: -35px;background: red;padding: 4px;color: #ffff;/*! width: 12px !important; */"></span></a>
+	   <ul class="dropdown-menu notification-menu"></ul>
 
 
 <?php 
@@ -60,8 +62,8 @@ if ($_SESSION['sub_admin_email']!=''){
 ?>
 <div class="dropdown loggedin">
 <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-    <span class="d-sm"><i class="fas fa-user-check"></i></span>
-    <span class="d-md"><?php echo $_SESSION['ufullname']; ?></span>
+	<span class="d-sm"><i class="fas fa-user-check"></i></span>
+	<span class="d-md"><?php echo $_SESSION['ufullname']; ?></span>
 </button>
 <div class="dropdown-menu custom-dropdwn mt-2">
 <a class="dropdown-item" href="<?php echo RE_EN_PATH;?>view_and_update_profile.php">View & Update Profile</a>
@@ -78,25 +80,25 @@ if ($_SESSION['sub_admin_email']!=''){
 
 }else if ($_SESSION['admin_id']!=''){
 
-    ?>
-    <div class="dropdown loggedin">
-    <button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
-        <span class="d-sm"><i class="fas fa-user-check"></i></span>
-        <span class="d-md"><?php echo $_SESSION['admin_fullname']; ?></span>
-    </button>
-    <div class="dropdown-menu custom-dropdwn mt-2">
-    <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN;?>password_change.php">Password Change</a>
-    <!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
-    <a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
-    <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN;?>logout_admin.php">Logout</a>
-    
-    </div>
-    </div>
-    
-    
-    <?php
-    
-    }else{
+	?>
+	<div class="dropdown loggedin">
+	<button type="button" class="btn btn-outline-primary dropdown-toggle" data-toggle="dropdown">
+		<span class="d-sm"><i class="fas fa-user-check"></i></span>
+		<span class="d-md"><?php echo $_SESSION['admin_fullname']; ?></span>
+	</button>
+	<div class="dropdown-menu custom-dropdwn mt-2">
+	<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN;?>password_change.php">Password Change</a>
+	<!--  <a class="dropdown-item" href="saved_profile.php">Saved profiles</a>
+	<a class="dropdown-item openBtn-feed" type="button" data-toggle="modal" data-target="#feed">Feedback</a> -->
+	<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN;?>logout_admin.php">Logout</a>
+	
+	</div>
+	</div>
+	
+	
+	<?php
+	
+	}else{
 
 
 
@@ -132,13 +134,13 @@ LOGIN/SIGUP
 <?php if($_SESSION['user_mid']!=''){ ?>
 <li class="nav-item">
 <!-- <a class="nav-link" href="#">My Family</a> -->
-    <a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
-      My Family
-    </a>
-    <div class="dropdown-menu custom-dropdwn">
-      <a class="dropdown-item" href="tree.php">Family Tree</a>
-      <a class="dropdown-item" href="#" data-toggle="modal" data-target="#death_update">Death Update</a>
-    </div>
+	<a type="button" class="nav-link dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+	  My Family
+	</a>
+	<div class="dropdown-menu custom-dropdwn">
+	  <a class="dropdown-item" href="tree.php">Family Tree</a>
+	  <a class="dropdown-item" href="#" data-toggle="modal" data-target="#death_update">Death Update</a>
+	</div>
   
 </li>
 <?php
@@ -202,8 +204,55 @@ if ($_SESSION['admin_email']!=''){
 
 </div>
 
+<?php 
+if ($_SESSION['sub_admin_email']!=''){
+$count_registration=mysqli_query($con,"SELECT COUNT(IF(`active_status` = 'Y',1,NULL)) as open,COUNT(IF(`active_status` = 'N' OR `active_status` = 'R',1,NULL)) as close FROM `staging_approval`");
+$count_registration_data=mysqli_fetch_assoc($count_registration);
+$count_opj=mysqli_query($con,"SELECT COUNT(IF(request_status='Y',1,NULL)) as open,COUNT(IF(request_status='N' OR request_status='R',1,NULL)) as close from  non_member_request");
+$count_opj_data=mysqli_fetch_assoc($count_opj);
+$count_death_request=mysqli_query($con,"SELECT COUNT(IF(`status_of_request` = 'Y',1,NULL)) as open,COUNT(IF(`status_of_request` = 'N' OR `status_of_request` = 'R',1,NULL)) as close FROM `member_request` where 1=1  and type_of_request='death'");
+$count_death_data=mysqli_fetch_assoc($count_death_request);
+
+
+?>
+	<table class="table noti_table">
+		<thead>
+		<tr>
+		<th>Req type</th>
+		<th>O</th>
+		<th>C</th>
+		</tr>
+		</thead>
+		<tbody>
+			<tr>
+				<th>User Rq</th>
+				<td><?php echo $count_registration_data['open'];?></td>
+				<td><?php echo $count_registration_data['close'];?></td>
+			</tr>
+			<tr>
+				<th>Opj Rq</th>
+				<td><?php echo $count_opj_data['open'];?></td>
+				<td><?php echo $count_opj_data['close'];?></td>
+			</tr>
+			<tr>
+				<th>Death Rq</th>
+				<td><?php echo $count_death_data['open'];?></td>
+				<td><?php echo $count_death_data['close'];?></td>
+			</tr>
+		</tbody>
+	</table>
+<?php } ?>
 <style type="text/css">
-    .feed_btn{
-        cursor: pointer;
-    }
+	.feed_btn{
+		cursor: pointer;
+	}
+	.noti_table{
+		width: 11%;
+		background: #3eb8e9;
+		color: #fff;
+		position: fixed;
+		top: 50%;
+		right: 2px;
+	}
 </style>
+ 
