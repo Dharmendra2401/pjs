@@ -43,27 +43,31 @@ if (mysqli_num_rows($checkcurrent_relation_query)>0 && $data['count']!='Null') {
 }
 else{
 $sql1="insert into relationship (member_id,relation_type,reference_member_Id,member_request_status,upd_user,active_status) values('$MEMBER_ID','$Relation_Type','$Reference_Member_Id','N','$MEMBER_ID','Y')";
-    $result = mysqli_query($con,$sql1)or die(mysqli_error($con));   
 
-    if ($result) {
-    	echo "data insert success";
-    }
-    else{
-    	echo "not success".$result;
-    }
-
+$notification="INSERT INTO `general_notification` (`id`, `member_id`, `reference_member_id`, `notification_type`, `seen_or_unseen_status`, `member_type`, `record_inserted_dttm`, `record_updated_dttm`, `active_status`) VALUES ('','$Reference_Member_Id', '$MEMBER_ID', 'request_sent', '0', 'user', '$submitdate', '', 'Y')";
+	$result = mysqli_query($con,$sql1)or die(mysqli_error($con));   
+	$result1  = mysqli_query($con,$notification)or die(mysqli_error($con));  
+	if ($result && $result1) {
+		echo "data insert success";
+	}
+	else{
+		echo "not success".$result.$result1;
+	}
 }
 }
 else{
 	$sql1="insert into relationship (member_id,relation_type,reference_member_Id,member_request_status,upd_user,active_status) values('$MEMBER_ID','$Relation_Type','$Reference_Member_Id','N','$MEMBER_ID','Y')";
-    $result = mysqli_query($con,$sql1)or die(mysqli_error($con));   
 
-    if ($result) {
-    	echo "data insert success";
-    }
-    else{
-    	echo "not success".$result;
-    }
+	$notification="INSERT INTO `general_notification` (`id`, `member_id`, `reference_member_id`, `notification_type`, `seen_or_unseen_status`, `member_type`, `record_inserted_dttm`, `record_updated_dttm`, `active_status`) VALUES ('','$Reference_Member_Id', '$MEMBER_ID', 'request_sent', '0', 'user', '$submitdate', '', 'Y')";
+		$result1  = mysqli_query($con,$notification)or die(mysqli_error($con));  
+	$result = mysqli_query($con,$sql1)or die(mysqli_error($con));   
+
+	if ($result && $result1) {
+		echo "data insert success";
+	}
+	else{
+		echo "not success".$result.$result1;
+	}
 }
 
 ?>
