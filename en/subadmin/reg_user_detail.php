@@ -199,7 +199,7 @@ else{ echo "NA";}
 <div class="row">
 <div class="col-md-6 text-center">
 
-<?php if($getdate['active_status']!="N"){  ?>
+<?php if(($getdate['active_status']=="Y")|| ($getdate['active_status']=="U") ){  ?>
 <label class="form-check-label admin-check">
 <input type="radio" id="approve" class="form-check-input" name="status" value="1" checked onclick="selectReason();">Approve
 </label>
@@ -210,7 +210,7 @@ else{ echo "NA";}
 
 </div>
 <div class="col-md-6 text-center">
-<?php if($getdate['active_status']!="N"){  ?>
+<?php if(($getdate['active_status']=="Y")|| ($getdate['active_status']=="U") ){  ?>
 <button class="btn btn-success" name="submit">Submit</button>
 <?php } ?>
 <!-- <button class="btn btn-warning">Pending</button> -->

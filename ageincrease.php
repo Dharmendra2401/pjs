@@ -9,14 +9,7 @@ $getadte= date('d-m',strtotime($fetchdate['date_of_birth']));
 $currentdate=date('d-m'); 
 if($getadte==$currentdate){
 $getyear= date('Y',strtotime($fetchdate['date_of_birth']));
-$getage=date('Y')-$getyear;echo 'update member set age="'.$getage.'" where member_id="'.$fetchdate['member_id'].'" ';
-echo "hello";
-$subject="Age updation from ".WEBSITE_NAME." website";
-$mes='';
-$mes.="<p> Your age is successfully updated</p>";
-$message=$mes;
-$to='shuklaharsh665@gmail.com';
-sendmails($to,$message,$subject);
+$getage=date('Y')-$getyear;
 mysqli_query($con,'update member set age="'.$getage.'" where member_id="'.$fetchdate['member_id'].'" ');
 }
 }

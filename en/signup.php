@@ -276,7 +276,7 @@ while($show=mysqli_fetch_array($state)){
 </div>
 
 <div class="form-group row" id="income-div" style="display:none;">
-<label class="col-md-3 col-form-label"><span class="text-danger">*</span> Income</label>
+<label class="col-md-3 col-form-label"><span class="text-danger">*</span>Annual Income</label>
 <div class="col-md-9">
 <select class="custom-select" name="income" id="income">
 <option value="" >Select income</option>

@@ -86,56 +86,7 @@ while($show=mysqli_fetch_array($state)){
 <?php  include 'load_open.php'; ?>
 
 </div>
-<!-- <div id="pending" class="tab-pane table-responsive fade"><br>
-<table id="pendingEntries" class="table table-striped table-bordered" style="width:100%">
-<thead>
-<tr>
-<th>S.no.</th>
-<th>Requested User Name</th>
-<th>City/Town/Village</th>
-<th>Requested Date</th>
-<th>View Details</th>
-</tr>
-</thead>
-<tbody>
-<tr>
-<td>1</td>
-<td>Lavish</td>
-<td>indore</td>
-<td>21/02/20</td>
-<td><a href="reg_user_detail.php">Show Details</a></td>
-</tr>
-<tr>
-<td>2</td>
-<td>Munish</td>
-<td>San Francisco</td>
-<td>21/02/20</td>
-<td><a href="#">Show Details</a></td>
-</tr>
-<tr>
-<td>3</td>
-<td>Sidhu</td>
-<td>bangalore</td>
-<td>21/02/20</td>
-<td><a href="#">Show Details</a></td>
-</tr>
-<tr>
-<td>4</td>
-<td>jain</td>
-<td>delhi</td>
-<td>21/02/20</td>
-<td><a href="#">Show Details</a></td>
-</tr>
-<tr>
-<td>5</td>
-<td>Customer Support</td>
-<td>chennai</td>
-<td>21/02/20</td>
-<td><a href="#">Show Details</a></td>
-</tr>
-</tbody>
-</table>
-</div> -->
+
 <div id="closed" class="tab-pane table-responsive fade"><br>
 <br>
 <div class="row">
