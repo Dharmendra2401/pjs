@@ -70,7 +70,7 @@ $staus_show='no status';
 
 
 <?php   } else { ?> 
-<a type="button" class="btn btn-info mr-3 login-signup" data-toggle="modal" data-target="#modal21">Save Profile</a>
+<a type="button" class="btn btn-info mr-3 login-signup" data-toggle="modal" data-target="#login">Save Profile</a>
 <?php } if(isset($_SESSION['user_mid'])){ 
 if ($request_status_user=='from' AND $staus_show=='N') {?>
 <a type="button" class="btn btn-warning add-relation">Request Sent</a>
@@ -80,7 +80,7 @@ if ($request_status_user=='from' AND $staus_show=='N') {?>
 <a type="button" class="btn btn-warning add-relation">Member</a>
 <?php }
 elseif ($request_status_user=='from' AND $staus_show=='Y') {?>
-<a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Member</a>
+<a type="button" class="btn btn-warning add-relation">Member</a>
 <?php }
 else{ ?>
 	 <?php if ($row['Life_status']=='D') { ?>
@@ -89,7 +89,7 @@ else{ ?>
 <a type="button" class="btn btn-warning" data-toggle="modal" data-target="#exampleModal" data-whatever="<?php echo $row['member_id']; ?>" data-gender="<?php echo $row['gender'];?>" data-name="<?php echo $fullname=$row['first_name'].' '. $row['middle_name'].' '.$row['last_name'];?>">Add Member</a>
 <?php } }
 }  else {?>
-<a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Add Member</a>
+<a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#login">Add Member</a>
 <?php }?>
 </div>
 </div>
@@ -158,8 +158,8 @@ else{ ?>
 								<a href="https://web.whatsapp.com/send?text=<?php echo $url;?>" class="web_app"><i type="button" class="fas fa-share mx-2 "></i></a>
 <?php }
 else{?>
-<i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#modal21"></i>
-<i type="button" class="fas fa-share mx-2 login-signup" data-toggle="modal" data-target="#modal21"></i>
+<i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#login"></i>
+<i type="button" class="fas fa-share mx-2 login-signup" data-toggle="modal" data-target="#login"></i>
 <?php } ?>
 
 
