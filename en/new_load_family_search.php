@@ -1,6 +1,8 @@
 								<?php  require_once("../config/config.php"); ?>
 									<div class="row tree-srch-list">
-                                
+                                <style type="text/css">a.card_a,a.card_a:hover{
+                                	color: #2c2c2c;
+                                }</style>
 								<?php
 							 $current_user=$_SESSION['user_mid'];
 							 $search_value=$_REQUEST['search'];
@@ -27,6 +29,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 									while($row=mysqli_fetch_assoc($rs)){      
 									?>
 										<div class="col-md-12">
+											<a href="<?php echo RE_EN_PATH; ?>user_detail.php?token=<?php echo base64_encode($row['member_id']);?>" class="card_a">
 												<ul class="list-unstyled list-inline list-card">
 													<li class="list-inline-item">
 														<?php 
@@ -40,7 +43,11 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 														<p><?php echo $row['first_name'].' '. $row['middle_name'].' '.$row['last_name']; ?></p>
 														<p><?php echo $row['member_id']; ?></p>
 													</li>
-													<li class="list-inline-item float-right">
+
+												</ul> 
+											</a>
+											<ul <?php if($row['Life_status']=='D'){ ?> style="position: absolute;top:50%;right: 8%;" <?php } else{ ?>style="position: relative;top:50%;right: 2px;"<?php } ?>>
+										<li class="float-right" style="list-style: none;">
 														<?php if($row['Life_status']=='D'){?>
 														<span style='font-size:10px;'>
 				 		<i class='fas fa-flag text-danger'></i>
@@ -51,7 +58,7 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 														<input type="hidden" referenc-id="<?php echo $row['member_id'];?>" gender="<?php echo $row['gender'];?>">
 													<?php  } ?>
 													</li>
-												</ul> 
+											</ul>
 										</div>
 
 									<?php	 }
