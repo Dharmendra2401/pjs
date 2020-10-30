@@ -151,7 +151,7 @@ $year= date('Y'); $setyear=$year-1;
 <div class="col-md-3">
 <input type="radio" name="donate" value="Yes" checked > <label class="mr-5">Yes</label>
 <input type="radio" name="donate" value="No" > <label>No</label> 
-</div><div class="col-md-6"><span id="blood_donate_text"> ( आपका नाम और फ़ोन नंबर ब्लड ग्रुप सर्च में दिखाई देगा। ) </span></div>
+</div><div class="col-md-6"><span id="blood_donate_text" class="bg-warning rounded"> ( आपका नाम और फ़ोन नंबर ब्लड ग्रुप सर्च में दिखाई देगा। ) </span></div>
 </div>
 
 <div class="form-group row">
