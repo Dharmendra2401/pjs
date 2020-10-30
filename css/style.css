@@ -139,7 +139,7 @@ body{
 }
 
 .fa-bell{
-    font-size: 30px;
+    font-size: 25px;
     vertical-align: middle;
     padding-right: 15px;
     color: #b5b5b5;
@@ -194,7 +194,7 @@ a.notification:hover{
     text-decoration: none;
 }
 
-ul.notification-menu ul .triangle{
+/*ul.notification-menu ul .triangle{
     width: 0;
     height: 0;
     border-left: 10px solid transparent;
@@ -236,7 +236,7 @@ ul.notification-menu li .triangle-shadow{
     position: absolute;
     top: -10px;
     left: 10px;
-}
+}*/
 
 .notification-menu{
     top: 15px !important;
@@ -245,6 +245,27 @@ ul.notification-menu li .triangle-shadow{
     -moz-box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.64);
     box-shadow: 0px 0px 5px 0px rgba(0,0,0,0.64);
     padding: 10px;
+}
+
+.rotate-icon{
+    -ms-transform: rotate(20deg);
+    transform: rotate(20deg);
+    display: block !important;
+        position: absolute;
+    right: 160px;
+}
+
+.notification .label-pill{
+    border-radius: 50%;
+    font-size: 9px;
+    position: relative;
+    top: -18px;
+    left: -35px;
+    background: red;
+    padding: 4px;
+    color: #ffff;
+    height: 60px;
+    width: 40px;
 }
 /*-----------------------HEADER ENDS----------------------------------------------*/
 
@@ -260,11 +281,35 @@ footer {
 }
 
 .disclaimer{
-    float: right;
     font-size: 10px;
     padding: 5px 10px;
+    display: block;
 }
+
+
 /*-----------------------FOOTER ENDS----------------------------------------------*/
+
+/*-----------------------ERROR---------------------------------------------------*/
+.error-wrapper{
+    width: 100%;
+    display: flex;
+    justify-content: center;
+   
+}
+
+.error-wrapper a.btn-primary:hover{
+    background-color: #446eb6;
+    border-color: #446eb6;
+}
+
+.error-img{
+    width: 100%;
+    min-height: 500px;
+    max-height: 600px;
+    object-fit: contain;
+    margin-bottom: -150px;
+}
+/*-----------------------ERROR ENDS----------------------------------------------*/
 
 
 /*-----------------------EDIT----------------------------------------------*/
@@ -1271,6 +1316,14 @@ h3{
     padding: 4px 10px;
     font-size: 15px;
 }
+
+input.form-control{
+    height: calc(1.5em + .5rem + 2px);
+    padding: .25rem .5rem;
+    font-size: .875rem;
+    line-height: 1.5;
+    border-radius: .2rem;
+}
 /*-------------------------GLOBAL ENDS-------------------*/
 
 /*--------------------HEADER---------------------------*/
@@ -1296,7 +1349,7 @@ h3{
 
   .loggedin{
     position: absolute;
-    top: -109px;
+    top: -100px;
     right: 24px;
   }
 
@@ -1355,7 +1408,7 @@ h3{
 
   .sm-icon-alert{
     position: absolute;
-    top: -97px;
+    top: -87px;
     right: 65px;
     font-size: 20px;
     color: #ffffff
@@ -1404,11 +1457,11 @@ h3{
 }
 
 .notification-menu{
-    top: -90px !important;
+    top: -80px !important;
     margin-left: 10px;
 }
 
-ul.notification-menu ul .triangle{
+/*ul.notification-menu ul .triangle{
     top: -9px;
     left: 233px;
 }
@@ -1418,7 +1471,25 @@ ul.notification-menu ul .triangle-shadow{
     left: 233px;
 }
 
+ul.notification-menu li .triangle{
+    left: 80px;
+}
+
+ul.notification-menu li .triangle-shadow{
+    left: 80px;
+}*/
+
 /*--------------------HEADER ENDS---------------------------*/
+
+/*--------------------FOOTER--------------------------------*/
+footer{
+    padding: 2px;
+    font-size: 15px;
+}
+.disclaimer{
+    font-size: 9px;
+}
+/*--------------------FOOTER ENDS---------------------------*/
 
 /*--------------------SEARCHLIST-----------------------------*/
 .cancel-btn{
@@ -1678,6 +1749,33 @@ ul.notification-menu ul .triangle-shadow{
 
 .tree-card .family-info li{
     text-transform: capitalize !important;
+}
+
+.hindi-text{
+    font-size: 15px;
+    font-weight: 600;
+    line-height: 10px;
+}
+
+.new-update{
+    padding: 10px;
+}
+
+.new-update .card-title i{
+    font-size: 15px;
+    padding-top: 8px;
+}
+
+.death-update{
+    padding: 10px;
+}
+
+.death-update .card-title i{
+    font-size: 15px;
+}
+
+.death-update .card-title i.fa-plus,.fa-minus{
+    padding-top: 8px;
 }
 /*--------------------FAMILY TREE ENDS---------------------------*/
 

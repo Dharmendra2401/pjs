@@ -29,6 +29,10 @@ user_session_check();
 .file-type{
     opacity: 0;
     width: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: 2;
 }
 
 .browse-txt{
@@ -39,6 +43,7 @@ user_session_check();
     background-color: #eeeeee;
     height: calc(1em + .75rem + 2px);
     padding: 4px 20px 0 20px;
+    z-index: 1;
 }
  </style>
 </head>
@@ -52,7 +57,9 @@ user_session_check();
 				 <div class="col-md-4">
 				 	<div class="card mb-2">
 						<div class="card-body pb-2 death-update">
-							<h5 class="card-title"><i class="fas fa-flag text-danger pr-2"></i>अपंजीकृत स्वर्गीय / पूर्वज यहाँ से ऐड करें। 
+							<h5 class="card-title">
+								<i class="fas fa-flag text-danger pr-2"></i>
+								<span class="hindi-text">अपंजीकृत स्वर्गीय / पूर्वज ऐड करें। </span>
 								<i class="fas fa-plus float-right"></i>
 							</h5>
 							<form action="" class="d-none-form" enctype="multipart/form-data" id="dead_person_form">
@@ -102,7 +109,8 @@ user_session_check();
 					</div>
 					<div class="card mb-2">
 						<div class="card-body pb-2 new-update">
-							<h5 class="card-title">जीवित पंजीकृत मेंबर्स को यहाँ सर्च करे।
+							<h5 class="card-title">
+								<span class="hindi-text">जीवित पंजीकृत मेंबर्स को यहाँ सर्च करे।</span>
 								<i class="fas fa-plus float-right"></i>
 							</h5>
 <!-- 							<form class="d-none-new-form" method="post" action="">
