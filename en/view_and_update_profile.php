@@ -59,7 +59,9 @@ $row=mysqli_fetch_array($fire);
                         else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
 
 								<div class="col-md-3 col-5">Height <strong>:</strong></div>
-								<div class="col-md-9 col-7 height_ov"><?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?> 
+								<div class="col-md-9 col-7 height_ov"><!-- <?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?>  -->
+								<span class="feet_text"><?php if($row['feet']!=''){echo $row['feet'];}else{echo "";}?></span> <span>ft.</span>
+									<span class="inch_text"><?php  if($row['inches']!=''){echo $row['inches']; }else{ echo "";}?></span><span> in</span>
 							</div>
 							</div>
 							<h3>Birth Details &nbsp;&nbsp; 
@@ -236,8 +238,8 @@ $row=mysqli_fetch_array($fire);
 
 								<div class="col-md-3 col-5">Height <strong>:</strong></div>
 								<div class="col-md-9 col-7">
-									<span class="feet"><?php echo $row['feet'];?></span>
-									<span class="inch"><?php echo $row['inches'];?></span>
+									<span class="feet"><?php if($row['feet']!=''){echo $row['feet'];}else{echo "";}?></span><span class="ft1">ft.</span>
+									<span class="inch"><?php  if($row['inches']!=''){echo $row['inches']; }else{ echo "";}?></span><span class="in2"> in</span>
 									<span class="privacy"><?php print $row['Height'] == 'N' ? 'Private' : 'Public';?> </span> 
 									<form class="edit-form" data-columnname='feet' data-tablename='member' id="height_frm">
 										<input type="tel" class="edit-input-feet form-control mb-2" name="height_feet" maxlength="2" onkeypress="return isNumeric(event)">
@@ -606,7 +608,7 @@ $(document).ready(function(){
 
  $(".edit").on("click", function(){ 
 	 $(this).siblings('.data').hide();	
-	 $(this).siblings('.feet, .inch, .male, .female').hide();	
+	 $(this).siblings('.feet, .inch, .male, .female, .ft1, .in2').hide();	
 	 $(this).siblings('.privacy').hide();	
 	 $(this).siblings('.dropdwn-txt').hide();	
 	 $(this).siblings('.data').text();
@@ -895,8 +897,13 @@ $(document).ready(function(){
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 					current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
-					current_users.parent(".edit-form").siblings(".feet").show().text(inputValueFeet+" '");
-					current_users.parent(".edit-form").siblings(".inch").show().text(" '"+inputValueInch);
+					current_users.parent(".edit-form").siblings(".ft1").show().text("ft.");
+					current_users.parent(".edit-form").siblings(".in2").show().text(" in");
+					current_users.parent(".edit-form").siblings(".feet").show().text(inputValueFeet);
+					current_users.parent(".edit-form").siblings(".inch").show().text(inputValueInch);
+
+					$(".feet_text").text(inputValueFeet);
+					$(".inch_text").text(inputValueInch);
 				}
 				else{
 				alert("Data: not updated");

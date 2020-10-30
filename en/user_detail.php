@@ -77,7 +77,7 @@ if ($request_status_user=='from' AND $staus_show=='N') {?>
 <?php } elseif($request_status_user=='to' AND $staus_show=='N') { ?>
 <a type="button" class="btn btn-warning approve" id="<?php echo $row['member_id'];?>">Accept</a>
 <?php } elseif ($request_status_user=='to' AND $staus_show=='Y') {?>
-<a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Member</a>
+<a type="button" class="btn btn-warning add-relation">Member</a>
 <?php }
 elseif ($request_status_user=='from' AND $staus_show=='Y') {?>
 <a type="button" class="btn btn-warning add-relation" data-toggle="modal" data-target="#modal21">Member</a>

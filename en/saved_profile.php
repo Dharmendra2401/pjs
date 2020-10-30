@@ -24,7 +24,7 @@ if(mysqli_num_rows($saved_user_profile)>0) {
 while( $row1 = mysqli_fetch_assoc($saved_user_profile)){
 ?>
 <li class="user-list-box">
-<a href="#">
+<a href="<?php echo RE_EN_PATH; ?>user_detail.php?token=<?php echo base64_encode($row1['reference_member_Id']);?>">
 <ul class="list-unstyled list-inline">
 <li class="list-inline-item">
 <img class="user-list-img" src="<?php echo RE_HOME_PATH.''.$row1['display_pic'] ;?>">
@@ -32,10 +32,10 @@ while( $row1 = mysqli_fetch_assoc($saved_user_profile)){
 <li class="list-inline-item">
 <p><?php echo $row1['first_name']; ?></p>
 <p ><?php echo $row1['reference_member_Id']; ?></p>
-<i class="far fa-trash-alt save_profile_delete" id="<?php echo $row1['reference_member_Id']; ?>"></i>
 </li>
 </ul>
 </a>
+<i class="far fa-trash-alt save_profile_delete" id="<?php echo $row1['reference_member_Id']; ?>"></i>
 </li>
 <?php  }
 }
@@ -64,6 +64,7 @@ else{
 <style type="text/css">
 .fa-trash-alt:hover{
 color: red !important; 
+cursor: pointer;
 }
 </style>
 <script type="text/javascript">

@@ -64,26 +64,31 @@ user_session_check();
 									<label>Popular Name</label>
 									<input type="text" class="form-control form-control-sm" placeholder="Enter name" id="d_popname" name="d_popname">
 								</div>
-								<div class="form-group">
+								<div class="row">
+									<div class="form-group col-md-6">
 										<label>Relation type</label>
-									<select class="form-control form-control-sm" id="relationship_type" name="relationship_type">
-										<option value="">please select relationship</option> 
-										<option value="Grandfather">Grandfather</option>              
-										<option value="Father">Father</option>
-										<option value="Husband">Husband</option>
-										<option value="Brother">Brother</option>
-										<option value="Son">Son</option>
-										<option value="Grandmother">Grandmother</option>
-										<option value="Mother">Mother</option>
-										<option value="Wife">Wife</option>                
-										<option value="Daughter">Daughter</option>                
-										<option value="Sister">Sister</option>
-									</select>
+										<select class="form-control form-control-sm" id="relationship_type" name="relationship_type">
+											<option value="">please Select relationship</option> 
+											<option value="Grandfather">Grandfather</option>              
+											<option value="Father">Father</option>
+											<option value="Husband">Husband</option>
+											<option value="Brother">Brother</option>
+											<option value="Son">Son</option>
+											<option value="Grandmother">Grandmother</option>
+											<option value="Mother">Mother</option>
+											<option value="Wife">Wife</option>                
+											<option value="Daughter">Daughter</option>                
+											<option value="Sister">Sister</option>
+										</select>
+									</div>
+
+									<div class="form-group col-md-6">
+										<label>Date of Death</label>
+										<input type="text" onfocus="(this.type='date')" class="form-control form-control-sm dod" placeholder="Enter Date" id="dod">
+									</div>
 								</div>
-								<div class="form-group">
-									<label>Date of Death</label>
-									<input type="text" onfocus="(this.type='date')" class="form-control form-control-sm dod" placeholder="Enter Date" id="dod">
-								</div>
+								
+								
 								
 									<!-- <label>Upload Image</label> -->
 								 <div class="file-input">
@@ -223,14 +228,15 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 				</button>
 			</div>
 			<div class="modal-body">
-				<form>
+				<form id="send_request_form">
 					<div class="form-group">
 						<input type="hidden" class="form-control" id="referenc-id">
 						<input type="hidden" class="form-control" id="Member_Id">
 					</div>
 					<p class="err msg" style="background: red;color:#fff;font-weight:400;"></p>
 					 <div class="form-group" id="live_relation_type">
-							<select class="form-control female" style="display: none">
+							<select class="form-control female" style="display: none" name="relationship_type_select" id="relationship_type_ids">
+								<option value="">Select</option>
 								<option value="Grandmother">Grandmother</option>
 								<option value="Mother">Mother</option>  
 								<?php if($_SESSION['curr_gender']=='M'){ ?> 
@@ -239,7 +245,8 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 								<option value="Daughter">Daughter</option>                
 								<option value="Sister">Sister</option>
 							</select>
-							<select class="form-control male" style="display: none;">
+							<select class="form-control male" style="display: none;" name="relationship_type_select" id="relationship_type_ids">
+								<option value="">Select</option>
 								<option value="Grandfather">Grandfather</option>              
 								<option value="Father">Father</option>
 								<?php if($_SESSION['curr_gender']=='F'){ ?>
@@ -336,39 +343,53 @@ SELECT MEM.MEMBER_ID FROM `relationship` RS INNER JOIN `member` MEM ON RS.member
 	modal.find('.modal-body #referenc-id').val(recipient)
 	modal.find('.modal-body #Member_Id').val(member_id)
 })
-	
+	$("#send_request_form").validate({
+					rules: {
+							relationship_type_select: "required"
+					},
+					messages: {
+							relationship_type_select: "Please Select relationship type"
+					}
+			})
 	$(".send_request").on("click", function () {
-		var member_id=$("#Member_Id").val()
-		var reference=$("#referenc-id").val()
-		var relationship_type1=$("#live_relation_type select:visible option:selected").val()
- 		var home_path=$("#home_path").val();
-		$.post(home_path+"en/PJS-demo/send_request.php",
-			{
-				member_id: member_id,
-				reference_id:reference,
-				relationship_type:relationship_type1
-			},
-		function(data,status){
-			var status1=status;
-			var da=$.trim(data);
-			// console.log(da);
-			// return;
-			if (da=='data insert success') {
-				// window.location.reload();
-				// $('#exampleModal').modal('hide')
-				// $('#success_tic').modal('show')
-				location.reload(true);
-			}
-			else{
-				$('.err.msg').show();
-				$('.err.msg').text(da);
-				$('.err.msg').css("padding","10px");
-			}
-		});
+		if (!$("#send_request_form").valid()) { // Not Valid
+			return false;
+		} 
+		else{
+			var member_id=$("#Member_Id").val()
+			var reference=$("#referenc-id").val()
+			var relationship_type1=$("#live_relation_type select:visible option:selected").val()
+	 		var home_path=$("#home_path").val();
+			$.post(home_path+"en/PJS-demo/send_request.php",
+				{
+					member_id: member_id,
+					reference_id:reference,
+					relationship_type:relationship_type1
+				},
+			function(data,status){
+				var status1=status;
+				var da=$.trim(data);
+				// console.log(da);
+				// return;
+				if (da=='data insert success') {
+					// window.location.reload();
+					// $('#exampleModal').modal('hide')
+					// $('#success_tic').modal('show')
+					location.reload(true);
+				}
+				else{
+					$('.err.msg').show();
+					$('.err.msg').text(da);
+					$('.err.msg').css("padding","10px");
+				}
+			});
+		}
 
 	})
 	$('#exampleModal').on('hide.bs.modal', function (e) {
 		$('.err').hide();
+		$('label.error').hide();
+		
 	})
 //  
 	$(".btnrequest_relation_delete").on("click", function (e) {
