@@ -614,7 +614,6 @@ box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
 }
 
 .mobile-code{
-    width: 80px;
     line-height: 5px;
     background-color: #eeeeee;
     padding: 5px 0 5px 5px;
@@ -1286,7 +1285,7 @@ box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
 }
 
 .mobile-code{
-    width: 60px;
+   
     line-height: 5px;
     background-color: #eeeeee;
     padding: 5px 0 5px 5px;
