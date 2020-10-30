@@ -1,3 +1,4 @@
+
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
@@ -28,11 +29,13 @@
 <?php 
 
 if ($_SESSION['user_mid']!='' || $_SESSION['admin_id']!=''){
-
+ 
 ?>
  <a href="#" class="dropdown-toggle notification" data-toggle="dropdown"><i class="far fa-bell sm-icon-alert"></i>
-<span class="label label-pill label-danger count" style="border-radius:50%;font-size: 9px;position: relative;top: -18px;left: -35px;background: red;padding: 4px;color: #ffff;/*! width: 12px !important; */"></span></a>
-	   <ul class="dropdown-menu notification-menu"></ul>
+<span class="label label-pill label-danger count" style="border-radius:50%;font-size: 9px;position: relative;top: -18px;left: -35px;background: red;padding: 4px;color: #ffff;/*! width: 12px !important; */"></span>
+</a>
+	   <ul class="dropdown-menu notification-menu">
+	   </ul>
 
 
 <?php 
