@@ -418,7 +418,7 @@ $("#feet").addClass("invalid");
 $(document).ready(function(){
 $('input[name=donate]').on('change', function() {
 if($(this).val()=='No'){
-$('#blood_donate_text').html('( ग्रुप सर्च में नहीं दिखाई देगा। ) ');	
+$('#blood_donate_text').html('( आपका नाम और फ़ोन नंबर ब्लड ग्रुप सर्च में नहीं दिखाई देगा। ) ');	
 }else{
 $('#blood_donate_text').html(' ( आपका नाम और फ़ोन नंबर ब्लड ग्रुप सर्च में दिखाई देगा। ) '); 
 }
