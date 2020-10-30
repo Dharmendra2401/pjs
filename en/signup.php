@@ -124,14 +124,14 @@ $year= date('Y'); $setyear=$year-1;
 <!-- <input type="text" class="form-control" placeholder="Enter blood group" name="bloodgroup" id="bloodgroup"> -->
 <select class="form-control" id="bloodgroup" name="bloodgroup">
 <option value="">Select your blood group</option>
-<option value="1">A+</option>
-<option value="2">B+</option>
-<option value="3">AB+</option>
-<option value="4">O+</option>
-<option value="5">A-</option>
-<option value="6">B-</option>
-<option value="7">AB-</option>
-<option value="8">O-</option>
+<option value="A+">A+</option>
+<option value="B+">B+</option>
+<option value="AB+">AB+</option>
+<option value="O+">O+</option>
+<option value="A-">A-</option>
+<option value="B-">B-</option>
+<option value="AB-">AB-</option>
+<option value="O-">O-</option>
 <option value="9">Other</option>
 </select>
 </div>
