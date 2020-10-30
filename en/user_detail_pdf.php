@@ -77,7 +77,7 @@ else if($row['blood_group']==3){
 }else if($row['blood_group']==8){
 	$blood_group='O-';
 } else {
-	$blood_group='NA';
+	$blood_group=$row['blood_group'];
 }  
 $feet='';
  if($row['feet']!=''){ 

@@ -49,8 +49,12 @@ $row=mysqli_fetch_array(mysqli_query($con,"SELECT mem.area,mem.member_id,mem.mid
 
 <div class="col-md-3">Blood Group<strong>:</strong></div>
 <div class="col-md-9"> 
-<?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
-else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
+<?php if($getdate['blood_group']==1){echo 'A+';} else if($getdate['blood_group']==2){echo 'B+';}
+else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']==4){echo 'O+';}else if($getdate['blood_group']==5){echo 'A+';}else if($getdate['blood_group']==6){echo 'B-';} else if($getdate['blood_group']==7){echo 'AB-';}else if($getdate['blood_group']==8){echo 'O-';} else {echo $getdate['blood_group'];}  ; ?></div>
+
+<div class="col-md-3">Are you willing to donate?
+ <strong>:</strong></div>
+<div class="col-md-9"><?php if($getdate['blood_donate']!='') {echo $getdate['blood_donate'] ;}else{echo "NA";}?></div>
 
 <div class="col-md-3">Height <strong>:</strong></div>
 <div class="col-md-9"><?php if($row['height']!=''){echo $row['height'];}else{echo "NA";} ; ?></div>

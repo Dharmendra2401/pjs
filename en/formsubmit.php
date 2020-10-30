@@ -2,6 +2,7 @@
 include "../config/config.php";
 require_once("../library/upload.php");
 include 'mail/index.php';
+
 $firstname=mysqli_real_escape_string($con,trim( $_REQUEST['firstname']));
 $fathername=mysqli_real_escape_string($con,trim( $_REQUEST['fathername']));
 $husbandname=mysqli_real_escape_string($con,trim( $_REQUEST['husbandname']));
@@ -32,6 +33,11 @@ $area=mysqli_real_escape_string($con,trim( $_REQUEST['area']));
 $donate=mysqli_real_escape_string($con,trim( $_REQUEST['donate']));
 $flagname=mysqli_real_escape_string($con,trim( $_REQUEST['flagname']));
 $countrycode=mysqli_real_escape_string($con,trim( $_REQUEST['countrycode']));
+$otherbloodgroup=mysqli_real_escape_string($con,trim( $_REQUEST['otherbloodgroup']));
+
+if($bloodgroup==9){
+$bloodgroup=$otherbloodgroup;
+}
 
 $submitdate=date('Y-m-d H:i:s');
 
@@ -55,13 +61,7 @@ redirect(RE_EN_PATH."signup.php","Error! You are already registered with us~@~".
 
 }
 else{
-$subject="".$firstname." ".$middlename." ".$lastname.", Welcome to ".WEBSITE_NAME." ";
-$mes='';
-$mes.="<p> Dear ".$firstname." ".$middlename." ".$lastname.", you are successfully registered on Porwad Jain Samaj website and your REFERENCE ID is <strong>".$request_id."</strong>. We request you to wait until the admin approves your profile.</p>
-<p>If you face any problem in using the website ,email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
-$message=$mes;
-$to=$email;
-sendmails($to,$message,$subject);
+
 if($_FILES["profile"]["name"]!=''){
 $ext=explode(".",$_FILES["profile"]["name"]);
 $url="../uploads/". str_replace(" ","",sha1($_FILES["profile"]["name"].time()).".".$ext[sizeof($ext)-1]);
@@ -74,7 +74,13 @@ createResized($url, $thumb_path, $max_dim);
 
 $insert=mysqli_query($con,"insert into staging_approval (request_id,first_name,last_name,date_of_birth,gender,martial_status,blood_group,popular_name,country,state,city,pincode,full_address,highest_edu,occupation,ocp_details,income,display_pic,place_of_birth,mobile,email,time_of_birth,record_inserted_dttm,fathers_name,age,area,feet,inches,husband_wife_name,blood_donate,country_flag,country_code)values('".$request_id."','".$firstname."','".$lastname."','".date($dob,strtotime('Y-m-d'))."','".$gender."','".$status."','".$bloodgroup."','".$popularname."','".$country."','".$state."','".$city."','".$pincode."','".$address."','".$highest."','".$occupation."','".$details."','".$income."','".$url12."','".$birthplace."','".$mobileno."','".$email."','".$birthtime."','".$submitdate."','".$fathername."','".$age."','".$area."','".$feet."','".$inches."','".$husbandname."','".$donate."','".$flagname."','".$countrycode."')")or die(mysqli_error($con));
 
-
+$subject="".$firstname." ".$middlename." ".$lastname.", Welcome to ".WEBSITE_NAME." ";
+$mes='';
+$mes.="<p> Dear ".$firstname." ".$middlename." ".$lastname.", you are successfully registered on Porwad Jain Samaj website and your REFERENCE ID is <strong>".$request_id."</strong>. We request you to wait until the admin approves your profile.</p>
+<p>If you face any problem in using the website ,email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
+$message=$mes;
+$to=$email;
+sendmails($to,$message,$subject);
 redirect(RE_EN_PATH."signup.php","You're successfuly registered with PJS. Check your email for reference id for further communication. On admin approval you will receive your Member Id to login to PJS portal. To redirect home page  <a href='".RE_EN_PATH."'>click here</a>~@~".MSG_SUCCESS);
 }
 }else{

@@ -137,13 +137,21 @@ $year= date('Y'); $setyear=$year-1;
 </div>
 </div>
 
+<div class="form-group row" style="display:none;" id="otherblooddiv">
+<label class="col-md-3 col-form-label"> <span class="text-danger">*</span> Other Blood Group</label>	
+<div class="col-md-9">
+<input type="text" name="otherbloodgroup" class="form-control" placeholder="Enter other blood group" id="otherbloodgroup" maxlength='3'>
+</div>
+</div>
+
+
 <div class="form-group row">
 <label class="col-md-3"><span class="text-danger">*</span> Are you willing to donate?
 </label>	
-<div class="col-md-9">
+<div class="col-md-3">
 <input type="radio" name="donate" value="Yes" checked > <label class="mr-5">Yes</label>
-<input type="radio" name="donate" value="No" > <label>No</label>
-</div>
+<input type="radio" name="donate" value="No" > <label>No</label> 
+</div><div class="col-md-6"><span id="blood_donate_text"> ( आपका नाम और फ़ोन नंबर ब्लड ग्रुप सर्च में दिखाई देगा। ) </span></div>
 </div>
 
 <div class="form-group row">
@@ -407,6 +415,28 @@ $("#feet").addClass("invalid");
 } 
 });
 
+$(document).ready(function(){
+$('input[name=donate]').on('change', function() {
+if($(this).val()=='No'){
+$('#blood_donate_text').html('( ग्रुप सर्च में नहीं दिखाई देगा। ) ');	
+}else{
+$('#blood_donate_text').html(' ( आपका नाम और फ़ोन नंबर ब्लड ग्रुप सर्च में दिखाई देगा। ) '); 
+}
+});
+
+$('select[name=bloodgroup]').on('change', function() {
+if($(this).val()==9){
+$('#otherblooddiv').show();	
+}else{
+$('#otherblooddiv').hide(); 
+$('#otherbloodgroup').val(''); 
+
+}
+});
+
+});
+
+
 $(document).on('input', '#dob', function() {
 var dob = new Date($('#dob').val());
 var today = new Date();
@@ -487,6 +517,7 @@ var genderr=$("input[name='gender']:checked"). val();
 
 var countryflag=$('#flagname').val();
 var countrycode=$('.cc-picker-code').html();
+var otherbloodgroup=$('#otherbloodgroup').val();
 if(firstname.trim()==''){
 	$('#firstname').focus();
 	$("#firstname").addClass("invalid");
@@ -583,8 +614,14 @@ else if((statuss=='married')&&(husbandname.trim()=='')){
 	return false;
 	 
 	}
+	else if((otherbloodgroup=='')&&(bloodgroup==9)){
+	$('#otherbloodgroup').focus();
+	$("#otherbloodgroup").addClass("invalid");
+	return false;
+	 
+	}
 
-
+	
 	else{
 	$('.tabtwo').show();
 	$('.tabone').hide();

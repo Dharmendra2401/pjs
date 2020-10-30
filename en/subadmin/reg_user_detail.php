@@ -106,7 +106,7 @@ redirect(RE_HOME_ADMIN."reg_request.php","Error! Please try again~@~".MSG_ERROR)
 <div class="col-md-3">Blood Group<strong>:</strong></div>
 <div class="col-md-9"> 
 <?php if($getdate['blood_group']==1){echo 'A+';} else if($getdate['blood_group']==2){echo 'B+';}
-else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']==4){echo 'O+';}else if($getdate['blood_group']==5){echo 'A+';}else if($getdate['blood_group']==6){echo 'B-';} else if($getdate['blood_group']==7){echo 'AB-';}else if($getdate['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
+else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']==4){echo 'O+';}else if($getdate['blood_group']==5){echo 'A+';}else if($getdate['blood_group']==6){echo 'B-';} else if($getdate['blood_group']==7){echo 'AB-';}else if($getdate['blood_group']==8){echo 'O-';} else {echo $getdate['blood_group'];}  ; ?></div>
 
 <div class="col-md-3">Are you willing to donate?
  <strong>:</strong></div>
@@ -123,7 +123,8 @@ else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']=
 <?php } ?>
 
 <div class="col-md-3">Height <strong>:</strong></div>
-<div class="col-md-9"><?php if($getdate['height']!=''){echo $getdate['height'];}else{echo "NA";} ; ?></div>
+<div class="col-md-9"> Feet :<?php
+if($row['feet']!=''){ echo $row['feet'];}else{echo "NA";}  ?> Inches : <?php  if($row['inches']!=''){ echo $row['inches'];}else{echo "NA";} ?></div>
 
 <div class="col-md-3">Date of Birth <strong>:</strong></div>
 <div class="col-md-9"><?php echo date('d/m/Y',strtotime($getdate['date_of_birth'] )); ?></div>
@@ -138,7 +139,7 @@ else if($getdate['blood_group']==3){echo 'AB+';}else if($getdate['blood_group']=
 <hr>
 <div class="row info mb-4">
 <div class="col-md-3">Mobile No. <strong>:</strong></div>
-<div class="col-md-9"> <div class="cc-picker form-control" style="width: 80px;" readonly><div class="cc-picker-flag <?php echo $getdate['country_flag']; ?>"></div><span class="cc-picker-code"><?php echo $getdate['country_code']; ?></span> </div> <?php if($getdate['mobile']!=''){echo $getdate['mobile'];}else{echo "NA";} ; ?></div>
+<div class="col-md-9"> <div class="cc-picker form-control" style="width: 70px;padding: 6px 5px 6px;" readonly><div class="cc-picker-flag <?php echo $getdate['country_flag']; ?>"></div><span class="cc-picker-code"><?php echo $getdate['country_code']; ?></span> </div> <?php if($getdate['mobile']!=''){echo $getdate['mobile'];}else{echo "NA";} ; ?></div>
 
 <div class="col-md-3">Email Id<strong>:</strong></div>
 <div class="col-md-9"><?php if($getdate['email']!=''){echo $getdate['email'];}else{echo "NA";} ; ?></div>

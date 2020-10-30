@@ -8,7 +8,7 @@ if($_REQUEST['search']!='')
 if($_SESSION['user_mid']!='')
 {$statu.= 'and member_id!= "'.$_SESSION['user_mid'].'" ';}
 
-$stat="member where 1=1  $statu order by member_id desc";
+$stat="member where 1=1 and Life_status='L' $statu order by member_id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;

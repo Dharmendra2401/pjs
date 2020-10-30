@@ -1869,7 +1869,11 @@ display:none;z-index:9;}
            
             color: white!important;
            }
-        
+       #blood_donate_text{   font-size: 14px;
+        background: rgb(128 128 128 / 11%);
+        padding: 5px 5px 5px;
+        position: relative;
+        top: 4px;} 
 
     /*.carousel-control-prev i
     {background: #3eb8e9;
