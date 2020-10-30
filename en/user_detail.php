@@ -54,10 +54,10 @@ $staus_show='no status';
 <div class="user-container" id="example">
 <div class="container">
 <div class="row">
-<div class="col-md-2 text-right user-detail-container">
+<div class="col-md-2 col-4 text-right user-detail-container">
 <a data-lightbox="example-1" href="<?php echo RE_HOME_PATH.''.$row['display_pic'] ;?>">	<img class="user-img img-fluid" src="<?php echo RE_HOME_PATH.$row['display_pic'] ;?>"></a>
 </div>
-<div class="col-md-4 pl-0 align-self-end sm-tr user-detail-info">
+<div class="col-md-4 col-8 pl-0 align-self-end sm-tr user-detail-info">
 <h2 class="text-white mb-1"><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name']; ?></h2>
 <h5 class="text-white"><?php echo $row['member_id'] ;?></h5>
 </div>
@@ -123,7 +123,7 @@ else{ ?>
 </div>
 
 
-<div class="container shadow mb-4 pb-3">
+<div class="container shadow mb-4 pb-3 user-detail-tab">
 <div class="tab-bar">
 <div class="row">
 <div class="col-md-6">
