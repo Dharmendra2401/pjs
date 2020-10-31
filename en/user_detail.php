@@ -154,8 +154,8 @@ else{ ?>
 									// Append the requested resource location to the URL   
 										$url.= $_SERVER['REQUEST_URI'];      
 									?>  
-									<a href="whatsapp://send?text=<?php echo $url;?>" class="mob_app"><i type="button" class="fas fa-share mx-2 "></i></a>
-								<a href="https://web.whatsapp.com/send?text=<?php echo $url;?>" class="web_app"><i type="button" class="fas fa-share mx-2 "></i></a>
+									<a href="whatsapp://send?text=Check this <?php echo $row['first_name']." ".$row['last_name']." Profile%0a".$url;?> %0a%0aTo become a member, click :%0a<?php echo RE_EN_PATH;?>signup" class="mob_app"><i type="button" class="fas fa-share mx-2 "></i></a>
+								<a href="https://web.whatsapp.com/send?text=Check this <?php echo $row['first_name']." ".$row['last_name']." Profile%0a".$url;?> %0a%0aTo become a member, click :%0a<?php echo RE_EN_PATH;?>signup" class="web_app"><i type="button" class="fas fa-share mx-2 "></i></a>
 <?php }
 else{?>
 <i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#login"></i>
