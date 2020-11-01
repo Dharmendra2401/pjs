@@ -258,4 +258,3 @@ $count_death_data=mysqli_fetch_assoc($count_death_request);
 		right: 2px;
 	}
 </style>
- 

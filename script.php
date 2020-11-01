@@ -770,7 +770,7 @@ $('#getotp').show();
 $('#resend').hide();
 }
 
- 
+ <?php if($requestid==''){ ?>
 
 $(function(){
 $(".shortable").addSortWidget();
@@ -781,9 +781,8 @@ $("#getcity").load("<?php echo RE_EN_PATH; ?>getcity.php");
 $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
 $("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
 $("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
-
 });
-
+ <?php } ?>
 
 
 
@@ -801,14 +800,17 @@ if(theEvent.preventDefault) theEvent.preventDefault();
 
 function getCity(){
 var state= $('#state').val();
+var cityname="<?php echo $row['city'];?>";
 $('#loadergif').fadeIn();
 $.ajax({
 type:"POST",
 url:"<?php echo RE_EN_PATH; ?>getcity.php",
-data:{"state":state},
+data:{"state":state,"cityname":cityname},
 success:function(data12){
-$("#getarea").load("area.php");
-$("#getpincode").load("getpincode.php");
+$("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
+$("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
+//getpincodes();
+//getArea();
 $('#getcity').html(data12);
 $('#loadergif').fadeOut();
 }
@@ -826,8 +828,8 @@ type:"POST",
 url:"<?php echo RE_EN_PATH; ?>veiw_update_get_city.php",
 data:{"state":state,"city":city},
 success:function(data12){
-$("#getarea").load("area.php");
-$("#getpincode").load("getpincode.php");
+$("#getarea").load("<?php echo RE_EN_PATH; ?>veiw_update_get_city.php");
+$("#getpincode").load("<?php echo RE_EN_PATH; ?>veiw_update_get_city.php");
 $('#getcity').html(data12);
 $('#loadergif').fadeOut();
 }
@@ -843,7 +845,7 @@ type:"POST",
 url:"<?php echo RE_EN_PATH; ?>getcitytwo.php",
 data:{"state":state},
 success:function(data12){
-$("#getarea").load("area.php");
+$("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
 $('#getcitytwo').html(data12);
 $('#loadergif').fadeOut();
 }
@@ -851,13 +853,17 @@ $('#loadergif').fadeOut();
 }
 function getpincodes(){
 var city= $('#city').val();
+var state= $('#state').val();
+//var cityname="<?php echo $row['city'];?>";
+
 $('#loadergif').fadeIn();
 $.ajax({
 type:"POST",
 url:"<?php echo RE_EN_PATH; ?>getpincode.php",
-data:{"city":city},
+data:{"city":city,},
 success:function(data122){
-$("#getarea").load("area.php");
+$("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
+getArea();
 $('#getpincode').html(data122);
 $('#loadergif').fadeOut();
 }
@@ -896,13 +902,13 @@ $('#loadergif').fadeOut();
 }
 
 function getArea(){
-var states= $('#state').val();
 var pincode= $('#pincodes').val();
+var pincodes= "<?php echo $row['area']; ?>";
 $('#loadergif').fadeIn();
 $.ajax({
 type:"POST",
 url:"<?php echo RE_EN_PATH; ?>area.php",
-data:{"pincode":pincode},
+data:{"pincode":pincode,'pincodes':pincodes},
 success:function(data1224){
 $('#getarea').html(data1224);
 $('#loadergif').fadeOut();

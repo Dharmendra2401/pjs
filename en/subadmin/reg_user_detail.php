@@ -3,7 +3,7 @@ include "../mail/index.php" ;
 sub_admin_session_check();
 
 $getid=base64_decode($_REQUEST['id']);
-
+$trimreason=$_REQUEST['reason'];
 $getdate=mysqli_fetch_array(mysqli_query($con,'select * from staging_approval where request_id="'.$getid.'" '));
 if(isset($_REQUEST['submit'])){
 $submitdate=date('Y-m-d H:i:s');
@@ -33,13 +33,11 @@ sendmails($to,$message,$subject);
 redirect(RE_HOME_ADMIN."reg_request.php","User successfully approved~@~".MSG_SUCCESS);
 
 }
-else if($status==2){
-
-$reason=$_REQUEST['reason'];
+else if(($status==2)&&($trimreason!='')){
 mysqli_query($con,"update staging_approval set active_status='R' where request_id='".$getid."' ");
 //$reasontext=mysqli_real_escape_string($con,trim($_REQUEST['reasontext']));
-$getreason=Implode(',',$reason);
-$trimreason=rtrim($getreason,',');
+//$getreason=Implode(',',$reason);
+//$trimreason=rtrim($getreason,',');
 $update=mysqli_query($con,"update staging_approval set reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
 $subject="PJS Application is rejected by SUBADMIN ".WEBSITE_NAME." ";
 $mes='';
@@ -212,15 +210,15 @@ else{ echo "NA";}
 </div>
 <div class="col-md-6 text-center">
 <?php if(($getdate['active_status']=="Y")|| ($getdate['active_status']=="U") ){  ?>
-<button class="btn btn-success" name="submit">Submit</button>
+<button class="btn btn-success" name="submit" onclick=" return forsubmit();">Submit</button>
 <?php } ?>
 <!-- <button class="btn btn-warning">Pending</button> -->
 <a href="<?php echo RE_HOME_ADMIN;?>reg_request.php" class="btn btn-danger">Back</a>
 </div>
 <div id="select-block"  class="col-md-12">
-<label>Select reason for rejection</label>
-<div class="row">
-<div class="col-md-2">
+
+
+<!-- <div class="col-md-2">
 <input type="checkbox" name="reason[]" value="Name" checked>
 <label>Name</label>
 </div>
@@ -235,15 +233,16 @@ else{ echo "NA";}
 <div class="col-md-2">
 <input type="checkbox" name="reason[]" value="State">
 <label>State</label>
+</div> -->
+<div class="col-md-4" id="reasonrjection">
+<!-- <input type="checkbox" id="other" name="reason[]" value="Other" onclick="selectOther();"> -->
+<textarea id="reasonTxt"  name="reason" class="form-control" maxlength="100" rows="3" placeholder="Enter reason for rejection" name="reasontext"></textarea>
+
+
 </div>
-<div class="col-md-4 mr-5">
-<input type="checkbox" id="other" name="reason[]" value="Other" onclick="selectOther();">
-<label>Other</label>
-<textarea id="reasonTxt"  name="reason[]" class="form-control inputtexttwo" maxlength="50" rows="3" placeholder="Describe yourself here..." name="reasontext"></textarea>
 </div>
 </div>
-</div>
-</div>
+<br>
 </form>
 
 </div>
@@ -256,12 +255,16 @@ function selectReason() {
 var radio = document.getElementById("selectRadio");
 var radioApprove = document.getElementById("approve");
 var block = document.getElementById("select-block");
+var textareass = document.getElementById("select-block");
 if (radio.checked == true){
 block.style.display = "block";
+$('#reasonTxt').show();$('#reasonTxt').attr('required',true);textareass.style.display = "block";
 }
 
 else if (radioApprove.checked == true){
-block.style.display = "none";
+block.style.display = "block";
+
+$('#reasonTxt').hide();
 }
 
 }
@@ -275,6 +278,17 @@ text.style.display = "block";
 text.style.display = "none";
 }
 }
+
+function forsubmit(){
+var option=$('input[name=status]:checked').val();
+var reason=$('#reasonTxt').val();
+if((option==2)&&(reason.trim()=='')){
+$('#reasonTxt').focus();
+$("#reasonTxt").addClass("invalid");
+return false;
+}else{ return true;}
+}
+
 </script>
 <?php include "../../footer.php" ?>
 </body>

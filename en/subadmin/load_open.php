@@ -37,7 +37,7 @@ if($_REQUEST['refrenceidone']!='')
 
 if(isset($_REQUEST['ustatus']))
 {$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
-$stat="staging_approval where 1=1 and (active_status='Y' or active_status='R') $statu order by request_id desc";
+$stat="staging_approval where 1=1 and (active_status='Y' or active_status='R' or active_status='U') $statu order by request_id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
@@ -57,8 +57,8 @@ $currentdate=$row['record_inserted_dttm'];
 <td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
 <td><?php  if ($row['city']!=''){echo $row['city'];}else{echo "NA";} ?></td>
 <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
-<td><?php if($row['active_status']=='Y'){echo "<label class='bg-success text-white btn-sm'>New</label>";} if($row['active_status']=='R'){echo "<label class='bg-warning text-white btn-sm'>Rejected</label>";} ?></td>
-<td><!-- <a class="btn btn-success btn-sm" href="<?php echo RE_EN_PATH;?>userupdate/update.php?token=<?php echo base64_encode($row['request_id']);?>">Update User</a>-->  <a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a> <?php if($row['active_status']=='R'){ ?><a href="#"data-toggle="modal" data-target="#viewreason" onclick="return viewreason('<?php echo $row['reason_of_rejection'];  ?>')" class="btn btn-primary btn-sm" alt="View the reason" title="View the reason"><i class="fa fa-eye"></i></a> <?php } ?></td> 
+<td><?php if($row['active_status']=='Y'){echo "<label class='bg-success text-white btn-sm'>New</label>";} if($row['active_status']=='R'){echo "<label class='bg-warning text-white btn-sm'>Rejected</label>";} if($row['active_status']=='U'){echo "<label class='bg-info text-white btn-sm'>Updated</label>";} ?></td>
+<td>   <a class="btn btn-success btn-sm" href="<?php echo RE_EN_PATH;?>userupdate/update.php?token=<?php echo base64_encode($row['request_id']);?>">Update User</a>   <a class="btn btn-success btn-sm" href="<?php echo RE_HOME_ADMIN;?>reg_user_detail.php?id=<?php echo base64_encode($row['request_id']);?>">Show Details</a> <?php if($row['active_status']=='R'){ ?><a href="#"data-toggle="modal" data-target="#viewreason" onclick="return viewreason('<?php echo $row['reason_of_rejection'];  ?>')" class="btn btn-primary btn-sm" alt="View the reason" title="View the reason"><i class="fa fa-eye"></i></a> <?php } ?></td> 
 </tr>
 <?php $count++; }
 if($row_count<=0){

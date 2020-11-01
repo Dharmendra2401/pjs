@@ -15,3 +15,5 @@
 
 	
 </head>
+<input type="hidden" value="<?php echo $row['country_flag']; ?>" id="flag_class">
+<input type="hidden" value="<?php echo $row['country_code']; ?>" id="dialCodess">

@@ -23,12 +23,16 @@
 }(function ($, window, document, undefined) {
 
   "use strict";
-
+ 
+ 
   var pluginName = "ccPicker";
+  var seturlPage = "http://localhost/pjs_user";
+  var counttFlagss = $('#flag_class').val();
+  var dialCodess=$('#dialCodess').val();
   var defaults = {
     countryCode: "LT",
     dialCodeFieldName: "phoneCode",
-    dataUrl: "../js/data.json",
+    dataUrl: seturlPage+"/js/data.json",
 	countryFilter: true,
     searchPlaceHolder: "Search"	
   };
@@ -189,7 +193,9 @@
 	  $(e.element).trigger("countrySelect", i);
     },
     createCountryListItem: function (countryCode, dialCode) {
-      return '<input type="hidden" id="flagname" name="flagname" value="'+ countryCode.toLowerCase() + '" /><input type="hidden" id="countrycode" name="countrycode" value="'+ dialCode + '" /><div class="cc-picker-flag ' + countryCode.toLowerCase() + '"></div><span class="cc-picker-code">' + dialCode + '</span> ';
+    
+      return '<input type="hidden" id="flagname" name="flagname" value="'+ countryCode.toLowerCase() + '" /><input type="hidden" id="countrycode" name="countrycode" value="'+ dialCode + '" /><div class="cc-picker-flag '+ countryCode.toLowerCase() + '"></div><span class="cc-picker-code">' + dialCode + '</span> ';
+  
     }
   });
 
