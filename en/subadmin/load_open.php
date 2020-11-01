@@ -35,8 +35,8 @@ if($_REQUEST['refrenceidone']!='')
 {$statu.= 'and request_id LIKE "%'.trim($_REQUEST['refrenceidone']).'%"';}
 
 
-if(isset($_REQUEST['ustatus']))
-{$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
+if($_REQUEST['status']!='')
+{$statu.= 'and active_status LIKE "'.$_REQUEST['status'].'%" ';}
 $stat="staging_approval where 1=1 and (active_status='Y' or active_status='R' or active_status='U') $statu order by request_id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);

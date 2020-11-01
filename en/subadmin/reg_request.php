@@ -51,7 +51,7 @@ include "../../styles.php"
 <input type="text" class="form-control" placeholder="Enter Refrence id" id="refrenceidone">
 </div>
 
-<div class="col-md-3">
+<div class="col-md-2">
 <select class="custom-select form-control" id="state" onchange="return getCity();" name="state">
 <option value="" selected>Select State</option>
 <?php
@@ -69,8 +69,16 @@ while($show=mysqli_fetch_array($state)){
 <span id="getcity"></span>
 </div>
 
-<div class="col-md-3">
+<div class="col-md-2">
 <input type="date" class="form-control" placeholder="Select requested date" id="submitdate">
+</div>
+
+<div class="col-md-2">
+<select id="status" class="custom-select form-control" name="status" placeholder="Select status" >
+<option value="Y">New</option>
+<option value="R">Rejected</option>
+<option value="U">Updated</option>
+</select>
 </div>
 
 <div class="col-md-2">
@@ -174,12 +182,14 @@ var state=$("#state").val();
 var city=$("#city").val();
 var refrenceidone=$("#refrenceidone").val();
 var submitdate=$("#submitdate").val();
+var status=$("#status").val();
+
 y=10;
 $('#loadergif').fadeIn();
 $.ajax({
 type: 'POST',
 url: "load_open.php",
-data: {"page":x,"pagesize":y,"state":state,"city":city,"submitdate":submitdate,"refrenceidone":refrenceidone},
+data: {"page":x,"pagesize":y,"state":state,"city":city,"submitdate":submitdate,"refrenceidone":refrenceidone,"status":status},
 success: function(data12){
 $('#loadergif').fadeOut();
 $("#gridviewone").html(data12);			    } 
