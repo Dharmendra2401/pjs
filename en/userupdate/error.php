@@ -5,12 +5,13 @@ include "../../config/config.php";
 <html>
 <head>
 <?php include "../../styles.php";  ?>
-<style>.headerudate{    box-shadow: 0px 0px 13px #0000003d;
+<style>
+.headerudate{    box-shadow: 0px 0px 13px #0000003d;
     /* padding: 0 0 43px; */
     margin: 0px 0 12px;
     padding: 19px 0 20px;}
 	
-	.headerudate h3 span{text-decoration:underline; }
+.headerudate h3 span{text-decoration:underline; }
 </style>
 </head>
 <body>
@@ -22,7 +23,7 @@ include "../../config/config.php";
 <div class="text-light bg-danger text-center rounded" style="padding: 30px 0 30px;box-shadow: 0px 0px 12px #00000070;
 ">
 <h5 class="text-light">Sorry! You have not permission to access this page.</h5><br>
-Please <a class="btn btn-warning btn-sm" href="<?php echo RE_HOME_PATH; ?>">click here</a> to redirect 
+Please <a class="btn btn-warning btn-sm" href="<?php echo RE_HOME_PATH; ?>">click here</a> to redirect <?php echo WEBSITE_NAME; ?>
 </div>
 </div>
 </div>

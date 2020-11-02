@@ -75,6 +75,7 @@ while($show=mysqli_fetch_array($state)){
 
 <div class="col-md-2">
 <select id="status" class="custom-select form-control" name="status" placeholder="Select status" >
+<option value="">Select status</option>
 <option value="Y">New</option>
 <option value="R">Rejected</option>
 <option value="U">Updated</option>

@@ -19,7 +19,9 @@ else if($status==1){
 $member_id = uniquemid($con);
 $password=base64_encode(generatepassword($pass));
 $sorcevalue=strtoupper(substr($getdate['first_name'],0,3)).'_'.strtoupper(substr($getdate['last_name'],0,3)).'_'.strtoupper(substr($getdate['fathers_name'],0,3)).'_'.date('dmY',strtotime($getdate['date_of_birth'] ));
-
+$countkeymemberid=mysqli_query($con,'select id from key_member_id where id="'.$member_id.'"');
+$keymemberidcount=mysqli_num_rows($countkeymemberid);
+if($keymemberidcount==0){
 $insertall="INSERT into member (member_id,first_name,last_name,fathers_name,gender,date_of_birth,time_of_birth,place_of_birth,marital_status,blood_group,popular_name,upd_user,record_inserted_dttm,age,husband_wife_name,area,feet,inches,life_status,blood_donate) values ('".$member_id."','".$getdate['first_name']."','".$getdate['last_name']."', '".$getdate['fathers_name']."','".$getdate['gender']."','".$getdate['date_of_birth']."','".$getdate['time_of_birth']."','".$getdate['place_of_birth']."','".$getdate['martial_status']."','".$getdate['blood_group']."','".$getdate['popular_name']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$getdate['age']."','".$getdate['husband_wife_name']."','".$getdate['area']."','".$getdate['feet']."','".$getdate['inches']."','L','".$getdate['blood_donate']."');INSERT into key_member_id(source_value,type,display_pic,upd_user,record_inserted_dttm,id,password)values('".$sorcevalue."','MEMBER_ID','".$getdate['display_pic']."','".$_SESSION['sub_admin_id']."','".$submitdate."','".$member_id."','".$password."');INSERT into address (member_id,full_address,city,state,country,pincode,upd_user,record_inserted_dttm)  values('".$member_id."','".$getdate['full_address']."','".$getdate['city']."','".$getdate['state']."','".$getdate['country']."','".$getdate['pincode']."','".$_SESSION['sub_admin_id']."','".$submitdate."' );INSERT into member_privacy (member_id,Popular_Name,Date_Of_Birth,Time_Of_Birth,Place_Of_Birth,Mobile,Blood_Group,Height,Income)values('".$member_id."','Y','Y','Y','Y','Y','Y','Y','Y');INSERT into communication (member_id,mobile,email,upd_user,record_inserted_dttm,country_flag,country_code)values('".$member_id."','".$getdate['mobile']."' ,'".$getdate['email']."','".$_SESSION['sub_admin_id']."', '".$submitdate."','".$getdate['country_flag']."','".$getdate['country_code']."');Insert into education_ocp(member_id,highest_edu,occupation,ocp_details,income,upd_user,record_inserted_dttm) values('".$member_id."','".$getdate['highest_edu']."','".$getdate['occupation']."','".$getdate['ocp_details']."','".$getdate['income']."','".$_SESSION['sub_admin_id']."','".$submitdate."');INSERT INTO staging (request_id,first_name, last_name, date_of_birth, gender, marital_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches,blood_donate,fathers_name)SELECT request_id,first_name, last_name, date_of_birth, gender, martial_status, blood_group, popular_name,time_of_birth,place_of_birth,date_of_death,full_address,city,state,country,pincode,mobile,email,highest_edu,occupation,ocp_details,income,display_pic,husband_wife_name,age,area,feet,inches,blood_donate,fathers_name from staging_approval where request_id='".$getid."' ;UPDATE staging_approval set active_status='N' where request_id='".$getid."' ";
 mysqli_multi_query($con,$insertall) or die(mysqli_error($con));
 
@@ -31,6 +33,9 @@ $to=$getdate['email'];
 sendmails($to,$message,$subject);
 
 redirect(RE_HOME_ADMIN."reg_request.php","User successfully approved~@~".MSG_SUCCESS);
+}else{
+redirect(RE_HOME_ADMIN."reg_request.php","Error! please try again~@~".MSG_ERROR);	
+}
 
 }
 else if(($status==2)&&($trimreason!='')){

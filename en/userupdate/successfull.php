@@ -27,7 +27,7 @@ if($getid==''){
 ">
 <h5 class="text-light">You have been successfully updated your profile.</h5><br>
 <p><small><i>Wait till the admin approval mail.</i></small><p>
-Please <a class="btn btn-warning btn-sm" href="<?php echo RE_HOME_PATH; ?>">click here</a> to redirect 
+Please <a class="btn btn-warning btn-sm" href="<?php echo RE_HOME_PATH; ?>">click here</a> to redirect <?php echo WEBSITE_NAME; ?> 
 </div>
 </div>
 </div>
