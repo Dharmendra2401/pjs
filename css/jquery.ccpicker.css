@@ -40,7 +40,7 @@
     padding-right: 18px;
     position: relative;
     margin: 0px;
-    border: 1px solid rgb(0 0 0 / 15%);
+    border: 1px solid rgba(0, 0, 0, 0.2901960784313726);
     border-radius: 5px;
     padding-top: 9px;
 }

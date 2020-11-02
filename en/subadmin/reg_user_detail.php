@@ -41,7 +41,7 @@ mysqli_query($con,"update staging_approval set active_status='R' where request_i
 $update=mysqli_query($con,"update staging_approval set reason_of_rejection='".$trimreason."' where request_id='".$getid."' ");
 $subject="PJS Application is rejected by SUBADMIN ".WEBSITE_NAME." ";
 $mes='';
-$mes.="<p> Dear ".$getdate['first_name']."  ".$getdate['last_name'].", your application is rejected by the admin and the reason for the rejection is : <strong>".$trimreason."</strong></p> <p> Please re-register by clicking <a href='".RE_EN_PATH."signup.php'>here</a> </p> <p>if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
+$mes.="<p> Dear ".$getdate['first_name']."  ".$getdate['last_name'].", your application is rejected by the admin and the reason for the rejection is : <strong>".$trimreason."</strong></p> <p> Please update your profile by clicking <a href='".RE_EN_PATH."userupdate/update.php?token=".base64_encode($getid)."'>here</a> </p> <p>if any query email us <a href='mailto:".FROM_EMAIL."'>".FROM_EMAIL."</a></p>";
 $message=$mes;
 $to=$getdate['email'];
 sendmails($to,$message,$subject);

@@ -1,9 +1,5 @@
 <?php
 include "../../config/config.php";
-$getid=base64_decode($_REQUEST['id']);
-if($getid==''){
-  redirect(RE_EN_PATH."index.php");
-}
 ?>
 <!DOCTYPE html>
 <html>
@@ -15,7 +11,7 @@ if($getid==''){
     padding: 19px 0 20px;}
 	
 	.headerudate h3 span{text-decoration:underline; }
-	</style>
+</style>
 </head>
 <body>
 <div class="container-fluid">
@@ -23,10 +19,9 @@ if($getid==''){
 <div class="succesfull-message">
 <div class="col-md-6 offset-md-3">
 <br><br>
-<div class="text-light bg-info text-center rounded" style="padding: 30px 0 30px;box-shadow: 0px 0px 12px #00000070;
+<div class="text-light bg-danger text-center rounded" style="padding: 30px 0 30px;box-shadow: 0px 0px 12px #00000070;
 ">
-<h5 class="text-light">You have been successfully updated your profile.</h5><br>
-<p><small><i>Wait till the admin approval mail.</i></small><p>
+<h5 class="text-light">Sorry! You have not permission to access this page.</h5><br>
 Please <a class="btn btn-warning btn-sm" href="<?php echo RE_HOME_PATH; ?>">click here</a> to redirect 
 </div>
 </div>

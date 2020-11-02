@@ -5,7 +5,7 @@ $requestid=base64_decode($_REQUEST['token']);
 $detail=mysqli_query($con,'select * from staging_approval where request_id="'.$requestid.'" and active_status="R" ');
 $countt=mysqli_num_rows($detail);
 if(mysqli_num_rows($detail)==0){ 
-redirect(RE_EN_PATH."index.php","Error! You are already registered with us~@~".MSG_ERROR);
+redirect(RE_EN_PATH."userupdate/error.php","");
 }
 else{
 $row=mysqli_fetch_array($detail);
