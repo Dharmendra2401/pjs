@@ -157,15 +157,17 @@ $year= date('Y'); $setyear=$year-1;
 <div class="form-group row">
 <label class="col-md-3 col-form-label"> Height</label>	
 <div class="col-md-3">
-	<div class="input-group feet">
-<input type="tel" step="any" class="form-control" placeholder="Enter feet" maxlength="2" name="feet" id="feet" onKeyPress="return isNumeric(event)">
-    <div class="input-group-append">
+	<div class="input-group feet"><div class="input-group-append">
       <span class="input-group-text">Feet</span>
     </div>
+<input type="tel" step="any" class="form-control inches" placeholder="Enter feet" maxlength="2" name="feet" id="feet" onKeyPress="return isNumeric(event)">
+    
     </div>
 </div>
-<div class="col-md-3">
-<input type="tel" step="any" class="form-control" placeholder="Enter inches" maxlength="2" name="inches" id="inches" onKeyPress="return isNumeric(event)"><span class="label-two">Inches</span>
+<div class="col-md-3"><div class="input-group-append">
+      <span class="input-group-text">Inches</span>
+    
+<input type="tel" step="any" class="form-control inches" placeholder="Enter inches" maxlength="2" name="inches" id="inches" onKeyPress="return isNumeric(event)"></div>
 </div>
 </div>
 

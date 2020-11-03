@@ -45,7 +45,7 @@ while($getgallery=mysqli_fetch_array($gallery)){
 				?>
     		 <div class="mySlides">
 		     <!--   <div class="numbertext"><?php echo $countImgg; ?></div> -->
-		       <img src="<?php echo RE_HOME_PATH.'/'.$gallerysss['short_image']; ?>" style="width:100%">
+		       <img src="<?php echo RE_HOME_PATH.'/'.$gallerysss['long_image']; ?>" style="width:100%">
 		     </div>
              
             

@@ -200,7 +200,7 @@ if ($_SESSION['admin_email']!=''){
 
 
 <input type="hidden" name="" class="curr_mid" value="<?php echo $_SESSION['user_mid'];?>">
-
+<li class="nav-item"><a class="nav-link" href="<?php echo RE_EN_PATH;?>tracking.php"alt="Please click here to track your application" title="Please click here to track your application"> <i class="fas fa-map-marker-alt" ></i> App Status</a></li>
 
 </ul>
 </nav>

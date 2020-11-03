@@ -152,6 +152,8 @@ body{
 .input-group-text{
     background-color: #446eb6;
     color: #ffffff;
+    border: 0px;
+    border-radius: 0px;
 }
 
 #livesearch{
@@ -165,7 +167,8 @@ body{
     line-height: 2;
     padding: 10px 10px 10px 30px;
 }
-
+.inches{border-top-left-radius: 0;
+    border-bottom-left-radius: 0;}
 #livesearch a{
     color: #000000;
 }

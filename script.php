@@ -137,7 +137,7 @@
 <button type="button" id="close-login" class="close" data-dismiss="modal">&times;</button>
 </div> 
 <div class="modal-body container">
-<form  method="post" class="form-top">
+<form  method="post" class="form-top" id="login-form-here">
 <div class="form-group row">
 <label class="col-md-6 col-form-label" for="email"> <span class="text-danger">*</span> Member ID </label>
 <input type="text" class="form-control col-md-6 text-uppercase" placeholder="MID" name="mid" id="mid" onchange="return checkMid();"  required>
@@ -680,20 +680,13 @@ function Userlogin(){
 var mid=$('#mid').val(); 
 var password=$('#password').val();
 if(mid.trim()==''){
-swal({
-title: "Error",
-text: "Please enter the MID",
-icon: "error",
-});
+$('#miderror').html('<div class="alert alert-danger alert-sm">Please enter member id (MID) <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div> ');
+$('#mid').focus();
 return false;
 }
 else if(password.trim()==''){
-swal({
-title: "Error",
-text: "Please enter the password",
-icon: "error",
-});
-
+$('#miderror').html('<div class="alert alert-danger alert-sm">Please enter password <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div> ');
+$('#password').focus();
 }else{
 	$('#loadergif').fadeIn();
 $.ajax({
@@ -703,28 +696,18 @@ data:{'mid':mid,'password':password},
 success:function(userlog){
 if(userlog.trim()=='false'){
 $('#loadergif').fadeOut();
-swal({
-title: "Error",
-text: "Error! Please fill out the fields! ",
-icon: "error",
-});
-
+$('#miderror').html('<div class="alert alert-danger alert-sm">Error! Please fill out the fields! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div> ');
+$('#login-form-here')[0].reset();
 }
 if(userlog.trim()=='Error'){
 $('#loadergif').fadeOut();
-swal({
-title: "Error",
-text: "Error! Please enter the valid member id and password! ",
-icon: "error",
-});
+$('#miderror').html('<div class="alert alert-danger alert-sm">Error! Please enter the valid member id(MID) and password! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div> ');
+$('#login-form-here')[0].reset();
 }
 if(userlog.trim()=='Death'){
 $('#loadergif').fadeOut();
-swal({
-title: "Error",
-text: "Error! Sorry dead person may not login! ",
-icon: "error",
-});
+$('#miderror').html('<div class="alert alert-danger alert-sm">Error! Sorry dead person may not login! <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div> ');
+$('#login-form-here')[0].reset();
 }
 if(userlog.trim()=='true'){
 $('#loadergif').fadeOut();
