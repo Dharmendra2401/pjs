@@ -25,7 +25,7 @@
 	$current_user_id=$_SESSION['user_mid'];
 	$fire=mysqli_query($con,"SELECT mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,addrss.city,addrss.state,addrss.pincode,addrss.country,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id INNER JOIN member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$current_user_id'")or die(mysqli_error($con));
 	$row=mysqli_fetch_array($fire); 
-	echo "<h1>PHP QR Code</h1><hr/>";
+	//echo "<h1>PHP QR Code</h1><hr/>";
 	
 	//set it to writable location, a place for temp generated PNG files
 	$PNG_TEMP_DIR = dirname(__FILE__).DIRECTORY_SEPARATOR.'temp'.DIRECTORY_SEPARATOR;
@@ -106,16 +106,19 @@
 
 <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+<?php include "../../styles.php";  ?>
 </head>
 <body>
-
+	<div class="container-fluid">
+	<?php include "../header.php"  ?>
+</div>
 	   <!--  <img style="width:70px;" src="http://www.splio4.com/barcode/qrcode.pl?data=http%3A%2F%2Fmywebsite.com%2F$favorite_brand$">
  -->
-<div class="row1"  id="html-content-holder" style="width: 70%;float: left;margin-bottom: 3em;min-width: 1300px;">
+<div class="row1"  id="html-content-holder" style="width: 70%;float: left;margin-bottom: 3em;min-width: 1300px;text-shadow: 0px 1px 1px rgba(0,0,0,1);margin-top: 2em;">
 	<div style="width: 500px;background-color: #446eb6;
 background-image: linear-gradient(#446eb6, #3eb8e9);border-left: solid 3px #00f;
 margin-left: 1em;float: left;" class="main-div">
-		<div class="row" style="background-color: #fe0000;margin-left: 0px;margin-right: 0px;">
+		<div class="row" style="background-color: #fe0000;margin-left: 0px;margin-right: 0px;box-shadow: 1px 1px 0px #fe0000, 2px 2px 0px #fe0000, 3px 3px 0px #fe0000, 4px 4px 0px #fe0000, 5px 5px 0px #fe0000, 6px 6px 0px #fe0000;">
 			<div class="col-2" style="padding-top: 15px;padding-left:20px;">
 				<div class="logo" style="background-image: url(<?php echo RE_HOME_PATH; ?>images/logo1.png); height:70px;width: 70px;background-repeat: no-repeat;background-size: contain;"></div>
 			</div>
@@ -171,8 +174,14 @@ margin-left: 1em;float: left;" class="main-div">
 								<div class="col-6">City</div>
 								<div class="col-6"><?php echo $row['city'];?>,<?php echo $row['state'];?>,<?php echo $row['country'];?></</div>
 							</div>
- -->							<p class="text-white mb-0">
-								City&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp&nbsp&nbsp<?php echo $row['city'];?>,<?php echo $row['state'];?>,<?php echo $row['country'];?></p>
+ -->							<div class="row text-white">
+                            	<div class="col-4 pr-0">
+                            		City<span style="padding-left: 32px;">:</span>
+                            	</div>
+                            	<div class="col-8">
+                            		<span > <?php echo $row['city'];?>,<?php echo $row['state'];?>,<?php echo $row['country'];?></span>
+                            	</div>
+                            </div>
 						</div>
 						<div class="col-3" style="padding-left: 0px;padding-right: 0px;text-align: center;">
 							<p class="text-white" style="text-align: right;margin-left: 69px;">sign&nbsp&nbsp&nbsp&nbsp&nbsp:&nbsp&nbsp&nbsp&nbsp&nbsp<div style="background-image: url(signature.png);height: 102px;background-repeat: no-repeat;background-size: cover;width: 257px;margin-left: -129px;position: absolute;top: -67px;"></div>
@@ -185,12 +194,12 @@ margin-left: 1em;float: left;" class="main-div">
 	</div>
 	<div  style="width: 500px;background-color: #446eb6;
 	background-image: linear-gradient(#446eb6, #3eb8e9);border-left: solid 3px #00f;
-	margin-left: 1em;float: left;min-height: 263px;
+	margin-left: 1em;float: left;min-height: 263px;text-shadow: 0px 1px 1px rgba(0,0,0,1);
 	" class="main-div">
 		<div class="col-12 align-self-end sm-tr user-detail-info">
 			<div class="row">
 
-				<div class="col-12" style="padding-top:10px;min-height: 80px;background: #fe0000;">
+				<div class="col-12" style="padding-top:10px;min-height: 80px;background: #fe0000;box-shadow: 1px 1px 0px #fe0000, 2px 2px 0px #fe0000, 3px 3px 0px #fe0000, 4px 4px 0px #fe0000, 5px 5px 0px #fe0000, 6px 6px 0px #fe0000;">
 					<p class="text-white text-left" style="font-size: 11px;">Disclaimer : This card is for identification purpose only. PSM will not responsible for any declaration by registered member</p>
 				</div>
 				<div class="col-12 pt-1 pb-2" style="padding-top: 2em !important;">
@@ -200,13 +209,13 @@ margin-left: 1em;float: left;" class="main-div">
 		</div> 
 	</div>
 </div>
-<div class="row mt-1 mb-2">
+<div class="row mt-1 mb-2 mob_btn_view" style="margin-top: 2em !important;">
 	<input id="btn-Preview-Image" type="button" value="Preview"/>
-	<a id="btn-Convert-Html2Image" href="#">Download</a>
+	<a id="btn-Convert-Html2Image" href="#" style="display: none;">Download</a>
 </div>
 	<br/>
 	<h3>Preview :</h3>
-	<div id="previewImage">
+	<div id="previewImage" style="margin-bottom: 5em;">
 	</div>
 
 <script>
@@ -222,6 +231,8 @@ var getCanvas; // global variable
 				getCanvas = canvas;
 			 }
 		 });
+		$("#btn-Convert-Html2Image").css("display","block");
+        $(this).css("display","none"); 
 	});
 
 	$("#btn-Convert-Html2Image").on('click', function () {
@@ -234,6 +245,8 @@ var getCanvas; // global variable
 });
 
 </script>
+ <?php include "../../footer.php" ?>
+<?php include "../../phpqrcode/script.php" ?>
 </body>
 </html>
 <style type="text/css">
@@ -250,4 +263,10 @@ var getCanvas; // global variable
   pointer-events: none;
 	}
 */
+@media only screen and (max-width: 900px) {
+	.mob_btn_view{
+		clear: both;
+		margin-left: 15px;
+	}
+}
 </style>
