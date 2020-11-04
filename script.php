@@ -137,28 +137,31 @@
 <button type="button" id="close-login" class="close" data-dismiss="modal">&times;</button>
 </div> 
 <div class="modal-body container">
-<form  method="post" class="form-top" id="login-form-here">
-<div class="form-group row">
-<label class="col-md-6 col-form-label" for="email"> <span class="text-danger">*</span> Member ID </label>
-<input type="text" class="form-control col-md-6 text-uppercase" placeholder="MID" name="mid" id="mid" onchange="return checkMid();"  required>
-</div>
+	<div class="row">
+		<div class="col-md-8 offset-md-2">
+			<form  method="post" class="form-top" id="login-form-here">
+			<div class="form-group row">
+			<label class="col-form-label col-md-6 px-sm-0" for="email"> <span class="text-danger">*</span> Member ID </label>
+			<input type="text" class="col-md-6 form-control text-uppercase" placeholder="MID" name="mid" id="mid" onchange="return checkMid();"  required>
+			</div>
 
-<div class="form-group row">
-<label class="col-md-6 col-form-label" for="password"> <span class="text-danger">*</span> Password </label>
-<input type="password" class="form-control col-md-6" placeholder="Enter password"  name="password" id="password"  required><div class="checkboxpassword"><span class=""><input type="checkbox" onclick="return togglerFunfction()"> Show Password</span></div>
+			<div class="form-group row">
+			<label class="col-form-label col-md-6 px-sm-0" for="password"> <span class="text-danger">*</span> Password </label>
+			<input type="password" class="col-md-6 form-control" placeholder="Enter password"  name="password" id="password"  required><div class="checkboxpassword"><span class=""><input type="checkbox" onclick="return togglerFunfction()"> Show Password</span></div>
 
-</div>
+			</div>
+            
+            <div class="row">
+            	<div class="col-md-12 text-right pr-0">
+					<span id="miderror"></span>
+					<button type="button" id="loginbtn" class="btn btn-success" onclick="return Userlogin();" name="login">LOGIN</button>
+				</div>
+            </div>
+			
+			</form>
+		</div>
+	</div>
 
-<div class="col-md-12">
-<span id="miderror"></span>
-<div class="text-center my-4">
-<button type="button" id="loginbtn" class="btn btn-success" onclick="return Userlogin();" name="login">LOGIN</button>
-
-
-
-</div>
-</div>
-</form>
 <div class="text-center my-4">
 <p class="m-1">Forgot password and member id <a type="button" class="signup-link" onclick="return signUp();" >Click Here</a></p>
 <p>New to PJS? <a class="signup-link" href="<?php echo RE_EN_PATH;?>signup.php">SignUp Now</a></p>
@@ -676,7 +679,6 @@ return false;
 
 
 function Userlogin(){
-
 var mid=$('#mid').val(); 
 var password=$('#password').val();
 if(mid.trim()==''){
@@ -1195,7 +1197,7 @@ function togglerFunfction() {
  }
  
 
-$(document).on('click', '.notification', function(){
+$(document).on('click', '.notification', function(){ 
 	$('.count').html('');
 	$('.notification').children("span.label-pill").css("padding","0px");
 	load_unseen_notification('yes');

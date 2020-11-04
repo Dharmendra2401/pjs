@@ -267,8 +267,11 @@ ul.notification-menu li .triangle-shadow{
     background: red;
     padding: 4px;
     color: #ffff;
-    height: 60px;
-    width: 40px;
+    
+}
+
+.searhing-top{
+    margin-top: 25px;
 }
 /*-----------------------HEADER ENDS----------------------------------------------*/
 
@@ -896,6 +899,10 @@ box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
     font-weight: 500;
     font-size: 15px;
 }
+
+.user-profile .info .mari_sta{
+    text-transform: capitalize;
+}
 /*------------------------USER PROFILE ENDS------------------------------------*/
 
 /*------------------------SAVED PROFILE------------------------------------*/
@@ -1031,6 +1038,14 @@ box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
     width: 100px;
      height: 90px;
     object-fit: cover;
+}
+
+.death-update,.new-update .card-title .fa-plus,.fa-minus{
+    padding-top: 13px;
+}
+
+.new-update .card-title i{
+    padding-top: 13px;
 }
 
 /*------------------------FAMILY TREE ENDS------------------------------------*/
@@ -1338,9 +1353,9 @@ input.form-control{
 
   .login-icon{
     display: block;
-    position: absolute;
+    position: fixed;
     right: 16px;
-    top: -98px;
+    top: 10px;
     font-size: 15px;
     color: #ffffff;
   }
@@ -1464,6 +1479,19 @@ input.form-control{
     margin-left: 10px;
 }
 
+.notification .label-pill{
+    padding: 3px 4px;
+    top: -96px;
+}
+
+.form-top{
+    padding: 0 20px;
+}
+
+.searhing-top{
+   margin-top: 25px;
+}
+
 /*ul.notification-menu ul .triangle{
     top: -9px;
     left: 233px;
@@ -1528,9 +1556,9 @@ footer{
 /*--------------------USER DETAIL---------------------------*/
 
 .icon-mobile{
-    position: absolute;
-    right: -15px;
-    top: -109px;
+    position: fixed;
+    right: 0px;
+    top: 30%;
     background: #70c5a4;
 }
 
@@ -1661,6 +1689,7 @@ footer{
 
 .user-profile .info> div:nth-of-type(even){
     padding-left: 2px !important;
+    padding-top: 5px !important;
     word-break: break-all;
 }
 
@@ -1926,7 +1955,7 @@ input::-webkit-inner-spin-button {
     padding: 6px;
     color: white;
     border-radius: 0px 4px 3px 0px;}
-    .form-top{padding: 1% 19%}
+    /*.form-top{padding: 1% 19%}*/
 .cancel-btn{    background: transparent;
     border: none;
     position: absolute;

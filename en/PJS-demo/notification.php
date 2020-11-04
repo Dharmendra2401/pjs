@@ -30,7 +30,7 @@ if(isset($_POST["view"])){
 				}
 
 				$output .='<ul class="list-unstyled list-inline list-card w-100 pt-0 pb-0" style="width:100%;box-shadow: none !important;"><span class="triangle-shadow"></span><span class="triangle"></span>
-					<li class="list-inline-item w-25"  style="width:25%;">
+					<li class="list-inline-item">
 						<a href="'.RE_EN_PATH.'user_detail.php?token='.base64_encode($row['reference_member_id']).'"><img class="tree-user-img" src="'.RE_HOME_PATH.$row['display_pic'].'" style="border-radius:50%;"></a>
 					</li>
 					<li class="list-inline-item searchoption w-69"  style="width:69%;">

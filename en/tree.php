@@ -8,7 +8,7 @@ user_session_check();
 <head>
  <?php include "../styles.php" ?>
  <style type="text/css">
- 	.death-update .file-input{
+.death-update .file-input{
     position: relative;
     display: block;
     width: 100%;

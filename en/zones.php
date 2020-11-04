@@ -5,44 +5,59 @@ include "../config/config.php";
 <html>
 <?php include "../styles.php";  ?>
 <body>
-	<div class="container-fluid">
+	<div class="container-fluid mb-5">
 		<?php include "header.php";  ?>
-		
+          
+    
+          <div class="col-12 text-center my-4">
+             <h3><span>परामर्शदाता</span></h3><hr>
+          </div>
+          <?php 
+            $zone=mysqli_query($con,'select * from zones where status="Y" order by id desc'); 
+            $count=mysqli_num_rows($zone);
+            while($getzones=mysqli_fetch_array($zone)){
+            ?>
+            <div class="col-md-3 col-6">
+                <img class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getzones['short_image'] ?>" alt="Event">
+                <p class="mb-0"><strong><?php echo $getzones['fullname'] ;?></strong></p>
+                <p><strong><?php echo $getzones['mobileno'] ; ?></strong></p>
+            </div>
+            <?php  } ?>
 
-      <!-- <div class="col-md-10 offset-md-1 py-5 zones-bg">
-        <div class="row">
-            <div class="col-md-2">
-                <div class="card custom-card">
-                  <img  class="card-img-top profile-img" src="https://source.unsplash.com/pWkk7iiCoDM/400x300" alt="image">
-                  <div class="card-body">
-                      <h4 class="card-title">John Doe</h4>
-                      <p class="card-text">architect and engineer</p>
-                  </div>
-                </div>
-            </div>
-             <div class="col-md-2">
-                <div class="card custom-card">
-                  <img  class="card-img-top profile-img" src="../uploads/dummy.png" alt="image">
-                  <div class="card-body">
-                      <h4 class="card-title">John Doe</h4>
-                      <p class="card-text">architect and engineer</p>
-                  </div>
-                </div>
-            </div>
-             <div class="col-md-2">
-                <div class="card custom-card">
-                  <img  class="card-img-top profile-img" src="../uploads/dummy.png" alt="image">
-                  <div class="card-body">
-                      <h4 class="card-title">John Doe</h4>
-                      <p class="card-text">architect and engineer</p>
-                  </div>
-                </div>
-            </div>
-        </div>
-  			
-      </div> -->
 
-      <div class="col-md-10 offset-md-1 content-container">
+            <div class="col-12 text-center my-4">
+             <h3><span>मुख्य कार्यकारिणी</span></h3><hr>
+            </div>
+          <?php 
+            $zone=mysqli_query($con,'select * from zones where status="Y" order by id desc'); 
+            $count=mysqli_num_rows($zone);
+            while($getzones=mysqli_fetch_array($zone)){
+            ?>
+            <div class="col-md-3 col-6">
+                <img class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getzones['short_image'] ?>" alt="Event">
+                <p class="mb-0"><strong><?php echo $getzones['fullname'] ;?></strong></p>
+                <p><strong><?php echo $getzones['mobileno'] ; ?></strong></p>
+            </div>
+            <?php  } ?>
+
+
+            <div class="col-12 text-center my-4">
+             <h3><span>झोन कार्यकारिणी</span></h3><hr>
+            </div>
+          <?php 
+            $zone=mysqli_query($con,'select * from zones where status="Y" order by id desc'); 
+            $count=mysqli_num_rows($zone);
+            while($getzones=mysqli_fetch_array($zone)){
+            ?>
+            <div class="col-md-3 col-6">
+                <img class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getzones['short_image'] ?>" alt="Event">
+                <p class="mb-0"><strong><?php echo $getzones['fullname'] ;?></strong></p>
+                <p><strong><?php echo $getzones['mobileno'] ; ?></strong></p>
+            </div>
+            <?php  } ?>
+        
+
+      <!-- <div class="col-md-10 offset-md-1 content-container">
             <?php 
             $zone=mysqli_query($con,'select * from zones where status="Y" order by id desc'); 
             $count=mysqli_num_rows($zone);
@@ -72,7 +87,8 @@ include "../config/config.php";
             <hr>
          
             <?php  } ?>
-            </div>
+            </div> -->
+          
 	</div>
   <?php include "../footer.php" ?>
 </body>
