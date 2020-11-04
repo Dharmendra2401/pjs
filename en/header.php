@@ -73,6 +73,7 @@ if ($_SESSION['sub_admin_email']!=''){
 <a class="dropdown-item" href="<?php echo RE_EN_PATH;?>saved_profile.php">Saved Profile</a>
 <a class="dropdown-item feed_btn" data-toggle="modal" data-target="#modal45">Feedback</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_USER;?>password_change.php">Password Change</a>
+<a class="dropdown-item" href="<?php echo RE_EN_PATH;?>phpqrcode/index.php">Download Your E-card</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_USER;?>logout_user.php">Logout</a>
 
 </div>
