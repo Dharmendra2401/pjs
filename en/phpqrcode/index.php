@@ -54,7 +54,7 @@
 
 
 	if (isset($_REQUEST['data'])) { 
-	$data12=RE_EN_PATH."user_detail.php?token=".base64_encode($row['member_id']);
+	$data12=RE_EN_PATH."user_detail.php?token=".base64_encode($current_user_id);
 		//it's very important!
 		if (trim($_REQUEST['data']) == '')
 			die('data cannot be empty! <a href="?">back</a>');
@@ -67,7 +67,7 @@
 	
 		//default data
 		//echo 'You can provide data in GET parameter: <a href="?data=like_that">like that</a><hr/>';    
-		QRcode::png(RE_EN_PATH."user_detail.php?token=".base64_encode($row['member_id']), $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
+		QRcode::png(RE_EN_PATH."user_detail.php?token=".base64_encode($current_user_id), $filename, $errorCorrectionLevel, $matrixPointSize, 2);    
 		
 	}    
 		
@@ -98,15 +98,13 @@
 	<!DOCTYPE html> 
 <html>
 <head>
-	<meta charset="UTF-8">
-	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
-
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
-<script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
 <?php include "../../styles.php";  ?>
+	  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css">
+	  <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+	  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
+ <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
+<script src="https://files.codepedia.info/files/uploads/iScripts/html2canvas.js"></script>
+
 </head>
 <body>
 	<div class="container-fluid">

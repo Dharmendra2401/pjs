@@ -1,5 +1,5 @@
 <?php  include "modal.php"; ?>  
-
+ 
 <div class="modal fade loginPopup" id="contactoption">
 <div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
 <div class="modal-content contact-content">
