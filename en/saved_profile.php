@@ -90,3 +90,8 @@ alert("Data: not updated");
 })
 
 </script>
+<style type="text/css">
+	.user-list-box a:hover{
+    text-decoration: none;
+  }
+</style>

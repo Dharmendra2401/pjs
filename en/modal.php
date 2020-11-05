@@ -189,20 +189,22 @@ require_once("../config/config.php");
 				</button>
 			</div>
 			<div class="modal-body">
-				<form>
+				<form id="send_request_form">
 					<div class="form-group">
 						<input type="hidden" class="form-control" id="referenc-id">
 						<input type="hidden" class="form-control" id="Member_Id">
 					</div>
 					<p class="err msg" style="background: red;color:#fff;font-weight:400;"></p>
 					 <div class="form-group" id="live_relation_type">
-							<select class="form-control female" style="display: none">
+							<select class="form-control female" style="display: none" name="relationship_type_select">
+								<option value="">Select</option> 
 								<option value="Grandmother">Grandmother</option>
 								<option value="Mother">Mother</option>                
 								<option value="Daughter">Daughter</option>                
 								<option value="Sister">Sister</option>
 							</select>
-							<select class="form-control male" style="display: none;">
+							<select class="form-control male" style="display: none;" name="relationship_type_select">
+								<option value="">Select</option> 
 								<option value="Grandfather">Grandfather</option>              
 								<option value="Father">Father</option>
 								<option value="Brother">Brother</option>

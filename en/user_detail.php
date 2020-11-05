@@ -144,6 +144,9 @@ else{ ?>
 <!-- <i type="button" class="fas fa-download mx-2 login-signup user_profile_download" data-userid="<?php echo $row['member_id'];?>"></i> -->
 <a href="<?php echo RE_EN_PATH; ?>user_detail_pdf.php?id=<?php echo base64_encode($row['member_id']);?>"
 	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
+
+<a href="<?php echo RE_EN_PATH; ?>card_image.php?id=<?php echo base64_encode($row['member_id']);?>"
+	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
 									 <?php  
 									if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
 										$url = "https://";   
@@ -316,10 +319,10 @@ else {if($row['place_of_birth']!=''){echo $row['place_of_birth'];}else{echo "NA"
 if(!isset($_SESSION['user_mid']) && $row['Height']=='N'){
 echo "*******";
 }
-else {?>  Feet :<?php
+else {?>  ft : <?php
 if($row['feet']!=''){ echo $row['feet'];}else{echo "NA";}  ?> 
 
-Inches : <?php  if($row['inches']!=''){ echo $row['inches'];}else{echo "NA";}  
+in : <?php  if($row['inches']!=''){ echo $row['inches'];}else{echo "NA";}  
 }?>
 </p>
 </div>
@@ -430,7 +433,7 @@ else{
 alert("Some thing wrong please try again");
 }
 });
-})
+}) 
 $('#exampleModal').on('show.bs.modal', function (event) {
 var button = $(event.relatedTarget) // Button that triggered the modal
 var recipient = button.data('whatever') // Extract info from data-* attributes
@@ -458,40 +461,53 @@ modal.find('.modal-title').text('Send Request To : ' + name)
 modal.find('.modal-body #referenc-id').val(recipient)
 modal.find('.modal-body #Member_Id').val(member_id)
 })
- 
-$(".send_request").on("click", function () {
-var member_id=$("#Member_Id").val()
-var reference=$("#referenc-id").val()
-var relationship_type1=$("#live_relation_type select:visible option:selected").val()
-var home_path=$("#home_path").val();
-$.post(home_path+"en/PJS-demo/send_request.php",
-{
-member_id: member_id,
-reference_id:reference,
-relationship_type:relationship_type1
-},
-function(data,status){
-			var status1=status;
-			var da=$.trim(data);
-			// console.log(da);
-			// return;
-			if (da=='data insert success') {
-				// window.location.reload();
-				// $('#exampleModal').modal('hide')
-				// $('#success_tic').modal('show')
-				location.reload(true);
-			}
-			else{
-				$('.err.msg').show();
-				$('.err.msg').text(da);
-				$('.err.msg').css("padding","10px");
-			}
 
-});
- 
+$("#send_request_form").validate({
+	rules: {
+			relationship_type_select: "required"
+	},
+	messages: {
+			relationship_type_select: "Please Select relationship type"
+	}
+})
+$(".send_request").on("click", function () {
+	if (!$("#send_request_form").valid()) { // Not Valid
+			return false;
+	}
+	else{
+		var member_id=$("#Member_Id").val()
+		var reference=$("#referenc-id").val()
+		var relationship_type1=$("#live_relation_type select:visible option:selected").val()
+		var home_path=$("#home_path").val();
+		$.post(home_path+"en/PJS-demo/send_request.php",
+		{
+		member_id: member_id,
+		reference_id:reference,
+		relationship_type:relationship_type1
+		},
+		function(data,status){
+					var status1=status;
+					var da=$.trim(data);
+					// console.log(da);
+					// return;
+					if (da=='data insert success') {
+						// window.location.reload();
+						// $('#exampleModal').modal('hide')
+						// $('#success_tic').modal('show')
+						location.reload(true);
+					}
+					else{
+						$('.err.msg').show();
+						$('.err.msg').text(da);
+						$('.err.msg').css("padding","10px");
+					}
+
+		});
+	}
 })
 	$('#exampleModal').on('hide.bs.modal', function (e) {
 		$('.err').hide();
+		$('label.error').hide();
 	})
 $(".close-icn").on("click", function () {
 location.reload(true);

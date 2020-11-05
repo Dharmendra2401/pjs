@@ -17,7 +17,9 @@ $result=friend_request_status12();
 
 			<div class="card mb-2 tree-card" data-count="<?php echo $counter;?>">
 				<div class="card-body">
+					
 					<div class="row">
+						<a href="<?php echo RE_EN_PATH; ?>user_detail.php?token=<?php echo base64_encode($row1['reference_member_Id']);?>" style="width: 82%;float: left;color: #2c2c2c;">
 							<div class="col-md-10">
 								<?php //echo $row1['dead_p_pic'];?>
 									<img class="family-profile-img" src="<?php 
@@ -176,6 +178,7 @@ $result=friend_request_status12();
 									            </ul>
 										<!-- <span class="badge badge-primary float-right"><?php// echo $row1['ACTIVE_STATUS'];?></span> -->				
 							</div>
+							</a>
 							<div class="col-md-2">
 																	<?php	if(isset($row1['Life_status'])){
 											   if($row1['Life_status']=='L'){
@@ -217,10 +220,11 @@ $result=friend_request_status12();
 												<?php
 											}?>
 								
-												<i class="far fa-trash-alt btnrequest_relation_delete mt-2" id="<?php echo $current_user['member_id']; ?>" data-referenceid="<?php echo $row1['reference_member_Id'];?>" <?php if (!isset($row1['reference_member_Id'])) {
+												<i class="far fa-trash-alt btnrequest_relation_delete mt-2" id="<?php echo $current_user['member_id']; ?>" data-referenceid="<?php echo $row1['reference_member_Id'];?>"  <?php if (!isset($row1['reference_member_Id'])) {
 												 ?>data-relationshiptype="<?php echo $row1['relation_type']; ?>" <?php } ?> style="cursor:pointer;"></i>
 											
 							</div>
+						
 					</div>
 				</div> 
 
@@ -231,4 +235,8 @@ $result=friend_request_status12();
 <script type="text/javascript">
 
 </script>
-
+<style type="text/css">
+	.tree-card .card-body .row a:hover,a.card_a:hover{
+		text-decoration: none;
+	}
+</style>
