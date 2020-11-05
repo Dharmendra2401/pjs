@@ -221,7 +221,7 @@ else echo date('d/m/Y',strtotime($row['date_of_birth']));?>	</p>
 <h5>Status <strong>:</strong></h5>
 </div>
 <div class="col-md-9 col-7">
-<p><?php echo $row['marital_status']; ?></p>
+<p><?php echo ucwords($row['marital_status']); ?></p>
 </div>
 
 <?php if(($row['marital_status']=='married')&& ($row['gender']=='F') ) {?>

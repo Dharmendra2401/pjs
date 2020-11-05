@@ -1291,9 +1291,6 @@ box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
 
 
 
-
-
-
 /*--------------------MEDIA QUERY---------------------------------------*/
 @media only screen  and (max-device-width: 680px) 
                        {
@@ -2022,5 +2019,33 @@ display:none;z-index:9;}
     .dashboardcode-bsmultiselect ul.dropdown-menu{    max-height: 200px;
         overflow: auto;    top: 10px!important;
     }
+
+    .bloodclass{color: red;
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+    top: 4px;}
+
+    @media only screen  and (max-device-width: 768px) 
+                       {
+.bloodclass {
+    color: red;
+    font-size: 24px;
+    font-weight: 600;
+    position: relative;
+    top: 6px;
+    right: 9px;
+}
+
+}
+
+    @media only screen  and (max-device-width: 678px) 
+                       {
+.bloodclass {
+    top: 17px;
+    right: -6px;
+}
+
+}
 
 /*-----------------ADMIN LOGIN MEDIA QUERY ENDS---------------

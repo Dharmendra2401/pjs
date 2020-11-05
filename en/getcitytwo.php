@@ -1,9 +1,9 @@
 <?php
 include "../config/config.php";
- $state=$_POST['state'];
+echo $state=$_POST['state'];
 ?>
  <select class="custom-select ustate" id="citytwo" >
-								          <option value="" selected>Select City</option>
+								          <option value="" selected>Select</option>
                                          
                                           <?php  
 

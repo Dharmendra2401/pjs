@@ -1,48 +1,52 @@
-<!DOCTYPE html>
-<html>
 <head>
-  <title>Bootstrap Example</title>
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/css/bootstrap.min.css">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<link href="https://fonts.googleapis.com/css?family=Raleway" rel="stylesheet">
- 
+<meta charset="UTF-8">
+<title>Insert title here</title>
 </head>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.2.0/jquery.min.js"></script>
+<script type="text/javascript" src="http://www.google.com/jsapi"></script>
+<script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+<script type="text/javascript">
+google.load("elements", "1", {packages: "transliteration"});
+</script> 
 
-<body>
-      <!-- Trigger the modal with a button -->
-<button type="button" class="btn btn-success openBtn">Open Modal</button>
-
-<!-- Modal -->
-<div class="modal fade" id="myModal" role="dialog">
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4 class="modal-title">Modal with Dynamic Content</h4>
-            </div>
-            <div class="modal-body">
-
-            </div>
-            <div class="modal-footer">
-                <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-            </div>
-        </div>
-    </div>
-</div>
-</body>
- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.16.0/umd/popper.min.js"></script>
-  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.0/js/bootstrap.min.js"></script>
 <script>
-  
-$('.openBtn').on('click',function(){
-    $('.modal-body').load('content.html',function(){
-        $('#myModal').modal({show:true});
-    });
-});
-</script>
+function OnLoad() {                
+    var options = {
+        sourceLanguage:
+        google.elements.transliteration.LanguageCode.ENGLISH,
+        destinationLanguage:
+        [google.elements.transliteration.LanguageCode.HINDI],
+        shortcutKey: 'ctrl+g',
+        transliterationEnabled: true
+    };
 
+    var control = new google.elements.transliteration.TransliterationControl(options);
+    control.makeTransliteratable(["txtHindi"]);
+    var keyVal = 32; // Space key
+    $("#txtEnglish").on('keydown', function(event) {
+        if(event.keyCode === 32) {
+            var engText = $("#txtEnglish").val() + " ";
+            var engTextArray = engText.split(" ");
+            $("#txtHindi").val($("#txtHindi").val() + engTextArray[engTextArray.length-2]);
+
+            document.getElementById("txtHindi").focus();
+            $("#txtHindi").trigger ( {
+                type: 'keypress', keyCode: keyVal, which: keyVal, charCode: keyVal
+            } );
+        }
+    });
+
+    $("#txtHindi").bind ("keyup",  function (event) {
+        setTimeout(function(){ $("#txtEnglish").val($("#txtEnglish").val() + " "); document.getElementById("txtEnglish").focus()},0);
+    });
+} //end onLoad function
+
+google.setOnLoadCallback(OnLoad);
+</script> 
+
+</head>
+    <body>
+       English Text: <input size="40" type="text" id="txtEnglish"/> <br/>
+       Hindi Text`enter code here` : <input size="40" type="text" id="txtHindi"/> 
+</body>
 </html>

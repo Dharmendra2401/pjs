@@ -12,7 +12,7 @@ if ($_SESSION['user_mid']) {
 else{
 ?>
 <select class="custom-select upincode" id="pincodes" name="pincode" onchange="return getArea();" >
-<option value="" selected>Select pincode</option>
+<option value="" selected>Select</option>
 <?php 
 }
 ?>

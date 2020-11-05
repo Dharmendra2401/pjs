@@ -92,7 +92,7 @@ return $res;
 function uniqtskid($con)
 {
 $prefix='ADMN';
-$rst11=mysqli_query($con,"select id,request_id from sub_admin_login order by id desc limit 1" ) or die(mysql_error());
+$rst11=mysqli_query($con,"select id,request_id from sub_admin_login order by id desc limit 1" ) or die(mysql_error($con));
 $getresultss=mysqli_num_rows($rst11);
 if(mysqli_num_rows($rst11) == 0){
 $uniqid =$prefix."0001";
@@ -109,7 +109,7 @@ return $uniqid;
 function uniqueid($con)
 {
 $prefix='RID';
-$rst11=mysqli_query($con,"select request_id from staging_approval order by request_id desc limit 1" ) or die(mysql_error());
+$rst11=mysqli_query($con,"select request_id from staging_approval order by request_id desc limit 1" ) or die(mysql_error($con));
 $getresultss=mysqli_num_rows($rst11);
 if(mysqli_num_rows($rst11) == 0){
 $uniqid ="RID0001";
@@ -127,7 +127,7 @@ return $uniqid;
 function uniqueopj($con)
 {
 $prefix='OPJ';
-$rst11=mysqli_query($con,"select request_id from non_member_request order by request_id desc limit 1" ) or die(mysql_error());
+$rst11=mysqli_query($con,"select request_id from non_member_request order by request_id desc limit 1" ) or die(mysql_error($con));
 $getresultss=mysqli_num_rows($rst11);
 if(mysqli_num_rows($rst11) == 0){
 $uniqid =$prefix."0001";
@@ -145,7 +145,7 @@ return $uniqid;
 function uniquemid($con)
 {
 $prefix='MID';
-$rst11=mysqli_query($con,"select id from key_member_id order by id desc limit 1" ) or die(mysql_error());
+$rst11=mysqli_query($con,"select id from key_member_id order by id desc limit 1" ) or die(mysql_error($con));
 $getresultss=mysqli_num_rows($rst11);
 if(mysqli_num_rows($rst11) == 0){
 $uniqid =$prefix."0001";

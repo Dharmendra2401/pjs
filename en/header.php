@@ -25,14 +25,19 @@
 </div>
 </div>
 <div class="col-md-3 align-self-center text-right">
-<!-- <i class="fas fa-language sm-icon-language"></i> -->
+<?php  if ($_SESSION['user_mid']!=''){?>
+<a href="<?php echo RE_HOME_USER;?>send_email_blood_group.php" class="sm-icon-alert"><span class=""><i class="fa fa-plus bloodclass"></i></span></a>
+<?php }else {?>
+<a href="<?php echo RE_EN_PATH;?>search_blood.php" class="sm-icon-alert"><span class=""><i class="fa fa-plus bloodclass"></i></span></a>
 <?php 
-
+}
 if ($_SESSION['user_mid']!='' || $_SESSION['admin_id']!=''){
  
 ?>
+
  <a href="#" class="dropdown-toggle notification" data-toggle="dropdown"><i class="fas fa-bell sm-icon-alert"></i>
 <span class="label label-pill label-danger count"></span>
+
 </a>
 	   <ul class="dropdown-menu notification-menu">
 	   </ul>

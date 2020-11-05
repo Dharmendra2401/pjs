@@ -1,6 +1,6 @@
 <?php
 include "../config/config.php";
-$state=$_POST['state'];
+echo $state=$_POST['state'];
 if ($_SESSION['user_mid']) {
 	$userid=$_SESSION['user_mid'];
 	$getcity=mysqli_query($con,"SELECT state,city,pincode FROM `address` WHERE `member_id`='$userid'");
@@ -13,7 +13,7 @@ if ($_SESSION['user_mid']) {
 else{
 ?>
 <select class="custom-select ucity" id="city" onchange="return getpincodes();" name="city">
-<option value="" selected>Select City</option>
+<option value="" selected>Select</option>
 <?php 
 }
 ?>

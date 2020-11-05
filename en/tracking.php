@@ -67,6 +67,9 @@ top: 24px;}
 <script>
 function getStatus(){
 var status=$('#status').val();
+if(status.trim()==''){
+$('#trackstatus').html('<div class="col-md-3 offset-md-4 alert alert-danger alert-dismissible fade show" role="alert">Please enter refrence id <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div><br>');
+}else{
 $('#loadergif').fadeIn();
 $.ajax({
 method:'POST',
@@ -75,10 +78,10 @@ data:{'status':status},
 success:function(gettracking){
 $('#trackstatus').html(gettracking);
 $('#loadergif').fadeOut();
+
 }
-
 })
-
+}
 }
 </script>
 </html>

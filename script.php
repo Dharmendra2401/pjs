@@ -1,5 +1,8 @@
 <?php  include "modal.php"; ?>  
  
+<?php include "modal.php"; ?>  
+
+
 <div class="modal fade loginPopup" id="contactoption">
 <div class="modal-dialog modal-dialog-centered lgn-sgn-container login-container">
 <div class="modal-content contact-content">
@@ -119,13 +122,13 @@
 </div> -->
 <style>
 .checkboxpassword{text-align: right;
-    width: 100%;
-    font-size: 13px;
-	font-family: sans-serif;}
-	.checkboxpassword span{	background: rgb(128 128 128 / 12%);
-    display: inline-block;
-    margin: 5px 0px 5px;
-    padding: 1px 5px 1px;}
+width: 100%;
+font-size: 13px;
+font-family: sans-serif;}
+.checkboxpassword span{	background: rgb(128 128 128 / 12%);
+display: inline-block;
+margin: 5px 0px 5px;
+padding: 1px 5px 1px;}
 </style>
 
 
@@ -398,8 +401,8 @@
 
 <script type="text/javascript" src="https://cdn.ckeditor.com/4.15.0/standard-all/ckeditor.js"></script>
 <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/BsMultiSelect.js"></script>
- <script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
- <script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/jquery.ccpicker.js"></script>
+<script src="http://ajax.aspnetcdn.com/ajax/jquery.validate/1.11.1/jquery.validate.min.js"></script>
+<script type="text/javascript" src="<?php echo RE_HOME_PATH; ?>js/jquery.ccpicker.js"></script>
 
 <script>
 
@@ -628,7 +631,7 @@ bootbox.alert("Error! Please try again");
 }
 
 }
- 
+
 
 function checkMid(){
 var mid=$('#mid').val();
@@ -690,7 +693,7 @@ else if(password.trim()==''){
 $('#miderror').html('<div class="alert alert-danger alert-sm">Please enter password <button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div> ');
 $('#password').focus();
 }else{
-	$('#loadergif').fadeIn();
+$('#loadergif').fadeIn();
 $.ajax({
 method:'POST',
 url:'<?php echo RE_HOME_USER ;?>loginuser.php',
@@ -755,7 +758,7 @@ $('#getotp').show();
 $('#resend').hide();
 }
 
- <?php if($requestid==''){ ?>
+<?php if($requestid==''){ ?>
 
 $(function(){
 $(".shortable").addSortWidget();
@@ -767,7 +770,7 @@ $("#getcitytwo").load("<?php echo RE_EN_PATH; ?>getcity.php");
 $("#getpincode").load("<?php echo RE_EN_PATH; ?>getpincode.php");
 $("#getarea").load("<?php echo RE_EN_PATH; ?>area.php");
 });
- <?php } ?>
+<?php } ?>
 
 
 
@@ -977,54 +980,54 @@ window.location.replace("<?php echo RE_EN_PATH; ?>load_search2.php?search="+sear
 // 
 
 
-	$(document).ready(function() {
-			$("#feedback_submit_form").validate({
-					rules: {
-							feedback_desc1: "required",
-							feedback_type1:"required" 
-					},
-					messages: {
-							feedback_desc1: "Fill the Description",
-							feedback_type1: "Please select type"
-					}
-			})
-			$("#feedback_submit").on("click", function () {
+$(document).ready(function() {
+$("#feedback_submit_form").validate({
+rules: {
+feedback_desc1: "required",
+feedback_type1:"required" 
+},
+messages: {
+feedback_desc1: "Fill the Description",
+feedback_type1: "Please select type"
+}
+})
+$("#feedback_submit").on("click", function () {
 
-			if (!$("#feedback_submit_form").valid()) { // Not Valid
-				return false;
-			} 
-			else {
-				var fd = new FormData();
-				var feedback_type=$(".feedback_type:visible option:selected").val();
-				var feedback_desc=$(".feedback_desc").val();
-				var current_user=$(".curr_mid").val();
- 				var home_path=$("#home_path").val();
-				$.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/feedback_submit.php",
-				{
-					current_user:current_user,
-					feedback_type: feedback_type,
-					feedback_desc:feedback_desc
-				},
-				function(data,status){
-						var status1=status;
-						console.log(status1);
-						if (status1=='success') {
-						// window.location.reload();
-						$('#modal45').modal('hide')
-						$('#feedback_alert').modal('show')
-					}
-					else{
-					alert("Data: not updated");
-				}
-				});
-			}
-				
-		})
+if (!$("#feedback_submit_form").valid()) { // Not Valid
+return false;
+} 
+else {
+var fd = new FormData();
+var feedback_type=$(".feedback_type:visible option:selected").val();
+var feedback_desc=$(".feedback_desc").val();
+var current_user=$(".curr_mid").val();
+var home_path=$("#home_path").val();
+$.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/feedback_submit.php",
+{
+current_user:current_user,
+feedback_type: feedback_type,
+feedback_desc:feedback_desc
+},
+function(data,status){
+var status1=status;
+console.log(status1);
+if (status1=='success') {
+// window.location.reload();
+$('#modal45').modal('hide')
+$('#feedback_alert').modal('show')
+}
+else{
+alert("Data: not updated");
+}
+});
+}
+
+})
 
 });
 
 $('#modal45').on('hide.bs.modal', function (e) {
- var mid=$(".feedback_type").val('');
+var mid=$(".feedback_type").val('');
 var dod=$(".feedback_desc").val('');
 $("label.error").hide();
 $('.succ.msg').hide();
@@ -1095,58 +1098,58 @@ var dod=$(".dod").val();
 var current_user=$(".curr_mid").val();
 $.post("<?php echo RE_HOME_PATH; ?>en/PJS-demo/death_checker.php",
 {
-	current_user:current_user,
-	dod: dod,
-	mid:mid
+current_user:current_user,
+dod: dod,
+mid:mid
 },
 function(data,status){
-		var status1=status;
-		//console.log(data);
-		if (status1=='success') {
-		var da=$.trim(data);
-		if (da=="Thanks for the update") {
-		console.log(da+"12");
-		$('.err.msg').hide();
-		$('.succ.msg').show();
-		$('.succ.msg').text(da);
-		$('.succ.msg').css("padding","10px");
-		}
-		else{
-			console.log($('.succ.msg').length);
-			$('.succ.msg').hide();
-			$('.err.msg').show();
-		$('.err.msg').text(da);
-		$('.err.msg').css("padding","10px");
-		}
-	}
-	else{
-		alert("Data: not updated");
-	}
+var status1=status;
+//console.log(data);
+if (status1=='success') {
+var da=$.trim(data);
+if (da=="Thanks for the update") {
+console.log(da+"12");
+$('.err.msg').hide();
+$('.succ.msg').show();
+$('.succ.msg').text(da);
+$('.succ.msg').css("padding","10px");
+}
+else{
+console.log($('.succ.msg').length);
+$('.succ.msg').hide();
+$('.err.msg').show();
+$('.err.msg').text(da);
+$('.err.msg').css("padding","10px");
+}
+}
+else{
+alert("Data: not updated");
+}
 });
 
 })
 
 
 $('#death_update').on('hide.bs.modal', function (e) {
- var mid=$(".mid").val('');
+var mid=$(".mid").val('');
 var dod=$(".dod").val('');
 $('.succ.msg').hide();
 $('.err.msg').hide();
 })
 $(function(){
-    var dtToday = new Date();
-    
-    var month = dtToday.getMonth() + 1;
-    var day = dtToday.getDate();
-    var year = dtToday.getFullYear();
-    if(month < 10)
-        month = '0' + month.toString();
-    if(day < 10)
-        day = '0' + day.toString();
-    
-    var maxDate = year + '-' + month + '-' + day;
-    //alert(maxDate);
-    $('.dod').attr('max', maxDate);
+var dtToday = new Date();
+
+var month = dtToday.getMonth() + 1;
+var day = dtToday.getDate();
+var year = dtToday.getFullYear();
+if(month < 10)
+month = '0' + month.toString();
+if(day < 10)
+day = '0' + day.toString();
+
+var maxDate = year + '-' + month + '-' + day;
+//alert(maxDate);
+$('.dod').attr('max', maxDate);
 });
 
 
@@ -1156,55 +1159,58 @@ $("#dob").on("click", function () {
 })
 
 $('.modal').on('hidden.bs.modal', function (e) {
-  $(this)
-    .find("input,textarea,select")
-       .val('')
-       .end()
-    .find("input[type=checkbox], input[type=radio]")
-       .prop("checked", "")
-       .end();
+$(this)
+.find("input,textarea,select")
+.val('')
+.end()
+.find("input[type=checkbox], input[type=radio]")
+.prop("checked", "")
+.end();
 })
 
 function togglerFunfction() {
-  var x = document.getElementById("password");
-  if (x.type === "password") {
-    x.type = "text";
-  } else {
-    x.type = "password";
-  }
+var x = document.getElementById("password");
+if (x.type === "password") {
+x.type = "text";
+} else {
+x.type = "password";
+}
 }
 //load notification 
- function load_unseen_notification(view = '')
- {
-  $.ajax({
-   url:"<?php echo RE_HOME_PATH?>en/PJS-demo/notification.php",
-   method:"POST",
-   data:{view:view},
-   dataType:"json",
-   success:function(data)
-   {
-    $('.notification-menu').html(data.notification);
-   
-    if(data.unseen_notification > 0)
-    {
-     $('.count').html(data.unseen_notification);
-    }
-    if (data.unseen_notification == 0) {
-    	$('.notification').children("span.label-pill").css("padding","0px");
-    }
-   }
-  });
- }
- 
+function load_unseen_notification(view = '')
+{
+$.ajax({
+url:"<?php echo RE_HOME_PATH?>en/PJS-demo/notification.php",
+method:"POST",
+data:{view:view},
+dataType:"json",
+success:function(data)
+{
+$('.notification-menu').html(data.notification);
+
+if(data.unseen_notification > 0)
+{
+$('.count').html(data.unseen_notification);
+}
+if (data.unseen_notification == 0) {
+$('.notification').children("span.label-pill").css("padding","0px");
+}
+}
+});
+}
 
 $(document).on('click', '.notification', function(){ 
 	$('.count').html('');
 	$('.notification').children("span.label-pill").css("padding","0px");
 	load_unseen_notification('yes');
+$(document).on('click', '.notification', function(){
+$('.count').html('');
+$('.notification').children("span.label-pill").css("padding","0px");
+load_unseen_notification('yes');
 });
 
- // setInterval(function(){ 
- //  load_unseen_notification(); 
- // }, 5000);
+// setInterval(function(){ 
+//  load_unseen_notification(); 
+// }, 5000);
 load_unseen_notification()
 </script>
