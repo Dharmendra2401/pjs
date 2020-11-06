@@ -24,7 +24,7 @@ $row=mysqli_fetch_array($query);
 <h6>Updated</h6> <small class="px-md-2 alert-secondary alert-sm"><?php echo date('d/m/Y',strtotime($row['record_updated_dttm'])); ?> </small> </div>
 
 
- <?php } else if($row['active_status']=='R') {?><?php echo $row['active_status']; ?>  
+ <?php } else if($row['active_status']=='R') {?>  
 <div class="icon-tracking text-danger"> 
 <i class="fas fa-times-circle"></i> 
 <h6>Rejected</h6> <small class="px-md-2 alert-secondary alert-sm"><a href="<?php echo RE_EN_PATH;?>userupdate/update.php?token=<?php echo base64_encode($row['request_id']);?>" style="text-decoration: underline;">Click here </a> to upate your form</a> </small></div>

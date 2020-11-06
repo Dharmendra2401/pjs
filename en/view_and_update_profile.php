@@ -56,7 +56,7 @@ $row=mysqli_fetch_array($fire);
 
 								<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
 								<div class="col-md-9 col-7 bld_grp"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
-                        else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></div>
+                        else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo $row['blood_group'] ;}  ; ?></div>
 
 								<div class="col-md-3 col-5">Height <strong>:</strong></div>
 								<div class="col-md-9 col-7 height_ov"><!-- <?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?>  -->
@@ -217,19 +217,26 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
 								<div class="col-md-9 col-7">
 								    	    <span class="dropdwn-txt"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
-                        else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A-';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo 'NA';}  ; ?></span>
+                        else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A-';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo $row['blood_group'];}  ; ?></span>
 								    <form class="edit-form" data-columnname='blood_group' data-tablename='member' id="blood_group_frm">
 										<select class="select-text form-control" name="blood_group_name">
 											<option value="">Select Blood Group</option>
-											<option value="1">A+</option>
-											<option value="2">B+</option>
-											<option value="3">AB+</option>
-											<option value="4">O+</option>
-											<option value="5">A-</option>
-											<option value="6">B-</option>
-											<option value="7">AB-</option>
-											<option value="8">O-</option>
+											<option value="A+">A+</option>
+											<option value="B+">B+</option>
+											<option value="AB+">AB+</option>
+											<option value="O+">O+</option>
+											<option value="A-">A-</option>
+											<option value="B-">B-</option>
+											<option value="AB-">AB-</option>
+											<option value="O-">O-</option>
+											<option value="9">Other</option>
 										</select>
+										<div class="form-group row" style="display:none;" id="otherblooddiv">
+<label class="col-md-12 col-form-label"> <span class="text-danger">*</span> Other Blood Group</label>	
+<div class="col-md-12">
+<input type="text" name="otherbloodgroup" class="form-control" placeholder="Enter other blood group" id="otherbloodgroup" maxlength='3'>
+</div>
+</div>
 										<button class="btn btn-primary save-change" id="blood_group_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
@@ -591,7 +598,15 @@ $('#occdetails').show();
 }
 }
 $(document).ready(function(){
+$('select[name=blood_group_name]').on('change', function() {
+if($(this).val()==9){
+$('#otherblooddiv').show();	
+}else{
+$('#otherblooddiv').hide(); 
+$('#otherbloodgroup').val(''); 
 
+}
+});
   $(".nav-tabs a").click(function(){
 	$(this).tab('show');
   });
@@ -748,6 +763,7 @@ $(document).ready(function(){
 			var columnname = $(this).parent(".edit-form").data('columnname');
 			var tablename = $(this).parent(".edit-form").data('tablename');
 			var home_path = $("#home_path").val();
+			var otherbloodgroup = $("#otherbloodgroup").val();
 			$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
 			{
 				tablename:tablename,
@@ -798,6 +814,9 @@ $(document).ready(function(){
 			var columnname = $(this).parent(".edit-form").data('columnname');
 			var tablename = $(this).parent(".edit-form").data('tablename');
 			var home_path = $("#home_path").val();
+			var otherbloodgroup = $("#otherbloodgroup").val();
+
+			
 			$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
 			{
 				tablename:tablename,
@@ -809,28 +828,28 @@ $(document).ready(function(){
 
 				if (status1=='success') {
 				//location.reload(true);
-					 if(inputValue==1){
+					 if(inputValue=='A+'){
 					 	inputValue='A+';
 					 } 
-					 else if(inputValue==2){
+					 else if(inputValue=='B+'){
 					 	inputValue='B+';
 					}
-					else if(inputValue==3){
+					else if(inputValue=='AB+'){
 						inputValue='AB+';
-					}else if(inputValue==4){
+					}else if(inputValue=='O+'){
 						inputValue= 'O+';
 					}
-					else if(inputValue==5){
+					else if(inputValue=='A-'){
 						inputValue='A-';
-					}else if(inputValue==6){
+					}else if(inputValue=='B-'){
 						inputValue= 'B-';
-					} else if(inputValue==7){
+					} else if(inputValue=='AB-'){
 						inputValue='AB-';
 					}
-					else if(inputValue==8){
+					else if(inputValue=='O-'){
 						inputValue='O-';
-					} else {
-						inputValue='NA';
+					} else if((inputValue==9)&&(otherbloodgroup!=''){
+						inputValue=otherbloodgroup;
 					}  
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});

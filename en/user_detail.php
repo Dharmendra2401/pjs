@@ -286,7 +286,7 @@ echo 'AB-';
 echo 'O-';
 } 
 else {
-echo 'NA';
+echo $row['blood_group'];
 }  
 }?>
 

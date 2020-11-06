@@ -27,7 +27,7 @@ $countblood=mysqli_num_rows($getblood);
 while($showblood=mysqli_fetch_array($getblood)){
 
 	?>
-<option value="$showblood['blood_group']"><?php echo $showblood['blood_group']; ?></option>
+<option value="<?php echo $showblood['blood_group'];?>"><?php echo $showblood['blood_group']; ?></option>
 	<?php
 
 }
@@ -38,7 +38,7 @@ while($showblood=mysqli_fetch_array($getblood)){
 </div>
 
 <div class="form-group  col-md-2 col-sm-4 col-12 addclass" id="countryclass">
-<label class="col-form-label"><span class="text-danger">*</span> Country</label>	
+<label class="col-form-label"> Country</label>	
 <select class="custom-select" id="country" name="country" onchange="return countryies();">
 <option value="" selected>Select</option>
 <option value="India">India</option>
@@ -48,7 +48,7 @@ while($showblood=mysqli_fetch_array($getblood)){
 
 
 <div class="form-group col-md-2 col-sm-4 col-12" id="statetop">
-<label class="col-form-label"><span class="text-danger">*</span> State</label>	
+<label class="col-form-label"> State</label>	
 <select class="custom-select" id="state" onchange="return getCity();" name="state">
 <option value="" selected>Select </option>
 <?php
@@ -64,13 +64,13 @@ while($show=mysqli_fetch_array($state)){
 </div>
 
 <div class="form-group col-md-2 col-sm-4 col-12" id="citytop">
-<label class="col-form-label"><span class="text-danger">*</span> City</label>	
+<label class="col-form-label"> City</label>	
 <span id="getcity"></span>
 </div>
 
 
 <div class="form-group col-md-2 col-sm-4 col-12" id="pincodetop">
-<label class="col-form-label"><span class="text-danger">*</span> Pincode</label>	
+<label class="col-form-label"> Pincode</label>	
 <span id="getpincode"></span>
 </div>
 
@@ -132,7 +132,10 @@ var country=$("#country").val();
 var statetwo=$("#state").val();	
 var citytwo=$("#city").val();
 var pincodes=$("#pincodes").val();
-
+if(bloodgroup==''){
+$('#blood_group').focus();
+$('#getblood').html('<div class="alert alert-danger alert-dismissible fade show col-md-6 offset-3" role="alert">Please select blood group<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+}else{
 y=10;
 $('#loadergif').fadeIn();
 $.ajax({
@@ -142,7 +145,8 @@ data: {"page":x,"pagesize":y,"statetwo":statetwo,"citytwo":citytwo,"pincodes":pi
 success: function(data122){
 $('#loadergif').fadeOut();
 $("#getblood").html(data122);			    } 
-});	
+});
+}	
 }
 
 function emptyForm(){

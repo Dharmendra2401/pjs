@@ -124,12 +124,7 @@ while($showblood=mysqli_fetch_array($getblood)){
 
 
 
-<div class="form-group row">
-<label class="col-md-4 col-form-label"><span class="text-danger">*</span> Confirm New Password </label>	
-<div class="col-md-8">
-<input type="password" class="form-control" name="cpassword" maxlength="10" placeholder="Confirm new password" id="cpassword" required>
-</div>
-</div>
+
 
 <div class="form-group row">
 
