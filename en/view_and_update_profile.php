@@ -2,7 +2,7 @@
 include "../config/config.php";
 user_session_check();
 $current_user_id=$_SESSION['user_mid'];
-$fire=mysqli_query($con,"SELECT mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,addrss.city,addrss.state,addrss.pincode,addrss.country,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id INNER JOIN member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$current_user_id'")or die(mysqli_error($con));
+$fire=mysqli_query($con,"SELECT mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,mem.blood_donate,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,addrss.city,addrss.state,addrss.pincode,addrss.country,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id INNER JOIN member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$current_user_id'")or die(mysqli_error($con));
 
 $row=mysqli_fetch_array($fire);
 ?>
@@ -57,6 +57,10 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
 								<div class="col-md-9 col-7 bld_grp"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
                         else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo $row['blood_group'] ;}  ; ?></div>
+                                 
+                                 <div class="col-md-3 col-5"> Are you willing to donate? <strong>:</strong></div>
+								<div class="col-md-9 col-7 mari_sta" > <?php echo $row['blood_donate'];?> </div>
+
 
 								<div class="col-md-3 col-5">Height <strong>:</strong></div>
 								<div class="col-md-9 col-7 height_ov"><!-- <?php  if($row['feet']!='' && $row['inches']!=''){ echo $row['feet']."' ".$row['inches']."'' ";}else{echo "NA";}  ?>  -->
@@ -155,6 +159,7 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3 col-5">First Name <strong>:</strong></div>
 								<div class="col-md-9 col-7"><?php echo $row['first_name'];?></div>
 
+
 								<div class="col-md-3 col-5">Father Name <strong>:</strong></div>
 								<div class="col-md-9 col-7 edit-wrapper">
 								   <span class="data"><?php echo $row['fathers_name'];?></span> 
@@ -236,12 +241,48 @@ $row=mysqli_fetch_array($fire);
 <div class="col-md-12">
 <input type="text" name="otherbloodgroup" class="form-control" placeholder="Enter other blood group" id="otherbloodgroup" maxlength='3'>
 </div>
+<div class="col-md-12 text-danger errorblood"></div>
 </div>
+
+
 										<button class="btn btn-primary save-change" id="blood_group_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
+
+
+
+
 									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 							    </div>
+
+
+
+
+
+
+<div class="col-md-3 col-5">Are you willing to donate?<strong>:</strong></div>
+<div class="col-md-9 col-7">
+<span class="" id="blood_donate_text_here"><?php echo $row['blood_donate'];?></span>
+<form class="edit-form" data-columnname='blood_group' data-tablename='member' id="blood_donate">
+	<div class="row">
+<div class="col-md-6">
+<input type="radio" name="donate" value="Yes" checked> <label class=""> Yes</label>
+</div>
+<div class="col-md-6">
+<input type="radio" name="donate" value="No"> <label> No</label> 
+</div>
+</div>
+
+<button type="button" class="btn btn-primary save-change" id="blood_donate_btn">Save Changes</button>
+<button class="cancel btn btn-secondary	">Cancel</button>
+</form>
+<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
+</div>
+
+
+
+
+
 
 								<div class="col-md-3 col-5">Height <strong>:</strong></div>
 								<div class="col-md-9 col-7">
@@ -796,15 +837,32 @@ $('#otherbloodgroup').val('');
 			messages: {
 					blood_group_name: "please select blood group"
 			}
+				
 	})
-		//
+
 	$("#blood_group_btn").on("click", function(){ 	
 			event.preventDefault();  
 			if (!$("#blood_group_frm").valid()) { // Not Valid
 				return false;
 			} 
 	   else{   
-		var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
+	   	var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val(); 
+	   	var inputValue1 = "other"; 
+	   	if (inputValue==9) {
+			var inputValue = $("#otherbloodgroup:visible").val(); 
+			if(inputValue==''){
+              $('#otherbloodgroup').focus();
+              $('.errorblood').html('please enter blood group');
+return false;
+			}
+
+
+			
+	   	}
+	   	else{
+	   		var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val(); 
+	   	}
+		  
 	   // $(this).siblings(".edit-form").hide();
 	   var parent = $(this).parent(".edit-form");
 			var parent = $(this).parent(".edit-form");
@@ -848,9 +906,11 @@ $('#otherbloodgroup').val('');
 					}
 					else if(inputValue=='O-'){
 						inputValue='O-';
-					} else if((inputValue==9)&&(otherbloodgroup!=''){
-						inputValue=otherbloodgroup;
-					}  
+					} else if(inputValue1=='other'){
+						inputValue=inputValue;
+					}  else{
+						inputValue='NA';
+					}
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 					current_users.parent(".edit-form").siblings(".dropdwn-txt").show().text(inputValue);
@@ -976,6 +1036,34 @@ $('#otherbloodgroup').val('');
 				}
 			});
   });
+
+$("#blood_donate_btn").on("click", function(){ 	
+//			event.preventDefault(); 
+var blod_donate=$('input[name=donate]:checked').val();
+var seesionid="<?php echo $_SESSION['user_mid']; ?>";
+alert(seesionid);
+if((blod_donate)==''){
+$('#blod_donate').html('select blood donate');	
+}else{
+
+$.ajax({
+method:'post',
+url:'<?php echo RE_EN_PATH;?>PJS-demo/update_blood_donate.php',
+data:{'blod_donate':blod_donate,'seesionid':seesionid},
+success:function(blooddonate){
+	alert(blooddonate);
+	if(blooddonate='success'){
+$('#blood_donate_text_here').html(blod_donate);
+$('#blood_donate_text_here').show();
+$('#blood_donate').hide();
+}
+}
+})
+
+}
+
+
+});
 		$("#time_of_birth_btn").on("click", function(){ 	
 			event.preventDefault();   
 			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
