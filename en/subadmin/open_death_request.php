@@ -23,6 +23,8 @@ if(isset($_REQUEST['ustatus']))
 {$statu.= 'and status LIKE "'.$_REQUEST['ustatus'].'%" ';}
 $stat="member_request where 1=1 and (status_of_request='Y') and type_of_request='death' $statu ";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
+//echo $stat;
+
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
 $query = "SELECT * FROM ".$stat." LIMIT ".$startpoint." , ".$limit; 
@@ -53,8 +55,8 @@ if($row_count<=0){
 </table>
 <?php
 
-$txtpage= paginationjquery($con,$stat,$limit,$page,"?","");					   
-
+$txtpage= paginationjquerytwo($con,$stat,$limit,$page,"?","");					   
+//echo $txtpage;
 echo "<table width='100%'><tr><td  style='padding:3px;'><div class='dataTables_paginate paging_bootstrap'>".$txtpage."</div></td></tr></table>";
 
 ?> 
