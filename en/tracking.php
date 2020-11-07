@@ -51,7 +51,7 @@ top: 24px;}
 </style>
 <div class="shadow">
 <div class="row">
-<form class="form-inline col-md-6 offset-4 form-tracker">
+<form class="form-inline col-md-6 offset-4 form-tracker app_status">
 <div class="form-group mx-sm-3 mb-2">
 <input type="text" class="form-control text-uppercase" id="status" placeholder="Enter refrence id">
 </div>

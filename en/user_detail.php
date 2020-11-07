@@ -145,8 +145,8 @@ else{ ?>
 <a href="<?php echo RE_EN_PATH; ?>user_detail_pdf.php?id=<?php echo base64_encode($row['member_id']);?>"
 	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
 
-<a href="<?php echo RE_EN_PATH; ?>card_image.php?id=<?php echo base64_encode($row['member_id']);?>"
-	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
+<!-- <a href="<?php echo RE_EN_PATH; ?>card_image.php?id=<?php echo base64_encode($row['member_id']);?>"
+	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a> -->
 									 <?php  
 									if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
 										$url = "https://";   

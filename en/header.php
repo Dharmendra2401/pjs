@@ -1,14 +1,13 @@
-
 <div id="loadergif" style="display:none;">
 <img src="<?php echo RE_HOME_PATH; ?>images/ajaxloader.gif" width="100%">
 </div>
 <div class="row bg-color">
 
-<div class="col-md-3 sm-image-wrapper text-center">
+<div class="col-md-3 col-sm-3 sm-image-wrapper text-center">
 <i class="fas fa-bars mobile-menu-icon"></i>
 <a class="logo-link" href="<?php echo  RE_EN_PATH;  ?>"><img class="sm-image" width="110" src="<?php echo  RE_HOME_PATH;  ?>images/logo1.png"></a>
 </div>
-<div class="col-md-6 d-flex justify-content-center sm-pb10">
+<div class="col-md-6 col-sm-6 d-flex justify-content-center sm-pb10">
 <div class="input-group my-auto">
 <!-- <input type="text" class="form-control" placeholder="Search" aria-label="Username"> -->
 <input type="text" class="form-control" onkeyup="return searchBar();" placeholder="Search" id="search" size="30" autocomplete="off" ><button class="cancel-btn searchbtn" onclick="return searchbarclick();"><i class="fa fa-times"></i></button>
@@ -24,11 +23,11 @@
 <div id="searchdata" class="searchdata"></div>
 </div>
 </div>
-<div class="col-md-3 align-self-center text-right">
+<div class="col-md-3 col-sm-3">
 <?php  if ($_SESSION['user_mid']!=''){?>
-<a href="<?php echo RE_HOME_USER;?>send_email_blood_group.php" class="sm-icon-alert"><span class=""><i class="fa fa-plus bloodclass"></i></span></a>
+<a href="<?php echo RE_HOME_USER;?>send_email_blood_group.php" class="login-icon" style="right: 66px;top: -92px;position: absolute;"><i class="fa fa-plus"></i></a>
 <?php }else {?>
-<a href="<?php echo RE_EN_PATH;?>search_blood.php" class="sm-icon-alert"><span class=""><i class="fa fa-plus bloodclass"></i></span></a>
+<a href="<?php echo RE_EN_PATH;?>search_blood.php" class="login-icon" style="right: 66px;top: -100px;position: absolute;"><i class="fa fa-plus bloodclass"></i></a>
 <?php 
 }
 if ($_SESSION['user_mid']!='' || $_SESSION['admin_id']!=''){
@@ -206,7 +205,7 @@ if ($_SESSION['admin_email']!=''){
 
 
 <input type="hidden" name="" class="curr_mid" value="<?php echo $_SESSION['user_mid'];?>">
-<li class="nav-item"><a class="nav-link" href="<?php echo RE_EN_PATH;?>tracking.php"alt="Please click here to track your application" title="Please click here to track your application"> <i class="fas fa-map-marker-alt" ></i> App Status</a></li>
+<li class="nav-item"><a class="nav-link" href="<?php echo RE_EN_PATH;?>tracking.php"alt="Please click here to track your application" title="Please click here to track your application"></i> App Status</a></li>
 
 </ul>
 </nav>
