@@ -134,7 +134,7 @@ var citytwo=$("#city").val();
 var pincodes=$("#pincodes").val();
 if(bloodgroup==''){
 $('#blood_group').focus();
-$('#getblood').html('<div class="alert alert-danger alert-dismissible fade show col-md-6 offset-3" role="alert">Please select blood group<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
+$('#getblood').html('<div class="alert alert-danger alert-dismissible fade show col-md-6 offset-md-3" role="alert">Please select blood group<button type="button" class="close" data-dismiss="alert" aria-label="Close"><span aria-hidden="true">&times;</span></button></div>');
 }else{
 y=10;
 $('#loadergif').fadeIn();
