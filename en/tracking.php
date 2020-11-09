@@ -47,11 +47,22 @@ top: 24px;}
     position: initial;
 
 }
+.form-tracker {
+    margin-top: 50px;
+    margin-bottom: 50px;
+    padding-left: 21%;
+}
+}
+@media screen and (max-width: 375px) {
+.form-tracker {
+    padding-left: 20px;
+}
+
 }
 </style>
 <div class="shadow">
 <div class="row">
-<form class="form-inline col-md-6 offset-4 form-tracker app_status">
+<form class="form-inline col-md-6 offset-md-4 offset-sm-2 form-tracker">
 <div class="form-group mx-sm-3 mb-2">
 <input type="text" class="form-control text-uppercase" id="status" placeholder="Enter refrence id">
 </div>

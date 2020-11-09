@@ -5,9 +5,13 @@ global $con;
 $current_user=$_SESSION['user_mid'];
 $columnname=$_POST['columnname'];
 $inputValue=$_POST['inputValue'];
+$marital_status_name=$_POST['marital_status_name'];
+$countrycode=$_POST['countrycode'];
+$countryflag=$_POST['countryflag'];
+
 $tablename=$_POST['tablename'];
 $submitdate=date('Y-m-d H:i:s');
-
+$addquery='';
 if($columnname=="date_of_birth" || $columnname=="time_of_birth" || $columnname=="place_of_birth" || $columnname=="mobile"){
 	$m_p_column="";
 	if ($columnname=="date_of_birth") {
@@ -21,10 +25,12 @@ if($columnname=="date_of_birth" || $columnname=="time_of_birth" || $columnname==
 	}
 	if ($columnname=="mobile") {
 		$m_p_column="Mobile";
+		$addquery.=",country_flag='".$countryflag."',country_code='".$countrycode."' ";
+
 	}
 	if ($columnname=="date_of_birth") {
 	$privacy_setting=$_POST['privacy_setting'];
-	$sql1="UPDATE `member_privacy` SET $m_p_column='$privacy_setting' WHERE `member_id`='$current_user'";
+	echo $sql1="UPDATE `member_privacy` SET $m_p_column='$privacy_setting'  WHERE `member_id`='$current_user'";
 	$result = mysqli_query($con,$sql1); 
 	return $result; 
 	if ($result) {
@@ -36,7 +42,7 @@ if($columnname=="date_of_birth" || $columnname=="time_of_birth" || $columnname==
 	}
 	else{
 	$privacy_setting=$_POST['privacy_setting'];
-	$sql="UPDATE $tablename SET $columnname='$inputValue' WHERE `member_id`='$current_user'";
+	$sql="UPDATE $tablename SET $columnname='$inputValue'$addquery WHERE `member_id`='$current_user'";
 	$result = mysqli_query($con,$sql);   
 	$sql1="UPDATE `member_privacy` SET $m_p_column='$privacy_setting' WHERE `member_id`='$current_user'";
 	$result1 = mysqli_query($con,$sql1); 

@@ -2,7 +2,7 @@
 include "../config/config.php";
 user_session_check();
 $current_user_id=$_SESSION['user_mid'];
-$fire=mysqli_query($con,"SELECT mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,mem.blood_donate,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,addrss.city,addrss.state,addrss.pincode,addrss.country,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id INNER JOIN member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$current_user_id'")or die(mysqli_error($con));
+$fire=mysqli_query($con,"SELECT mem.feet,mem.inches, mem.member_id,mem.middle_name,mem.husband_wife_name,mem.first_name,mem.last_name,addrss.full_address,addrss.city,comm.email,mem.fathers_name,mem.gender,mem.age,mem.date_of_birth,mem.place_of_birth,mem.time_of_birth,mem.marital_status,mem.blood_group,mem.popular_name,mem.marital_status,mem.blood_donate,addrss.member_id,addrss.full_address,addrss.city,addrss.state,addrss.country,addrss.pincode,comm.member_id,comm.mobile,comm.email,comm.country_flag,comm.country_code,edu.member_id,edu.highest_edu,edu.occupation,edu.ocp_details,edu.income,keyy.id,keyy.display_pic,addrss.city,addrss.state,addrss.pincode,addrss.country,mp.* from member as mem INNER JOIN address as addrss on mem.member_id=addrss.member_id INNER JOIN communication as comm on mem.member_id=comm.member_id INNER JOIN education_ocp as edu on mem.member_id=edu.member_id INNER JOIN key_member_id as keyy on mem.member_id=keyy.id INNER JOIN member_privacy mp on mem.member_id=mp.member_id where mem.member_id= '$current_user_id'")or die(mysqli_error($con));
 
 $row=mysqli_fetch_array($fire);
 ?>
@@ -16,7 +16,22 @@ $row=mysqli_fetch_array($fire);
 <div class="container-fluid">
 
 <?php include "header.php";  ?>
+<style>
+.cc-picker-code-select-enabled {
+    cursor: pointer;    float: left;
+    padding-right: 0px;padding-left: 5px;
+    position: relative;
+    margin: 0px;
+    border: 1px solid rgba(0, 0, 0, 0.2901960784313726);
+    border-radius: 5px;
+    padding-top: 0px!important;
+    padding-bottom: 0px;
+    height: 37px;
+    width: 100px;
+    background: white;
 
+}
+</style>
 <div class="col-md-2 user-tab bg-color pt-3">
 				<ul class="nav nav-tabs">
 					<li class="nav-item"><a class="nav-link active" href="#overview">Overview</a></li>
@@ -54,12 +69,15 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-3 col-5">Status <strong>:</strong></div>
 								<div class="col-md-9 col-7 mari_sta" ><?php echo $row['marital_status']; ?></div>
 
+                                <div class="col-md-3 col-5 gethusbanddiv hus_wife"><?php if(($row['marital_status']=='married')&&($row['gender']=='M')){echo "Wife's name";}else{echo "Husband's name"; } ?> <strong>:</strong></div>
+								<div class="col-md-9 col-7 husband_val gethusbanddiv" ><?php echo $row['husband_wife_name']; ?></div>
+
 								<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
 								<div class="col-md-9 col-7 bld_grp"><?php if($row['blood_group']==1){echo 'A+';} else if($row['blood_group']==2){echo 'B+';}
                         else if($row['blood_group']==3){echo 'AB+';}else if($row['blood_group']==4){echo 'O+';}else if($row['blood_group']==5){echo 'A+';}else if($row['blood_group']==6){echo 'B-';} else if($row['blood_group']==7){echo 'AB-';}else if($row['blood_group']==8){echo 'O-';} else {echo $row['blood_group'] ;}  ; ?></div>
                                  
                                  <div class="col-md-3 col-5"> Are you willing to donate? <strong>:</strong></div>
-								<div class="col-md-9 col-7 mari_sta" > <?php echo $row['blood_donate'];?> </div>
+								<div class="col-md-9 col-7 blood_donate_text_here"> <?php echo $row['blood_donate'];?> </div>
 
 
 								<div class="col-md-3 col-5">Height <strong>:</strong></div>
@@ -88,7 +106,8 @@ $row=mysqli_fetch_array($fire);
 							<hr>
 							<div class="row info mb-4">
 								<div class="col-md-3 col-5">Mobile No. <strong>:</strong></div>
-								<div class="col-md-9 col-7 mob_ov"><?php echo $row['mobile']; ?></div>
+								<div class="col-md-9 col-7">
+									<div class="cc-picker cc-picker-code-select-enabled" style="background: #80808017;"><div class="cc-picker-flag <?php echo $row['country_flag']; ?> getcountryflag"></div><span class="cc-picker-code getcountrycode"><?php echo $row['country_code']; ?></span> </div><span class="mob_ov"><?php echo $row['mobile']; ?></span></div>
 
 								<div class="col-md-3 col-5">Email Id<strong>:</strong></div>
 								<div class="col-md-9 col-7 email_ov"><?php echo $row['email']; ?></div>
@@ -191,10 +210,10 @@ $row=mysqli_fetch_array($fire);
 								<div class="col-md-9 col-7">
 									<span class="dropdwn-txt"><?php if($row['gender']=='M'){echo 'Male';}else{echo 'Female';} ?></span>
 									<form class="edit-form" data-columnname='gender' data-tablename='member' id="gender_frm">
-									    <select class="select-text form-control mb-2" name="gender_name">
+									    <select class="select-text form-control mb-2" name="gender_name" onchange="return statushere();" id="gender_name">
 									    	<option value="">Select Gender</option>
-									    	<option value="M">Male</option>
-									    	<option value="F">Female</option>
+									    	<option value="M" <?php if($row['gender']=='M'){echo "selected";} ?>>Male</option>
+									    	<option value="F" <?php if($row['gender']=='F'){echo "selected";} ?>>Female</option>
 									    </select>
 										<!-- <input type="text" class="edit-input" name=""> -->
 										<button class="btn btn-primary save-change" id="gender_btn">Save Changes</button>
@@ -205,15 +224,28 @@ $row=mysqli_fetch_array($fire);
 
 								<div class="col-md-3 col-5">Status <strong>:</strong></div>
 								<div class="col-md-9 col-7">
-									<span class="dropdwn-txt"><?php echo $row['marital_status']; ?></span> 
+									<span class="dropdwn-txt text-capitalize"><?php echo ucwords($row['marital_status']); ?></span> 
 									<form class="edit-form" data-columnname='marital_status' data-tablename='member'  id="marital_status_frm" >
 										<!-- <input type="text" class="edit-input" name=""> -->
-										<select class="select-text form-control mb-2" name="marital_status_name">
+										<select class="select-text form-control mb-2" name="marital_status_name" onchange="return statushere();" id="marital_status_name">
 											<option value="">Select Status</option>
-											<option value="single">Single</option>
-											<option value="married">Married</option>
+											<option value="single" <?php if($row['marital_status']=='single'){echo "selected";} ?>>Single</option>
+											<option value="married" <?php if($row['marital_status']=='married'){echo "selected";} ?>>Married</option>
 										</select>
-										<button class="btn btn-primary save-change" id="marital_status_btn">Save Changes</button>
+										<button class="btn btn-primary save-change " id="marital_status_btn">Save Changes</button>
+										<button class="cancel btn btn-secondary	">Cancel</button>
+									</form>
+									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
+								</div>
+
+								<div class="col-md-3 col-5 gethusbanddiv hus_wife" > <?php if(($row['marital_status']=='married')&&($row['gender']=='M')){echo "Wife's name";}else{echo "Husband's name"; } ?>  <strong>:</strong></div>
+								<div class="col-md-9 col-7 gethusbanddiv" >
+									<span class="data husband_val" id=""><?php echo $row['husband_wife_name']; ?></span> 
+									<form class="edit-form" data-columnname='husband_wife_name' data-tablename='member'  id="husband_wife_form" >
+										<!-- <input type="text" class="edit-input" name=""> -->
+										<input type="text" class="form-control inputtext" maxlength='50'   name="husbandname" value="<?php echo $row['husband_wife_name']; ?>"  id="husbandname">
+										<button class="btn btn-primary save-change" id="husband_wife_button">Save Changes</button>
+										
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
 									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
@@ -261,9 +293,9 @@ $row=mysqli_fetch_array($fire);
 
 
 <div class="col-md-3 col-5">Are you willing to donate?<strong>:</strong></div>
-<div class="col-md-9 col-7">
-<span class="" id="blood_donate_text_here"><?php echo $row['blood_donate'];?></span>
-<form class="edit-form" data-columnname='blood_group' data-tablename='member' id="blood_donate">
+<div class="col-md-9 col-7 no-css">
+<span class="dropdwn-txt blood_donate_text_here" id="blood_donate_text_here"><?php echo $row['blood_donate'];?></span>
+<form class="edit-form donate-css" data-columnname='blood_group' data-tablename='member' id="blood_donate">
 	<div class="row">
 <div class="col-md-6">
 <input type="radio" name="donate" value="Yes" checked> <label class=""> Yes</label>
@@ -395,10 +427,19 @@ $row=mysqli_fetch_array($fire);
 						<div class="row info mb-4">
 							<div class="col-md-3 col-5">Mobile No. <strong>:</strong></div>
 							<div class="col-md-9 col-7">
-						        <span class="data"><?php echo $row['mobile']; ?></span> 
+
+						       <div class="top-mobile-class"> <span class="data"><?php echo $row['mobile']; ?></span> <div class="cc-picker cc-picker-code-select-enabled" style="background: #80808017;"><div class="cc-picker-flag <?php echo $row['country_flag']; ?> getcountryflag"></div><span class="cc-picker-code getcountrycode"><?php echo $row['country_code']; ?></span> </div> </div>
+						        	
 						        <span class="privacy"><?php if($row['Mobile']=='Y'){echo "Public";}else{ echo "Private";} ?></span>
 								<form class="edit-form" data-columnname='mobile' data-tablename='communication' id="mobile_frm">
-									<input type="tel" class="edit-input" name="mobile_name" onkeypress="return isNumeric(event)" maxlength="15">
+									
+									<input type="tel" class="edit-number input-phone" value="" placeholder="" name="mobile_name" onkeypress="return isNumeric(event)" maxlength="15">
+									<select class="privacy-setting" style="left: 377px;">
+										<!-- <option value="">Select Privacy</option> -->
+										<option value="N" <?php if($row['Mobile'] == 'N'){ echo 'selected'; }?>>Private</option>
+										<option value="Y" <?php if($row['Mobile'] == 'Y'){ echo 'selected'; }?>>Public</option>
+									</select>
+								
 <!-- 									<div class="btn-group privacy-setting">
 									    <a class="btn btn-default dropdown-toggle" data-toggle="dropdown" ><i class="fas fa-lock"></i> <span class="caret"></span></a>
 									    <ul class="dropdown-menu">
@@ -406,11 +447,7 @@ $row=mysqli_fetch_array($fire);
 									      <li class="dropdown-item"><i class="fas fa-globe-africa"></i>&nbsp;Public</li>
 									    </ul>
 								    </div> -->
-									<select class="privacy-setting">
-										<!-- <option value="">Select Privacy</option> -->
-										<option value="N" <?php if($row['Mobile'] == 'N'){ echo 'selected'; }?>>Private</option>
-										<option value="Y" <?php if($row['Mobile'] == 'Y'){ echo 'selected'; }?>>Public</option>
-									</select>
+									
 									<button class="btn btn-primary save-change" id="mobile_btn">Save Changes</button>
 									<button class="cancel btn btn-secondary	">Cancel</button>
 								</form>
@@ -445,9 +482,10 @@ $row=mysqli_fetch_array($fire);
 								<div class="form-group row">
 									<label class="col-md-3 col-form-label "><span class="text-danger">*	</span> Country</label>
 									<div class="col-md-9">
-										<select class="custom-select" id="country" name="country">
+										<select class="custom-select" id="country" name="country" onclick="return countryies();">
 										<option value="">Select Country</option>
 										<option value="India" <?php if($row['country'] == 'India'){ echo 'selected'; }?>>India</option>
+										<option value="Outside India" <?php if($row['country'] == 'Outside India'){ echo 'selected'; }?>>Outside India</option>
 
 										</select>
 									</div>
@@ -627,6 +665,39 @@ $row=mysqli_fetch_array($fire);
 </body>
 <?php  include "../script.php" ;?>
 <script>
+			$( document ).ready(function() {
+				$(".input-phone").CcPicker();
+				$(".input-phone").CcPicker("setCountryByCode","<?php echo $row['country_flag'];?>");
+				
+				$(".cc-picker").removeClass('col-md-2');
+				//$(".input-phone").CcPicker({"countryCode":"in"});
+				// $(".input-phone").CcPicker();
+				// $(".input-phone").on("countrySelect", function(e, i){
+				// 										alert(i.countryName + " " + i.phoneCode +" "+i.code);
+				// 									});
+			});
+function statushere(){
+var statuss=$("#marital_status_name"). val();
+var genderr=$("#gender_name"). val();
+
+if((statuss=='married')&& (genderr=='F') ){
+$('.gethusbanddiv').show();
+$('#husband_wife_form').show();
+$('.husband_val').text('');
+$('.hus_wife').html("Husband's Name <strong>:</strong>");
+$("#husbandname").attr("placeholder", "Enter husband's name");
+}
+else if((statuss=='married')&& (genderr=='M') ){
+$('.gethusbanddiv').show();
+
+$('.hus_wife').html("Wife's Name <strong>:</strong>");
+$("#husbandname").attr("placeholder", "Enter wife's name");
+}
+else{
+$('.gethusbanddiv').hide();
+}
+}
+
 getincome();
 function getincome(){
 var occupation=$('#occupation').val();
@@ -680,7 +751,7 @@ $('#otherbloodgroup').val('');
 	 $(this).siblings('form').children('input.edit-input').val(inputData);
 	 $(this).siblings('form').children('input.edit-input-feet').val(inputFeet);
 	 $(this).siblings('form').children('input.edit-input-inch').val(inputInch);
-	 
+	 $('.top-mobile-class').hide();
 	 
   });
 
@@ -733,7 +804,7 @@ $('#otherbloodgroup').val('');
 			}
 	})
 	$("#gender_btn").on("click", function(){ 	
-			event.preventDefault();  
+			event.preventDefault(); 
 			if (!$("#gender_frm").valid()) { // Not Valid
 				return false;
 			} 
@@ -789,8 +860,14 @@ $('#otherbloodgroup').val('');
 			}
 	})
 	$("#marital_status_btn").on("click", function(){ 	
-			event.preventDefault();  
+			event.preventDefault(); 
+			var husband_wife_name=$('#husbandname').val(); 
+            var marital_status_name=$('#marital_status_name').val();
 			if (!$("#marital_status_frm").valid()) { // Not Valid
+				return false;
+			}
+
+			else if ((marital_status_name=='married')&&(husband_wife_name=='')) { // Not Valid
 				return false;
 			} 
 	   else{   
@@ -828,6 +905,83 @@ $('#otherbloodgroup').val('');
 
    }
   });
+
+	$("#husband_wife_button").on("click", function(){ 	
+			event.preventDefault();  
+			var parent = $(this).parent(".edit-form");
+			var inputValue = $(this).siblings("input").val();
+			$(this).siblings(".edit-form").hide();
+			var parent = $(this).parent(".edit-form");
+			var current_users=$(this);
+			var columnname = $(this).parent(".edit-form").data('columnname');
+			var tablename = $(this).parent(".edit-form").data('tablename');
+			var inputValue = $(this).siblings("input").val();
+			var home_path = $("#home_path").val();
+			$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+			{
+				tablename:tablename,
+				columnname:columnname,
+				inputValue: inputValue
+			},
+			function(data,status){
+				var status1=status;
+
+				if (status1=='success') {
+				//location.reload(true);
+				current_users.parent(".edit-form").hide();
+				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+				current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+				$(".husband_val").text(inputValue);
+
+				
+				}
+				else{
+				alert("Data: not updated");
+				}
+			});
+  });
+
+	// $("#husband_wife_button").on("click", function(){ 	
+	// 		event.preventDefault(); 
+	// 		var husband_wife_name=$('#husbandname').val(); 
+ //            var marital_status_name=$('#marital_status_name').val();
+	// 	if ((marital_status_name=='married')&&(husband_wife_name=='')) { // Not Valid
+	// 			return false;
+	// 		} 
+	//    else{   
+	// 	var inputValue = $('#husbandname').val();   
+	//    // $(this).siblings(".edit-form").hide();
+	//    var parent = $(this).parent(".edit-form");
+	// 		var parent = $(this).parent(".edit-form");
+	// 		var current_users="<?php echo $_SESSION['user_mid']; ?>";
+	// 		var columnname = $(this).parent(".edit-form").data('columnname');
+	// 		var tablename = $(this).parent(".edit-form").data('tablename');
+	// 		var home_path = $("#home_path").val();
+	// 		var otherbloodgroup = $("#otherbloodgroup").val();
+	// 		alert(parent);
+	// 		$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
+	// 		{
+	// 			tablename:tablename,
+	// 			columnname:columnname,
+	// 			inputValue: inputValue
+	// 		},
+	// 		function(data,status){
+	// 			var status1=status;
+
+	// 			if (status1=='success') {
+	// 			//location.reload(true);
+	// 			$('#husband_wife_form').hide();
+	// 			$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
+	// 				current_users.parent(".edit-form").siblings(".dropdwn-txt").show().text(inputValue);
+	// 				$(".husband_val").html(inputValue);
+	// 			}
+	// 			else{
+	// 			alert("Data: not updated");
+	// 			}
+	// 		});
+
+ //   }
+ //  });
 
 		$("#blood_group_frm").validate({
 			rules: {
@@ -1041,7 +1195,6 @@ $("#blood_donate_btn").on("click", function(){
 //			event.preventDefault(); 
 var blod_donate=$('input[name=donate]:checked').val();
 var seesionid="<?php echo $_SESSION['user_mid']; ?>";
-alert(seesionid);
 if((blod_donate)==''){
 $('#blod_donate').html('select blood donate');	
 }else{
@@ -1051,10 +1204,10 @@ method:'post',
 url:'<?php echo RE_EN_PATH;?>PJS-demo/update_blood_donate.php',
 data:{'blod_donate':blod_donate,'seesionid':seesionid},
 success:function(blooddonate){
-	alert(blooddonate);
+
 	if(blooddonate='success'){
-$('#blood_donate_text_here').html(blod_donate);
-$('#blood_donate_text_here').show();
+$('.blood_donate_text_here').html(blod_donate);
+$('.blood_donate_text_here').show();
 $('#blood_donate').hide();
 }
 }
@@ -1163,7 +1316,8 @@ $('#blood_donate').hide();
 				mobile_name: "mobile is required field"
 			}
 		})
-		$("#mobile_btn").on("click", function(){ 	
+		$("#mobile_btn").on("click", function(){ 
+		   	
 			event.preventDefault();   
 			if (!$("#mobile_frm").valid()) { // Not Valid
 				return false;
@@ -1172,6 +1326,9 @@ $('#blood_donate').hide();
 			//var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
 			// $(this).siblings(".edit-form").hide();
 			// var inputValue = $(this).siblings("input").val();
+			   var countryflag=$('#flagname').val();
+			   var countrycode=$('#countrycode').val();
+
 				var selText = $(this).siblings(".privacy-setting").children("option:selected").val();  
 			 	var inputValue = $(this).siblings("input").val();
 				var parent = $(this).parent(".edit-form");
@@ -1182,16 +1339,19 @@ $('#blood_donate').hide();
 				var columnname = $(this).parent(".edit-form").data('columnname');
 				var tablename = $(this).parent(".edit-form").data('tablename');
 				var home_path = $("#home_path").val();
+
 				$.post(home_path+"en/PJS-demo/view_and_update_profile1.php",
 				{
 					tablename:tablename,
 					columnname:columnname,
 					inputValue: inputValue,
-					privacy_setting:selText
+					privacy_setting:selText,
+					countryflag:countryflag,
+					countrycode:countrycode
+
 				},
 				function(data,status){
 					var status1=status;
-
 					if (status1=='success') {
 					//location.reload(true); 
 					if (selText=='Y') {
@@ -1203,8 +1363,15 @@ $('#blood_donate').hide();
 					current_users.parent(".edit-form").hide();
 					$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 					current_users.parent(".edit-form").siblings(".privacy").show().text(selText);
-					current_users.parent(".edit-form").siblings(".data").show().text(inputValue);
+					current_users.parent(".edit-form").siblings(".top-mobile-class").show().children(".data").text(inputValue);
+					current_users.parent(".edit-form").siblings(".cc-picker").children(".cc-picker-code").show().text(countrycode);
+					current_users.parent(".edit-form").siblings(".cc-picker").children(".cc-picker-flag").addClass(countryflag);
+					//alert(inputValue); 
 					$(".mob_ov").text(inputValue);
+                    $('.getcountryflag').addClass(countryflag);
+                    $('.getcountryflag').removeClass('<?php echo $row['country_flag'];?>');
+                    $('.getcountrycode').text(countrycode);
+                    
 					}
 					else{
 					alert("Data: not updated");
@@ -1642,6 +1809,20 @@ $('#fileerror').html('');
 }
 }
 }
+}
+function countryies(){
+var countries=$('#country').val();
+if(countries=='Outside India'){
+$('#state').val('');
+veiw_update_get_city();
+
+getCity();
+}else{
+$('#state').val('');
+veiw_update_get_city();
+getCity();
+}
+
 }
 </script>
 

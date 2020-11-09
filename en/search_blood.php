@@ -152,8 +152,8 @@ $("#getblood").html(data122);			    }
 function emptyForm(){
 $('#loadergif').fadeIn();
 $('#searchform')[0].reset();
-BtnClickPagetwo(1,10);
 $('#loadergif').fadeOut();
+$("#getblood").html('');
 }
 
 </script>

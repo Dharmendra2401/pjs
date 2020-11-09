@@ -1,4 +1,3 @@
-
 <?php
 include "../config/config.php";
 $getrequest=$_REQUEST['status'];
@@ -10,7 +9,7 @@ $row=mysqli_fetch_array($query);
 
 <div class="row top-tracker-icon">
 <div class="col-md-2 text-center"></div>
-<div class="col-md-2 text-center margin-manage"><div class="icon-tracking text-success"><i class="fas fa-arrow-circle-right"></i><h6>Submited</h6> <small class="px-md-2 alert-secondary alert-sm"><?php echo date('d/m/Y',strtotime($row['record_inserted_dttm'])); ?> </small>  </div><h6 class="border tracking-border"></h6></div>
+<div class="col-md-2 text-center margin-manage"><div class="icon-tracking text-success"><i class="fas fa-arrow-circle-right"></i><h6>Submitted</h6> <small class="px-md-2 alert-secondary alert-sm"><?php echo date('d/m/Y',strtotime($row['record_inserted_dttm'])); ?> </small>  </div><h6 class="border tracking-border"></h6></div>
 <div class="col-md-2 text-center margin-manage">
 
 <?php if($row['active_status']=='Y') {?>
@@ -20,7 +19,7 @@ $row=mysqli_fetch_array($query);
 
 <?php }  else if($row['active_status']=='U') {?> 
 <div class="icon-tracking text-warning"> 
-<i class="fas fa-times-circle"></i> 
+<i class="fas fa-pause-circle"></i> 
 <h6>Updated</h6> <small class="px-md-2 alert-secondary alert-sm"><?php echo date('d/m/Y',strtotime($row['record_updated_dttm'])); ?> </small> </div>
 
 

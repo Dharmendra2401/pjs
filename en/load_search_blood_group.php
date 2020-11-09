@@ -60,7 +60,8 @@ $currentdate=$row['record_inserted_dttm'];
 <tr>
 <td><?php echo $count;  ?></td>
 <td><?php echo $row['first_name'].' '.$row['middle_name'].' '.$row['last_name'] ?></td>
-<td><?php echo $row['country_code'].''.$row['mobile']; ?></td>
+<td><div class="d-flex
+"><?php echo $row['country_code'].''.$row['mobile']; ?> <a title="Call now" href="tel:<?php echo $row['country_code'].''.$row['mobile']; ?>"><i class="fa fa-phone-volume call-icon"></i></a></div></td>
 </tr>
 <?php $count++; }
 if($row_count<=0){
