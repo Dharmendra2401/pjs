@@ -36,8 +36,12 @@ if($table=='events'){
 mysqli_query($con,'update events set status="'.$status.'" where id="'.$id.'" ');
 }
 
-if($table=='schemes'){
-    mysqli_query($con,'update schemes set status="'.$status.'" where id="'.$id.'" ');
+if($table=='events'){
+    mysqli_query($con,'update events set status="'.$status.'" where id="'.$id.'" ');
+    }
+
+if($table=='zone_categories'){
+    mysqli_query($con,'update zone_categories set status="'.$status.'" where id="'.$id.'" ');
 }
 
 if($table=='zones'){

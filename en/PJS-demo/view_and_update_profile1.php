@@ -12,6 +12,16 @@ $countryflag=$_POST['countryflag'];
 $tablename=$_POST['tablename'];
 $submitdate=date('Y-m-d H:i:s');
 $addquery='';
+
+if($inputValue=='married'){
+$husband_wife_name=trim($_POST['husband_wife_name']);
+$addquery.=",husband_wife_name='".$husband_wife_name."'";
+}
+else{
+	$husband_wife_name='';
+	$addquery.=",husband_wife_name=''";	
+}
+
 if($columnname=="date_of_birth" || $columnname=="time_of_birth" || $columnname=="place_of_birth" || $columnname=="mobile"){
 	$m_p_column="";
 	if ($columnname=="date_of_birth") {
@@ -30,7 +40,7 @@ if($columnname=="date_of_birth" || $columnname=="time_of_birth" || $columnname==
 	}
 	if ($columnname=="date_of_birth") {
 	$privacy_setting=$_POST['privacy_setting'];
-	echo $sql1="UPDATE `member_privacy` SET $m_p_column='$privacy_setting'  WHERE `member_id`='$current_user'";
+	$sql1="UPDATE `member_privacy` SET $m_p_column='$privacy_setting'  WHERE `member_id`='$current_user'";
 	$result = mysqli_query($con,$sql1); 
 	return $result; 
 	if ($result) {
@@ -42,7 +52,7 @@ if($columnname=="date_of_birth" || $columnname=="time_of_birth" || $columnname==
 	}
 	else{
 	$privacy_setting=$_POST['privacy_setting'];
-	$sql="UPDATE $tablename SET $columnname='$inputValue'$addquery WHERE `member_id`='$current_user'";
+	echo $sql="UPDATE $tablename SET $columnname='$inputValue' $addquery WHERE `member_id`='$current_user'";
 	$result = mysqli_query($con,$sql);   
 	$sql1="UPDATE `member_privacy` SET $m_p_column='$privacy_setting' WHERE `member_id`='$current_user'";
 	$result1 = mysqli_query($con,$sql1); 
@@ -57,7 +67,8 @@ if($columnname=="date_of_birth" || $columnname=="time_of_birth" || $columnname==
 
 }
 else{
-$sql="UPDATE $tablename SET $columnname='$inputValue' WHERE `member_id`='$current_user'";
+
+$sql="UPDATE $tablename SET $columnname='$inputValue' $addquery WHERE `member_id`='$current_user'";
     $result = mysqli_query($con,$sql);   
     return $result; 
     if ($result) {

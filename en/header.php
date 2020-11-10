@@ -192,7 +192,7 @@ if ($_SESSION['admin_email']!=''){
 <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>events.php">Events</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>gallery.php">Gallery</a>
 <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>schemes.php">Schemes</a>
-<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>zone.php">Zone</a>
+<a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>zone_catagories.php">Zone</a>
 <!-- <a class="dropdown-item" href="<?php echo RE_HOME_SUPERADMIN; ?>addcity.php">Add City</a> -->
 </div>
 </li>

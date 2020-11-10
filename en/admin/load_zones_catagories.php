@@ -7,8 +7,7 @@
 <tr class="table-headings">
 <!--<th width="2%">S.No</th>-->
 <th>S.No</th>
-<th>Full Name</th>
-<th>Image</th>
+<th>Category</th>
 <th>Submited Date</th>
 <th>Active Status</th>
 <th>Action</th>
@@ -21,9 +20,8 @@
 <?php
 $stat='';
 $statu='';
-if($_REQUEST['sessionid']!=''){
-$token=$_REQUEST['sessionid'];
-}
+
+
 
 if($_REQUEST['submitdatetwo']!='')
 {$statu.= 'and record_inserted_dttm LIKE "%'.date('Y-m-d',strtotime($_REQUEST['submitdatetwo'])).'%"';}
@@ -33,11 +31,11 @@ if($_REQUEST['searchtxt']!='')
 if($_REQUEST['ustatus']!='')
 {$statu.= 'and status LIKE "%'.trim($_REQUEST['ustatus']).'%"';}
 
-$stat="zones where 1=1 and zone_cat='".$token."' $statu order by id desc";
+$stat="zone_categories where 1=1 $statu order by id desc";
 $page = (int) (!isset($_REQUEST["page"]) ? 1 : $_REQUEST["page"]);
 $limit = (int) (!isset($_REQUEST["pagesize"]) ? 10 : $_REQUEST["pagesize"]);
 $startpoint = ($page * $limit) - $limit;
-$query = "SELECT * FROM ".$stat." LIMIT ".$startpoint." , ".$limit; 
+ $query = "SELECT * FROM ".$stat." LIMIT ".$startpoint." , ".$limit; 
 if($page==1){ $count=1;}else{$count=$page*10-10+1;}
 $rest = mysqli_query($con,"SELECT * FROM ".$stat);
 $row_count=mysqli_num_rows($rest);
@@ -50,13 +48,14 @@ $currentdate=$row['record_inserted_dttm'];
 <tr>
 <td><?php echo $count ;  ?></td>
 
-<td><?php echo $row['fullname']; ?></td>
-<td><img src="<?php echo RE_HOME_PATH.'/'.$row['short_image']; ?>" width="100px"> </td>
+<td><?php echo $row['categories']; ?></td>
 <td><?php if($currentdate!=''){ echo date("d/m/Y" ,strtotime($currentdate )); } else{ '';}?></td>
-<td class="text-center"><?php if($row['status']=='N') {?><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;" onClick="return varify('<?php echo $row['id'];?>','Y','zones');" title='Active'  alt="Active"><i class="fas fa-times"></i></a> <br>Deactive <?php } else {?>  <a class="btn btn-success btn-sm rounded-circle " style="cursor:pointer;" onClick="return unvarify('<?php echo $row['id'];?>','N','zones');" title='Active'  alt="Active"> <i class="fas fa-check"></i></a><br>Active <?php } ?></td>
-<td>
-<a class="btn btn-success btn-sm rounded-circle" style="cursor:pointer;"title='View'  alt="View" data-toggle="modal" title='View content' data-target="#view" onclick="return update('<?php echo $row['fullname']; ?>','<?php echo $row['mobileno']; ?>','<?php echo $row['email']; ?>','<?php echo base64_encode($row['address']); ?>','<?php echo $row['short_image']; ?>')"><i class="fas fa-eye"></i></a>
-<a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;"title='Delete'  alt="Delete" onClick="return btnclickdelete('<?php echo $row['id'];?>','zones');"><i class="fas fa-trash"></i></a>
+<td class="text-center"><?php if($row['status']=='N') {?><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;" onClick="return varify('<?php echo $row['id'];?>','Y','zone_categories');" title='Active'  alt="Active"><i class="fas fa-times"></i></a> <br>Deactive <?php } else {?>  <a class="btn btn-success btn-sm rounded-circle " style="cursor:pointer;" onClick="return unvarify('<?php echo $row['id'];?>','N','zone_categories');" title='Active'  alt="Active"> <i class="fas fa-check"></i></a><br>Active <?php } ?></td>
+<td class="text-center">
+
+<div class="mb-2"><a class="btn btn-danger btn-sm rounded-circle" style="cursor:pointer;"title='Edit'  alt="Edit" onClick="return update('<?php echo $row['id'];?>','<?php echo $row['categories'];?>');" data-toggle="modal" data-target="#edit"><i class="fas fa-pencil-alt"></i></a> <a class="btn btn-warning btn-sm rounded-circle" style="cursor:pointer;"title='Delete'  alt="Delete" onClick="return btnclickdelete('<?php echo $row['id'];?>','zone_catagories');"><i class="fas fa-trash"></i></a></div>
+<div class="mb-2">
+<a class="btn btn-success btn-sm" href="<?php echo RE_HOME_SUPERADMIN; ?>zone.php?token=<?php echo base64_encode($row['id']);?>"> Add Zones </a></div>
 
 </td>
 </tr>

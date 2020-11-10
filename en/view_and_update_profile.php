@@ -232,23 +232,20 @@ $row=mysqli_fetch_array($fire);
 											<option value="single" <?php if($row['marital_status']=='single'){echo "selected";} ?>>Single</option>
 											<option value="married" <?php if($row['marital_status']=='married'){echo "selected";} ?>>Married</option>
 										</select>
+										
+										<div class="gethusbanddiv">
+										<input type="text" class="form-control inputtext" maxlength='50'   name="husbandname" value="<?php echo $row['husband_wife_name']; ?>"  id="husbandname">
+										</div>
+										
 										<button class="btn btn-primary save-change " id="marital_status_btn">Save Changes</button>
 										<button class="cancel btn btn-secondary	">Cancel</button>
 									</form>
 									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 								</div>
-
+								
 								<div class="col-md-3 col-5 gethusbanddiv hus_wife" > <?php if(($row['marital_status']=='married')&&($row['gender']=='M')){echo "Wife's name";}else{echo "Husband's name"; } ?>  <strong>:</strong></div>
 								<div class="col-md-9 col-7 gethusbanddiv" >
 									<span class="data husband_val" id=""><?php echo $row['husband_wife_name']; ?></span> 
-									<form class="edit-form" data-columnname='husband_wife_name' data-tablename='member'  id="husband_wife_form" >
-										<!-- <input type="text" class="edit-input" name=""> -->
-										<input type="text" class="form-control inputtext" maxlength='50'   name="husbandname" value="<?php echo $row['husband_wife_name']; ?>"  id="husbandname">
-										<button class="btn btn-primary save-change" id="husband_wife_button">Save Changes</button>
-										
-										<button class="cancel btn btn-secondary	">Cancel</button>
-									</form>
-									<span class="edit float-right"><i class="fas fa-edit"></i> <span class="d-md"> Edit</span></span>
 								</div>
 
 								<div class="col-md-3 col-5">Blood Group<strong>:</strong></div>
@@ -666,6 +663,7 @@ $row=mysqli_fetch_array($fire);
 <?php  include "../script.php" ;?>
 <script>
 			$( document ).ready(function() {
+				statushere();
 				$(".input-phone").CcPicker();
 				$(".input-phone").CcPicker("setCountryByCode","<?php echo $row['country_flag'];?>");
 				
@@ -679,11 +677,12 @@ $row=mysqli_fetch_array($fire);
 function statushere(){
 var statuss=$("#marital_status_name"). val();
 var genderr=$("#gender_name"). val();
+var husbandname=$("#husbandname"). val();
 
 if((statuss=='married')&& (genderr=='F') ){
 $('.gethusbanddiv').show();
 $('#husband_wife_form').show();
-$('.husband_val').text('');
+//$('.husband_val').text('');
 $('.hus_wife').html("Husband's Name <strong>:</strong>");
 $("#husbandname").attr("placeholder", "Enter husband's name");
 }
@@ -692,6 +691,11 @@ $('.gethusbanddiv').show();
 
 $('.hus_wife').html("Wife's Name <strong>:</strong>");
 $("#husbandname").attr("placeholder", "Enter wife's name");
+}
+else if((statuss=='single')){
+$('.gethusbanddiv').hide();
+$("#husbandname").val(" ");
+
 }
 else{
 $('.gethusbanddiv').hide();
@@ -859,7 +863,8 @@ $('#otherbloodgroup').val('');
 					marital_status_name: "please select marital status"
 			}
 	})
-	$("#marital_status_btn").on("click", function(){ 	
+	$("#marital_status_btn").on("click", function(){ 
+			
 			event.preventDefault(); 
 			var husband_wife_name=$('#husbandname').val(); 
             var marital_status_name=$('#marital_status_name').val();
@@ -870,7 +875,7 @@ $('#otherbloodgroup').val('');
 			else if ((marital_status_name=='married')&&(husband_wife_name=='')) { // Not Valid
 				return false;
 			} 
-	   else{   
+	   else{  
 		var inputValue = $(this).siblings( ".select-text" ).children("option:selected").val();   
 	   // $(this).siblings(".edit-form").hide();
 	   var parent = $(this).parent(".edit-form");
@@ -886,17 +891,19 @@ $('#otherbloodgroup').val('');
 			{
 				tablename:tablename,
 				columnname:columnname,
-				inputValue: inputValue
+				inputValue: inputValue,
+				husband_wife_name:husband_wife_name
 			},
 			function(data,status){
 				var status1=status;
-
 				if (status1=='success') {
 				//location.reload(true);
 				current_users.parent(".edit-form").hide();
 				$(parent).parent('.col-md-9').css({"background-color": "", "padding": ""});
 					current_users.parent(".edit-form").siblings(".dropdwn-txt").show().text(inputValue);
 					$(".mari_sta").text(inputValue);
+					$(".husband_val").text(husband_wife_name);
+					
 				}
 				else{
 				alert("Data: not updated");

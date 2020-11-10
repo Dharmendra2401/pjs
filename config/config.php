@@ -9,13 +9,14 @@ $password="";
 $dbname="dwr_vts_t";
 $con=new mysqli($host, $user, $password, $dbname);
 if(mysqli_connect_errno()){ echo "Failed to connect to db".mysqli_connect_errno();}
+mysqli_set_charset('utf8',$con);
 define('RE_HOME_PATH', "http://localhost/pjs_user/");
 define('RE_EN_PATH', "http://localhost/pjs_user/en/");
 define('RE_HOME_USER', "http://localhost/pjs_user/en/user/");
 define('RE_HOME_ADMIN', "http://localhost/pjs_user/en/subadmin/");
 define('RE_HOME_SUPERADMIN', "http://localhost/pjs_user/en/admin/");
 define('WEBSITE_NAME','Porwad Samajik Manch');
-define('TITLE','PJS');
+define('TITLE','Porwad Samajik Manch');
 define('TITLE_SITE','');
 define('FROM_EMAIL','support@porwadjain.com');
 define('META_DESCRIPTION', "");

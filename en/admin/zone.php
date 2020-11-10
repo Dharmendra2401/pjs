@@ -2,18 +2,22 @@
 require_once("../../library/upload.php");
 include "../mail/index.php" ;
 admin_session_check();
+echo $token=base64_decode($_REQUEST['token']);
+$getname=mysqli_fetch_array(mysqli_query($con,'select categories,id from zone_categories where id="'.$token.'" '))or die(mysqli_error($con));
+
 if(isset($_REQUEST['submit'])){
 $fullname=mysqli_real_escape_string($con,trim($_REQUEST['fullname']));
 $mobile=mysqli_real_escape_string($con,trim($_REQUEST['mobile']));
 $email=mysqli_real_escape_string($con,trim($_REQUEST['email']));
 $address=mysqli_real_escape_string($con,trim($_REQUEST['address']));
+
 $submitdate=date('Y-m-d H:i:s');
 
-if(($fullname!='') && ($mobile!='') && ($email!='')  && ($address!='')   ){
+if(($fullname!='') && ($mobile!='')   ){
 
 if($_FILES["image"]["name"]!=''){
-$sizex=255;
-$sizey=197;
+$sizex=129;
+$sizey=100;
 $ext=explode(".",$_FILES["image"]["name"]);
 $url="../../uploads/zones/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
 $url12="uploads/zones/". str_replace(" ","",sha1($_FILES["image"]["name"].time()).".".$ext[sizeof($ext)-1]);
@@ -26,9 +30,10 @@ imagemulitple($url,$x,$y);
 //unlink('../../uploads/events/'.$getaboutus['image']);			
 }
 
-mysqli_query($con,'insert into zones (fullname,short_image,long_image,record_inserted_dttm,status,mobileno,email,address) values("'.$fullname.'","'.$image.'","'.$url12.'","'.$submitdate.'","Y","'.$mobile.'","'.$email.'","'.$address.'")');
+mysqli_query($con,'insert into zones (fullname,short_image,long_image,record_inserted_dttm,status,mobileno,email,address,zone_cat) values("'.$fullname.'","'.$image.'","'.$url12.'","'.$submitdate.'","Y","'.$mobile.'","'.$email.'","'.$address.'","'.$token.'")')or die(mysqli_error($con));
+$tokennn=$_REQUEST['token'];
 
-redirect(RE_HOME_SUPERADMIN."zone.php","Record successfully created~@~".MSG_SUCCESS);
+redirect(RE_HOME_SUPERADMIN."zone.php?token=$tokennn","Record successfully created~@~".MSG_SUCCESS);
 }
 redirect(RE_HOME_SUPERADMIN."zone.php","Error! Please fill out the fields and try again~@~".MSG_ERROR);
 
@@ -37,7 +42,7 @@ redirect(RE_HOME_SUPERADMIN."zone.php","Error! Please fill out the fields and tr
 ?>
 
 <!DOCTYPE>
-<html>
+<html xmlns="http://www.w3.org/1999/xhtml">
 <head>
 <?php  include "../../styles.php" ?>
 </head>
@@ -48,7 +53,7 @@ redirect(RE_HOME_SUPERADMIN."zone.php","Error! Please fill out the fields and tr
 </div>
 <div class="container shadow">
 
-<h3 class="ticket-header">Zone List </h3>
+<h3 class="ticket-header">Zone List Of <?php echo $getname['categories'] ;?>  <a href="<?php echo RE_HOME_SUPERADMIN ;?>zone_catagories.php" class="btn btn-primary btn-sm float-right">Back</a></h3>
 <div class="row"> 
 <div class="col-md-4 form-group"><input type="search" id="stxt" onKeyUp="return BtnClickPage(1,10);" placeholder="Enter Full Name or Email" class="form-control form-control-sm"> </div>
 
@@ -91,19 +96,19 @@ redirect(RE_HOME_SUPERADMIN."zone.php","Error! Please fill out the fields and tr
 </div>
 
 <div class="form-group col-md-12">
-<label>Email <span class="text-danger">*</span></label>
+<label>Email </label>
 <input type="email" class="form-control" name="email" id="email" placeholder="Enter your email" maxlength='100' >
 </div>
 
 <div class="form-group col-md-12">
-<label>Address <span class="text-danger">*</span></label>
+<label>Address </label>
 <textarea type="text" class="form-control" name="address" id="address" placeholder="Enter your address" maxlength='100' ></textarea>
 </div>
 
 <div class="form-group  col-md-12">
 <label>Image <span class="text-danger">*</span></label><br>
 <input type="file" class="" name="image" id="file" ><br>
-<small>Please select the size of image <i>1000*400</i></small>
+<small>Please select the size of image <i>129*100</i></small>
 </div>
 
 </div>
@@ -198,24 +203,18 @@ $('#mobile').focus();
 $("#mobile").addClass("invalid");
 return false;
 }
-
-else if(email.trim()==''){
-$('#email').focus();
-$("#email").addClass("invalid");
-return false;
-}
-else if (!testEmail.test(email))
+else if ((email.trim()!='')&&(!testEmail.test(email)))
 {   
 $('#email').focus();
 //$('#emailerror').html("<span class='text-danger'>Please enter valid email<span>");
 $("#email").addClass("invalid");
 return false;
 }
-else if(address.trim()==''){
-$('#address').focus();
-$("#address").addClass("invalid");
-return false;
-}
+// else if(address.trim()==''){
+// $('#address').focus();
+// $("#address").addClass("invalid");
+// return false;
+// }
 else if(file.trim()==''){
 $('#file').focus();
 $("#file").addClass("invalid");
@@ -235,12 +234,14 @@ function BtnClickPage(x,y)
 {
 var searchtxt=$("#stxt").val();	
 var ustatus=$("#ustatus").val();
-var page=$("#page").val();	
+var page=$("#page").val();
+var sessionid="<?php echo base64_decode($_REQUEST['token']); ?>";
+
 y=10;
 $.ajax({
 type: 'POST',
 url: "load_zones.php",
-data: {"page":x,"pagesize":y,"searchtxt":searchtxt,"ustatus":ustatus},
+data: {"page":x,"pagesize":y,"searchtxt":searchtxt,"ustatus":ustatus,"sessionid":sessionid},
 success: function(data12){
 $("#gridviewdata").html(data12);			
 } 
@@ -266,12 +267,13 @@ type: 'POST',
 url: "delete.php",
 data: {"id":id,"table":table},
 success: function(data1234){
-if(data1234=='ok')	
+    alert(data1234);
+if(data1234.trim()=='ok')	
 {	
 BtnClickPage(page,10);
 $('#loadergif').fadeOut();
 }
-if(data1234=='false')	
+if(data1234.trim()=='false')	
 {	
 BtnClickPage(page,10);
 $('#loadergif').fadeOut();
