@@ -23,8 +23,10 @@ include "../config/config.php";
             ?>
             <div class="col-md-2 col-6 text-center">
                 <img class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getzones['short_image'] ?>" alt="Event" >
-                <p class="mb-0 text-center"><?php echo $getzones['fullname'] ;?></p>
-                <p class="text-center"><?php echo $getzones['mobileno'] ; ?></p>
+                <p class="mb-0"><?php echo $getzones['fullname'] ;?></p>
+                <p class="mb-0 "><?php echo $getzones['mobileno'] ; ?></p>
+  <?php if($getzones['email']!='') {?> <p class="mb-0 "><?php echo $getzones['email'] ;?></p><?php } ?>
+  <?php if($getzones['address']!='') {?>  <p class="mb-0 "><?php echo $getzones['address'] ;?></p><?php } ?>
             </div>
             <?php  } if($count==0){ ?>
               <div class="col-md-12"><div class="alert alert-danger text-center">No Records Found</div></div>
