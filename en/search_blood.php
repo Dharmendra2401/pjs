@@ -14,12 +14,12 @@ redirect(RE_HOME_PATH."index.php","");
 <div class="col-md-10 offset-md-1 content-container" id="addoffsetclass">
 <h3 class="ticket-header text-center">Search For Blood Donor</h3>
 <br>
-<form id="searchform">
-<div class="row col-md-12 offset-md-1">
-<div class="form-group col-md-2 col-sm-4 col-12 addclass" id="bloodgroupclass">
+<form class="row" id="searchform">
+
+<div class="form-group addclass col-md-2" id="bloodgroupclass">
 <label class="col-form-label"><span class="text-danger">*</span> Blood Group</label>	
 <?php ?>
-<select name="blood_group" class="custom-select" placeholder="Select blood group" id="blood_group" >
+<select name="blood_group" class="custom-select form-control" placeholder="Select blood group" id="blood_group" >
 <option value="" selected>Select</option>
 <?php 
 $getblood=mysqli_query($con,'select DISTINCT(blood_group) from member GROUP BY blood_group');
@@ -37,7 +37,7 @@ while($showblood=mysqli_fetch_array($getblood)){
 
 </div>
 
-<div class="form-group  col-md-2 col-sm-4 col-12 addclass" id="countryclass">
+<div class="form-group addclass col-md-2" id="countryclass">
 <label class="col-form-label"> Country</label>	
 <select class="custom-select" id="country" name="country" onchange="return countryies();">
 <option value="" selected>Select</option>
@@ -47,7 +47,7 @@ while($showblood=mysqli_fetch_array($getblood)){
 </div>
 
 
-<div class="form-group col-md-2 col-sm-4 col-12" id="statetop">
+<div class="form-group col-md-2" id="statetop">
 <label class="col-form-label"> State</label>	
 <select class="custom-select" id="state" onchange="return getCity();" name="state">
 <option value="" selected>Select </option>
@@ -63,13 +63,13 @@ while($show=mysqli_fetch_array($state)){
 </select>
 </div>
 
-<div class="form-group col-md-2 col-sm-4 col-12" id="citytop">
+<div class="form-group col-md-2" id="citytop">
 <label class="col-form-label"> City</label>	
 <span id="getcity"></span>
 </div>
 
 
-<div class="form-group col-md-2 col-sm-4 col-12" id="pincodetop">
+<div class="form-group col-md-2" id="pincodetop">
 <label class="col-form-label"> Pincode</label>	
 <span id="getpincode"></span>
 </div>
@@ -77,8 +77,8 @@ while($show=mysqli_fetch_array($state)){
 
 <br><br>
 
-</div>
-<div class="col-md-12 text-center">
+
+<div class="col-md-8 offset-md-2 text-right">
 <button type="button" class="btn btn-success"   value="Search" onclick="return BtnClickPagetwo(1,10);" >Search</button> <button type="button" class="btn btn-info"   value="Clear All" onclick="return emptyForm(1,10);" >Clear All</button>
 <br>
 <br>

@@ -158,7 +158,7 @@ body{
     color: #ffffff;
     border: 0px;
     border-radius: 0px;
-        padding: 7px;
+    padding: 7px;
 }
 
 #livesearch{
@@ -1541,6 +1541,7 @@ ul.notification-menu li .triangle-shadow{
 footer{
     padding: 2px;
     font-size: 15px;
+    z-index: 3;
 }
 .disclaimer{
     font-size: 9px;
@@ -1715,7 +1716,7 @@ footer{
 
 .user-profile .info> div:nth-of-type(even){
     padding-left: 2px !important;
-    padding-top: 5px !important;
+    padding-top: 1px !important;
     word-break: break-all;
 }
 
@@ -1776,16 +1777,20 @@ footer{
 }
 /*--------------------SCHEMES ENDS---------------------------*/
 
-/*--------------------GALLERY ENDS---------------------------*/
+/*--------------------GALLERY---------------------------*/
 .gallery-wrapper .close{
     top: 30px;
     right: 15px;  
+}
+
+.gallery-wrapper{
+    margin-bottom: 70px;
 }
 /*--------------------GALLERY ENDS---------------------------*/
 
 /*--------------------FAMILY TREE---------------------------*/
 .tree-srch-list{
-   height: 180px;
+   height: 125px;
 }
 
 .family-profile-img{
@@ -1838,7 +1843,7 @@ footer{
 /*--------------------FAMILY TREE ENDS---------------------------*/
 
 /*--------------------VIEW AND UPDATE -----------------------------*/
-#overview, #basic-info, #contact, #education{
+#overview, #basic-info, #contact, #education, #profilepic{
     margin-bottom: 40px;
 }
 
@@ -1859,10 +1864,20 @@ footer{
     top: unset;
 }
 
+.user-profile{
+    margin-bottom: 40px;
+}
+
 .user-profile .btn{
     padding: 5px;
 }
 /*--------------------VIEW AND UPDATE ENDS---------------------------*/
+
+/*--------------------STATUS--------------------------------*/
+.top-tracker-icon{
+    margin-bottom: 60px;
+}
+/*--------------------STATUS ENDS---------------------------*/
 
 /************************ ADMIN *********************************/
 

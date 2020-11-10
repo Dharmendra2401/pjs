@@ -57,7 +57,7 @@ user_session_check();
 		 <div class="row mt-3">
 				 <div class="col-md-4">
 				 	<div class="card mb-2">
-						<div class="card-body pb-2 death-update">
+						<div class="card-body pb-2 death-update d-update">
 							<h5 class="card-title">
 								<i class="fas fa-flag text-danger pr-2"></i>
 								<span class="hindi-text">अपंजीकृत स्वर्गीय / पूर्वज ऐड करें। </span>
