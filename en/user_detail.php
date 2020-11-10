@@ -145,8 +145,8 @@ else{ ?>
 <a href="<?php echo RE_EN_PATH; ?>user_detail_pdf.php?id=<?php echo base64_encode($row['member_id']);?>"
 	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
 
-<a href="<?php echo RE_EN_PATH; ?>card_image.php?id=<?php echo base64_encode($row['member_id']);?>"
-	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a>
+<!-- <a href="<?php echo RE_EN_PATH; ?>card_image.php?id=<?php echo base64_encode($row['member_id']);?>"
+	target="blank"><i type="button" class="fas fa-download mx-2 login-signup"></i></a> -->
 									 <?php  
 									if(isset($_SERVER['HTTPS']) && $_SERVER['HTTPS'] === 'on')   
 										$url = "https://";   
@@ -328,9 +328,9 @@ in : <?php  if($row['inches']!=''){ echo $row['inches'];}else{echo "NA";}
 </div>
 <div class="col-12 text-center">
 <?php if (isset($_SESSION['user_mid']) || isset($_SESSION['user_mid']) || isset($_SESSION['user_mid'])) {?>
-<button type="button" class="btn btn-info btn-more">More Details</button>
+<button type="button" class="btn btn-info btn-more mb-4">More Details</button>
 <?php 	} else { ?>
-<button type="button" class="btn btn-info" data-toggle="modal" data-target="#login"
+<button type="button" class="btn btn-info mb-4" data-toggle="modal" data-target="#login"
 >More Details</button>
 <?php } ?>
 

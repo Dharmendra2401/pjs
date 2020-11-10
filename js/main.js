@@ -22,6 +22,24 @@ function showResult(str) {
       $(".done").hide();
   }
 
+
+$(".notification i").click(function(){
+    
+    $(this).toggleClass("rotate-icon");
+
+  });
+
+$(document).mouseup(function(e) 
+{
+    var container = $(".notification i");
+    if (!container.is(e.target) && container.has(e.target).length === 0) 
+    {
+        container.removeClass("rotate-icon");
+    }
+});
+
+
+
  
 
     

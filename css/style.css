@@ -1,7 +1,7 @@
 /*----------------------GLOBAL CSS---------------------------------------*/
 body{
     color: #2c2c2c;
-    /*background: #e8e8e8;*/
+    background: #ffffff;
 }
 
 .d-sm{
@@ -54,9 +54,9 @@ body{
     border-color: #446eb6;
 }
 
-.bg-color{
+/*.bg-color{
     background-color: #eeeeee;
-}
+}*/
 
 .header{
     text-align: center;
@@ -145,6 +145,10 @@ body{
     color: #b5b5b5;
 }
 
+.fa-bell:hover{
+    color: #717171;
+}
+
 .sm-image{
     padding: 10px;
 }
@@ -154,6 +158,7 @@ body{
     color: #ffffff;
     border: 0px;
     border-radius: 0px;
+        padding: 7px;
 }
 
 #livesearch{
@@ -253,9 +258,7 @@ ul.notification-menu li .triangle-shadow{
 .rotate-icon{
     -ms-transform: rotate(20deg);
     transform: rotate(20deg);
-    display: block !important;
-        position: absolute;
-    right: 160px;
+    color: #717171;
 }
 
 .notification .label-pill{
@@ -265,13 +268,24 @@ ul.notification-menu li .triangle-shadow{
     top: -18px;
     left: -35px;
     background: red;
-    padding: 4px;
+    /*padding: 4px;*/
     color: #ffff;
     
 }
 
 .searhing-top{
     margin-top: 25px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.bloodclass{
+    color: red;
+    font-size: 23px;
+    font-weight: 600;
+    position: relative;
+    top: 4px;
+    right: 10px;
 }
 /*-----------------------HEADER ENDS----------------------------------------------*/
 
@@ -812,7 +826,7 @@ box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
 }
 
 .tab-bar .nav-tabs .nav-link{
-    color: #000000;
+    color: #ffffff;
 }
 
 .tab-bar .nav-tabs .nav-link:hover {
@@ -1040,7 +1054,7 @@ box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
     object-fit: cover;
 }
 
-.death-update,.new-update .card-title .fa-plus,.fa-minus{
+.death-update .new-update .card-title .fa-plus,.fa-minus{
     padding-top: 13px;
 }
 
@@ -1289,11 +1303,8 @@ box-shadow: -1px 10px 43px -6px rgba(0,0,0,1);
 /*---------------------------------------------ADMIN CSS ENDS------------------------------------------*/
 /*----------------------------------------------------------------------------------------------------*/
 
-
-
 /*--------------------MEDIA QUERY---------------------------------------*/
-@media only screen  and (max-device-width: 680px) 
-                       {
+@media only screen  and (max-width: 680px) {
 /*-------------------------GLOBAL------------------------*/
 .sm-tr{
     text-align: right;
@@ -1344,7 +1355,7 @@ input.form-control{
 /*--------------------HEADER---------------------------*/
   .bg-color{
      background-color: #3eb8e9;
-     height: 110px;
+     max-height: 110px;
   }
 
 
@@ -1424,9 +1435,9 @@ input.form-control{
   .sm-icon-alert{
     position: absolute;
     top: -87px;
-    right: 65px;
+    right: 54px;
     font-size: 20px;
-    color: #ffffff
+    color: #ffffff;
   }
 
   .sm-icon-language{
@@ -1469,6 +1480,7 @@ input.form-control{
 
 .content-container{
      background-color: #ffffff;
+     margin-bottom: 60px;
 }
 
 .notification-menu{
@@ -1486,7 +1498,23 @@ input.form-control{
 }
 
 .searhing-top{
-   margin-top: 25px;
+   margin-left: 10px;
+   margin-bottom: 55px;
+}
+
+.bloodclass {
+    font-size: 17px;
+    position: absolute;
+    right: 42px;
+    top: 2px;
+}
+
+.rotate-icon{
+    color: #ffffff;
+}
+
+.fa-bell:hover{
+    color: #ffffff;
 }
 
 /*ul.notification-menu ul .triangle{
@@ -1592,6 +1620,7 @@ footer{
     text-transform: capitalize;
     word-break: break-all;
 }
+
 .user-details{
     margin-bottom: 40px;
 }
@@ -1681,7 +1710,7 @@ footer{
     margin: 20px 0;
     background-color: #ffffff;
     z-index: 1;
-    height: 225px;
+    max-height: 225px;
 }
 
 .user-profile .info> div:nth-of-type(even){
@@ -1792,7 +1821,7 @@ footer{
 
 .new-update .card-title i{
     font-size: 15px;
-    padding-top: 8px;
+    padding-top: 8px !important;
 }
 
 .death-update{
@@ -1914,7 +1943,8 @@ footer{
     color: #777;
   }
 }
-.searchdata{position: absolute;
+.searchdata{
+    position: absolute;
     padding: 30px 10px;
     top: 40px;
     width: 100%;
@@ -1923,9 +1953,12 @@ footer{
     border-radius: 5px;
     display: none;
     border: 1px solid #00000014;
-    box-shadow: 0px 5px 12px #00000070;}
-.list-inline-item.searchoption p{    margin: 0px;
+    box-shadow: 0px 5px 12px #00000070;
 }
+.list-inline-item.searchoption p{    
+    margin: 0px;
+}
+
 .btn-warning{color:white;}
 .btn-warning:hover{color:white;}
 .rpadding{    padding: 20px;
@@ -2020,33 +2053,11 @@ display:none;z-index:9;}
         overflow: auto;    top: 10px!important;
     }
 
-    .bloodclass{color: red;
-    font-size: 24px;
-    font-weight: 600;
-    position: relative;
-    top: 4px;}
+    
 
-    @media only screen  and (max-device-width: 768px) 
-                       {
-.bloodclass {
-    color: red;
-    font-size: 24px;
-    font-weight: 600;
-    position: relative;
-    top: 6px;
-    right: 9px;
-}
 
-}
 
-    @media only screen  and (max-device-width: 678px) 
-                       {
-.bloodclass {
-    top: 17px;
-    right: -6px;
-}
 
-}
 .call-icon{background: #44ac01;
     background: #44ac01;
     border-radius: 50%;

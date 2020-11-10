@@ -1188,6 +1188,7 @@ function togglerFunfction() {
     if(data.unseen_notification > 0)
     {
      $('.count').html(data.unseen_notification);
+     $('.count').css("padding", "4px");
     }
     if (data.unseen_notification == 0) {
     	$('.notification').children("span.label-pill").css("padding","0px");

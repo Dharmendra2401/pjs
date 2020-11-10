@@ -8,7 +8,6 @@ include "../config/config.php";
 	<div class="container-fluid mb-5">
 		<?php include "header.php";  ?>
           
-    
           <div class="col-12 text-center my-4">
              <h3><span>परामर्शदाता</span></h3><hr>
           </div>

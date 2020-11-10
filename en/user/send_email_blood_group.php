@@ -129,7 +129,7 @@ while($showblood=mysqli_fetch_array($getblood)){
 <div class="form-group row">
 
 <div class="col-md-12 text-right">
-<input type="submit" class="btn btn-success"  name="passwordchange" value="Submit" required>
+<input type="submit" class="btn btn-success mb-5"  name="passwordchange" value="Submit" required>
 
 </div><br><br>
 

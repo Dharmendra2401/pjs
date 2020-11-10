@@ -250,6 +250,7 @@ $count_death_data=mysqli_fetch_assoc($count_death_request);
 			</tr>
 		</tbody>
 	</table>
+	
 <?php } ?>
 <style type="text/css">
 	.feed_btn{
