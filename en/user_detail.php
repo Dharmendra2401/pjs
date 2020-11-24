@@ -177,7 +177,7 @@ else{?>
 <h3>Personal Details <?php if ($row['Life_status']=='D') {?>
 <span style="float: right;font-size: 20px;"><small><i class="fas fa-flag text-danger" style="margin-right: 4px;"></i><strong>: स्वर्गीय </strong></small></span>
 <?php } ?></h3>
-<div class="row">
+<div class="row detail-info">
 <div class="col-md-3 col-5">
 <h5>Full Name <strong>:</strong></h5>
 </div>
