@@ -21,7 +21,7 @@ include "../config/config.php";
             $count=mysqli_num_rows($zone);
             while($getzones=mysqli_fetch_array($zone)){
             ?>
-            <div class="col-md-2 col-6 text-center">
+            <div class="col-md-2 col-6 text-center zone-card">
                 <img class="img-fluid" src="<?php echo RE_HOME_PATH.'/'.$getzones['short_image'] ?>" alt="Event" >
                 <p class="mb-0"><?php echo $getzones['fullname'] ;?></p>
                 <p class="mb-0 "><?php echo $getzones['mobileno'] ; ?></p>

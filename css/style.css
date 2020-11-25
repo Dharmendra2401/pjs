@@ -1769,6 +1769,10 @@ footer{
     margin-bottom: 5px;
     word-break: break-all;
 }
+
+.zone-card{
+    margin-bottom: 10px;
+}
 /*--------------------ZONE ENDS---------------------------*/
 
 /*--------------------SCHEMES--------------------------------*/

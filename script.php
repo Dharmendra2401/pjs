@@ -11,12 +11,12 @@
 <div class="col-md-6 border-dark border-right text-center">
 <p class="mb-0">xyz Jain ?</p>
 <p>To proceed please login</p>	
-<button type="button" class="btn btn-secondary open-login">Login</button>
-<a href="signup.php" class="btn btn-secondary">SignUp</a>
+<button type="button" class="btn btn-primary open-login" data-toggle="modal" data-target="#login" onclick="loginhide();">Login</button>
+<a href="signup.php" class="btn btn-primary">SignUp</a>
 </div>
 <div class="col-md-6 text-center">
 <p>Others who still want to connect</p>	
-<button type="button" class="btn btn-secondary" onclick="return openadminpop();">Contact Admin</button>
+<button type="button" class="btn btn-primary" onclick="return openadminpop();">Contact Admin</button>
 </div>
 </div>
 </div>
@@ -405,6 +405,11 @@
 
 function openadminpop(){
 $('#opjcontact').modal('show');
+$('#contactoption').modal('hide');
+
+}
+
+function loginhide(){
 $('#contactoption').modal('hide');
 
 }

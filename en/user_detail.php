@@ -161,6 +161,8 @@ else{ ?>
 								<a href="https://web.whatsapp.com/send?text=Check this <?php echo $row['first_name']." ".$row['last_name']." Profile%0a".$url;?> %0a%0aTo become a member, click :%0a<?php echo RE_EN_PATH;?>signup" class="web_app"><i type="button" class="fas fa-share mx-2 "></i></a>
 <?php }
 else{?>
+<i type="button" class="fas fa-link mx-2" data-toggle="modal" data-target="#contactoption"></i>
+
 <i type="button" class="fas fa-download mx-2 login-signup" data-toggle="modal" data-target="#login"></i>
 <i type="button" class="fas fa-share mx-2 login-signup" data-toggle="modal" data-target="#login"></i>
 <?php } ?>
