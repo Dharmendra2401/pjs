@@ -1,0 +1,3177 @@
+/*-----------------GLOBAL CSS-----------------*/
+.container{
+	width: 80%;
+	padding: 0;
+}
+
+body{
+	/*font-family: 'Roboto';*/
+    color: #272727;
+}
+
+h6{
+    font-size: 0.875rem;
+    color: #2C2C2C;
+}
+
+h5{
+    font-size: 1.125rem;
+    color: #2C2C2C;
+}
+
+h4{
+    font-size: 1.25rem;
+    color: #2C2C2C;
+}
+
+h3{
+    font-size: 1.563rem;
+}
+
+h2{
+    font-size: 2.188rem;
+}
+
+.ml-60{
+    margin-top: 60px;
+}
+
+.primary-text{
+    color: #446eb6;
+}
+
+.btn-success{
+    background-color: #1D8D42;
+    border-color: #1D8D42;
+}
+
+.btn-primary{
+    background-color: #446eb6;
+    border-color: #446eb6;
+    box-shadow: unset;
+}
+
+.btn-primary.focus, .btn-primary:focus {
+    color: #fff;
+    background-color: #446eb6;
+    border-color: #446eb6;
+    box-shadow: 0px 0px 30px #00000075;
+}
+
+.btn-primary.focus, .btn-primary:hover {
+    color: #fff;
+    background-color: #446eb6;
+    border-color: #446eb6;
+    box-shadow: 0px 0px 30px #00000075;
+}
+.text-heading{
+    font-weight: 500;
+    font-size: 1.6rem;
+    margin-bottom: 1.25rem;
+}
+
+.success-bg{
+    background-color: #44B66A;
+}
+
+.danger-bg{
+    background-color: #EE5555;
+}
+
+/*-----------------GLOBAL CSS ENDS-----------------*/
+
+/*----------------------NAVBAR---------------------*/
+.navbar{
+    padding: 0;
+}
+.bg-navbar{
+	background-color: #446EB6;
+	height: 60px;
+    z-index: 1;
+    position: fixed;
+    width: 100%;
+}
+
+.logo-link{
+	/*position: absolute;
+    top: 18px;
+    left: 139px;*/
+    margin-top: 60px;
+}
+
+/*.nav-form{
+	margin-left: 170px;
+}*/
+
+select.form-control{
+	font-size: 14px;
+	height: 30px;
+	width: 111px;
+	border-radius: 6px 0px 0px 6px;
+}
+
+.search{
+    font-size: 14px;
+	height: 30px;
+	width: 212px;
+	border-radius: 0px 6px 6px 0px;
+}
+
+.navbar-dark .navbar-nav .nav-link{
+	color: #ffffff;
+	padding-right: 2rem;
+}
+
+.navbar .navbar-nav  li:nth-last-child(1) .nav-link{
+    padding-right: 0px;
+}
+
+.banner-img{
+    background-image: url(../images/banner-img.png);
+    height: 300px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    position: absolute;
+    top: 0;
+    z-index:-1;
+}
+
+ .bg-color{
+	background-color: #272727BF;
+    height: 300px;
+    padding-top: 90px;
+}
+
+ .banner-txt{
+	font-size: 23px;
+    width: 386px;
+    color: #ffffff;
+    font-weight: 600;
+    text-align: center;
+}
+/*----------------------NAVBAR ENDS---------------------*/
+
+/*---------------------HOMEPAGE-------------------------*/
+
+.content{
+	margin-top: -50px;
+}
+
+/*slick slider*/
+
+        #slick
+        {
+            width:100%;
+            background-color: #FFFFFF;
+            border-radius: 10px;
+            box-shadow: 0px 0px 30px #00000029;
+
+        }
+
+        .cont
+        {
+            /*z-index: 999;*/
+            margin-top: 300px;
+            width: 90%;
+            height: 96px;
+            background-color: #FFFFFF;
+            margin: auto;
+        }
+        .cont .item
+        {
+            height: 100px;
+            width: 80px;
+            
+            color: #676767;
+
+        }
+        .item a img
+        {
+            height: 30px;
+            margin-top: 20px;
+            padding-bottom: 5px;
+            color: #676767;
+            display: block;
+            margin-left: auto;
+            margin-right: auto;
+        }
+
+        .item a
+        {
+            text-decoration: none;
+            text-decoration-style: none;
+            font-style: normal;
+            text-align: center;
+            font-family: 'Roboto', sans-serif;
+            font-size: 18px;
+            font-weight:500;
+            color: #676767;
+        }
+
+        .item a:focus {
+            outline: unset;
+        }
+
+        .cont .prev-arrow
+        {
+            position: absolute;
+            top: 35px;
+            left: -30px;
+            color: #676767;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+        .cont .next-arrow
+        {
+            position: absolute;
+            top: 35px;
+            right: -30px;
+            color: #676767;
+            cursor: pointer;
+            font-size: 24px;
+        }
+
+
+/*slick slider end*/
+
+.card-container{
+    /*margin-top: 130px;*/
+}
+
+.card-container .card-img{
+    position: absolute;
+    top: -70px;
+    padding-left: 15px;
+    padding-right: 15px;
+    height: 160px;
+    max-height: 160px;
+    object-fit: cover;
+    border-radius: 15%;
+}
+
+.card-container .card-content{
+    margin-top: 70px;
+}
+
+.card-content span{
+    font-size: 15px;
+}
+
+.card-container .card{
+    border: unset;
+    box-shadow: 0px 0px 30px #00000029;
+    border-radius: 5px;
+    margin-top: 120px;
+}
+
+.card-container .card .offer{
+    position: absolute;
+    top: -54px;
+    right: 14px;
+    background: #446eb6;
+    font-size: 10px;
+    color: #fff;
+    padding: 4px 8px;
+}
+
+.card-container .card .category-text{
+    position: absolute;
+    bottom: -70px;
+    color: #ffffff;
+    right: 25px;
+}
+
+.card-container .card-content .fa-star{
+    color: #446eb6;
+}
+
+.bussiness-container{
+    height: 138px;
+    margin-top: 45px;
+    background: #e0e3ec;
+    margin-left: 0px;
+    margin-right: 0;
+}
+
+.handshake-wrapper{
+    overflow: hidden;
+    position: relative;
+}
+
+.business-txt{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.handshake-img{
+    position: absolute;
+    top: 15px;
+    left: 35%;
+}
+
+/*---------------------HOMEPAGE ENDS-------------------------*/
+
+
+/*---------------------FILTER SECTION-------------------------*/
+.filter-wrapper{
+    margin-top: 40px;
+}
+
+.filter-container{
+    height: 100%;
+    padding-left: 0px;
+    top: 60px;
+    position: fixed;
+    width: 16.7%;
+    box-shadow: 0px 0px 30px #00000029;
+}
+
+.filter-list{
+    padding-left: 40px;
+    /*box-shadow: 0px 0px 30px #00000029;*/
+}
+
+ul.filter-list li{
+    padding: 30px 0;
+    color: #a5a5a5;
+    font-size: 20px;
+}
+
+.filter-heading{
+    font-size: 25px;
+    background: #446eb6;
+    padding: 25px 0 25px 40px;
+    color: #ffffff;
+    font-weight: 500;
+    box-shadow: 0px 0px 20px #00000029;
+}
+
+.filter-container .custom-select{
+    border: 0;
+}
+
+.filter-wrapper .card-container .card{
+    margin-top: 80px;
+}
+
+.filter-wrapper .card-container .card-content{
+    margin-top: 74px;
+}
+/*---------------------FILTER SECTION ENDS-------------------------*/
+
+
+/*---------------------PRODUCT DETAIL SECTION -------------------------*/
+.product-container{
+    color: #2c2c2c;
+    padding-top: 100px;
+}
+
+.product-container .card{
+    border: 0;
+    box-shadow: 0px 0px 30px #00000029;
+}
+
+.preview-img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+}
+
+.selected-img{
+    height: 260px;
+    object-fit: cover;
+    width: 100%;
+}
+
+.price{
+    font-size: 1.875rem;
+    font-weight: 500;
+}
+
+.product-container .offer{
+    font-size: 20px;
+    padding: 0 8px;
+}
+
+.product-container .discount{
+    font-size: 20px;
+    color: #446eb6;
+}
+
+.product-container .location-txt{
+    font-size: 1.375rem;
+    font-weight: 500;
+}
+
+.product-container .category-txt{
+    font-size: 1.375rem;
+}
+
+.detail-list{
+    font-size: 1.375rem;
+}
+
+.product-container .description{
+    margin-top: 20px;
+}
+
+.product-container .description p{
+    font-size: 14px;
+}
+
+.review .rating-no{
+    font-size: 28px;
+}
+
+.review p{
+    font-size: 12px;
+    margin-bottom: 0;
+}
+
+.review .progress{
+    height: 6px;
+    margin-top: 5px;
+}
+
+.review .progress-bar{
+    height: 6px;
+}
+
+.review-list p{
+    font-size: 12px;
+}
+
+.review-desc{
+    padding-top: 15px;
+    padding-bottom: 15px;
+    border-top: 1px solid #c5c5c5;
+}
+
+.review-desc .rating{
+    color: #ffffff;
+    background: #446eb6;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.review-desc .rating i{
+    font-size: 12px;
+}
+
+.add-review .add-txt{
+    color: #2c2c2c;
+    font-size: 14px;
+    font-weight: 500;
+}
+
+.add-review .username{
+    color: #2c2c2c;
+    font-size: 12px;
+    font-weight: 500;
+}
+
+.add-review i{
+   color: #446eb6;
+}
+
+.add-review{
+   box-shadow: 0px 0px 30px #00000029;
+   padding: 15px;
+   margin-bottom: 30px;
+}
+
+.add-review .form-control{
+   border: 0;
+   border-bottom:1px solid #A5A5A5;
+   font-size: 12px;
+   padding-left: 0; 
+}
+
+.add-review i.lock{
+    color: #ffffff;
+    font-size: 12px;
+    padding: 8px;
+    background: #446eb6;
+}
+
+.owl-nav .fa-chevron-right{
+    position: absolute;
+    right: -28px;
+    top: 200px;
+    font-size: 25px;
+    background: #446eb6;
+    border-radius: 50%;
+    height: 46px;
+    width: 46px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.owl-nav .fa-chevron-left{
+    position: absolute;
+    left: -28px;
+    top: 200px;
+    font-size: 25px;
+    background: #446eb6;
+    border-radius: 50%;
+    height: 46px;
+    width: 46px;
+    align-items: center;
+    display: flex;
+    justify-content: center;
+    color: #ffffff;
+}
+
+.related-products{
+    box-shadow: 0px 0px 30px #00000029;
+    background: #e9f1ff 0% 0% no-repeat padding-box;
+    padding: 40px;
+    margin-bottom: 50px;
+}
+
+.related-products .card-container .card-img{
+    padding-left: 0;
+    padding-right:0;
+    border-radius: 10px 10px 0 0;
+}
+
+.related-products .card-container .card .offer{
+    top: -50px;
+    right: 0px;
+}
+
+.related-products .card-container .card .category-text{
+    bottom: -80px;
+    right: 9px;
+}
+
+.view-seller{
+    padding: 20px;
+}
+/*---------------------PRODUCT DETAIL SECTION ENDS-------------------------*/
+
+
+/*---------------------ENTTERPRISE SECTION-------------------------*/
+.banner-enterprise {
+    background-image: url(../images/banner-img.png);
+    height: 210px;
+    width: 100%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    -o-background-size: cover;
+    -ms-background-size: cover;
+    position: absolute;
+    top: 0;
+    z-index: -1;
+}
+
+.banner-enterprise .bg-color{
+    background: transparent linear-gradient(180deg, #00000000 0%, #2B2B2B45 51%, #000000 100%) 0% 0% no-repeat padding-box;
+    height: 210px;
+}
+
+.banner-txt-wrapper{
+    position: relative;
+}
+
+.banner-txt-wrapper .banner-txt{
+    position: absolute;
+    top: 140px;
+    width: 100%;
+    color: #ffffff;
+}
+
+.banner-txt-wrapper .banner-txt .logo{
+    width: 144px;
+    height: 144px;
+    object-fit: cover;
+}
+
+.banner-txt-wrapper .enterprise-desc{
+    font-size: 19px;
+    color: #2c2c2c;
+    margin-top: 60px;
+    margin-right: 0px;
+    margin-bottom: 50px;
+}
+
+.enterprise-desc .card-container .card{
+   margin-top: 0px;
+}
+
+.owner-img{
+    width: 70px;
+    height: 70px;
+    object-fit: cover;
+    border-radius: 50%;
+    margin-top: -35px;
+    border: 3px solid #c32020;
+}
+
+.card-container .bg-img{
+    height: 75px;
+    width: 100%;
+    object-fit: cover;
+    border-radius: 5px 5px 0 0;
+}
+
+.company-info h4{
+    font-size: 22px;
+    color: #2C2C2C;
+}
+
+.banner-txt-wrapper .card-container{
+    width: 100%;
+}
+
+.company-info.card {
+    margin-top: 0;
+    padding: 50px;
+    margin-bottom: 50px;
+}
+
+.review-section .card{
+    margin-top: 0px;
+    padding: 40px;
+    color: #2c2c2c;
+}
+/*---------------------ENTTERPRISE SECTION ENDS-------------------------*/
+
+/*---------------------COMMUNITY SECTION-----------------------------------*/
+.community-header{
+    text-align: center;
+    padding-top: 90px;
+    padding-bottom: 30px; 
+}
+
+.community-body .card{
+    margin-top: 0;
+    padding: 30px;
+}
+
+.add-post .form-control{
+    border: 0;
+    border-bottom: 1px solid #A5A5A5;
+    font-size: 20px;
+    padding-left: 0;
+}
+
+.add-post .add-photos{
+    height: 150px;
+    box-shadow: 0px 0px 20px #00000029;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    margin-top: 30px;
+}
+
+.add-post .add-photos{
+    color: #a5a5a5;
+    cursor: pointer;
+}
+
+.add-post .add-photos h4{
+    color: #a5a5a5;
+}
+
+.add-post .add-photos input{
+    height: 150px;
+    opacity: 0;
+    position: absolute;
+    width: 100%;
+    padding: 0 15px;
+}
+
+.add-post form button{
+    font-size: 22px;
+    font-weight: 500px;
+    padding-left: 40px;
+    padding-right: 40px;
+}
+
+.post-img{
+    height: 150px;
+    object-fit: cover;
+    border-radius: 5px;
+}
+
+.post-txt p{
+    height: 140px;
+    overflow: hidden;
+}
+
+.posts{
+    color: #676767;
+}
+
+.posts .profile-img{
+    height: 50px;
+    width: 50px;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.posts .profile-detail h4{
+    margin-bottom: 5px;
+}
+
+.posts .profile-detail p{
+    margin-bottom: 0;
+}
+
+.community-body .card h3{
+    color: #2C2C2C;
+}
+/*------------------------COMMUNITY SECTION ENDS-----------------------------*/
+
+
+/*-----------------------------MANAGE PRODUCT---------------------------------*/
+
+.nav-tabs .nav-link.active{
+    color: #446eb6;
+    border-color: #ffffff #ffffff #446eb6 #ffffff;
+}
+
+
+.nav-tabs .nav-link {
+    border: 3px solid transparent;
+    border-top-left-radius: 0;
+    border-top-right-radius: 0;
+    font-size: 20px;
+    font-weight: 500;
+    color: #a5a5a5;
+}
+
+.nav-tabs .nav-link:hover{
+    border-color: transparent;
+}
+
+.nav-tabs {
+    border-bottom: 0;
+}
+
+.manage-product .listing select.form-control{
+    display: inline;
+    font-weight: 700;
+    width: 130px;
+}
+
+.category-txt{
+    color: #676767;
+    font-weight: 400;
+    padding-right: 10px;
+}
+
+.manage-product .listing .card.title {
+    box-shadow: none;
+}
+
+/*---------------switch----------------------*/
+.switch {
+    position: relative;
+    display: inline-block;
+    width: 29px;
+    height: 14px;
+    float: right;
+    margin-bottom: 0;
+    margin-top: 10px;
+}
+
+.switch input { 
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #ccc;
+  -webkit-transition: .4s;
+  transition: .4s;
+}
+
+.slider:before {
+    position: absolute;
+    content: "";
+    height: 14px;
+    width: 14px;
+    left: 0px;
+    bottom: 0px;
+    background-color: white;
+    -webkit-transition: .4s;
+    transition: .4s;
+}
+
+input:checked + .slider {
+  background-color: #2196F3;
+}
+
+input:focus + .slider {
+  box-shadow: 0 0 1px #2196F3;
+}
+
+input:checked + .slider:before {
+  -webkit-transform: translateX(14px);
+  -ms-transform: translateX(14px);
+  transform: translateX(14px);
+}
+
+/* Rounded sliders */
+.slider.round {
+  border-radius: 34px;
+}
+
+.slider.round:before {
+  border-radius: 50%;
+}
+
+/*---------------switch ends----------------------*/
+
+
+/*-----------------------------MANAGE PRODUCT ENDS---------------------------------*/
+
+
+/*------------------------DASHBOARD SECTION-----------------------------*/
+.dashboard-wrapper{
+    margin-top: 50px;
+    padding-left: 70px;
+}
+
+.dashboard-wrapper .card-container .card{
+    margin-top: 0px;
+}
+.dashboard-card{
+    background: #e9f1ff 0% 0% no-repeat padding-box;
+    padding: 20px;
+    border-radius: 20px;
+    height: 150px;
+}
+
+.dashboard-card .btn{
+    font-size: 14px;
+    width: 100%;
+    padding-top: 5px;
+    padding-bottom: 5px;
+}
+
+.dashboard-card .txt-body{
+    height: 100px;
+}
+
+.dashboard-card .txt-body button{
+    position: absolute;
+    bottom: 0;
+}
+
+.dashboard-img{
+    position: absolute;
+    object-fit: cover;
+    width: 80px;
+    height: 90px;
+    top: -32px;
+    right: 30px;
+}
+
+.small-card{
+    border-radius: 10px;
+    padding: 10px 15px 10px 5px;
+    color: #ffffff;
+}
+
+.small-card h6{
+    color: #ffffff;
+}
+
+.small-card i{
+    padding: 10px;
+    border-radius: 5px;
+}
+
+.small-card i.fa-shopping-cart{
+    background: #FB8A8A;
+}
+
+.small-card i.fa-star{
+    background: #7CBE92;
+}
+
+.small-card.danger-bg{
+    margin-bottom: 13px;
+}
+
+.select-product{
+    box-shadow: 0px 0px 15px #00000029;
+    border: 0;
+}
+
+.listing{
+    margin-top: 40px; 
+    margin-bottom: 75px;   
+}
+
+.listing .card.title{
+    padding: 15px 30px;
+}
+
+.listing .card-container .card-img {
+    padding-left: 0;
+    padding-right: 0;
+    border-radius: 10px 10px 0 0;
+    position: unset;
+}
+
+.card-container .card-listing .card .offer{
+    top: 16px;
+    right: 0px;
+}
+
+.card-listing{
+    padding: 20px 50px;
+}
+
+.listing .card-listing .card{
+    padding: 0;
+}
+
+.card-container .card-listing .card-content {
+    margin-top: 0; 
+    padding-top: 5px;
+}
+
+.listing .list-title{
+    margin-top: 40px;
+    padding: 0 0 0 30px;
+}
+
+.card-container .card-listing .card .category-text{
+    bottom: 0px;
+    right: 10px;
+}
+
+.menu-list li{
+    margin: 30px 0;
+    padding-left: 15px;
+}
+
+.menu-list li.active a{
+    opacity: 1;
+}
+
+.menu-list li a{
+    color: #ffffff;
+    font-size: 20px;
+    font-weight: 500;
+    opacity: .3;
+}
+
+.menu-list li a:hover{
+    text-decoration: none;
+}
+
+.add-product{
+    text-align: center;
+    margin-top: 55px;
+    margin-bottom: 35px;
+}
+
+.add-product button{
+    background: #ffffff;
+    border: 0;
+    border-radius: 10px;
+    padding: 5px 20px;
+    font-size: 18px;
+    color: #446eb6;
+}
+
+.menu-wrapper{
+    box-shadow: 0px 0px 30px #00000029;
+}
+
+.toggle-menu{
+    display: none;
+}
+
+.menu-wrapper .menu{
+    left: 0px;
+    position: fixed;
+    overflow-y: auto;
+    height: 100%;
+    width: 16.7%;
+    top: 60px;
+    background: #446eb6;
+}
+
+.menu-wrapper .menu i{
+    width: 25px;
+
+}
+/*------------------------DASHBOARD SECTION ENDS-----------------------------*/
+
+/*------------------------HELP SECTION ---------------------------------*/
+.help-container .listing .card.title{
+   box-shadow:unset;
+}
+
+.help-container .tab-content h5,p{
+   color: #676767; 
+}
+
+.help-container .tab-content p{
+   font-size: 15px;
+}
+/*------------------------HELP SECTION ENDS-----------------------------*/
+
+/*------------------------LOGIN MODAL----------------------------------*/
+.modal-content.business-login{
+    border-radius: 10px;
+    border: 0;
+}
+
+.modal-content.business-login .modal-header {
+    background-color: #446eb6;
+    text-align: center;
+    margin-bottom: 30px;
+    color: #ffffff;
+    border-top-left-radius: 10px;
+    border-top-right-radius: 10px;
+    border-bottom: 0;
+}
+
+.business-login .modal-header h3.modal-title{
+    font-size: 22px;
+    width: 100%;
+}
+
+.modal-content.business-login .modal-header .close {
+    color: #ffffff;
+}
+
+.modal-content.business-login .modal-body p a.signup-link{
+    color: #446eb6;
+}
+/*------------------------LOGIN MODAL ENDS-----------------------------*/
+
+
+/*-----------------MEDIA QUERY-----------------*/
+/*@media only screen and (min-width: 769px) and (max-device-width : 865px){
+.custom-grid .col-md-3 {
+    -ms-flex: 0 0 33.3%;
+    flex: 0 0 33.3%;
+    max-width: 33.3%;
+}
+}*/
+
+@media only screen and (min-width: 1086px){
+.custom-grid .col-md-3 {
+    -ms-flex: 0 0 20% !important;
+    flex: 0 0 20% !important;
+    max-width: 20% !important;
+}
+
+.col-md-5 {
+    -ms-flex: 0 0 38%;
+    flex: 0 0 38%;
+    max-width: 38%;
+}
+
+}
+
+@media only screen and (min-width: 320px) and (max-width: 767px){
+      .btn{
+        padding-top: 0px;
+        padding-bottom: 0;
+      }
+
+      .container {
+        width: 95%;
+      } 
+
+      .px-sm-0{
+        padding-right: 0 !important;
+        padding-left: 0 !important;
+      }
+
+      .pr-sm-0{
+        padding-right: 0 !important;
+      }
+
+      .pl-sm-0{
+        padding-left: 0 !important;
+      }
+
+      .mb-sm-10{
+        margin-bottom: 10px;
+      }
+
+      .mx-sm-0{
+        margin-right: 0 !important;
+        margin-left: 0 !important;
+      }     
+
+      .bg-navbar .navbar-nav{
+        align-items: end !important;
+    }
+
+    .bg-navbar .navbar-nav .nav-item{
+        margin-left: 10px;
+    }
+
+    .navbar-toggler:focus{
+        text-decoration: none;
+        outline: unset;
+    }
+
+    select.form-control{
+        width: 100%;
+        border-radius: .25rem;
+        margin-right: 0 !important;
+    }
+
+    .search{
+        width: 100%;
+        margin-top: 10px;
+        border-radius: .25rem;
+    }
+
+    .bussiness-container{
+        height: unset;
+        margin-bottom: 80px;
+        padding-bottom: 20px;
+    }
+
+    .business-txt{
+        margin-top: 10px;
+    }
+
+    .handshake-img{
+        position: relative;
+    }
+
+    /*------------product detail-------------*/
+    .preview-img {
+    width: 50px;
+    height: 50px;
+    }
+
+    .selected-img{
+    height: 180px;    
+    }
+
+    .view-seller .logo{
+    padding-left: 0px;
+    padding-right: 0;
+    display: flex;
+    align-items: center;
+    }
+
+    .view-seller .view-btn{
+    padding-left: 0 !important;
+    padding-right: 0 !important;
+    width: 100%;
+
+    }
+
+    .owl-nav .fa-chevron-left{
+    top: 120px;
+    }
+
+    .owl-nav .fa-chevron-right{
+    top: 120px;
+    }
+    /*------------product detail ends-------------*/
+
+    /*------------business profile-----------------*/
+    .dashboard-wrapper.business-wrapper{
+      padding-left: 15px;
+      margin-top: 110px;
+    }
+
+    .mf .row .col-6 p{
+      font-size: 16px !important;  
+    }
+
+    .toggle-menu{
+        display: block;
+        position: absolute;
+        z-index: 2;
+        top: 70px;
+        left: 10px;  
+        box-shadow: 0px 0px 20px #00000045;
+    }
+
+    .menu-wrapper .menu{
+        width: 76.7%;
+        display: none;
+    }
+    /*------------business profile ends-------------*/
+
+    /*------------community--------------------------*/
+    .community-header{
+        padding-bottom: 0px;
+    }
+
+    .community-body .card {
+        padding: 20px;
+    }
+
+    .post-img{
+        height: 90px;
+    }
+
+    /*------------community ends---------------------*/
+
+    /*------------dashboard--------------------------*/
+    .dashboard-wrapper{
+        padding-left: 10px;
+    }
+
+    .listing .list-title{
+        margin-top: 0px;
+    }
+
+    .card-listing {
+    padding: 20px 20px;
+    }
+    /*------------dashboard ends---------------------*/
+
+    /*------------enterprise-------------------------*/
+    .banner-txt-wrapper .banner-txt{
+      top: 160px;
+    }
+
+    .banner-txt-wrapper .banner-txt .logo{
+      width: 100px;
+      height: 100px;  
+    }
+
+    .enterprise-heading{
+      color: #2c2c2c;  
+    }
+
+    .enterprise-heading .rating{
+        display: flex;
+        justify-content: center;
+        float: unset !important;
+        margin-top: 10px;
+    }
+
+    .banner-txt-wrapper .enterprise-desc{
+        margin-top: 40px;
+    }
+
+    .company-info.card{
+        padding: 20px;
+    }
+
+    .help-container .tab-content h5, p{
+        font-size: 14px;
+        margin-top: 5px;
+    }
+
+    .add-review i{
+        font-size: 12px;
+    }
+    /*------------enterprise ends---------------------*/
+
+    /*------------filter -------------------------*/
+    .filter-container{
+        width: 76.7%;
+        display: none;
+        z-index: 1;
+        background: #fff;
+    }
+    /*------------filter ends---------------------*/
+}
+
+
+@media (min-width: 768px){
+    .custom-grid .col-md-3 {
+    -ms-flex: 0 0 33.3%;
+    flex: 0 0 33.3%;
+    max-width: 33.3%;
+}
+}
+
+@media (min-width: 1367px){
+   .custom-grid .col-md-3 {
+    -ms-flex: 0 0 25% !important;
+    flex: 0 0 25% !important;
+    max-width: 25%;
+}
+}
+
+
+@media only screen and (max-width: 991px) {
+
+.navbar-dark .navbar-toggler{
+    border-color: rgb(255 255 255 / 60%);
+    position: absolute;
+    top: 15px;
+    right: 15px;
+    padding: 0px 5px;
+}
+
+.navbar-collapse.show{
+	background: #446eb6;
+    position: absolute;
+    top: 60px;
+    right: 10px;
+    box-shadow: 0px 0px 30px #00000029;
+    border-radius: 5px;
+    padding: 5px 5px;
+    margin-left: 85px;
+}
+
+.logo-link{
+	margin-top: 0px;
+}
+
+.logo-link 	.sm-image{
+	width: 50px;
+}
+
+.slick-dots{
+    display: none !Important;
+}
+
+.cont .next-arrow{
+    right: -5px;
+}
+
+.cont .prev-arrow{
+    left: -5px;
+}
+
+.card-container .card{
+    margin-top: 50px;
+    margin-bottom: 40px;
+}
+
+.card-container .card-content{
+    margin-top: 140px;
+}
+
+}
+/*-----------------MEDIA QUERY ENDS-----------------*/
+
+
+
+/*<------------------ Modal-1,2,3,4 --------------------->*/
+
+
+
+    .modal1 .modal-dialog 
+    {
+          /*height:400px !important;*/
+          max-width: 600px !important;
+        }
+
+        .modal1 .modal-content
+        {
+          width: 600px;
+          
+          border-radius: 10px;
+        }
+
+    .modal1 .modal-header 
+    {
+      border: none;
+      padding-bottom: 22px;
+        text-align: center;
+      }
+
+      .modal1 .header-cont
+      {
+        display:flex;
+      }
+
+      .modal1 .header-cont img
+      {
+        width: 70px;
+      }
+      .modal1 .modal-body
+      {
+        padding-top: 0;
+      }
+
+      .modal1  img
+      {
+        margin-top: 30px;
+        margin-left: 66px;
+      }
+
+      .modal1 p
+      {
+        font-size: 25px;
+        color: #676767;
+        font-weight: 500;
+        margin: auto;
+        margin-left: 40px;
+        padding-bottom: 10px;
+      }
+
+      .modal1 .input-group
+      {
+        box-shadow: 0px 0px 20px #00000029;
+        margin-bottom: auto;
+      }
+
+      .modal1 .modal-body input
+      {
+        position: relative;
+        padding-left: 40px;
+        border: none;
+        width: 210px;
+        margin-right: 10px;
+        box-shadow: 0px 0px 20px #00000029;
+      }
+
+      .modal1 .modal-body input::placeholder
+      {
+        color: #A5A5A5;
+      }
+      
+      .modal1 .form i
+      {
+        position: absolute;
+        top: 10px;
+        left: 28px;
+        color: gray;
+      }
+
+      .modal1 .input-group-prepend span
+      {
+        background-color: white;
+        border: none;
+      }
+
+      .modal1 .modal-body select
+      {
+        color: #A5A5A5;
+      }
+
+      .modal1 .modal-body option
+      {
+        color: #A5A5A5;
+      }
+
+      .modal1 .form .ta-i
+      {
+        left: 30px;
+      }
+      .modal1 .form .cd
+      {
+        position: absolute;
+        left: 206px;
+      }
+      /*.col-sm-6
+      {
+        padding-right: 0px;
+        padding-left: 0px;
+      }*/
+
+      .modal1 .ta
+      {
+        /*padding: 0;*/
+      }
+      .modal1 .form-group textarea
+      {
+        padding-left: 40px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px #00000029;
+        }
+
+      .modal1 textarea .ta
+      {       
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px #00000029;
+        padding-left: 40px;
+        padding-top: 7px;
+        border: none;
+      }
+      .modal1 .modal-body textarea::placeholder
+      {
+        color:  #A5A5A5;
+      }
+
+      .modal1 .form-group select
+      {
+        padding-left: 36px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px #00000029;
+      }
+
+       .modal-content .modal-body  select.form-control {
+        font-size: unset;
+        height: calc(1.5em + .75rem + 2px);
+        width: 100%;
+    }
+
+      @media (max-width: 540px)
+      {
+        .modal1 .modal-content
+        {
+          width: unset;
+        }
+
+        .modal1 .header-cont
+        {
+          display:flex;
+        }
+
+        .modal1 .modal-body input
+        {
+          width: 300px;
+        }
+
+        .modal1 .form-group
+        {
+          margin-left: 28px;
+        }
+
+        .modal1 .form i 
+        {
+          left: 56px;
+        }
+
+        .modal1 .modal-body select
+        {
+          width: 300px;
+        }
+        
+        .modal1 .form .cd
+        {
+          left: 329px;
+        }
+
+        .modal1 .form .ta-i
+        {
+          left: 58px;
+        }
+        .modal1 .form textarea
+        {
+          width: 300px;
+        }
+        .modal1 .form button
+        {
+          width: 300px;
+        }
+      }
+
+      @media (max-width: 414px)
+      {
+        .modal1 .modal-content
+        {
+          width: 399px;
+        }
+
+        .modal1 .header-cont
+        {
+          display: block;
+        }
+        .modal1 .header-cont img
+        {
+          margin-left: 55px;
+        }
+        .modal1 .header-cont p
+        {
+          margin-left: 57px;
+        }
+
+        .modal1 .modal-body input
+        {
+          width: 300px;
+        }
+        .modal1 .form-group
+        {
+          margin-left: -30px;
+        }
+        .modal1 .form i 
+        {
+          left: 0px;
+        }
+        .modal1 .modal-body select
+        {
+          width: 300px;
+        }
+        .modal1 .form .cd
+        {
+          left: 270px;
+        }
+
+        .modal1 .form .ta-i
+        {
+        left: 0px;
+        }
+        .modal1 .form textarea
+        {
+          width: 300px;
+        }
+        .modal1 .form button
+        {
+          width: 300px;
+        }
+      }
+
+      @media (max-width: 411px)
+      {
+        .modal1 .modal-content 
+        {
+          width: 396px;
+      }
+
+        .modal1 .header-cont p 
+        {
+          margin-left: 55px;
+      }
+      }
+
+      @media (max-width: 375px)
+      {
+
+        .modal1 .modal-dialog 
+      {
+            /*height:400px !important;*/
+            max-width: unset !important;
+          }
+
+        .modal1 .modal-content
+        {
+          width: 360px;
+        }
+
+        .modal1 .header-cont
+        {
+          width: 100%;
+          margin-top: 30px;
+          display: block;
+        }
+
+        .modal1 .modal-header img
+        {
+          width: 60px;
+          margin-left: 22px;
+        }
+
+        .modal1 .modal-header p
+        {
+          margin-left: 26px;
+        }
+
+        .modal1 .modal-body input
+        {
+          width: 300px;
+        }
+
+        .modal1 .form-group
+        {
+          margin-left: -50px;
+        }
+
+        .modal1 .form i 
+        {
+          left: -20px;
+        }
+
+        .modal1 .modal-body select
+        {
+          width: 300px;
+        }
+        .modal1 .form .cd
+        {
+          left: 250px;
+        }
+
+        .modal1 .form .ta-i
+        {
+          left: -18px;
+        }
+        .modal1 .form textarea
+        {
+          width: 300px;
+        }
+        .modal1 .form button
+        {
+          width: 300px;
+        }
+      }
+
+      @media (max-width: 360px)
+      {
+        .modal1 .modal-content
+        {
+          width: 345px;
+        }
+
+        .modal1 .header-cont p
+        {
+          font-size: 22px;
+          margin-left: 28px;
+        }
+        .modal1 .modal-body input
+        {
+          width: 250px;
+        }
+        .modal1 .form-group
+        {
+          margin-left: -33px;
+        }
+        .modal1 .form i 
+        {
+          left: -6px;
+        }
+        .modal1 .modal-body select
+        {
+          width: 250px;
+        }
+        .modal1 .form .cd
+        {
+          left: 218px;
+        }
+
+        .modal1 .form .ta-i
+        {
+          left: -5px;
+        }
+        .modal1 .form textarea
+        {
+          width: 250px;
+        }
+        .modal1 .form button
+        {
+          width: 250px;
+        }
+      }
+
+      @media (max-width: 320px)
+      {
+        .modal1 .modal-content
+        {
+          width: 305px;
+        }
+
+        
+        .modal1 .modal-body input
+        {
+          width: 250px;
+        }
+        .modal1 .form-group
+        {
+          margin-left: -53px;
+        }
+        .modal1 .form i 
+        {
+          left: -24px;
+        }
+        .modal1 .modal-body select
+        {
+          width: 250px;
+        }
+        .modal1 .form .cd
+        {
+          left: 198px;
+        }
+
+        .modal1 .form .ta-i
+        {
+          left: -22px;
+        }
+        .modal1 .form textarea
+        {
+          width: 250px;
+        }
+        .modal1 .form button
+        {
+          width: 250px;
+        }
+      }
+
+      @media (max-width: 280px)
+      {
+        .modal1 .modal-content
+        {
+          width: 265px;
+        }
+
+        .modal1 .header-cont p 
+      {
+          font-size: 16px;
+          margin-left: 28px;
+          margin-top: 5px;
+      }
+      
+        .modal1 .modal-body input
+        {
+          width: 250px;
+        }
+        .modal1 .form-group
+        {
+          margin-left: -73px;
+        }
+        .modal1 .form i 
+        {
+          left: -45px;
+        }
+        .modal1 .modal-body select
+        {
+          width: 250px;
+        }
+        .modal1 .form .cd
+        {
+          left: 178px;
+        }
+
+        .modal1 .form .ta-i
+        {
+          left: -44px;
+        }
+        .modal1 .form textarea
+        {
+          width: 250px;
+        }
+        .modal1 .form button
+        {
+          width: 250px;
+        }
+      }
+
+/* <-------------------------------------MODAL CSS END-------------------------------------->*/
+
+
+
+/* <-------------------------------------MODAL-2 CSS START-------------------------------------->*/
+
+
+    .modal2 .md
+    {
+      max-width: 875px !important;
+    }
+
+    .modal2 .col-md-4
+    {
+      /*padding-left: 0px;*/
+    }
+    .modal2 .card
+    {
+      border: none;
+      box-shadow: 0px 0px 25px #00000029;
+      margin-left: 80px;
+      margin-bottom: 45px;
+    }
+
+    .modal2 .card-body
+    {
+      padding: 0px 0px 0px 0px;
+    }
+
+    .modal2 .row ul
+    {
+      margin-left: -25px;
+      padding-top: 10px;
+    }
+
+    .modal2 .row ul li
+    {
+      padding-top: 5px;
+      text-decoration: none;
+      list-style-type: none;
+      list-style: none;
+      color: #676767;
+      font-size: 14px;
+    }
+
+    .modal2 .model-header
+    {
+      border: none;
+      position: absolute;
+      padding: 0px 0px;
+      height: 48px;
+    }
+
+    .modal2 .modal-header .close
+    {
+      padding: 0;
+      padding-top: 17px;
+        padding-right: 17px;
+    }
+
+    .modal2 .header-contnt p
+    {
+      font-size: 25px;
+        color: #676767;
+        margin-left: 95px;
+        margin-top: 20px;
+        font-weight: 500;
+    }
+
+    .modal2 .modal-body
+    {
+      padding: 0;
+    }
+
+    .modal2 .modal-body input
+      {
+        position: relative;
+        padding-left: 40px;
+        border: none;
+        width: 210px;
+        margin-right: 10px;
+        box-shadow: 0px 0px 20px #00000029;
+      }
+
+      .modal2 .modal-body input::placeholder
+      {
+        color: #A5A5A5;
+      }
+
+      .modal2 .form
+      {
+        margin-left: -15px;
+      }
+
+      .modal2 .form i
+      {
+        position: absolute;
+        top: 10px;
+        left: 28px;
+        color: gray;
+      }
+
+      .modal2 .modal-body select
+      {
+        color: #A5A5A5;
+      }
+
+      .modal2 .form-group select
+      {
+        width: 210px;
+        padding-left: 36px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px #00000029;
+      }
+
+      .modal2 .modal-body option
+      {
+        color: #A5A5A5;
+      }
+
+      .modal2 .form .cd
+      {
+        position: absolute;
+        left: 211px;
+      }
+
+      .modal2 .form .ta-i
+      {
+        left: 30px;
+      }
+      
+      .modal2 .form-group textarea
+      { 
+        width: 455px;
+        padding-left: 40px;
+        border: none;
+        border-radius: 5px;
+        box-shadow: 0px 0px 20px #00000029;
+        }
+
+        @media (max-width: 768px)
+        {
+          .modal2 .card
+          {
+            margin-left: 50px;
+          }
+
+          .modal2 .header-contnt p
+          {
+            margin-left: 50px;
+          }
+
+          .modal2 .form
+          {
+            margin-left: -30px;
+          }
+
+          .modal2 .form-group select
+          {
+            width: 190px;
+          }
+          .modal2 .form .cd
+          {
+            left: 191px;
+          }
+
+          .modal2 .modal-body input
+          {
+            width: 190px;
+          }
+
+          .modal2 .form-group textarea
+          {
+            width: 392px;
+          }
+        }
+
+        @media (max-width: 540px)
+        {
+          .modal2 .card
+          {
+            margin-left: 160px;
+            margin-top: 10px;
+          }
+
+          .modal2 .modal-header
+          {
+            padding: 0;
+          }
+
+          .modal2 .modal-header .close
+          {
+            padding: 30px;
+          }
+
+          .modal2 .header-contnt p
+          {
+            margin-left: 127px;
+            font-size: 20px;
+            margin-top: 0;
+          }
+
+          .modal2 .modal-body input 
+          {
+          width: 275px;
+      }
+
+      .modal2 .form
+      {
+        margin-left: 63px;
+      }
+
+      .modal2 .form-group select 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form-group textarea 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form .cd 
+      {
+          left: 276px;
+      }
+      .modal2 .form-group button
+      {
+        width: 275px;
+      }
+        }
+
+        @media (max-width: 411px)
+        {
+          .modal2 .form 
+          {
+          margin-left: -4px;
+      }
+        }
+
+        @media (max-width: 414px)
+        {
+          .modal2 .card
+          {
+            margin-left: 95px;
+            margin-top: 30px;
+          }
+
+          .modal2 .modal-header
+          {
+            padding: 0;
+          }
+
+          .modal2 .modal-header .close
+      {
+        padding: 0;
+        padding-top: 34px;
+          padding-right: 34px;
+      }
+
+          .modal2 .header-contnt p
+          {
+            margin-left: 60px;
+            font-size: 20px;
+            margin-top: 0;
+          }
+
+          .modal2 .modal-body input 
+          {
+          width: 275px;
+      }
+
+      .modal2 .form
+      {
+        margin-left: -4px;
+      }
+
+      .modal2 .form-group select 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form-group textarea 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form .cd 
+      {
+          left: 276px;
+      }
+        }
+
+        @media (max-width: 375px)
+        {
+          .modal2 .card
+          {
+            margin-left: 78px;
+          }
+
+          .modal2 .modal-header
+          {
+            padding: 0;
+          }
+
+          .modal2 .header-contnt p
+          {
+            font-size: 20px;
+            margin-top: 0;
+            margin-left: 44px;
+          }
+
+          .modal2 .modal-body input 
+          {
+          width: 275px;
+      }
+
+      .modal2 .form
+      {
+        margin-left: -21px;
+      }
+
+      .modal2 .form-group select 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form-group textarea 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form .cd 
+      {
+          left: 276px;
+      }
+
+      .modal2 .form-group button
+      {
+        width: 275px;
+      }
+        }
+
+        @media (max-width: 360px)
+        {
+          .modal2 .card
+          {
+            margin-left: 70px;
+          }
+
+          .modal2 .modal-header
+          {
+            padding: 0;
+          }
+
+          .modal2 .header-contnt p
+          {
+            font-size: 20px;
+            margin-top: 0;
+            margin-left: 35px;
+          }
+
+          .modal2 .modal-body input 
+          {
+          width: 275px;
+      }
+
+      .modal2 .form
+      {
+        margin-left: -30px;
+      }
+
+      .modal2 .form-group select 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form-group textarea 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form .cd 
+      {
+          left: 276px;
+      }
+
+      .modal2 .form-group button
+      {
+        width: 275px;
+      }
+        }
+
+        @media (max-width: 320px)
+        {
+          .modal2 .card
+          {
+            margin-left: 50px;
+          }
+
+          .modal2 .modal-header
+          {
+            padding: 0;
+          }
+
+          .modal2 .header-contnt p
+          {
+            font-size: 17px;
+            margin-top: 0;
+            margin-left: 35px;
+          }
+
+          .modal2 .modal-body input 
+          {
+          width: 275px;
+      }
+
+      .modal2 .form
+      {
+        margin-left: -48px;
+      }
+
+      .modal2 .form-group select 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form-group textarea 
+      {
+          width: 275px;
+      }
+
+      .modal2 .form .cd 
+      {
+          left: 276px;
+      }
+
+      .modal2 .form-group button
+      {
+        width: 275px;
+      }
+        }
+
+
+
+/* <-------------------------------------MODAL-2 CSS END-------------------------------------->*/
+
+
+/* <-------------------------------------MODAL-3 CSS START-------------------------------------->*/
+
+
+    .modal3 .md
+    {
+      max-width: 833px !important;
+    }
+
+      .modal3 .modal-content
+    {
+      border-radius: 10px; 
+      border: none;
+    }
+
+    .modal3 .modal-header
+    {
+      border:0;
+    }
+
+    .modal3 .card
+    {
+      width: 213px; 
+      height: 324px;
+      border-radius: 10px;
+      box-shadow: 0px 0px 30px #00000029;
+      margin-left: 65px;
+        margin-top: 42px;
+        border: none;
+    }
+    .modal3 .card-body
+    {
+        padding:0; 
+    }
+    .modal3 .card-cont
+    {
+      padding: 0;
+      margin-top: 30px;
+    }
+
+    .modal3 .upload-pro
+    {
+      color: #676767;
+      font-weight: 500;
+      margin-top: 15px;
+    }
+
+    .modal3 .upload-btn
+    {
+      width: 160px;
+        height: 34px;
+        color: #FFFFFF;
+        border-radius: 5px;
+        border: none;
+        background-color: #446EB6;
+        margin-top: 15px;
+    }
+
+    .modal3 .s
+    {
+      font-size: 14px;
+      color: #A5A5A5;
+      margin-top: -15px;
+    }
+    .modal3 .first-pic
+    {
+      font-size: 14px;
+      color: #A5A5A5;
+      margin-top: 20px;
+    }
+    .modal3 .max-pic
+    {
+      font-size: 14px;
+      color: #A5A5A5;
+      margin-top: 30px;
+    }
+
+    .modal3 .header-contnt
+    {
+    
+        margin-top: -25px;
+        padding-bottom: 5px;
+    }
+
+    .modal3 .modal-title
+    {
+      font-size: 25px;
+        color: #676767;
+        font-weight: 600;
+        padding-left: 55px;
+    }
+    .modal3 .input-group
+    {
+      box-shadow: 0px 0px 20px #00000029;
+    }
+
+    .modal3 .input-group-text
+    {
+      border: none;
+        background-color: white;  
+    }
+
+    .modal3  input
+    {
+      border: none;
+        padding-left: 0px;
+    }
+    .modal3 .modal-body input::placeholder
+      {
+        color: #A5A5A5;
+      }
+    .modal3 .tf-row
+    {
+      color: #A5A5A5;
+      font-size: 14px;
+        padding-left: 8px;
+    }
+
+    .modal3  select
+    {
+      border: none;
+      padding-left: 4px;
+      color:#A5A5A5;
+      background: none;
+      position: relative;
+    }
+
+    /*.select-1:after
+    { 
+      content: '\f0d7';
+      font-family: "Font Awesome 5 Brands";
+
+      right: 10px;
+      top: 50%;
+      transform: translate(-50%);
+      position: absolute;
+    }*/
+
+    .modal3 .fa-caret-down
+    {
+      position: absolute;
+      right: 10px;
+      top: 10px;
+      color: #A5A5A5;
+    }
+
+    .modal3 .modal option
+    {
+
+    }
+
+    .modal3 #ta
+    {
+      border: none;
+        box-shadow: 0px 0px 20px #00000029;
+        padding-left: 40px;
+    }
+
+    .modal3 .btn-grp
+    {
+      margin-left: 212px; 
+      padding-top: 10px;
+    }
+
+    .modal3 .btn-cncl
+    {
+      color: #446EB6; 
+      font-weight: 500;
+    }
+
+    .modal3 .btn-save
+    {
+      background-color: #446EB6;
+      border-radius: 5px;
+          width: 104px; 
+          height: 34px; 
+          padding: 2px 1px;
+    }
+
+    .modal3 .mb-2
+    {
+      margin-bottom: 2px !important;
+    }
+    .modal3 .modal-body textarea::placeholder
+      {
+        color: #A5A5A5;
+      }
+
+      .modal3 .fa-cloud-upload-alt
+      {
+        color: #676767;
+      }
+
+      .modal3 .fa-shopping-bag
+      {
+        color: #A5A5A5;
+      }
+
+    .modal3 .fa-clipboard-list
+    {
+        position: absolute;
+      bottom: 50px;
+      left: 29px;
+      color: #A5A5A5;
+    }
+
+    .modal3 .fa-list
+    {
+      color: #A5A5A5;
+    }
+
+    @media(max-width: 768px)
+    {
+      .modal3 .card
+      {
+        margin-left: 40px;
+      }
+      .modal3 .btn-grp
+      {
+        margin-left: 165px;
+      }
+    }
+
+    @media(max-width: 540px)
+    {
+      .modal3 .card 
+      {
+          margin-left: 135px;
+          margin-top: 0px;
+      }
+
+      .modal3 .header-contnt 
+      {
+          margin-top: 15px;
+          padding-bottom: 0px;
+      }
+      .modal3 .modal-title
+      {
+        margin-left: 105px;
+      }
+      .modal3 .form
+      {
+        margin-left: 30px;
+      }
+
+      .modal3 .btn-grp
+      {
+        margin-left: 150px; 
+        
+      }
+    }
+
+    @media (max-width: 414px)
+    {
+      .modal3 .card 
+      {
+          margin-left: 77px;
+      }
+
+      .modal3 .modal-title 
+      {
+          margin-left: 48px;
+      }
+      .modal3 .btn-grp
+      {
+          margin-left: 150px;
+      }
+      .modal3 .form
+      {
+        margin-left: 0;
+      }
+      
+      .modal3 .mr-5, .mx-5 
+      {
+           margin-right: 0!important; 
+      }
+
+      .modal3 .ml-3, .mx-3
+      {
+           margin-left: 0 !important; 
+      }
+    }
+    
+    @media (max-width: 411px)
+    {
+      .modal3 .card 
+      {
+          margin-left: 75px;
+      }
+
+      .modal3 .modal-title 
+      {
+          margin-left: 47px;
+      }
+      .modal3 .btn-grp
+      {
+          margin-left: 145px;
+      }
+    }
+
+    @media (max-width: 375px)
+    {
+      .modal3 .card 
+      {
+          margin-left: 58px;
+      }
+
+      .modal3 .modal-title 
+      {
+          margin-left: 30px;
+      }
+      .modal3 .btn-grp
+      {
+          margin-left: 110px;
+      }
+      .modal3 .form
+      {
+        margin-left: 0;
+      }
+      
+      .modal3 .mr-5, .mx-5 
+      {
+           margin-right: 0!important; 
+      }
+
+      .modal3 .ml-3, .mx-3
+      {
+           margin-left: 0 !important; 
+      }
+    }
+    @media (max-width: 360px)
+    {
+      .modal3 .card 
+      {
+          margin-left: 50px;
+      }
+
+      .modal3 .modal-title 
+      {
+          margin-left: 23px;
+      }
+      .modal3 .btn-grp
+      {
+          margin-left: 95px;
+      }
+    }
+    @media (max-width: 320px)
+    {
+      .modal3 .card 
+      {
+          margin-left: 30px;
+      }
+
+      .modal3 .modal-title 
+      {
+          margin-left:3px;
+      }
+      .modal3 .btn-grp
+      {
+          margin-left: 55px;
+      }
+      .modal3 .form
+      {
+        margin-left: 0;
+      }
+      
+      .modal3 .mr-5, .mx-5 
+      {
+           margin-right: 0!important; 
+      }
+
+      .modal3 .ml-3, .mx-3
+      {
+           margin-left: 0 !important; 
+      }
+    }
+    @media (max-width: 280px)
+    {
+      .modal3 .card 
+      {
+          margin-left: 10px;
+      }
+
+      .modal3 .modal-title 
+      {
+          margin-left: -17px;
+      }
+      .modal3 .btn-grp
+      {
+          margin-left: 15px;
+      }
+      .modal3 .form
+      {
+        margin-left: 0;
+      }
+      
+      .modal3 .mr-5, .mx-5 
+      {
+           margin-right: 0!important; 
+      }
+
+      .modal3 .ml-3, .mx-3
+      {
+           margin-left: 0 !important; 
+      }
+    }
+
+/* <-------------------------------------MODAL-3 CSS END-------------------------------------->*/
+
+
+/* <-------------------------------------MODAL-4 CSS START-------------------------------------->*/
+
+
+.modal4 .md
+    {
+      max-width: 600px !important;
+      border-radius: 10px;
+    }
+    .modal4 .modal-content
+    {
+      border-radius: 10px;
+    }
+    .modal4 .modal-header 
+    {
+      border: none;
+      padding: 0;
+        padding-left: 30px;
+        padding-top: 25px;
+        padding-right: 20px;
+    }
+    .modal4 .modal-footer
+    {
+      border:none;
+      padding:0; 
+      margin-bottom: 5px;
+    }
+    .modal4 .modal-title
+    {
+      color: #676767; 
+      font-size: 20px;
+    }
+    .modal4 .modal-body
+    {
+      padding: 0; 
+      padding-left: 32px; 
+      padding-top: 6px; 
+      padding-right: 32px;
+    }
+    .modal4 .modal-body p
+    {
+      color: #A5A5A5; 
+      font-size: 16px;
+    }
+    .modal4 .btn1
+    {
+      color: #446EB6; 
+      font-weight: 500;
+    }
+    .modal4 .btn2
+    {
+      background-color: #446EB6; 
+      border-radius: 5px;
+      width: 82px; 
+      padding: 2px 1px; 
+      margin-right: 30px;
+    }
+
+/*<------------------ Modal-1,2,3,4 END --------------------->*/
+
+
+
+/*<--------------------Setup Business(page 20) start--------------->*/
+        
+        .bp
+        {
+            position: relative;
+            padding-top: 180px;
+        }
+
+        .bp .stages
+        {
+            
+            width: 85%; 
+            height: 67px; 
+            border-radius: 5px; 
+            box-shadow: 0px 0px 30px #00000029;
+            margin: auto;
+        }
+
+        .bp .stages .row
+        {
+
+        }
+
+        .bp .s1
+        {
+            display: flex;
+            justify-content: center;
+            
+            margin-top: 15px;
+        }
+        .bp .s1 p
+        {
+            font-size: 22px; 
+            font-weight: 500;
+        }
+        .bp .s2
+        {
+            display: flex;
+            justify-content: center;
+            
+            margin-top: 15px;
+        }
+
+        .bp .s2 p
+        {
+            font-size: 22px; 
+            font-weight: 500;
+        }
+
+        .bp .s3
+        {
+            display: flex;
+            justify-content: center;
+            
+            margin-top: 15px;
+        }
+
+        .bp .s3 p
+        {
+            font-size: 22px; 
+            font-weight: 500;
+        }
+
+        .bp .step
+        {
+            color: #A5A5A5;
+        }
+
+        .bp .step.active 
+        {
+            color: #446EB6;
+        }
+
+        /* Mark the steps that are finished and valid: */
+        .bp .step.finish 
+        {
+          color: #446EB6;
+        }
+
+        .bp .fa-check-circle
+        {
+            margin-right: 10px;
+            margin-top: 10px;
+        }
+
+          .bp .tab 
+        {
+          display: none;
+        }
+
+        .bp .tab select
+        {
+            
+            /*padding-left: 4px;*/
+            /*color:#A5A5A5;*/
+            background: none;
+            position: relative;
+        }
+
+        .bp .fa-caret-down
+        {
+            position: absolute;
+            right: 25px;
+            top: 10px;
+            color: #A5A5A5;
+        }
+
+    .bp .content-1
+        {
+            width: 500px;
+            margin: auto;
+        }
+
+    .bp .plus-circle1
+        {
+            color: #A5A5A5;
+            margin-left: 25px;
+        }
+        
+    .bp .content-2
+        {
+            width: 530px;
+            margin: auto;
+        }
+
+        .bp .content-3
+        {
+            width: 465px;
+            margin: auto;
+        }
+
+        .bp #nextBtn
+        {
+            width: 446px;
+            height: 40px;
+            background-color: #446EB6;
+            border: none;
+            border-radius: 5px;
+        }
+
+        @media (max-width: 600px)
+        {
+            .bp .fa-check-circle
+            {
+                font-size: 17px;
+                margin: 0;
+            }
+            .bp .step
+            {
+                display: block;
+                text-align: center;
+            }
+            .bp .s1 p
+            {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+            .bp .s2 p
+            {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+            .bp .s3 p
+            {
+                margin-top: 5px;
+                font-size: 14px;
+            }
+            .bp .content-1
+            {
+                width: 100%;
+            }
+            .bp .content-2
+            {
+                width: 100%;
+            }
+            .bp .content-3
+            {
+                width: 100%;
+            }
+        }
+
+/*<-------------------- Setup Business(page 20) End--------------->*/
+
+
+/*<-------------------- Business Profile (page 27) Start--------------->*/
+
+.nb
+    {
+      height: 67px;
+      background-color: #446EB6;
+      display: flex;
+    }
+    .nb img
+    {
+      width: 44px;
+      height: 42px;
+      border-radius: 50px;
+      margin-left: 90px;
+      margin-top: 14px;
+    }
+    .nb h3
+    {
+      color: #FFFFFF;
+      line-height: 67px;
+      margin-left: 160px;
+      padding-right: 489px;   /*this is the padding right*/
+    }
+    .nb .my-business
+    {
+      display: block;
+      text-align: center;
+      color: #FFFFFF;
+      margin-top: 8px;
+    }
+    .nb .my-business i
+    {
+      font-size: 25px;
+    }
+    .nb .my-business p
+    {
+      font-size: 14px;
+    }
+    .user-icon
+    {
+      color: #FFFFFF;
+      display: block;
+      text-align: center;
+      justify-content: center;
+      align-items: center;
+      margin-top: 13px;   
+      margin-left: 55px;
+    }
+    .user-icon img
+    {
+      width: 24px;
+      height: 24px;
+      margin: auto;
+    }
+    .user-icon p
+    {
+      font-size: 14px;
+    }
+  
+    .panel
+    {
+      /*position: fixed;*/
+      height: 90vh;
+      background-color: #446EB6;
+      border-top: 1px solid white;
+    }
+  
+    .panel.panel-data
+    {
+      margin: auto;
+    }
+  
+    .panel-data button
+    {
+      margin: 56px 15px;
+      padding: 0;
+      height: 38px;
+      width: 169px;
+      color: #446EB6;
+      background-color: white;
+      font-size: 18px;
+      border-radius: 10px;
+      text-align: center;
+    }
+  
+    .plus-circle2
+    {
+      font-size: 22px;
+      color: #446EB6;
+      padding-right: 8px;
+      margin-top: 4px;
+    }
+  
+    .list-group-item
+    {
+      padding: 0;
+      border: none;
+      background:none;
+      font-size: 20px;
+      color: #FFFFFF;
+      padding-bottom: 15px;
+    }
+    .u-icon
+    {
+      padding-right: 12px;
+    }
+  
+    .mf
+    {
+      width: 932px;
+      /*border: 1px solid black;*/
+      box-shadow: 0px 0px 30px #00000029;
+    }
+    .mf .row
+    {
+      margin: 0;
+    }
+    .mf .row .col-6
+    {
+      height: 54px;
+      text-align: center;
+    }
+    .mf .row .col-6 p
+    {
+      font-size: 20px;
+      margin-top: 10px;
+      font-weight: 500;
+    }
+    
+    .mf .col-6
+      {
+        color: #A5A5A5;
+      }
+
+      .mf .col-6.active 
+      {
+        color: #446EB6;
+        border-bottom: 3px solid #446EB6;
+    }
+
+
+    /* Mark the steps that are finished and valid: */
+    .mf .col-6 .finish 
+    {
+      color: #A5A5A5;
+    }
+
+    .mf .stage
+    {
+      display: none;
+    }
+    .mf label
+    {
+      color: #2C2C2C;
+      font-weight: 600;
+    }
+    .mf input
+    {
+      border-radius: 5px;
+      /*border: none;*/
+      box-shadow: 0px 0px 20px #00000029;
+    }
+    .mf textarea
+    {
+      border-radius: 5px;
+      /*border: none;*/
+      box-shadow: 0px 0px 20px #00000029;
+    }
+
+    .mf select
+    {
+      border-radius: 5px;
+      /*border: none;*/
+      box-shadow: 0px 0px 20px #00000029;
+    }
+
+    .mf .upload-content button
+    {
+      height: 34px;
+      width: 155px;
+      background-color: #446EB6;
+      color: #FFFFFF;
+      border-radius: 5px;
+      border: none;
+    }
+
+    .mf .upload-content button label
+    {
+        margin: 0;
+        border: none;
+        color: #FFFFFF;
+        font-weight: 100;
+    }
+
+    .mf #nextBtn
+    {
+      height: 40px;
+      width: 160px;
+      background-color: #446EB6;
+      font-size: 18px;
+      color: #FFFFFF;
+      border-radius: 5px;
+
+    }
+
+    @media(max-width: 540px)
+    {
+      .mf
+      {
+        margin: 0 !important;
+      }
+    }
+
+/*<-------------------- Business Profile (page 27) End--------------->*/
+
