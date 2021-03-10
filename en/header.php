@@ -134,6 +134,11 @@ LOGIN/SIGUP
 <li class="nav-item">
 <a class="nav-link" href="<?php echo RE_EN_PATH; ?>gallery.php">Gallery</a>
 </li>
+
+<li class="nav-item">
+<a class="nav-link" href="<?php echo RE_BUSSINESS_PATH; ?>" target="_blank">MarketPlace</a>
+</li>
+
 <li class="nav-item">
 <a class="nav-link" href="<?php echo RE_EN_PATH; ?>schemes.php">Schemes</a>
 </li>
