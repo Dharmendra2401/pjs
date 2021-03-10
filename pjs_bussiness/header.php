@@ -4,6 +4,7 @@
 	  <a class="logo-link mt-0" href="<?php echo  RE_BUSSINESS_PATH;  ?>">
 	  	<img class="sm-image" width="50px"  src="<?php echo  RE_BUSSINESS_PATH;  ?>images/logo.png">
 	  </a>
+	  <button type="button" class="toggle-menu btn btn-primary">menu</button>
 	  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
 	    <span class="navbar-toggler-icon"></span>
 	  </button>

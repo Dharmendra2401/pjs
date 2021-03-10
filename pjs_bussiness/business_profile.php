@@ -15,7 +15,6 @@
 
 <div class="row mx-0">
     <div class="col-md-2 px-0 menu-wrapper">
-        <button type="button" class="toggle-menu btn btn-primary">menu</button>
         <?php  include "sidebar.php" ?>
     </div>
     <div class="col-md-9 dashboard-wrapper business-wrapper" style="background-color: #FFFFFF;">

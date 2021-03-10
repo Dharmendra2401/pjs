@@ -254,6 +254,16 @@
 </div>
 <?php  include "script.php" ?>
 <?php  include "modal.php" ?>
+
+
+
+<script>
+$(document).ready(function(){
+  $(".toggle-menu").click(function(){
+    $(".menu").toggle();
+  });
+});
+</script>
 </body>
 
 </html>

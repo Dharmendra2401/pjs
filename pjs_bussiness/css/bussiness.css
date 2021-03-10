@@ -1141,6 +1141,12 @@ input:checked + .slider:before {
         outline: unset;
     }
 
+    .logo-link {
+    margin-top: 0px;
+    width: 100%;
+    text-align: center;
+    }
+
     select.form-control{
         width: 100%;
         border-radius: .25rem;
@@ -1214,7 +1220,7 @@ input:checked + .slider:before {
         display: block;
         position: absolute;
         z-index: 2;
-        top: 70px;
+        top: 20px;
         left: 10px;  
         box-shadow: 0px 0px 20px #00000045;
     }
@@ -1222,6 +1228,7 @@ input:checked + .slider:before {
     .menu-wrapper .menu{
         width: 76.7%;
         display: none;
+            z-index: 1;
     }
     /*------------business profile ends-------------*/
 
@@ -1339,7 +1346,7 @@ input:checked + .slider:before {
     box-shadow: 0px 0px 30px #00000029;
     border-radius: 5px;
     padding: 5px 5px;
-    margin-left: 85px;
+    /*margin-left: 85px;*/
 }
 
 .logo-link{
@@ -2792,6 +2799,7 @@ input:checked + .slider:before {
             border-radius: 5px; 
             box-shadow: 0px 0px 30px #00000029;
             margin: auto;
+            background: #ffffff;
         }
 
         .bp .stages .row
