@@ -20,8 +20,8 @@
     <div class="col-md-9 ml-60">
         <div class="dashboard-wrapper help-container">          
            <div class="row listing">
-                <div class="col-12 pr-0 card-container">
-                  <div class="card">
+                <div class="col-12 pl-0 card-container">
+                  <div class="card px-2 pb-1">
                       <div class="card title">
                           <div class="row ">
                               <div class="col-md-12">

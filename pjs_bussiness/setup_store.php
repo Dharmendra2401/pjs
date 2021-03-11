@@ -24,8 +24,8 @@
 
 	<div class="container stages">
 		<div class="row">
-			<div class="col pr-0">
-				<span class=" s1 step">
+			<div class="col pr-0 pr-sm-10">
+				<span class=" s1 step active">
 					<i class="fas fa-check-circle fa-lg"></i>	
 					<p>Set up store</p>
 				</span>
@@ -51,77 +51,83 @@
 		<form id="regForm">
 			<!-- stage-1 code -->
 			<div class="content-1 tab active px-2">
-			
-				<div class="row mb-4"> 
-					<div class="col-md-3">
-						<img src="<?php echo  RE_BUSSINESS_PATH;  ?>images/Group 846.jpg" style="width: 70px; margin-left: 20px; ">
-					</div>
-					<div class="col-md-9">
-						<div >
-							<p style="color: #2C2C2C; font-size: 24px; font-weight: 600;">Let's set up your store</p>
-							<p style="color: #A5A5A5; font-size: 14px; margin-top: -10px;">You can change this information later in your profile page</p>
-						</div>
-					</div>
-				</div>
-
-				<div class="row mb-4">
-					<div class="col-md-3">
-						<i class="fas fa-plus-circle plus-circle fa-4x"></i>
-					</div>
-					<div class="col-md-9">
-						<div >
-							<p style="color: #676767; font-size: 18px; font-weight: 600;">Business Logo/Image</p>
-							<button type="button" class="btn btn-primary" style="width: 92px; height: 28px; padding:0; background-color: #446EB6;">
-							  <label for="file" >
-							    Upload
-							  </label>
-							</button>
-							<input type="file" id="file" style="display:none;"/>
-							
-						</div>
-					</div>
-				</div>
-
+				
 				<div class="row">
-					<div class="col-md-12">
-						<div class="form-group">
-						    <input type="text" placeholder="Business Name" class="form-control" id="" >
-						    
-						</div>
-					</div>
-				</div>
+					<div class="col-md-6 offset-md-3">
 
-				<div class="row">
-					<div class="col-md-6">
-						<div class="form-group">
-						    <select class="custom-select" id="inputGroupSelect01">
-							    <option selected>Business Mode</option>
-							    <option value="1">One</option>
-							    <option value="2">Two</option>
-							    <option value="3">Three</option>
-							</select>
-						    <i class="fas fa-caret-down"></i>
+						<div class="row mb-4"> 
+							<div class="col-md-3">
+								<img src="<?php echo  RE_BUSSINESS_PATH;  ?>images/Group 846.jpg" style="width: 70px; margin-left: 20px; ">
+							</div>
+							<div class="col-md-9">
+								<div >
+									<p style="color: #2C2C2C; font-size: 24px; font-weight: 600;">Let's set up your store</p>
+									<p style="color: #A5A5A5; font-size: 14px; margin-top: -10px;">You can change this information later in your profile page</p>
+								</div>
+							</div>
 						</div>
-					</div>
 
-					<div class="col-md-6">
-						<div class="form-group">
-						    <select class="custom-select" id="inputGroupSelect01">
-							    <option selected>Business Type</option>
-							    <option value="1">One</option>
-							    <option value="2">Two</option>
-							    <option value="3">Three</option>
-							</select>
-						    <i class="fas fa-caret-down"></i>
+						<div class="row mb-4 upload-bl">
+							<div class="col-md-3">
+								<i class="fas fa-plus-circle plus-circle fa-4x"></i>
+							</div>
+							<div class="col-md-9">
+								<div class="">
+									<p style="color: #676767; font-size: 18px; font-weight: 600;">Business Logo/Image</p>
+									<button type="button" class="btn btn-primary" style="width: 92px; height: 28px; padding:0; background-color: #446EB6;">
+									  <label for="file" >
+									    Upload
+									  </label>
+									</button>
+									<input type="file" id="file" style="display:none;"/>
+									
+								</div>
+							</div>
 						</div>
-					</div>
-				</div>
 
-				<div class="row">
-					<div class="col-md-12">
-						<div class="form-group">
-						    <textarea class="form-control ta" id="ta" rows="2" placeholder="Business description" ></textarea>
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+								    <input type="text" placeholder="Business Name" class="form-control" id="" >
+								    
+								</div>
+							</div>
 						</div>
+
+						<div class="row">
+							<div class="col-md-6">
+								<div class="form-group">
+								    <select class="custom-select" id="inputGroupSelect01">
+									    <option selected>Business Mode</option>
+									    <option value="1">One</option>
+									    <option value="2">Two</option>
+									    <option value="3">Three</option>
+									</select>
+								    <i class="fas fa-caret-down"></i>
+								</div>
+							</div>
+
+							<div class="col-md-6">
+								<div class="form-group">
+								    <select class="custom-select" id="inputGroupSelect01">
+									    <option selected>Business Type</option>
+									    <option value="1">One</option>
+									    <option value="2">Two</option>
+									    <option value="3">Three</option>
+									</select>
+								    <i class="fas fa-caret-down"></i>
+								</div>
+							</div>
+						</div>
+
+						<div class="row">
+							<div class="col-md-12">
+								<div class="form-group">
+								    <textarea class="form-control ta" id="ta" rows="2" placeholder="Business description" ></textarea>
+								</div>
+							</div>
+						</div>
+
 					</div>
 				</div>
 
@@ -129,8 +135,10 @@
 			<!-- stage-1 end -->
 
 			<!-- stage-2 start -->
-			<div class="content-2 tab ">
-				<div class="row"> 
+			<div class="content-2 tab px-2">
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
+						<div class="row"> 
 					<div class="col-md-3">
 						<img src="<?php echo  RE_BUSSINESS_PATH;  ?>images/Group 846.jpg" style="width: 90px;">
 					</div>
@@ -152,10 +160,10 @@
 				</div>
 
 				<div class="row"> 
-					<div class="col-md-3 mb-3">
+					<div class="col-md-3 mb-3 profile-i">
 						<img src="<?php echo  RE_BUSSINESS_PATH;  ?>images/pro1.png" style="width: 69px; border-radius: 50px;">
 					</div>
-					<div class="col-md-9">
+					<div class="col-md-9 mb-3">
 						<div class="d-flex content-align-center">
 							<input type="text" placeholder="Enter Name" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp">
 						</div>
@@ -197,12 +205,18 @@
 						</div>
 					</div>
 				</div>
+					</div>
+				</div>
+
+				
 			</div>
 			<!-- stage-2 end -->	
 
 			<!-- stage-3 start -->
-			<div class="content-3 tab">
-				<div class="row"> 
+			<div class="content-3 tab px-2">
+				<div class="row">
+					<div class="col-md-6 offset-md-3">
+						<div class="row"> 
 					<div class="col-md-3">
 						<img src="<?php echo  RE_BUSSINESS_PATH;  ?>images/Group 846.jpg" style="width: 90px; ">
 					</div>
@@ -297,13 +311,16 @@
 						</div>
 					</div>
 				</div>
+					</div>
+				</div>
+				
 			</div>	
 			<!-- stage-3 end -->
 
 			<!-- button-start -->
             <div class="row">
-                <div class="col-md-12 mb-4">
-                    <div class="form-group" style="margin-left: 255px;">
+                <div class="col-md-6 offset-md-3 mb-4">
+                    <div class="form-group">
                         <button type="button" class="btn btn-primary" id="nextBtn" onclick="nextPrev(1)">Next</button>
                     </div>
                 </div>

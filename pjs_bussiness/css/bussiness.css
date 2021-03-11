@@ -1115,6 +1115,10 @@ input:checked + .slider:before {
         padding-right: 0 !important;
       }
 
+      .pr-sm-10{
+        padding-right: 10 !important;
+      }
+
       .pl-sm-0{
         padding-left: 0 !important;
       }
@@ -1308,6 +1312,66 @@ input:checked + .slider:before {
         background: #fff;
     }
     /*------------filter ends---------------------*/
+
+     /*--------------help starts--------------------*/
+
+    .listing .card-container .card{
+        margin-bottom: 0px;
+    }
+
+    .nav-tabs
+    {
+        margin-left: 30px;
+    }
+    .dashboard-wrapper.help-container
+    {
+        margin-top: 0;
+    }
+    .row.ml-60 {
+        margin-top: 30px;
+    }
+    /*--------------help starts--------------------*/
+
+    /*--------------manage product starts--------------------*/
+
+    .card-listing .col-md-3 .card
+    {
+        margin-bottom: 30px ;
+    }
+    .row.manage-product
+    {
+        margin-top: 0;
+    }
+    /*--------------manage product Ends--------------------*/
+
+    /*--------------Setup store Starts--------------------*/
+
+
+    .content-1 .upload-bl p
+    {
+        margin-left: 40px;
+    }
+    .content-1 button
+    {
+        margin-left: 76px;
+    }
+    .content-2 .profile-i img
+    {
+        margin-left: 85px;
+    }
+    .bp #nextBtn
+    {
+        margin-left: 50px;
+    }
+
+    .bp .stages{
+        height: auto !important;
+    }
+
+    .content-1 .upload-bl .logo{
+        text-align: center;
+    }
+    /*--------------Setup store Ends--------------------*/
 }
 
 
@@ -2893,7 +2957,7 @@ input:checked + .slider:before {
 
     .bp .content-1
         {
-            width: 500px;
+            /*width: 500px;*/
             margin: auto;
         }
 
@@ -2905,19 +2969,19 @@ input:checked + .slider:before {
         
     .bp .content-2
         {
-            width: 530px;
+            /*width: 530px;*/
             margin: auto;
         }
 
         .bp .content-3
         {
-            width: 465px;
+            /*width: 465px;*/
             margin: auto;
         }
 
-        .bp #nextBtn
+         .bp #nextBtn
         {
-            width: 446px;
+            width: 100%;
             height: 40px;
             background-color: #446EB6;
             border: none;
